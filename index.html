@@ -4,258 +4,247 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Vínculos Eternos</title>
-<meta name="description" content="Imanes personalizados con tus fotos, hechos a mano en Costa Rica. Bodas, mascotas, graduaciones y el Dinofabeto. Pedidos por WhatsApp.">
-<meta property="og:title" content="Vínculos Eternos · Imanes personalizados">
-<meta property="og:description" content="Que estos vínculos duren para siempre. Imanes con tus fotos, hechos en Costa Rica.">
+<meta name="description" content="Acumulamos miles de fotografías, pero dedicamos cada vez menos tiempo a recordar. Vínculos Eternos devuelve presencia a los momentos que importan. Hecho en Costa Rica.">
+<meta property="og:title" content="Vínculos Eternos">
+<meta property="og:description" content="No vendemos imanes. Ayudamos a las personas a detenerse un momento y recordar lo que realmente importa.">
 <meta property="og:image" content="assets/img/graduacion.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,600;1,9..144,800&family=Pinyon+Script&family=Figtree:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Pinyon+Script&family=Jost:wght@400;500;600&display=swap">
 <style>
-/* Layout: una sola columna larga, como un refri lleno de imanes; las fotos van inclinadas como si estuvieran pegadas. */
+/* Layout: una sola columna pausada. Bandas burgundy para las ideas, beige para el catálogo; las fotos se inclinan como recuerdos pegados en casa. */
 :root {
-  --bg: #f7e6df;          /* rosado empolvado de los posts */
-  --surface: #fdf4f0;
-  --ink: #3b1d26;
-  --muted: #7a5a62;
-  --rose: #b4544a;        /* titulares estilo "Todo da vergüenza ajena" */
-  --wine: #74264a;        /* morado vino de "Problemas como emprendedora" */
-  --line: #e7cbc1;
-  --on-wine: #fdf1ee;
-  --wa: #1f8f55;
-  --shadow: 0 10px 24px -10px rgba(59, 29, 38, .35);
-  --f-display: "Fraunces", "Georgia", "Times New Roman", serif;
+  --beige: #efe4d3;        /* fondo principal */
+  --paper: #f8f1e6;        /* tarjetas */
+  --sand: #dccab0;         /* líneas y bordes */
+  --burgundy: #6b1d2f;     /* color de marca */
+  --burgundy-deep: #4a1220;
+  --ink: #2e1418;          /* texto */
+  --muted: #6f5552;
+  --on-burgundy: #f3e8d8;
+  --gold: #b08a5a;         /* acentos finos */
+  --wa: #1f7a4d;
+  --shadow: 0 14px 30px -14px rgba(46, 20, 24, .45);
+  --f-display: "Cormorant Garamond", "Garamond", "Times New Roman", serif;
   --f-script: "Pinyon Script", "Brush Script MT", cursive;
-  --f-body: "Figtree", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --f-body: "Jost", "Segoe UI", system-ui, -apple-system, sans-serif;
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #231218; --surface: #2f1820; --ink: #f6e4e0; --muted: #c7a6ad;
-    --rose: #ec8f84; --wine: #8d3a60; --line: #4a2a34; --on-wine: #fdf1ee; --wa: #2aa866;
-    --shadow: 0 10px 24px -10px rgba(0,0,0,.6);
+    --beige: #1e1013; --paper: #2a161b; --sand: #4a2c31; --burgundy: #a8455a; --burgundy-deep: #3a0f1a;
+    --ink: #f1e6d6; --muted: #c4aea4; --on-burgundy: #f3e8d8; --gold: #d2ae7e; --wa: #2a9a62;
+    --shadow: 0 14px 30px -14px rgba(0,0,0,.7);
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #231218; --surface: #2f1820; --ink: #f6e4e0; --muted: #c7a6ad;
-  --rose: #ec8f84; --wine: #8d3a60; --line: #4a2a34; --on-wine: #fdf1ee; --wa: #2aa866;
-  --shadow: 0 10px 24px -10px rgba(0,0,0,.6);
+  --beige: #1e1013; --paper: #2a161b; --sand: #4a2c31; --burgundy: #a8455a; --burgundy-deep: #3a0f1a;
+  --ink: #f1e6d6; --muted: #c4aea4; --on-burgundy: #f3e8d8; --gold: #d2ae7e; --wa: #2a9a62;
+  --shadow: 0 14px 30px -14px rgba(0,0,0,.7);
   color-scheme: dark;
 }
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; animation: none !important; } }
-body {
-  margin: 0; background: var(--bg); color: var(--ink);
-  font: 400 1.0625rem/1.6 var(--f-body);
-  -webkit-font-smoothing: antialiased;
-}
+body { margin: 0; background: var(--beige); color: var(--ink); font: 400 1.0625rem/1.65 var(--f-body); -webkit-font-smoothing: antialiased; }
 img { max-width: 100%; display: block; }
 a { color: inherit; }
-:focus-visible { outline: 3px solid var(--rose); outline-offset: 3px; border-radius: 4px; }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 4px; }
 
-.wrap { width: 100%; max-width: 1120px; margin-inline: auto; padding-inline: 20px; }
-section { padding-block: clamp(56px, 9vw, 104px); }
-
-h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; margin: 0; line-height: 1.05; }
-h2 { font-size: clamp(2.1rem, 5vw, 3.2rem); font-style: italic; font-weight: 800; color: var(--rose); }
-h3 { font-size: 1.35rem; font-weight: 700; }
+.wrap { width: 100%; max-width: 1140px; margin-inline: auto; padding-inline: 20px; }
+section { padding-block: clamp(64px, 10vw, 112px); }
+h1, h2, h3 { font-family: var(--f-display); font-weight: 600; text-wrap: balance; margin: 0; line-height: 1.08; }
+h2 { font-size: clamp(2.2rem, 5vw, 3.3rem); color: var(--burgundy); }
+h3 { font-size: 1.55rem; }
 p { margin: 0; }
-.script { font-family: var(--f-script); font-weight: 400; color: var(--wine); font-size: 1.5em; line-height: 1; }
-.eyebrow { font-size: .78rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--wine); }
-.lead { font-size: 1.15rem; color: var(--muted); max-width: 56ch; }
-.sec-head { display: grid; gap: 14px; margin-bottom: 40px; max-width: 680px; }
+.eyebrow { font-size: .74rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); }
+.lead { font-size: 1.12rem; color: var(--muted); max-width: 58ch; }
+.sec-head { display: grid; gap: 14px; margin-bottom: 40px; max-width: 700px; }
+.script { font-family: var(--f-script); font-weight: 400; }
 
-/* Botones */
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-  padding: 14px 24px; border-radius: 999px; border: 2px solid transparent;
-  font: 700 1rem/1 var(--f-body); text-decoration: none; cursor: pointer;
-  transition: transform .15s ease, box-shadow .15s ease;
+  padding: 14px 26px; border-radius: 999px; border: 1.5px solid transparent;
+  font: 500 .98rem/1 var(--f-body); letter-spacing: .02em; text-decoration: none; cursor: pointer;
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
 }
 .btn:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+.btn svg { width: 19px; height: 19px; flex: none; }
 .btn-wa { background: var(--wa); color: #fff; }
-.btn-ghost { border-color: var(--ink); color: var(--ink); background: transparent; }
-.btn svg { width: 20px; height: 20px; flex: none; }
+.btn-burgundy { background: var(--burgundy); color: var(--on-burgundy); }
+.btn-line { border-color: currentColor; background: transparent; }
 
 /* Encabezado */
-header.top {
-  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
-  background: color-mix(in srgb, var(--bg) 88%, transparent);
-  backdrop-filter: blur(10px); border-bottom: 1px solid var(--line);
-}
-.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 12px; }
-.logo { display: flex; flex-direction: column; text-decoration: none; line-height: .9; }
-.logo b { font-family: var(--f-script); font-weight: 400; font-size: 2rem; color: var(--wine); }
-.logo small { font-size: .62rem; letter-spacing: .3em; text-transform: uppercase; color: var(--muted); padding-left: 4px; }
-nav.links { display: flex; gap: 22px; font-weight: 600; font-size: .95rem; }
+header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: color-mix(in srgb, var(--beige) 90%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--sand); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 10px; }
+.logo { display: flex; flex-direction: column; text-decoration: none; line-height: .85; color: var(--burgundy); }
+.logo b { font-family: var(--f-script); font-weight: 400; font-size: 2.05rem; }
+.logo small { font-size: .58rem; letter-spacing: .34em; text-transform: uppercase; color: var(--muted); padding-left: 6px; }
+nav.links { display: flex; gap: 26px; font-size: .92rem; font-weight: 500; }
 nav.links a { text-decoration: none; }
-nav.links a:hover { color: var(--rose); }
-.top .btn { padding: 10px 18px; font-size: .9rem; }
-@media (max-width: 820px) { nav.links { display: none; } }
+nav.links a:hover { color: var(--burgundy); }
+.top .btn { padding: 10px 20px; font-size: .88rem; }
+@media (max-width: 840px) { nav.links { display: none; } }
 
-/* Portada */
-.hero { padding-block: clamp(40px, 7vw, 88px) clamp(56px, 8vw, 96px); }
-.hero .wrap { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(32px, 6vw, 72px); align-items: center; }
-.hero-copy { display: grid; gap: 22px; min-width: 0; }
-.hero h1 { font-size: clamp(2.7rem, 6.6vw, 4.9rem); font-weight: 800; font-style: italic; color: var(--rose); letter-spacing: -.01em; }
-.hero h1 .script { display: block; font-style: normal; font-size: .82em; margin-top: .12em; }
+/* Portada: burgundy, el concepto como titular */
+.hero { background: var(--burgundy-deep); color: var(--on-burgundy); padding-block: clamp(56px, 9vw, 104px); overflow: hidden; }
+.hero .wrap { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(36px, 6vw, 80px); align-items: center; }
+.hero-copy { display: grid; gap: 26px; min-width: 0; }
+.hero .eyebrow { color: var(--gold); }
+.hero h1 { font-size: clamp(2.4rem, 5.4vw, 4.1rem); font-weight: 500; color: var(--on-burgundy); }
+.hero h1 em { font-style: italic; color: var(--gold); }
+.hero .lead { color: var(--on-burgundy); opacity: .82; }
 .hero .actions { display: flex; flex-wrap: wrap; gap: 12px; }
-.price-chip { display: inline-flex; align-items: baseline; gap: 8px; font-weight: 600; color: var(--muted); }
-.price-chip strong { font-family: var(--f-display); font-size: 1.6rem; color: var(--ink); font-variant-numeric: tabular-nums; }
+.hero .btn-line { color: var(--on-burgundy); }
+.memories { position: relative; aspect-ratio: 1 / 1.05; max-width: 100%; }
+.photo { position: absolute; background: var(--paper); padding: 8px 8px 30px; border-radius: 3px; box-shadow: 0 18px 36px -12px rgba(0,0,0,.55); transition: transform .35s ease; }
+.photo img { width: 100%; height: 100%; object-fit: cover; }
+.photo:hover { transform: rotate(0) scale(1.03) !important; z-index: 5; }
+.p1 { width: 52%; aspect-ratio: 1 / 1.12; left: 0; top: 2%; transform: rotate(-7deg); }
+.p2 { width: 50%; aspect-ratio: 1 / 1.12; right: 0; top: 14%; transform: rotate(6deg); z-index: 2; }
+.p3 { width: 46%; aspect-ratio: 1 / 1.12; left: 22%; bottom: 0; transform: rotate(-1deg); z-index: 3; }
+.p1 img { object-position: 50% 62%; }
+.p2 img { object-position: 50% 66%; }
+.p3 img { object-position: 50% 45%; }
+@media (max-width: 780px) { .hero .wrap { grid-template-columns: 1fr; } .memories { width: min(100%, 400px); justify-self: center; } }
 
-.fridge { position: relative; aspect-ratio: 1 / 1.02; max-width: 100%; }
-.magnet {
-  position: absolute; background: var(--surface); padding: 6px; border-radius: 6px;
-  box-shadow: var(--shadow); transition: transform .3s ease;
-}
-.magnet img { border-radius: 3px; width: 100%; height: 100%; object-fit: cover; }
-.magnet:hover { transform: rotate(0deg) scale(1.03) !important; z-index: 5; }
-.m1 { width: 54%; aspect-ratio: 1; left: 2%; top: 4%; transform: rotate(-6deg); }
-.m2 { width: 50%; aspect-ratio: 1; right: 0; top: 20%; transform: rotate(5deg); z-index: 2; }
-.m3 { width: 46%; aspect-ratio: 1; left: 16%; bottom: 0; transform: rotate(2deg); z-index: 3; }
-.m1 img { object-position: 50% 62%; }
-.m2 img { object-position: 50% 68%; }
-.m3 img { object-position: 50% 40%; }
-.pin { position: absolute; top: -8px; left: 50%; width: 18px; height: 18px; margin-left: -9px; border-radius: 50%; background: var(--wine); box-shadow: 0 2px 4px rgba(0,0,0,.3); }
-@media (max-width: 760px) {
-  .hero .wrap { grid-template-columns: 1fr; }
-  .fridge { width: min(100%, 420px); justify-self: center; }
-}
+/* Manifiesto */
+.manifesto { text-align: center; }
+.manifesto .wrap { display: grid; gap: 28px; justify-items: center; max-width: 900px; }
+.manifesto .rule { width: 64px; height: 1px; background: var(--gold); }
+.manifesto p.big { font-family: var(--f-display); font-size: clamp(1.7rem, 3.6vw, 2.5rem); line-height: 1.25; font-weight: 500; text-wrap: balance; }
+.manifesto .no { font-family: var(--f-display); font-style: italic; font-weight: 600; font-size: clamp(2.6rem, 7vw, 4.8rem); color: var(--burgundy); line-height: 1; }
+.manifesto .yes { font-size: 1.2rem; color: var(--muted); max-width: 46ch; }
 
-/* Cinta */
-.ribbon { background: var(--wine); color: var(--on-wine); padding-block: 14px; overflow: hidden; }
-.ribbon ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 32px; font-weight: 600; font-size: .95rem; }
-.ribbon li::before { content: "♥"; margin-right: 10px; opacity: .7; }
+/* Catálogo */
+.tabs { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 32px; }
+.tab { font: 500 .95rem/1 var(--f-body); padding: 12px 20px; border-radius: 999px; border: 1.5px solid var(--sand); background: transparent; color: var(--ink); cursor: pointer; transition: background .15s, color .15s, border-color .15s; }
+.tab:hover { border-color: var(--burgundy); }
+.tab[aria-pressed="true"] { background: var(--burgundy); border-color: var(--burgundy); color: var(--on-burgundy); }
+.tab small { opacity: .7; margin-left: 4px; font-variant-numeric: tabular-nums; }
+.cat-intro { margin: -12px 0 28px; color: var(--muted); max-width: 60ch; min-height: 1.6em; }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.card { background: var(--paper); border: 1px solid var(--sand); border-radius: 18px; overflow: hidden; display: grid; grid-template-rows: auto 1fr; min-width: 0; }
+.card .ph { aspect-ratio: 4 / 3.4; background: var(--beige); overflow: hidden; }
+.card .ph img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
+.card:hover .ph img { transform: scale(1.04); }
+.card .ph.soon { display: grid; place-items: center; align-content: center; gap: 10px; color: var(--burgundy); background: repeating-linear-gradient(135deg, var(--beige) 0 14px, color-mix(in srgb, var(--sand) 35%, var(--beige)) 14px 15px); }
+.card .ph.soon svg { width: 64px; height: 64px; }
+.card .ph.soon span { font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
+.card .body { padding: 22px; display: grid; gap: 10px; grid-template-rows: auto auto 1fr auto; min-width: 0; }
+.card .cat { font-size: .7rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); }
+.card p { color: var(--muted); font-size: .97rem; }
+.card .foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-top: 8px; border-top: 1px solid var(--sand); margin-top: 6px; }
+.price { font-family: var(--f-display); font-weight: 700; font-size: 1.5rem; color: var(--burgundy); font-variant-numeric: tabular-nums; }
+.price small { font-family: var(--f-body); font-weight: 400; font-size: .8rem; color: var(--muted); }
+.price.ask { font-family: var(--f-body); font-size: .92rem; font-weight: 600; }
+.card .btn { padding: 10px 18px; font-size: .88rem; }
+@media (max-width: 960px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
 
-/* Pasos */
-.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; counter-reset: paso; }
-.step { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 28px 24px; display: grid; gap: 10px; align-content: start; min-width: 0; }
-.step::before { counter-increment: paso; content: counter(paso); font-family: var(--f-display); font-style: italic; font-weight: 800; font-size: 2.6rem; color: var(--rose); line-height: 1; }
+/* Cita de eventos */
+.quote { background: var(--burgundy); color: var(--on-burgundy); }
+.quote .wrap { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(32px, 6vw, 72px); align-items: center; }
+.quote figure { margin: 0; justify-self: center; max-width: 300px; width: 100%; }
+.quote figure img { border-radius: 4px; box-shadow: 0 18px 36px -12px rgba(0,0,0,.55); transform: rotate(-2deg); background: var(--paper); padding: 8px 8px 30px; }
+.quote-copy { display: grid; gap: 18px; min-width: 0; }
+.quote h2 { color: var(--on-burgundy); }
+.quote h2 em { color: var(--gold); }
+.quote ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; opacity: .85; }
+.quote li::before { content: "— "; color: var(--gold); }
+.quote .kicker { font-family: var(--f-display); font-style: italic; font-size: 1.6rem; line-height: 1.25; }
+.quote .btn-line { color: var(--on-burgundy); justify-self: start; }
+@media (max-width: 780px) { .quote .wrap { grid-template-columns: 1fr; } }
+
+/* Cómo pedir */
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-block: 1px solid var(--sand); counter-reset: paso; }
+.step { padding: 32px 28px; display: grid; gap: 10px; align-content: start; min-width: 0; }
+.step + .step { border-left: 1px solid var(--sand); }
+.step::before { counter-increment: paso; content: "Paso " counter(paso); font-size: .72rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); }
 .step p { color: var(--muted); }
-@media (max-width: 760px) { .steps { grid-template-columns: 1fr; } }
-
-/* Productos */
-.products { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
-.product { display: grid; grid-template-columns: 42% 1fr; background: var(--surface); border-radius: 20px; overflow: hidden; border: 1px solid var(--line); min-width: 0; }
-.product .ph { min-height: 240px; }
-.product .ph img { width: 100%; height: 100%; object-fit: cover; }
-.product .body { padding: 24px; display: grid; gap: 12px; align-content: start; min-width: 0; }
-.product .body p { color: var(--muted); font-size: .98rem; }
-.price { font-family: var(--f-display); font-weight: 700; font-size: 1.7rem; font-variant-numeric: tabular-nums; }
-.price small { font-family: var(--f-body); font-size: .85rem; font-weight: 500; color: var(--muted); }
-.price.ask { font-size: 1.05rem; font-family: var(--f-body); font-weight: 700; color: var(--wine); }
-.product .btn { justify-self: start; padding: 11px 18px; font-size: .92rem; }
-.tag { justify-self: start; font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; background: var(--wine); color: var(--on-wine); padding: 5px 10px; border-radius: 999px; }
-@media (max-width: 900px) { .products { grid-template-columns: 1fr; } }
-@media (max-width: 480px) { .product { grid-template-columns: 1fr; } .product .ph { height: 230px; } }
-
-/* Bodas */
-.boda { background: var(--surface); border-block: 1px solid var(--line); }
-.boda .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 72px); align-items: center; }
-.boda h2 { color: var(--rose); }
-.boda h2 .script { display: block; font-style: normal; font-size: .9em; margin-top: 8px; }
-.boda ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; color: var(--muted); }
-.boda li { display: flex; gap: 12px; align-items: baseline; }
-.boda li span { color: var(--rose); font-weight: 700; }
-.boda .kicker { font-family: var(--f-display); font-style: italic; font-weight: 700; font-size: 1.45rem; color: var(--wine); }
-.boda-copy { display: grid; gap: 20px; min-width: 0; }
-.boda-photo { position: relative; max-width: 440px; justify-self: center; width: 100%; }
-.boda-photo img { width: 100%; border-radius: 16px; box-shadow: var(--shadow); transform: rotate(-2deg); }
-@media (max-width: 760px) { .boda .wrap { grid-template-columns: 1fr; } .boda-photo { order: -1; } }
-
-/* Galería */
-.gallery { columns: 3 240px; column-gap: 16px; }
-.gallery figure { margin: 0 0 16px; break-inside: avoid; position: relative; border-radius: 14px; overflow: hidden; background: var(--surface); }
-.gallery img { width: 100%; }
-.gallery figcaption { position: absolute; left: 10px; bottom: 10px; background: var(--surface); color: var(--ink); font-size: .8rem; font-weight: 600; padding: 4px 10px; border-radius: 999px; }
-.ig-cta { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+@media (max-width: 780px) { .steps { grid-template-columns: 1fr; } .step + .step { border-left: 0; border-top: 1px solid var(--sand); } }
 
 /* Pedido */
-.order { background: var(--wine); color: var(--on-wine); border-radius: 28px; padding: clamp(28px, 5vw, 56px); display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(28px, 5vw, 56px); }
-.order h2 { color: var(--on-wine); }
-.order .lead { color: var(--on-wine); opacity: .85; }
+.order { margin-top: 56px; background: var(--paper); border: 1px solid var(--sand); border-radius: 24px; padding: clamp(24px, 4vw, 48px); display: grid; grid-template-columns: 1fr 1.15fr; gap: clamp(28px, 5vw, 56px); }
 .order-info { display: grid; gap: 18px; align-content: start; min-width: 0; }
-.facts { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
-.facts li { display: grid; grid-template-columns: 24px 1fr; gap: 10px; }
-.facts svg { width: 22px; height: 22px; margin-top: 2px; }
-form.builder { background: var(--surface); color: var(--ink); border-radius: 20px; padding: 24px; display: grid; gap: 16px; min-width: 0; }
+.facts { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.facts li { display: grid; grid-template-columns: 22px 1fr; gap: 12px; color: var(--muted); }
+.facts b { color: var(--ink); font-weight: 600; }
+.facts svg { width: 20px; height: 20px; margin-top: 3px; color: var(--burgundy); }
+form.builder { display: grid; gap: 16px; min-width: 0; }
 .field { display: grid; gap: 6px; }
-.field label { font-weight: 600; font-size: .92rem; }
-.field input, .field select, .field textarea {
-  font: inherit; font-size: 1rem; color: var(--ink); background: var(--bg);
-  border: 1.5px solid var(--line); border-radius: 12px; padding: 12px 14px; width: 100%;
-}
-.field textarea { min-height: 84px; resize: vertical; }
+.field label { font-weight: 500; font-size: .9rem; }
+.field input, .field select, .field textarea { font: inherit; font-size: 1rem; color: var(--ink); background: var(--beige); border: 1px solid var(--sand); border-radius: 12px; padding: 12px 14px; width: 100%; }
+.field textarea { min-height: 80px; resize: vertical; }
 .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.total { display: flex; justify-content: space-between; align-items: baseline; border-top: 1px dashed var(--line); padding-top: 14px; }
-.total strong { font-family: var(--f-display); font-size: 1.6rem; font-variant-numeric: tabular-nums; }
+.total { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; border-top: 1px dashed var(--sand); padding-top: 14px; }
 .total span { color: var(--muted); font-size: .9rem; }
+.total strong { font-family: var(--f-display); font-size: 1.7rem; color: var(--burgundy); font-variant-numeric: tabular-nums; }
 .builder .btn-wa { width: 100%; }
 .hint { font-size: .82rem; color: var(--muted); }
 @media (max-width: 860px) { .order { grid-template-columns: 1fr; } }
 @media (max-width: 420px) { .row2 { grid-template-columns: 1fr; } }
 
-/* Historia y reseñas (por completar) */
-.story { display: grid; grid-template-columns: 1fr 1.3fr; gap: clamp(28px, 5vw, 64px); align-items: center; }
-.story-photo img { border-radius: 16px; box-shadow: var(--shadow); width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: 50% 30%; }
+/* Historia y reseñas */
+.story { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(28px, 5vw, 64px); align-items: center; }
+.story img { border-radius: 4px; box-shadow: var(--shadow); width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
 .story-copy { display: grid; gap: 16px; min-width: 0; }
 .story-copy p { color: var(--muted); max-width: 60ch; }
-.todo { border: 2px dashed var(--line); border-radius: 14px; padding: 14px 16px; font-size: .9rem; color: var(--muted); background: color-mix(in srgb, var(--surface) 60%, transparent); }
-.todo b { color: var(--wine); }
-@media (max-width: 760px) { .story { grid-template-columns: 1fr; } .story-photo { max-width: 360px; } }
-
+.todo { border: 1.5px dashed var(--sand); border-radius: 14px; padding: 14px 16px; font-size: .9rem; color: var(--muted); }
+.todo b { color: var(--burgundy); }
+@media (max-width: 780px) { .story { grid-template-columns: 1fr; } .story img { max-width: 340px; } }
 .reviews { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.review { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 24px; display: grid; gap: 14px; align-content: space-between; min-width: 0; }
-.review blockquote { margin: 0; font-family: var(--f-display); font-style: italic; font-size: 1.15rem; line-height: 1.35; }
-.review cite { font-style: normal; font-size: .9rem; color: var(--muted); font-weight: 600; }
-.review.is-placeholder { border-style: dashed; }
-.review.is-placeholder blockquote { color: var(--muted); }
+.review { margin: 0; background: var(--paper); border: 1px dashed var(--sand); border-radius: 18px; padding: 26px; display: grid; gap: 14px; align-content: space-between; min-width: 0; }
+.review blockquote { margin: 0; font-family: var(--f-display); font-style: italic; font-size: 1.3rem; line-height: 1.35; color: var(--muted); }
+.review cite { font-style: normal; font-size: .88rem; color: var(--muted); font-weight: 500; }
 @media (max-width: 860px) { .reviews { grid-template-columns: 1fr; } }
 
 /* Preguntas */
-.faq { display: grid; gap: 12px; max-width: 780px; }
-.faq details { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 4px 20px; }
-.faq summary { cursor: pointer; font-weight: 700; padding-block: 14px; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+.faq { display: grid; max-width: 800px; border-top: 1px solid var(--sand); }
+.faq details { border-bottom: 1px solid var(--sand); }
+.faq summary { cursor: pointer; font-family: var(--f-display); font-size: 1.35rem; font-weight: 600; padding-block: 18px; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
 .faq summary::-webkit-details-marker { display: none; }
-.faq summary::after { content: "+"; font-family: var(--f-display); font-size: 1.5rem; line-height: 1; color: var(--rose); transition: transform .2s; }
+.faq summary::after { content: "+"; color: var(--gold); font-size: 1.6rem; line-height: 1; transition: transform .2s; }
 .faq details[open] summary::after { transform: rotate(45deg); }
-.faq details p { color: var(--muted); padding-bottom: 16px; }
+.faq details p { color: var(--muted); padding-bottom: 20px; max-width: 65ch; }
 
 /* Cierre y pie */
-.closing { text-align: center; }
+.closing { background: var(--burgundy-deep); color: var(--on-burgundy); text-align: center; }
 .closing .wrap { display: grid; gap: 22px; justify-items: center; }
-.closing h2 { font-size: clamp(2.3rem, 6vw, 4rem); }
-footer { border-top: 1px solid var(--line); padding-block: 36px; font-size: .92rem; color: var(--muted); }
-footer .wrap { display: flex; flex-wrap: wrap; gap: 16px 32px; justify-content: space-between; align-items: center; }
+.closing .script { font-size: clamp(3rem, 8vw, 4.6rem); color: var(--gold); line-height: 1; }
+.closing h2 { color: var(--on-burgundy); font-weight: 500; }
+footer { background: var(--burgundy-deep); color: var(--on-burgundy); border-top: 1px solid color-mix(in srgb, var(--on-burgundy) 15%, transparent); padding-block: 28px; font-size: .9rem; }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 32px; justify-content: space-between; align-items: center; }
 footer .contact { display: flex; flex-wrap: wrap; gap: 8px 24px; }
-footer a { font-weight: 600; color: var(--ink); text-decoration: none; }
-footer a:hover { color: var(--rose); }
+footer a { text-decoration: none; opacity: .85; }
+footer a:hover { opacity: 1; color: var(--gold); }
 
-/* Botón flotante de WhatsApp */
-.wa-float {
-  position: fixed; right: 18px; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); z-index: 30;
-  width: 58px; height: 58px; border-radius: 50%; background: var(--wa); color: #fff;
-  display: grid; place-items: center; box-shadow: var(--shadow);
-}
-.wa-float svg { width: 30px; height: 30px; }
+.wa-float { position: fixed; right: 18px; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); z-index: 30; width: 56px; height: 56px; border-radius: 50%; background: var(--wa); color: #fff; display: grid; place-items: center; box-shadow: var(--shadow); }
+.wa-float svg { width: 28px; height: 28px; }
 </style>
 </head>
 <body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.4-.3Z"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 64 64"><path fill="none" stroke="currentColor" stroke-width="2" d="M32 54S8 40 8 23a12 12 0 0 1 24-4 12 12 0 0 1 24 4c0 17-24 31-24 31Z"/><path fill="none" stroke="currentColor" stroke-width="1.2" d="M32 46S15 36 15 24a7 7 0 0 1 13-3"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="10" y="14" width="44" height="40" rx="3"/><path d="M10 24h44M22 8v10M42 8v10"/><path stroke-width="1.6" d="M36 46V32l8-2v13"/><circle cx="33" cy="46" r="3"/><circle cx="41" cy="43" r="3"/></g></symbol>
+  <symbol id="i-baby" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="2"><circle cx="24" cy="24" r="12"/><path d="M32 32l18 18"/><circle cx="52" cy="52" r="4"/><path d="M18 24h12M24 18v12" stroke-width="1.4"/></g></symbol>
+  <symbol id="i-ring" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="2"><circle cx="26" cy="38" r="14"/><circle cx="40" cy="38" r="14"/><path d="M28 14l5-6 5 6-5 5z"/></g></symbol>
+</svg>
 
 <header class="top">
   <div class="wrap">
     <a class="logo" href="#inicio" aria-label="Vínculos Eternos, inicio"><b>Vínculos eternos</b><small>Costa Rica</small></a>
     <nav class="links" aria-label="Secciones">
-      <a href="#productos">Productos</a>
-      <a href="#bodas">Bodas</a>
-      <a href="#galeria">Galería</a>
-      <a href="#pedido">Hacer pedido</a>
+      <a href="#concepto">Concepto</a>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#como-pedir">Cómo pedir</a>
       <a href="#preguntas">Preguntas</a>
     </nav>
-    <a class="btn btn-wa" data-wa="Hola Vínculos Eternos, quiero hacer un pedido 😊" href="https://wa.me/50671821161" target="_blank" rel="noopener">Pedir</a>
+    <a class="btn btn-wa" data-wa="Hola Vínculos Eternos, quiero hacer un pedido." href="https://wa.me/50671821161" target="_blank" rel="noopener">Pedir</a>
   </div>
 </header>
 
@@ -264,197 +253,242 @@ footer a:hover { color: var(--rose); }
   <section class="hero">
     <div class="wrap">
       <div class="hero-copy">
-        <span class="eyebrow">Imanes personalizados · Hechos en Costa Rica</span>
-        <h1>Que estos vínculos duren para siempre <span class="script">en tu refri</span></h1>
-        <p class="lead">Convertimos las fotos que tienes guardadas en el celular en imanes que ves todos los días: la graduación, el perrito, el viaje, la boda.</p>
-        <p class="price-chip">Desde <strong>₡1 700</strong> por imán</p>
+        <span class="eyebrow">Vínculos Eternos · Costa Rica</span>
+        <h1>Acumulamos miles de fotografías, pero dedicamos <em>cada vez menos tiempo a recordar.</em></h1>
+        <p class="lead">Llevamos tus momentos del celular a un lugar donde los veas todos los días. Imanes, corazones de metal y calendarios hechos a mano, uno por uno.</p>
         <div class="actions">
-          <a class="btn btn-wa" data-wa="Hola Vínculos Eternos, quiero hacer imanes con mis fotos 😊" href="https://wa.me/50671821161" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.4-.3Z"/></svg>
-            Pedir por WhatsApp
-          </a>
-          <a class="btn btn-ghost" href="#productos">Ver productos</a>
+          <a class="btn btn-wa" data-wa="Hola Vínculos Eternos, quiero convertir mis fotos en un recuerdo." href="https://wa.me/50671821161" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Pedir por WhatsApp</a>
+          <a class="btn btn-line" href="#catalogo">Ver catálogo</a>
         </div>
       </div>
-      <div class="fridge" aria-label="Ejemplos de imanes">
-        <figure class="magnet m1"><span class="pin"></span><img src="assets/img/graduacion.webp" alt="Imán con foto de graduación de una niña con toga roja" width="960" height="1280"></figure>
-        <figure class="magnet m2"><span class="pin"></span><img src="assets/img/mascota.webp" alt="Imán con foto de un cachorro husky" width="960" height="1280"></figure>
-        <figure class="magnet m3"><span class="pin"></span><img src="assets/img/regalo.webp" alt="Imán con foto de pareja" width="346" height="430"></figure>
+      <div class="memories" aria-hidden="true">
+        <figure class="photo p1"><img src="assets/img/graduacion.webp" alt="" width="960" height="1280"></figure>
+        <figure class="photo p2"><img src="assets/img/mascota.webp" alt="" width="960" height="1280"></figure>
+        <figure class="photo p3"><img src="assets/img/regalo.webp" alt="" width="346" height="430"></figure>
       </div>
     </div>
   </section>
 
-  <div class="ribbon" aria-label="Lo que hacemos">
-    <ul>
-      <li>Bodas</li><li>Mascotas</li><li>Graduaciones</li><li>Viajes</li><li>Dinofabeto</li><li>Marcas y eventos</li>
-    </ul>
-  </div>
-
-  <section id="como-funciona">
+  <section id="concepto" class="manifesto">
     <div class="wrap">
-      <div class="sec-head">
-        <span class="eyebrow">Cómo funciona</span>
-        <h2>Tus fotos dejan de vivir solo en el celular</h2>
-      </div>
-      <div class="steps">
-        <article class="step">
-          <h3>Escríbenos y manda tus fotos</h3>
-          <p>Por WhatsApp al 7182-1161. Nos dices cuántos imanes quieres y nos envías las fotos en la mejor calidad que tengas.</p>
-        </article>
-        <article class="step">
-          <h3>Confirmas y pagas</h3>
-          <p>Te mandamos el resumen del pedido. Pagas por SINPE Móvil o transferencia y empezamos a hacerlos.</p>
-        </article>
-        <article class="step">
-          <h3>Te llegan en una semana</h3>
-          <p>Un pedido tarda alrededor de una semana. Enviamos a todo Costa Rica, o por Uber Flash si estás cerca.</p>
-        </article>
-      </div>
+      <span class="eyebrow">Nuestro concepto</span>
+      <p class="big">Vínculos Eternos existe para devolver presencia a los momentos que realmente importan.</p>
+      <span class="rule" aria-hidden="true"></span>
+      <p class="no">No vendemos imanes.</p>
+      <p class="yes">Ayudamos a las personas a detenerse un momento y recordar lo que realmente importa.</p>
     </div>
   </section>
 
-  <section id="productos" style="padding-top:0">
+  <section id="catalogo" style="padding-top:0">
     <div class="wrap">
       <div class="sec-head">
-        <span class="eyebrow">Productos</span>
-        <h2>Elige tu imán</h2>
-        <p class="lead">Cada imán es cuadrado, con acabado brillante y hecho a mano, uno por uno.</p>
+        <span class="eyebrow">Catálogo</span>
+        <h2>Encuentra tu recuerdo</h2>
       </div>
-      <div class="products">
-        <article class="product">
-          <div class="ph"><img src="assets/img/pareja.webp" alt="Varios imanes con fotos de pareja" loading="lazy"></div>
+
+      <div class="tabs" role="group" aria-label="Filtrar por categoría">
+        <button class="tab" type="button" data-filter="todos" aria-pressed="true">Todos</button>
+        <button class="tab" type="button" data-filter="ninos" aria-pressed="false">Niños</button>
+        <button class="tab" type="button" data-filter="personalizados" aria-pressed="false">Personalizados</button>
+        <button class="tab" type="button" data-filter="eventos" aria-pressed="false">Eventos</button>
+        <button class="tab" type="button" data-filter="metales" aria-pressed="false">Metales</button>
+        <button class="tab" type="button" data-filter="calendarios" aria-pressed="false">Calendarios</button>
+      </div>
+      <p class="cat-intro" id="cat-intro" aria-live="polite">Todo lo que hacemos, en un solo lugar. Elige una categoría para ver menos.</p>
+
+      <!-- PRECIOS: donde dice "Consulta el precio", cambiar por el precio real -->
+      <div class="grid" id="grid">
+
+        <article class="card" data-cat="personalizados">
+          <div class="ph"><img src="assets/img/pareja.webp" alt="Tres imanes con fotos de viaje y de pareja" loading="lazy"></div>
           <div class="body">
-            <span class="tag">El más pedido</span>
-            <h3>Imán personalizado</h3>
-            <p>Cualquier foto tuya: familia, pareja, amigos, viajes, mascotas.</p>
-            <p class="price">₡1 700 <small>por imán</small></p>
-            <a class="btn btn-wa" data-wa="Hola, quiero pedir imanes personalizados con mis fotos." href="https://wa.me/50671821161" target="_blank" rel="noopener">Pedir</a>
+            <span class="cat">Personalizados</span>
+            <h3>Imán con tu foto</h3>
+            <p>Cualquier foto tuya: familia, pareja, amigos, viajes. Cuadrado, brillante y hecho a mano.</p>
+            <div class="foot"><span class="price">₡1 700 <small>c/u</small></span><a class="btn btn-burgundy" data-wa="Hola, quiero imanes personalizados con mis fotos." href="https://wa.me/50671821161" target="_blank" rel="noopener">Pedir</a></div>
           </div>
         </article>
-        <article class="product">
-          <div class="ph"><img src="assets/img/boda.webp" alt="Novios sosteniendo un imán con su foto" loading="lazy"></div>
+
+        <article class="card" data-cat="personalizados">
+          <div class="ph"><img src="assets/img/mascota.webp" alt="Imán con la foto de un cachorro husky" loading="lazy" style="object-position:50% 65%"></div>
           <div class="body">
-            <h3>Paquetes de boda</h3>
-            <p>Imanes con las fotos del gran día para los invitados o para ustedes. Un recuerdo que sí se llevan a la casa.</p>
-            <!-- PRECIO: cambiar "Consulta el precio" por el precio del paquete -->
-            <p class="price ask">Consulta el precio</p>
-            <a class="btn btn-wa" data-wa="Hola, quiero información de los paquetes de boda." href="https://wa.me/50671821161" target="_blank" rel="noopener">Cotizar</a>
+            <span class="cat">Personalizados</span>
+            <h3>Tu mascota</h3>
+            <p>Para el miembro de la familia que siempre te espera en la puerta.</p>
+            <div class="foot"><span class="price">₡1 700 <small>c/u</small></span><a class="btn btn-burgundy" data-wa="Hola, quiero imanes con la foto de mi mascota." href="https://wa.me/50671821161" target="_blank" rel="noopener">Pedir</a></div>
           </div>
         </article>
-        <article class="product">
-          <div class="ph"><img src="assets/img/dinofabeto.webp" alt="Abecedario de imanes de colores con dinosaurios pegado en un refrigerador" loading="lazy"></div>
+
+        <article class="card" data-cat="personalizados">
+          <div class="ph"><img src="assets/img/marca.webp" alt="Imán con el logo de un emprendimiento" loading="lazy"></div>
           <div class="body">
+            <span class="cat">Personalizados</span>
+            <h3>Imanes para tu marca</h3>
+            <p>Con el logo de tu emprendimiento, para regalar en talleres, eventos o junto a cada compra.</p>
+            <div class="foot"><span class="price ask">Consulta el precio</span><a class="btn btn-burgundy" data-wa="Hola, quiero cotizar imanes con el logo de mi marca." href="https://wa.me/50671821161" target="_blank" rel="noopener">Cotizar</a></div>
+          </div>
+        </article>
+
+        <article class="card" data-cat="ninos">
+          <div class="ph"><img src="assets/img/dinofabeto.webp" alt="Abecedario de imanes de colores con dinosaurios en un refrigerador" loading="lazy" style="object-position:50% 45%"></div>
+          <div class="body">
+            <span class="cat">Niños</span>
             <h3>Dinofabeto</h3>
-            <p>El abecedario con Ñ, en imanes de colores con dinosaurios y flechas para aprender a trazar cada letra.</p>
-            <!-- PRECIO: cambiar "Consulta el precio" por el precio del set -->
-            <p class="price ask">Consulta el precio</p>
-            <a class="btn btn-wa" data-wa="Hola, quiero el Dinofabeto." href="https://wa.me/50671821161" target="_blank" rel="noopener">Pedir</a>
+            <p>El abecedario con Ñ en imanes de colores, con dinosaurios y flechas para aprender a trazar cada letra.</p>
+            <div class="foot"><span class="price ask">Consulta el precio</span><a class="btn btn-burgundy" data-wa="Hola, quiero el Dinofabeto." href="https://wa.me/50671821161" target="_blank" rel="noopener">Pedir</a></div>
           </div>
         </article>
-        <article class="product">
-          <div class="ph"><img src="assets/img/marca.webp" alt="Imán con logo de un emprendimiento" loading="lazy"></div>
+
+        <article class="card" data-cat="ninos">
+          <div class="ph"><img src="assets/img/graduacion.webp" alt="Imán con la foto de graduación de una niña" loading="lazy" style="object-position:50% 60%"></div>
           <div class="body">
-            <h3>Marcas y eventos</h3>
-            <p>Imanes con el logo de tu emprendimiento, para regalar en eventos, talleres o junto a cada compra.</p>
-            <p class="price ask">Consulta el precio</p>
-            <a class="btn btn-wa" data-wa="Hola, quiero cotizar imanes para mi marca o evento." href="https://wa.me/50671821161" target="_blank" rel="noopener">Cotizar</a>
+            <span class="cat">Niños</span>
+            <h3>Graduaciones y etapas</h3>
+            <p>Kínder, escuela, primer día de clases. Las etapas pasan rápido; la foto se queda.</p>
+            <div class="foot"><span class="price">₡1 700 <small>c/u</small></span><a class="btn btn-burgundy" data-wa="Hola, quiero imanes de la graduación de mi hijo/a." href="https://wa.me/50671821161" target="_blank" rel="noopener">Pedir</a></div>
           </div>
         </article>
+
+        <article class="card" data-cat="eventos">
+          <div class="ph"><img src="assets/img/proceso.webp" alt="Imán recién hecho con la foto de una pareja" loading="lazy"></div>
+          <div class="body">
+            <span class="cat">Eventos</span>
+            <h3>Bodas</h3>
+            <p>Imanes con las fotos del gran día, para los invitados o para ustedes. El recuerdo que sí se llevan a casa.</p>
+            <div class="foot"><span class="price ask">Consulta el precio</span><a class="btn btn-burgundy" data-wa="Hola, nos casamos y queremos información de los paquetes de boda." href="https://wa.me/50671821161" target="_blank" rel="noopener">Cotizar</a></div>
+          </div>
+        </article>
+
+        <article class="card" data-cat="eventos">
+          <div class="ph"><img src="assets/img/regalo.webp" alt="Imán con la foto de una pareja" loading="lazy"></div>
+          <div class="body">
+            <span class="cat">Eventos</span>
+            <h3>Aniversarios</h3>
+            <p>Un año, diez, cincuenta. Los momentos que construyeron la historia de los dos.</p>
+            <div class="foot"><span class="price ask">Consulta el precio</span><a class="btn btn-burgundy" data-wa="Hola, quiero un regalo de aniversario." href="https://wa.me/50671821161" target="_blank" rel="noopener">Cotizar</a></div>
+          </div>
+        </article>
+
+        <article class="card" data-cat="eventos">
+          <div class="ph soon"><svg aria-hidden="true"><use href="#i-baby"/></svg><span>Foto próximamente</span></div>
+          <div class="body">
+            <span class="cat">Eventos</span>
+            <h3>Baby showers</h3>
+            <p>Recuerdos para los invitados que acompañan la llegada del bebé.</p>
+            <div class="foot"><span class="price ask">Consulta el precio</span><a class="btn btn-burgundy" data-wa="Hola, quiero información para un baby shower." href="https://wa.me/50671821161" target="_blank" rel="noopener">Cotizar</a></div>
+          </div>
+        </article>
+
+        <article class="card" data-cat="metales">
+          <div class="ph soon"><svg aria-hidden="true"><use href="#i-heart"/></svg><span>Foto próximamente</span></div>
+          <div class="body">
+            <span class="cat">Metales</span>
+            <h3>Corazones de metal</h3>
+            <p>Tu foto en un corazón de metal, pensado para durar tanto como el vínculo que representa.</p>
+            <div class="foot"><span class="price ask">Consulta el precio</span><a class="btn btn-burgundy" data-wa="Hola, quiero información de los corazones de metal." href="https://wa.me/50671821161" target="_blank" rel="noopener">Pedir</a></div>
+          </div>
+        </article>
+
+        <article class="card" data-cat="calendarios">
+          <div class="ph soon"><svg aria-hidden="true"><use href="#i-cal"/></svg><span>Foto próximamente</span></div>
+          <div class="body">
+            <span class="cat">Calendarios</span>
+            <h3>Calendario mensual con música</h3>
+            <p>Un mes, una foto y su música. Para tener presente a quien quieres durante todo el mes.</p>
+            <div class="foot"><span class="price ask">Consulta el precio</span><a class="btn btn-burgundy" data-wa="Hola, quiero información del calendario mensual con música." href="https://wa.me/50671821161" target="_blank" rel="noopener">Pedir</a></div>
+          </div>
+        </article>
+
+        <article class="card" data-cat="calendarios">
+          <div class="ph soon"><svg aria-hidden="true"><use href="#i-cal"/></svg><span>Foto próximamente</span></div>
+          <div class="body">
+            <span class="cat">Calendarios</span>
+            <h3>Calendario anual con música</h3>
+            <p>Doce meses con tus fotos y su música. Un recuerdo distinto cada vez que cambia el mes.</p>
+            <div class="foot"><span class="price ask">Consulta el precio</span><a class="btn btn-burgundy" data-wa="Hola, quiero información del calendario anual con música." href="https://wa.me/50671821161" target="_blank" rel="noopener">Pedir</a></div>
+          </div>
+        </article>
+
       </div>
     </div>
   </section>
 
-  <section id="bodas" class="boda">
+  <section class="quote">
     <div class="wrap">
-      <div class="boda-copy">
+      <figure><img src="assets/img/boda.webp" alt="Novios sosteniendo un imán con su foto" loading="lazy"></figure>
+      <div class="quote-copy">
         <span class="eyebrow">Para bodas</span>
-        <h2>Después de la boda… <span class="script">¿qué recuerdo se llevan ustedes?</span></h2>
-        <p class="lead">Durante meses planifican cada detalle para que sus invitados vivan una experiencia inolvidable.</p>
+        <h2>Después de la boda… <em>¿qué recuerdo se llevan ustedes?</em></h2>
         <ul>
-          <li><span>—</span> La comida se disfruta una vez.</li>
-          <li><span>—</span> Las flores cumplen su propósito.</li>
-          <li><span>—</span> La decoración queda en las fotografías.</li>
+          <li>La comida se disfruta una vez.</li>
+          <li>Las flores cumplen su propósito.</li>
+          <li>La decoración queda en las fotografías.</li>
         </ul>
         <p class="kicker">Pero hay momentos que merecen permanecer mucho más cerca.</p>
-        <div><a class="btn btn-wa" data-wa="Hola, nos casamos y queremos información de los paquetes de boda 💍" href="https://wa.me/50671821161" target="_blank" rel="noopener">Cotizar mi boda</a></div>
+        <a class="btn btn-line" data-wa="Hola, nos casamos y queremos información de los paquetes de boda." href="https://wa.me/50671821161" target="_blank" rel="noopener">Cotizar mi boda</a>
       </div>
-      <div class="boda-photo"><img src="assets/img/proceso.webp" alt="Manos sosteniendo un imán recién hecho con la foto de una pareja" loading="lazy"></div>
     </div>
   </section>
 
-  <section id="galeria">
+  <section id="como-pedir">
     <div class="wrap">
       <div class="sec-head">
-        <span class="eyebrow">Galería</span>
-        <h2>Así se ven en la vida real</h2>
+        <span class="eyebrow">Cómo pedir</span>
+        <h2>Tres pasos, una semana</h2>
       </div>
-      <div class="gallery">
-        <figure><img src="assets/img/graduacion.webp" alt="Imán de graduación" loading="lazy"><figcaption>Graduación</figcaption></figure>
-        <figure><img src="assets/img/letra-n.webp" alt="Letra Ñ del Dinofabeto" loading="lazy"><figcaption>Dinofabeto</figcaption></figure>
-        <figure><img src="assets/img/regalo.webp" alt="Imán de pareja sostenido con un guante de Spider-Man" loading="lazy"><figcaption>Pareja</figcaption></figure>
-        <figure><img src="assets/img/mascota.webp" alt="Imán de un cachorro husky" loading="lazy"><figcaption>Mascotas</figcaption></figure>
-        <figure><img src="assets/img/proceso.webp" alt="Imán recién salido de la prensa" loading="lazy"><figcaption>Hecho a mano</figcaption></figure>
-        <figure><img src="assets/img/pareja.webp" alt="Tres imanes de viaje y pareja" loading="lazy"><figcaption>Viajes</figcaption></figure>
+      <div class="steps">
+        <article class="step"><h3>Escríbenos y manda tus fotos</h3><p>Por WhatsApp al 7182-1161. Cuéntanos qué quieres y envíanos las fotos en la mejor calidad que tengas.</p></article>
+        <article class="step"><h3>Confirmas y pagas</h3><p>Te enviamos el resumen. Pagas por SINPE Móvil o transferencia y empezamos a hacerlo.</p></article>
+        <article class="step"><h3>Te llega a casa</h3><p>En alrededor de una semana. Enviamos a todo Costa Rica, o por Uber Flash si estás cerca.</p></article>
       </div>
-      <div class="ig-cta">
-        <a class="btn btn-ghost" href="https://www.instagram.com/vinculos_eternos_cr/" target="_blank" rel="noopener">Ver más en Instagram @vinculos_eternos_cr</a>
-      </div>
-    </div>
-  </section>
 
-  <section id="pedido" style="padding-top:0">
-    <div class="wrap">
-      <div class="order">
+      <div class="order" id="pedido">
         <div class="order-info">
-          <span class="eyebrow" style="color:var(--on-wine);opacity:.8">Hacer pedido</span>
-          <h2>Arma tu pedido y nos llega por WhatsApp</h2>
-          <p class="lead">Llena esto, toca el botón y se abre WhatsApp con el mensaje listo. Ahí mismo nos mandas tus fotos.</p>
+          <span class="eyebrow">Arma tu pedido</span>
+          <h3 style="font-size:2rem;color:var(--burgundy)">Llega a WhatsApp con el mensaje listo</h3>
+          <p class="lead" style="font-size:1rem">Elige, toca el botón y se abre WhatsApp. Ahí mismo nos mandas tus fotos.</p>
           <ul class="facts">
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg><span><b>Pago:</b> SINPE Móvil o transferencia.</span></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 7h11v10H3zM14 10h4l3 3v4h-7"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg><span><b>Envío:</b> a todo Costa Rica, o Uber Flash.</span></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span><b>Tiempo:</b> alrededor de 1 semana.</span></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg><span><b>WhatsApp:</b> 7182-1161</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg><span><b>Pago:</b> SINPE Móvil o transferencia</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 7h11v10H3zM14 10h4l3 3v4h-7"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg><span><b>Envío:</b> todo Costa Rica o Uber Flash</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span><b>Tiempo:</b> alrededor de 1 semana</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg><span><b>WhatsApp:</b> 7182-1161</span></li>
           </ul>
         </div>
         <form class="builder" id="builder" novalidate>
           <div class="field">
             <label for="f-producto">¿Qué quieres?</label>
             <select id="f-producto">
-              <option value="iman" data-precio="1700">Imanes personalizados (₡1 700 c/u)</option>
-              <option value="boda">Paquete de boda</option>
-              <option value="dino">Dinofabeto</option>
-              <option value="marca">Imanes para marca o evento</option>
+              <optgroup label="Personalizados">
+                <option data-precio="1700" selected>Imanes con tus fotos (₡1 700 c/u)</option>
+                <option data-precio="1700">Imanes de tu mascota (₡1 700 c/u)</option>
+                <option>Imanes para tu marca</option>
+              </optgroup>
+              <optgroup label="Niños">
+                <option>Dinofabeto</option>
+                <option data-precio="1700">Graduaciones y etapas (₡1 700 c/u)</option>
+              </optgroup>
+              <optgroup label="Eventos">
+                <option>Boda</option>
+                <option>Aniversario</option>
+                <option>Baby shower</option>
+              </optgroup>
+              <optgroup label="Metales">
+                <option>Corazón de metal</option>
+              </optgroup>
+              <optgroup label="Calendarios">
+                <option>Calendario mensual con música</option>
+                <option>Calendario anual con música</option>
+              </optgroup>
             </select>
           </div>
           <div class="row2">
-            <div class="field">
-              <label for="f-cantidad">Cantidad</label>
-              <input id="f-cantidad" type="number" min="1" max="500" value="6" inputmode="numeric">
-            </div>
-            <div class="field">
-              <label for="f-entrega">Entrega</label>
-              <select id="f-entrega">
-                <option>Envío por Correos de CR</option>
-                <option>Uber Flash</option>
-              </select>
-            </div>
+            <div class="field"><label for="f-cantidad">Cantidad</label><input id="f-cantidad" type="number" min="1" max="500" value="6" inputmode="numeric"></div>
+            <div class="field"><label for="f-entrega">Entrega</label><select id="f-entrega"><option>Envío por Correos de CR</option><option>Uber Flash</option></select></div>
           </div>
-          <div class="field">
-            <label for="f-nombre">Tu nombre</label>
-            <input id="f-nombre" type="text" placeholder="Ej. María Fernanda" autocomplete="name">
-          </div>
-          <div class="field">
-            <label for="f-nota">Algo más (opcional)</label>
-            <textarea id="f-nota" placeholder="Ej. Son para regalar el Día de la Madre"></textarea>
-          </div>
-          <div class="total" aria-live="polite">
-            <span id="t-label">Total aproximado</span>
-            <strong id="t-valor">₡10 200</strong>
-          </div>
-          <a class="btn btn-wa" id="send" href="https://wa.me/50671821161" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.4-.3Z"/></svg>
-            Enviar pedido por WhatsApp
-          </a>
+          <div class="field"><label for="f-nombre">Tu nombre</label><input id="f-nombre" type="text" placeholder="Ej. María Fernanda" autocomplete="name"></div>
+          <div class="field"><label for="f-nota">Algo más (opcional)</label><textarea id="f-nota" placeholder="Ej. Es para regalar el Día de la Madre"></textarea></div>
+          <div class="total" aria-live="polite"><span id="t-label">Total aproximado</span><strong id="t-valor">₡10 200</strong></div>
+          <a class="btn btn-wa" id="send" href="https://wa.me/50671821161" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Enviar pedido por WhatsApp</a>
           <p class="hint">El envío se cotiza aparte según la zona. Si WhatsApp no se abre, escríbenos al 7182-1161.</p>
         </form>
       </div>
@@ -463,54 +497,47 @@ footer a:hover { color: var(--rose); }
 
   <section id="historia" style="padding-top:0">
     <div class="wrap story">
-      <div class="story-photo"><img src="assets/img/proceso.webp" alt="Haciendo un imán a mano" loading="lazy"></div>
+      <img src="assets/img/proceso.webp" alt="Manos sosteniendo un imán recién hecho" loading="lazy">
       <div class="story-copy">
         <span class="eyebrow">Nuestra historia</span>
-        <h2>Detrás de cada imán</h2>
+        <h2>Detrás de cada recuerdo</h2>
         <!-- HISTORIA: reemplazar este bloque con la historia de la marca -->
         <div class="todo"><b>Espacio para la historia.</b> Aquí va quién está detrás de Vínculos Eternos, cómo empezó y por qué el nombre.</div>
-        <p>Vínculos Eternos nació de una idea sencilla: que tus recuerdos no se queden solo en el celular. Cada imán se hace a mano en Costa Rica, uno por uno.</p>
+        <p>Cada pieza se hace a mano en Costa Rica, una por una, para que una foto deje de ser un archivo más en el celular.</p>
       </div>
     </div>
   </section>
 
   <section id="resenas" style="padding-top:0">
     <div class="wrap">
-      <div class="sec-head">
-        <span class="eyebrow">Reseñas</span>
-        <h2>Lo que dicen nuestros clientes</h2>
-      </div>
-      <!-- RESEÑAS: reemplazar cada tarjeta con un testimonio real y quitar la clase is-placeholder -->
+      <div class="sec-head"><span class="eyebrow">Reseñas</span><h2>Lo que dicen quienes ya recuerdan</h2></div>
+      <!-- RESEÑAS: reemplazar con testimonios reales -->
       <div class="reviews">
-        <figure class="review is-placeholder"><blockquote>Espacio para una reseña real de un cliente.</blockquote><cite>Nombre · Ciudad</cite></figure>
-        <figure class="review is-placeholder"><blockquote>Espacio para una reseña real de un cliente.</blockquote><cite>Nombre · Ciudad</cite></figure>
-        <figure class="review is-placeholder"><blockquote>Espacio para una reseña real de un cliente.</blockquote><cite>Nombre · Ciudad</cite></figure>
+        <figure class="review"><blockquote>Espacio para una reseña real de un cliente.</blockquote><cite>Nombre · Ciudad</cite></figure>
+        <figure class="review"><blockquote>Espacio para una reseña real de un cliente.</blockquote><cite>Nombre · Ciudad</cite></figure>
+        <figure class="review"><blockquote>Espacio para una reseña real de un cliente.</blockquote><cite>Nombre · Ciudad</cite></figure>
       </div>
     </div>
   </section>
 
   <section id="preguntas" style="padding-top:0">
     <div class="wrap">
-      <div class="sec-head">
-        <span class="eyebrow">Preguntas frecuentes</span>
-        <h2>Lo que más nos preguntan</h2>
-      </div>
+      <div class="sec-head"><span class="eyebrow">Preguntas frecuentes</span><h2>Lo que más nos preguntan</h2></div>
       <div class="faq">
-        <details open><summary>¿Cuánto cuesta un imán?</summary><p>Cada imán personalizado cuesta ₡1 700. Los paquetes de boda, el Dinofabeto y los pedidos para marcas se cotizan por WhatsApp.</p></details>
+        <details open><summary>¿Cuánto cuesta un imán?</summary><p>Cada imán personalizado cuesta ₡1 700. Los eventos, metales, calendarios y el Dinofabeto se cotizan por WhatsApp.</p></details>
         <details><summary>¿Cuánto tarda mi pedido?</summary><p>Alrededor de una semana desde que confirmas el pedido y el pago. Si lo necesitas para una fecha específica, avísanos al escribir.</p></details>
         <details><summary>¿Cómo pago?</summary><p>Por SINPE Móvil o transferencia bancaria. Te damos los datos cuando confirmamos el pedido.</p></details>
-        <details><summary>¿Hacen envíos?</summary><p>Sí, a todo Costa Rica. Si estás cerca también podemos mandarlo por Uber Flash. El costo del envío depende de la zona.</p></details>
-        <details><summary>¿Qué fotos sirven?</summary><p>Fotos del celular funcionan perfecto. Mándalas por WhatsApp como documento o en la mejor calidad posible, y que la cara o lo importante quede en el centro, porque el imán es cuadrado.</p></details>
-        <details><summary>¿Puedo mezclar fotos distintas en un pedido?</summary><p>Sí, cada imán puede llevar una foto diferente.</p></details>
+        <details><summary>¿Hacen envíos?</summary><p>Sí, a todo Costa Rica. Si estás cerca también podemos mandarlo por Uber Flash. El costo depende de la zona.</p></details>
+        <details><summary>¿Qué fotos sirven?</summary><p>Las del celular funcionan perfecto. Mándalas en la mejor calidad posible, idealmente como documento en WhatsApp, y con lo importante en el centro.</p></details>
       </div>
     </div>
   </section>
 
-  <section class="closing" style="padding-top:0">
+  <section class="closing">
     <div class="wrap">
-      <span class="script" style="font-size:2.4rem">Vínculos eternos</span>
-      <h2>¿Qué foto te gustaría ver todos los días?</h2>
-      <a class="btn btn-wa" data-wa="Hola Vínculos Eternos, quiero hacer un pedido 😊" href="https://wa.me/50671821161" target="_blank" rel="noopener">Escribirnos por WhatsApp</a>
+      <span class="script">Vínculos eternos</span>
+      <h2>¿Qué momento quieres volver a ver todos los días?</h2>
+      <a class="btn btn-wa" data-wa="Hola Vínculos Eternos, quiero hacer un pedido." href="https://wa.me/50671821161" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Escribirnos por WhatsApp</a>
     </div>
   </section>
 
@@ -526,62 +553,69 @@ footer a:hover { color: var(--rose); }
   </div>
 </footer>
 
-<a class="wa-float" data-wa="Hola Vínculos Eternos, quiero hacer un pedido 😊" href="https://wa.me/50671821161" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
-  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.4-.3Z"/></svg>
-</a>
+<a class="wa-float" data-wa="Hola Vínculos Eternos, quiero hacer un pedido." href="https://wa.me/50671821161" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg aria-hidden="true"><use href="#i-wa"/></svg></a>
 
 <script>
 (function () {
   var WA = "50671821161";
-  var waUrl = function (text) { return "https://wa.me/" + WA + "?text=" + encodeURIComponent(text); };
-
+  var waUrl = function (t) { return "https://wa.me/" + WA + "?text=" + encodeURIComponent(t); };
   document.querySelectorAll("[data-wa]").forEach(function (a) { a.href = waUrl(a.getAttribute("data-wa")); });
   document.getElementById("year").textContent = new Date().getFullYear();
 
-  var crc = function (n) { return "₡" + n.toLocaleString("es-CR").replace(/[., ]/g, " "); };
+  // Filtro del catálogo
+  var intros = {
+    todos: "Todo lo que hacemos, en un solo lugar. Elige una categoría para ver menos.",
+    ninos: "Para aprender jugando y para guardar las etapas que pasan tan rápido.",
+    personalizados: "Tus fotos, tu mascota, tu marca. Cualquier recuerdo que quieras tener cerca.",
+    eventos: "Bodas, aniversarios y baby showers. Para que el día no se quede solo en el día.",
+    metales: "Corazones de metal con tu foto, hechos para durar.",
+    calendarios: "Mensuales y anuales, con música. Un recuerdo nuevo cada mes."
+  };
+  var cards = document.querySelectorAll("#grid .card");
+  var tabs = document.querySelectorAll(".tab");
+  tabs.forEach(function (tab) {
+    var f = tab.getAttribute("data-filter");
+    var n = f === "todos" ? cards.length : document.querySelectorAll('#grid .card[data-cat="' + f + '"]').length;
+    tab.insertAdjacentHTML("beforeend", " <small>" + n + "</small>");
+    tab.addEventListener("click", function () {
+      tabs.forEach(function (t) { t.setAttribute("aria-pressed", String(t === tab)); });
+      cards.forEach(function (c) { c.hidden = !(f === "todos" || c.getAttribute("data-cat") === f); });
+      document.getElementById("cat-intro").textContent = intros[f];
+    });
+  });
+
+  // Armador de pedido
+  var crc = function (n) { return "₡" + n.toLocaleString("es-CR").replace(/[.,  ]/g, " "); };
   var form = document.getElementById("builder");
   var producto = document.getElementById("f-producto");
   var cantidad = document.getElementById("f-cantidad");
-  var tLabel = document.getElementById("t-label");
-  var tValor = document.getElementById("t-valor");
-
-  function precio() {
-    var opt = producto.options[producto.selectedIndex];
-    return Number(opt.getAttribute("data-precio")) || 0;
-  }
+  var send = document.getElementById("send");
+  function opt() { return producto.options[producto.selectedIndex]; }
+  function precio() { return Number(opt().getAttribute("data-precio")) || 0; }
   function qty() { return Math.max(1, Math.min(500, parseInt(cantidad.value, 10) || 1)); }
-  function update() {
+  function nombreProducto() { return opt().text.replace(/ \(.*\)$/, ""); }
+  function refresh() {
     var p = precio();
-    if (p) { tLabel.textContent = "Total aproximado"; tValor.textContent = crc(p * qty()); }
-    else { tLabel.textContent = "Precio"; tValor.textContent = "Te cotizamos"; }
-  }
-  producto.addEventListener("change", update);
-  cantidad.addEventListener("input", update);
-  update();
-
-  function mensaje() {
+    document.getElementById("t-label").textContent = p ? "Total aproximado" : "Precio";
+    document.getElementById("t-valor").textContent = p ? crc(p * qty()) : "Te cotizamos";
     var nombre = document.getElementById("f-nombre").value.trim();
     var nota = document.getElementById("f-nota").value.trim();
-    var entrega = document.getElementById("f-entrega").value;
-    var p = precio();
     var lines = [
-      "Hola Vínculos Eternos 😊" + (nombre ? " Soy " + nombre + "." : ""),
+      "Hola Vínculos Eternos." + (nombre ? " Soy " + nombre + "." : ""),
       "Quiero hacer este pedido:",
-      "• " + producto.options[producto.selectedIndex].text.replace(/ \(.*\)$/, ""),
+      "• " + opt().parentNode.label + ": " + nombreProducto(),
       "• Cantidad: " + qty(),
-      "• Entrega: " + entrega
+      "• Entrega: " + document.getElementById("f-entrega").value
     ];
     if (p) lines.push("• Total aproximado: " + crc(p * qty()) + " + envío");
     if (nota) lines.push("• Nota: " + nota);
     lines.push("", "Ahora les mando las fotos.");
-    return lines.join("\n");
+    send.href = waUrl(lines.join("\n"));
   }
-  var send = document.getElementById("send");
-  function refreshLink() { send.href = waUrl(mensaje()); }
-  form.addEventListener("input", refreshLink);
-  form.addEventListener("change", refreshLink);
+  form.addEventListener("input", refresh);
+  form.addEventListener("change", refresh);
   form.addEventListener("submit", function (e) { e.preventDefault(); send.click(); });
-  refreshLink();
+  refresh();
 })();
 </script>
 </body>
