@@ -19,7 +19,9 @@ Notas para la próxima actualización de la página. Todavía no se han aplicado
 
 ## Pendiente de recibir
 
-- [ ] Branding completo (logo, colores, tipografías, lineamientos). La página se rehace con ese concepto.
+- [x] Branding recibido y aplicado (ver abajo).
+- [ ] PNG originales del logo y de Kippi en alta resolución (los actuales salen de capturas).
+- [ ] Archivo de la fuente Zt Otez (.otf/.ttf/.woff2) para usarla en la web; mientras tanto se usa DM Serif Display.
 - [ ] Precios de los paquetes y de cada categoría.
 - [ ] Historia de la marca.
 - [ ] Reseñas de clientes.
@@ -33,3 +35,10 @@ Notas para la próxima actualización de la página. Todavía no se han aplicado
 - Envío: a todo Costa Rica, o Uber Flash
 - Tiempo de entrega: alrededor de 1 semana
 - Dominio: todavía no hay
+
+## Branding
+
+- Lema: Fotografía encapsulada
+- Personaje: Kippi (estrella con boina)
+- Colores: Rosa Vínculo #825050 · Aura #F5D6D3 · Destello #F9F0E8 · Recuerdo #3F1E1E · Conexión #913F3F
+- Tipografías: títulos Poppins ExtraBold · subtítulos Zt Otez Regular/Italic · texto Poppins Regular

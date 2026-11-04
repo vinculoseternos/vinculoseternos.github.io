@@ -10,218 +10,198 @@
 <meta property="og:image" content="assets/img/graduacion.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Pinyon+Script&family=Jost:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap">
 <style>
-/* Layout: una sola columna pausada. Bandas burgundy para las ideas, beige para el catálogo; las fotos se inclinan como recuerdos pegados en casa. */
+/* Branding Vínculos Eternos: Destello de fondo, Recuerdo para las bandas oscuras, Rosa Vínculo en titulares, Conexión en botones, Aura para lo suave.
+   Diseño comprometido con un solo tema claro, como el manual de marca. */
 :root {
-  --beige: #efe4d3;        /* fondo principal */
-  --paper: #f8f1e6;        /* tarjetas */
-  --sand: #dccab0;         /* líneas y bordes */
-  --burgundy: #6b1d2f;     /* color de marca */
-  --burgundy-deep: #4a1220;
-  --ink: #2e1418;          /* texto */
-  --muted: #6f5552;
-  --on-burgundy: #f3e8d8;
-  --gold: #b08a5a;         /* acentos finos */
-  --wa: #1f7a4d;
-  --shadow: 0 14px 30px -14px rgba(46, 20, 24, .45);
-  --f-display: "Cormorant Garamond", "Garamond", "Times New Roman", serif;
-  --f-script: "Pinyon Script", "Brush Script MT", cursive;
-  --f-body: "Jost", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --destello: #f8efe8;
+  --aura: #f5d5d2;
+  --rosa: #825050;          /* Rosa Vínculo */
+  --rosa-claro: #a46f6e;    /* tinte de la paleta, para subtítulos */
+  --recuerdo: #3e1e1e;
+  --conexion: #913e3e;
+  --papel: #fdf8f3;
+  --linea: #e9d6cf;
+  --muted: #7a5c5a;
+  --shadow: 0 14px 30px -14px rgba(62, 30, 30, .45);
+  --f-title: "Poppins", "Segoe UI", system-ui, sans-serif;
+  --f-sub: "DM Serif Display", "Georgia", "Times New Roman", serif;   /* sustituto web de Zt Otez */
+  --f-body: "Poppins", "Segoe UI", system-ui, sans-serif;
   color-scheme: light;
 }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --beige: #1e1013; --paper: #2a161b; --sand: #4a2c31; --burgundy: #a8455a; --burgundy-deep: #3a0f1a;
-    --ink: #f1e6d6; --muted: #c4aea4; --on-burgundy: #f3e8d8; --gold: #d2ae7e; --wa: #2a9a62;
-    --shadow: 0 14px 30px -14px rgba(0,0,0,.7);
-    color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --beige: #1e1013; --paper: #2a161b; --sand: #4a2c31; --burgundy: #a8455a; --burgundy-deep: #3a0f1a;
-  --ink: #f1e6d6; --muted: #c4aea4; --on-burgundy: #f3e8d8; --gold: #d2ae7e; --wa: #2a9a62;
-  --shadow: 0 14px 30px -14px rgba(0,0,0,.7);
-  color-scheme: dark;
-}
-
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; animation: none !important; } }
-body { margin: 0; background: var(--beige); color: var(--ink); font: 400 1.0625rem/1.65 var(--f-body); -webkit-font-smoothing: antialiased; }
+body { margin: 0; background: var(--destello); color: var(--recuerdo); font: 400 1rem/1.7 var(--f-body); -webkit-font-smoothing: antialiased; }
 img { max-width: 100%; display: block; }
 a { color: inherit; }
-:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 4px; }
+:focus-visible { outline: 2px solid var(--conexion); outline-offset: 3px; border-radius: 4px; }
 
 .wrap { width: 100%; max-width: 1140px; margin-inline: auto; padding-inline: 20px; }
-section { padding-block: clamp(64px, 10vw, 112px); }
-h1, h2, h3 { font-family: var(--f-display); font-weight: 600; text-wrap: balance; margin: 0; line-height: 1.08; }
-h2 { font-size: clamp(2.2rem, 5vw, 3.3rem); color: var(--burgundy); }
-h3 { font-size: 1.55rem; }
+section { padding-block: clamp(64px, 10vw, 110px); }
+h1, h2, h3 { font-family: var(--f-title); font-weight: 800; text-wrap: balance; margin: 0; line-height: 1.08; }
+h2 { font-size: clamp(1.9rem, 4.4vw, 2.9rem); color: var(--rosa); text-transform: uppercase; letter-spacing: -.01em; }
+h3 { font-size: 1.15rem; font-weight: 700; }
 p { margin: 0; }
-.eyebrow { font-size: .74rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); }
-.lead { font-size: 1.12rem; color: var(--muted); max-width: 58ch; }
-.sec-head { display: grid; gap: 14px; margin-bottom: 40px; max-width: 700px; }
-.script { font-family: var(--f-script); font-weight: 400; }
+.sub { font-family: var(--f-sub); font-style: italic; font-weight: 400; color: var(--rosa-claro); font-size: clamp(1.3rem, 2.6vw, 1.75rem); line-height: 1.25; }
+.eyebrow { font-size: .72rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: var(--rosa-claro); }
+.lead { font-size: 1.05rem; color: var(--muted); max-width: 58ch; }
+.sec-head { display: grid; gap: 12px; margin-bottom: 40px; max-width: 720px; }
 
-.btn {
-  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-  padding: 14px 26px; border-radius: 999px; border: 1.5px solid transparent;
-  font: 500 .98rem/1 var(--f-body); letter-spacing: .02em; text-decoration: none; cursor: pointer;
-  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
-}
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 14px 26px; border-radius: 999px; border: 1.5px solid transparent; font: 600 .95rem/1 var(--f-body); text-decoration: none; cursor: pointer; transition: transform .15s ease, box-shadow .15s ease; }
 .btn:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
 .btn svg { width: 19px; height: 19px; flex: none; }
-.btn-wa { background: var(--wa); color: #fff; }
-.btn-burgundy { background: var(--burgundy); color: var(--on-burgundy); }
+.btn-main { background: var(--conexion); color: var(--destello); }
+.btn-soft { background: var(--aura); color: var(--recuerdo); }
 .btn-line { border-color: currentColor; background: transparent; }
 
 /* Encabezado */
-header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: color-mix(in srgb, var(--beige) 90%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--sand); }
-.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 10px; }
-.logo { display: flex; flex-direction: column; text-decoration: none; line-height: .85; color: var(--burgundy); }
-.logo b { font-family: var(--f-script); font-weight: 400; font-size: 2.05rem; }
-.logo small { font-size: .58rem; letter-spacing: .34em; text-transform: uppercase; color: var(--muted); padding-left: 6px; }
-nav.links { display: flex; gap: 26px; font-size: .92rem; font-weight: 500; }
+header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: color-mix(in srgb, var(--destello) 92%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--linea); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 12px; }
+.logo img { height: 40px; width: auto; }
+nav.links { display: flex; gap: 26px; font-size: .9rem; font-weight: 500; }
 nav.links a { text-decoration: none; }
-nav.links a:hover { color: var(--burgundy); }
-.top .btn { padding: 10px 20px; font-size: .88rem; }
-@media (max-width: 840px) { nav.links { display: none; } }
+nav.links a:hover { color: var(--conexion); }
+.top .btn { padding: 10px 20px; font-size: .85rem; }
+@media (max-width: 860px) { nav.links { display: none; } .logo img { height: 32px; } }
 
-/* Portada: burgundy, el concepto como titular */
-.hero { background: var(--burgundy-deep); color: var(--on-burgundy); padding-block: clamp(56px, 9vw, 104px); overflow: hidden; }
+/* Portada */
+.hero { background: var(--recuerdo); color: var(--destello); padding-block: clamp(56px, 9vw, 100px); overflow: hidden; }
 .hero .wrap { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(36px, 6vw, 80px); align-items: center; }
-.hero-copy { display: grid; gap: 26px; min-width: 0; }
-.hero .eyebrow { color: var(--gold); }
-.hero h1 { font-size: clamp(2.4rem, 5.4vw, 4.1rem); font-weight: 500; color: var(--on-burgundy); }
-.hero h1 em { font-style: italic; color: var(--gold); }
-.hero .lead { color: var(--on-burgundy); opacity: .82; }
+.hero-copy { display: grid; gap: 22px; min-width: 0; }
+.hero .eyebrow { color: var(--aura); }
+.hero h1 { font-size: clamp(2.2rem, 5vw, 3.7rem); text-transform: uppercase; color: var(--destello); letter-spacing: -.015em; }
+.hero .sub { color: var(--aura); font-size: clamp(1.5rem, 3vw, 2.1rem); }
+.hero .lead { color: var(--destello); opacity: .78; }
 .hero .actions { display: flex; flex-wrap: wrap; gap: 12px; }
-.hero .btn-line { color: var(--on-burgundy); }
+.hero .btn-line { color: var(--destello); }
 .memories { position: relative; aspect-ratio: 1 / 1.05; max-width: 100%; }
-.photo { position: absolute; background: var(--paper); padding: 8px 8px 30px; border-radius: 3px; box-shadow: 0 18px 36px -12px rgba(0,0,0,.55); transition: transform .35s ease; }
+.photo { position: absolute; margin: 0; background: var(--papel); padding: 8px 8px 30px; border-radius: 3px; box-shadow: 0 18px 36px -12px rgba(0,0,0,.6); transition: transform .35s ease; }
 .photo img { width: 100%; height: 100%; object-fit: cover; }
 .photo:hover { transform: rotate(0) scale(1.03) !important; z-index: 5; }
 .p1 { width: 52%; aspect-ratio: 1 / 1.12; left: 0; top: 2%; transform: rotate(-7deg); }
-.p2 { width: 50%; aspect-ratio: 1 / 1.12; right: 0; top: 14%; transform: rotate(6deg); z-index: 2; }
-.p3 { width: 46%; aspect-ratio: 1 / 1.12; left: 22%; bottom: 0; transform: rotate(-1deg); z-index: 3; }
-.p1 img { object-position: 50% 62%; }
-.p2 img { object-position: 50% 66%; }
-.p3 img { object-position: 50% 45%; }
+.p2 { width: 50%; aspect-ratio: 1 / 1.12; right: 0; top: 12%; transform: rotate(6deg); z-index: 2; }
+.p3 { width: 46%; aspect-ratio: 1 / 1.12; left: 20%; bottom: 0; transform: rotate(-1deg); z-index: 3; }
+.p1 img { object-position: 50% 62%; } .p2 img { object-position: 50% 66%; } .p3 img { object-position: 50% 45%; }
+.kippi-hero { position: absolute; right: -2%; bottom: -2%; width: 36%; z-index: 4; transform: rotate(8deg); filter: drop-shadow(0 8px 14px rgba(0,0,0,.35)); }
 @media (max-width: 780px) { .hero .wrap { grid-template-columns: 1fr; } .memories { width: min(100%, 400px); justify-self: center; } }
 
 /* Manifiesto */
 .manifesto { text-align: center; }
-.manifesto .wrap { display: grid; gap: 28px; justify-items: center; max-width: 900px; }
-.manifesto .rule { width: 64px; height: 1px; background: var(--gold); }
-.manifesto p.big { font-family: var(--f-display); font-size: clamp(1.7rem, 3.6vw, 2.5rem); line-height: 1.25; font-weight: 500; text-wrap: balance; }
-.manifesto .no { font-family: var(--f-display); font-style: italic; font-weight: 600; font-size: clamp(2.6rem, 7vw, 4.8rem); color: var(--burgundy); line-height: 1; }
-.manifesto .yes { font-size: 1.2rem; color: var(--muted); max-width: 46ch; }
+.manifesto .wrap { display: grid; gap: 22px; justify-items: center; max-width: 880px; }
+.manifesto .kippi { width: 150px; }
+.manifesto .big { font-family: var(--f-sub); font-size: clamp(1.5rem, 3.2vw, 2.2rem); line-height: 1.3; color: var(--recuerdo); text-wrap: balance; }
+.manifesto .no { font-family: var(--f-title); font-weight: 800; text-transform: uppercase; font-size: clamp(2.2rem, 6.4vw, 4.2rem); color: var(--conexion); line-height: 1; letter-spacing: -.02em; }
+.manifesto .yes { font-size: 1.1rem; color: var(--muted); max-width: 46ch; }
 
 /* Catálogo */
-.tabs { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 32px; }
-.tab { font: 500 .95rem/1 var(--f-body); padding: 12px 20px; border-radius: 999px; border: 1.5px solid var(--sand); background: transparent; color: var(--ink); cursor: pointer; transition: background .15s, color .15s, border-color .15s; }
-.tab:hover { border-color: var(--burgundy); }
-.tab[aria-pressed="true"] { background: var(--burgundy); border-color: var(--burgundy); color: var(--on-burgundy); }
+.tabs { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 26px; }
+.tab { font: 500 .9rem/1 var(--f-body); padding: 12px 20px; border-radius: 999px; border: 1.5px solid var(--linea); background: var(--papel); color: var(--recuerdo); cursor: pointer; transition: background .15s, color .15s, border-color .15s; }
+.tab:hover { border-color: var(--rosa); }
+.tab[aria-pressed="true"] { background: var(--rosa); border-color: var(--rosa); color: var(--destello); }
 .tab small { opacity: .7; margin-left: 4px; font-variant-numeric: tabular-nums; }
-.cat-intro { margin: -12px 0 28px; color: var(--muted); max-width: 60ch; min-height: 1.6em; }
+.cat-intro { margin: -6px 0 28px; max-width: 60ch; }
 .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-.card { background: var(--paper); border: 1px solid var(--sand); border-radius: 18px; overflow: hidden; display: grid; grid-template-rows: auto 1fr; min-width: 0; }
-.card .ph { aspect-ratio: 4 / 3.4; background: var(--beige); overflow: hidden; }
+.card { background: var(--papel); border: 1px solid var(--linea); border-radius: 20px; overflow: hidden; display: grid; grid-template-rows: auto 1fr; min-width: 0; }
+.card .ph { aspect-ratio: 4 / 3.4; background: var(--aura); overflow: hidden; }
 .card .ph img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
 .card:hover .ph img { transform: scale(1.04); }
-.card .ph.soon { display: grid; place-items: center; align-content: center; gap: 10px; color: var(--burgundy); background: repeating-linear-gradient(135deg, var(--beige) 0 14px, color-mix(in srgb, var(--sand) 35%, var(--beige)) 14px 15px); }
-.card .ph.soon svg { width: 64px; height: 64px; }
-.card .ph.soon span { font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
-.card .body { padding: 22px; display: grid; gap: 10px; grid-template-rows: auto auto 1fr auto; min-width: 0; }
-.card .cat { font-size: .7rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); }
-.card p { color: var(--muted); font-size: .97rem; }
-.card .foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-top: 8px; border-top: 1px solid var(--sand); margin-top: 6px; }
-.price { font-family: var(--f-display); font-weight: 700; font-size: 1.5rem; color: var(--burgundy); font-variant-numeric: tabular-nums; }
-.price small { font-family: var(--f-body); font-weight: 400; font-size: .8rem; color: var(--muted); }
-.price.ask { font-family: var(--f-body); font-size: .92rem; font-weight: 600; }
-.card .btn { padding: 10px 18px; font-size: .88rem; }
+.card .ph.soon { display: grid; place-items: center; align-content: center; gap: 6px; }
+.card .ph.soon img { width: 46%; height: auto; object-fit: contain; transform: none; }
+.card .ph.soon span { font-size: .7rem; letter-spacing: .18em; text-transform: uppercase; color: var(--rosa); font-weight: 600; }
+.card .body { padding: 22px; display: grid; gap: 8px; grid-template-rows: auto auto 1fr auto; min-width: 0; }
+.card .cat { font-size: .68rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--rosa-claro); }
+.card p { color: var(--muted); font-size: .92rem; }
+.card .foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-top: 12px; border-top: 1px solid var(--linea); margin-top: 6px; }
+.price { font-family: var(--f-title); font-weight: 800; font-size: 1.3rem; color: var(--rosa); font-variant-numeric: tabular-nums; }
+.price small { font-weight: 400; font-size: .78rem; color: var(--muted); }
+.price.ask { font-size: .85rem; font-weight: 600; }
+.card .btn { padding: 10px 18px; font-size: .84rem; }
 @media (max-width: 960px) { .grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
 
-/* Cita de eventos */
-.quote { background: var(--burgundy); color: var(--on-burgundy); }
+/* Bodas */
+.quote { background: var(--rosa); color: var(--destello); }
 .quote .wrap { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(32px, 6vw, 72px); align-items: center; }
 .quote figure { margin: 0; justify-self: center; max-width: 300px; width: 100%; }
-.quote figure img { border-radius: 4px; box-shadow: 0 18px 36px -12px rgba(0,0,0,.55); transform: rotate(-2deg); background: var(--paper); padding: 8px 8px 30px; }
-.quote-copy { display: grid; gap: 18px; min-width: 0; }
-.quote h2 { color: var(--on-burgundy); }
-.quote h2 em { color: var(--gold); }
-.quote ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; opacity: .85; }
-.quote li::before { content: "— "; color: var(--gold); }
-.quote .kicker { font-family: var(--f-display); font-style: italic; font-size: 1.6rem; line-height: 1.25; }
-.quote .btn-line { color: var(--on-burgundy); justify-self: start; }
+.quote figure img { border-radius: 3px; box-shadow: 0 18px 36px -12px rgba(0,0,0,.5); transform: rotate(-2deg); background: var(--papel); padding: 8px 8px 30px; }
+.quote-copy { display: grid; gap: 16px; min-width: 0; }
+.quote .eyebrow { color: var(--aura); }
+.quote h2 { color: var(--destello); }
+.quote .sub { color: var(--aura); }
+.quote ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; opacity: .88; }
+.quote li::before { content: "— "; color: var(--aura); }
+.quote .kicker { font-family: var(--f-sub); font-style: italic; font-size: 1.5rem; line-height: 1.3; }
+.quote .btn { justify-self: start; }
 @media (max-width: 780px) { .quote .wrap { grid-template-columns: 1fr; } }
 
 /* Cómo pedir */
-.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-block: 1px solid var(--sand); counter-reset: paso; }
-.step { padding: 32px 28px; display: grid; gap: 10px; align-content: start; min-width: 0; }
-.step + .step { border-left: 1px solid var(--sand); }
-.step::before { counter-increment: paso; content: "Paso " counter(paso); font-size: .72rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); }
-.step p { color: var(--muted); }
-@media (max-width: 780px) { .steps { grid-template-columns: 1fr; } .step + .step { border-left: 0; border-top: 1px solid var(--sand); } }
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; counter-reset: paso; }
+.step { background: var(--papel); border: 1px solid var(--linea); border-radius: 20px; padding: 28px 24px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.step::before { counter-increment: paso; content: counter(paso); font-family: var(--f-sub); font-style: italic; font-size: 2.6rem; line-height: 1; color: var(--conexion); }
+.step p { color: var(--muted); font-size: .95rem; }
+@media (max-width: 780px) { .steps { grid-template-columns: 1fr; } }
 
 /* Pedido */
-.order { margin-top: 56px; background: var(--paper); border: 1px solid var(--sand); border-radius: 24px; padding: clamp(24px, 4vw, 48px); display: grid; grid-template-columns: 1fr 1.15fr; gap: clamp(28px, 5vw, 56px); }
-.order-info { display: grid; gap: 18px; align-content: start; min-width: 0; }
-.facts { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
-.facts li { display: grid; grid-template-columns: 22px 1fr; gap: 12px; color: var(--muted); }
-.facts b { color: var(--ink); font-weight: 600; }
-.facts svg { width: 20px; height: 20px; margin-top: 3px; color: var(--burgundy); }
-form.builder { display: grid; gap: 16px; min-width: 0; }
+.order { margin-top: 48px; background: var(--aura); border-radius: 28px; padding: clamp(24px, 4vw, 48px); display: grid; grid-template-columns: 1fr 1.15fr; gap: clamp(28px, 5vw, 56px); position: relative; }
+.order-info { display: grid; gap: 16px; align-content: start; min-width: 0; }
+.order-info h3 { font-size: clamp(1.5rem, 3vw, 2rem); text-transform: uppercase; color: var(--rosa); }
+.order-info .kippi { width: 120px; }
+.facts { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.facts li { display: grid; grid-template-columns: 22px 1fr; gap: 12px; font-size: .95rem; }
+.facts b { font-weight: 600; }
+.facts svg { width: 20px; height: 20px; margin-top: 3px; color: var(--conexion); }
+form.builder { background: var(--papel); border-radius: 20px; padding: 24px; display: grid; gap: 16px; min-width: 0; }
 .field { display: grid; gap: 6px; }
-.field label { font-weight: 500; font-size: .9rem; }
-.field input, .field select, .field textarea { font: inherit; font-size: 1rem; color: var(--ink); background: var(--beige); border: 1px solid var(--sand); border-radius: 12px; padding: 12px 14px; width: 100%; }
+.field label { font-weight: 500; font-size: .88rem; }
+.field input, .field select, .field textarea { font: inherit; font-size: .98rem; color: var(--recuerdo); background: var(--destello); border: 1px solid var(--linea); border-radius: 12px; padding: 12px 14px; width: 100%; }
 .field textarea { min-height: 80px; resize: vertical; }
 .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.total { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; border-top: 1px dashed var(--sand); padding-top: 14px; }
-.total span { color: var(--muted); font-size: .9rem; }
-.total strong { font-family: var(--f-display); font-size: 1.7rem; color: var(--burgundy); font-variant-numeric: tabular-nums; }
-.builder .btn-wa { width: 100%; }
-.hint { font-size: .82rem; color: var(--muted); }
+.total { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; border-top: 1px dashed var(--linea); padding-top: 14px; }
+.total span { color: var(--muted); font-size: .88rem; }
+.total strong { font-family: var(--f-title); font-weight: 800; font-size: 1.5rem; color: var(--rosa); font-variant-numeric: tabular-nums; }
+.builder .btn-main { width: 100%; }
+.hint { font-size: .8rem; color: var(--muted); }
 @media (max-width: 860px) { .order { grid-template-columns: 1fr; } }
 @media (max-width: 420px) { .row2 { grid-template-columns: 1fr; } }
 
 /* Historia y reseñas */
-.story { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(28px, 5vw, 64px); align-items: center; }
-.story img { border-radius: 4px; box-shadow: var(--shadow); width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+.story { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 64px); align-items: center; }
+.story > img { border-radius: 20px; box-shadow: var(--shadow); width: 100%; }
 .story-copy { display: grid; gap: 16px; min-width: 0; }
 .story-copy p { color: var(--muted); max-width: 60ch; }
-.todo { border: 1.5px dashed var(--sand); border-radius: 14px; padding: 14px 16px; font-size: .9rem; color: var(--muted); }
-.todo b { color: var(--burgundy); }
-@media (max-width: 780px) { .story { grid-template-columns: 1fr; } .story img { max-width: 340px; } }
+.todo { border: 1.5px dashed var(--rosa-claro); border-radius: 14px; padding: 14px 16px; font-size: .88rem; color: var(--muted); }
+.todo b { color: var(--conexion); }
+@media (max-width: 780px) { .story { grid-template-columns: 1fr; } }
 .reviews { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.review { margin: 0; background: var(--paper); border: 1px dashed var(--sand); border-radius: 18px; padding: 26px; display: grid; gap: 14px; align-content: space-between; min-width: 0; }
-.review blockquote { margin: 0; font-family: var(--f-display); font-style: italic; font-size: 1.3rem; line-height: 1.35; color: var(--muted); }
-.review cite { font-style: normal; font-size: .88rem; color: var(--muted); font-weight: 500; }
+.review { margin: 0; background: var(--papel); border: 1px dashed var(--rosa-claro); border-radius: 20px; padding: 26px; display: grid; gap: 14px; align-content: space-between; min-width: 0; }
+.review blockquote { margin: 0; font-family: var(--f-sub); font-style: italic; font-size: 1.2rem; line-height: 1.35; color: var(--muted); }
+.review cite { font-style: normal; font-size: .85rem; color: var(--muted); font-weight: 500; }
 @media (max-width: 860px) { .reviews { grid-template-columns: 1fr; } }
 
 /* Preguntas */
-.faq { display: grid; max-width: 800px; border-top: 1px solid var(--sand); }
-.faq details { border-bottom: 1px solid var(--sand); }
-.faq summary { cursor: pointer; font-family: var(--f-display); font-size: 1.35rem; font-weight: 600; padding-block: 18px; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+.faq { display: grid; max-width: 800px; border-top: 1px solid var(--linea); }
+.faq details { border-bottom: 1px solid var(--linea); }
+.faq summary { cursor: pointer; font-weight: 600; font-size: 1.02rem; padding-block: 18px; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
 .faq summary::-webkit-details-marker { display: none; }
-.faq summary::after { content: "+"; color: var(--gold); font-size: 1.6rem; line-height: 1; transition: transform .2s; }
+.faq summary::after { content: "+"; color: var(--conexion); font-size: 1.5rem; line-height: 1; transition: transform .2s; }
 .faq details[open] summary::after { transform: rotate(45deg); }
 .faq details p { color: var(--muted); padding-bottom: 20px; max-width: 65ch; }
 
 /* Cierre y pie */
-.closing { background: var(--burgundy-deep); color: var(--on-burgundy); text-align: center; }
+.closing { background: var(--recuerdo); color: var(--destello); text-align: center; }
 .closing .wrap { display: grid; gap: 22px; justify-items: center; }
-.closing .script { font-size: clamp(3rem, 8vw, 4.6rem); color: var(--gold); line-height: 1; }
-.closing h2 { color: var(--on-burgundy); font-weight: 500; }
-footer { background: var(--burgundy-deep); color: var(--on-burgundy); border-top: 1px solid color-mix(in srgb, var(--on-burgundy) 15%, transparent); padding-block: 28px; font-size: .9rem; }
+.closing .kippi { width: 140px; }
+.closing .logo-big { width: min(100%, 420px); }
+.closing .sub { color: var(--aura); }
+footer { background: var(--recuerdo); color: var(--destello); border-top: 1px solid rgba(248, 239, 232, .15); padding-block: 26px; font-size: .85rem; }
 footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 32px; justify-content: space-between; align-items: center; }
 footer .contact { display: flex; flex-wrap: wrap; gap: 8px 24px; }
 footer a { text-decoration: none; opacity: .85; }
-footer a:hover { opacity: 1; color: var(--gold); }
+footer a:hover { opacity: 1; color: var(--aura); }
 
-.wa-float { position: fixed; right: 18px; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); z-index: 30; width: 56px; height: 56px; border-radius: 50%; background: var(--wa); color: #fff; display: grid; place-items: center; box-shadow: var(--shadow); }
+.wa-float { position: fixed; right: 18px; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); z-index: 30; width: 56px; height: 56px; border-radius: 50%; background: var(--conexion); color: var(--destello); display: grid; place-items: center; box-shadow: var(--shadow); }
 .wa-float svg { width: 28px; height: 28px; }
 </style>
 </head>
@@ -229,22 +209,18 @@ footer a:hover { opacity: 1; color: var(--gold); }
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.4-.3Z"/></symbol>
-  <symbol id="i-heart" viewBox="0 0 64 64"><path fill="none" stroke="currentColor" stroke-width="2" d="M32 54S8 40 8 23a12 12 0 0 1 24-4 12 12 0 0 1 24 4c0 17-24 31-24 31Z"/><path fill="none" stroke="currentColor" stroke-width="1.2" d="M32 46S15 36 15 24a7 7 0 0 1 13-3"/></symbol>
-  <symbol id="i-cal" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="10" y="14" width="44" height="40" rx="3"/><path d="M10 24h44M22 8v10M42 8v10"/><path stroke-width="1.6" d="M36 46V32l8-2v13"/><circle cx="33" cy="46" r="3"/><circle cx="41" cy="43" r="3"/></g></symbol>
-  <symbol id="i-baby" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="2"><circle cx="24" cy="24" r="12"/><path d="M32 32l18 18"/><circle cx="52" cy="52" r="4"/><path d="M18 24h12M24 18v12" stroke-width="1.4"/></g></symbol>
-  <symbol id="i-ring" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="2"><circle cx="26" cy="38" r="14"/><circle cx="40" cy="38" r="14"/><path d="M28 14l5-6 5 6-5 5z"/></g></symbol>
 </svg>
 
 <header class="top">
   <div class="wrap">
-    <a class="logo" href="#inicio" aria-label="Vínculos Eternos, inicio"><b>Vínculos eternos</b><small>Costa Rica</small></a>
+    <a class="logo" href="#inicio"><img src="assets/brand/logo-recuerdo.png" alt="Vínculos Eternos · Fotografía encapsulada" width="538" height="108"></a>
     <nav class="links" aria-label="Secciones">
       <a href="#concepto">Concepto</a>
       <a href="#catalogo">Catálogo</a>
       <a href="#como-pedir">Cómo pedir</a>
       <a href="#preguntas">Preguntas</a>
     </nav>
-    <a class="btn btn-wa" data-wa="Hola Vínculos Eternos, quiero hacer un pedido." href="https://wa.me/50671821161" target="_blank" rel="noopener">Pedir</a>
+    <a class="btn btn-main" data-wa="Hola Vínculos Eternos, quiero hacer un pedido." href="https://wa.me/50671821161" target="_blank" rel="noopener">Pedir</a>
   </div>
 </header>
 
@@ -253,11 +229,12 @@ footer a:hover { opacity: 1; color: var(--gold); }
   <section class="hero">
     <div class="wrap">
       <div class="hero-copy">
-        <span class="eyebrow">Vínculos Eternos · Costa Rica</span>
-        <h1>Acumulamos miles de fotografías, pero dedicamos <em>cada vez menos tiempo a recordar.</em></h1>
+        <span class="eyebrow">Fotografía encapsulada · Costa Rica</span>
+        <h1>Acumulamos miles de fotografías</h1>
+        <p class="sub">pero dedicamos cada vez menos tiempo a recordar.</p>
         <p class="lead">Llevamos tus momentos del celular a un lugar donde los veas todos los días. Imanes, corazones de metal y calendarios hechos a mano, uno por uno.</p>
         <div class="actions">
-          <a class="btn btn-wa" data-wa="Hola Vínculos Eternos, quiero convertir mis fotos en un recuerdo." href="https://wa.me/50671821161" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Pedir por WhatsApp</a>
+          <a class="btn btn-main" data-wa="Hola Vínculos Eternos, quiero encapsular mis fotos en un recuerdo." href="https://wa.me/50671821161" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Pedir por WhatsApp</a>
           <a class="btn btn-line" href="#catalogo">Ver catálogo</a>
         </div>
       </div>
@@ -265,15 +242,16 @@ footer a:hover { opacity: 1; color: var(--gold); }
         <figure class="photo p1"><img src="assets/img/graduacion.webp" alt="" width="960" height="1280"></figure>
         <figure class="photo p2"><img src="assets/img/mascota.webp" alt="" width="960" height="1280"></figure>
         <figure class="photo p3"><img src="assets/img/regalo.webp" alt="" width="346" height="430"></figure>
+        <img class="kippi-hero" src="assets/brand/kippi-foto-claro.png" alt="" width="180" height="170">
       </div>
     </div>
   </section>
 
   <section id="concepto" class="manifesto">
     <div class="wrap">
+      <img class="kippi" src="assets/brand/kippi-abrazo.png" alt="Kippi, la estrella de Vínculos Eternos" width="180" height="170">
       <span class="eyebrow">Nuestro concepto</span>
       <p class="big">Vínculos Eternos existe para devolver presencia a los momentos que realmente importan.</p>
-      <span class="rule" aria-hidden="true"></span>
       <p class="no">No vendemos imanes.</p>
       <p class="yes">Ayudamos a las personas a detenerse un momento y recordar lo que realmente importa.</p>
     </div>
@@ -294,7 +272,7 @@ footer a:hover { opacity: 1; color: var(--gold); }
         <button class="tab" type="button" data-filter="metales" aria-pressed="false">Metales</button>
         <button class="tab" type="button" data-filter="calendarios" aria-pressed="false">Calendarios</button>
       </div>
-      <p class="cat-intro" id="cat-intro" aria-live="polite">Todo lo que hacemos, en un solo lugar. Elige una categoría para ver menos.</p>
+      <p class="cat-intro sub" id="cat-intro" style="font-size:1.2rem" aria-live="polite">Todo lo que hacemos, en un solo lugar. Elige una categoría para ver menos.</p>
 
       <!-- PRECIOS: donde dice "Consulta el precio", cambiar por el precio real -->
       <div class="grid" id="grid">
@@ -305,7 +283,7 @@ footer a:hover { opacity: 1; color: var(--gold); }
             <span class="cat">Personalizados</span>
             <h3>Imán con tu foto</h3>
             <p>Cualquier foto tuya: familia, pareja, amigos, viajes. Cuadrado, brillante y hecho a mano.</p>
-            <div class="foot"><span class="price">₡1 700 <small>c/u</small></span><a class="btn btn-burgundy" data-wa="Hola, quiero imanes personalizados con mis fotos." href="https://wa.me/50671821161" target="_blank" rel="noopener">Pedir</a></div>
+            <div class="foot"><span class="price">₡1 700 <small>c/u</small></span><a class="btn btn-main" data-wa="Hola, quiero imanes personalizados con mis fotos." href="https://wa.me/50671821161" target="_blank" rel="noopener">Pedir</a></div>
           </div>
         </article>
 
@@ -315,7 +293,7 @@ footer a:hover { opacity: 1; color: var(--gold); }
             <span class="cat">Personalizados</span>
             <h3>Tu mascota</h3>
             <p>Para el miembro de la familia que siempre te espera en la puerta.</p>
-            <div class="foot"><span class="price">₡1 700 <small>c/u</small></span><a class="btn btn-burgundy" data-wa="Hola, quiero imanes con la foto de mi mascota." href="https://wa.me/50671821161" target="_blank" rel="noopener">Pedir</a></div>
+            <div class="foot"><span class="price">₡1 700 <small>c/u</small></span><a class="btn btn-main" data-wa="Hola, quiero imanes con la foto de mi mascota." href="https://wa.me/50671821161" target="_blank" rel="noopener">Pedir</a></div>
           </div>
         </article>
 
@@ -325,7 +303,7 @@ footer a:hover { opacity: 1; color: var(--gold); }
             <span class="cat">Personalizados</span>
             <h3>Imanes para tu marca</h3>
             <p>Con el logo de tu emprendimiento, para regalar en talleres, eventos o junto a cada compra.</p>
-            <div class="foot"><span class="price ask">Consulta el precio</span><a class="btn btn-burgundy" data-wa="Hola, quiero cotizar imanes con el logo de mi marca." href="https://wa.me/50671821161" target="_blank" rel="noopener">Cotizar</a></div>
+            <div class="foot"><span class="price ask">Consulta el precio</span><a class="btn btn-main" data-wa="Hola, quiero cotizar imanes con el logo de mi marca." href="https://wa.me/50671821161" target="_blank" rel="noopener">Cotizar</a></div>
           </div>
         </article>
 
@@ -335,7 +313,7 @@ footer a:hover { opacity: 1; color: var(--gold); }
             <span class="cat">Niños</span>
             <h3>Dinofabeto</h3>
             <p>El abecedario con Ñ en imanes de colores, con dinosaurios y flechas para aprender a trazar cada letra.</p>
-            <div class="foot"><span class="price ask">Consulta el precio</span><a class="btn btn-burgundy" data-wa="Hola, quiero el Dinofabeto." href="https://wa.me/50671821161" target="_blank" rel="noopener">Pedir</a></div>
+            <div class="foot"><span class="price ask">Consulta el precio</span><a class="btn btn-main" data-wa="Hola, quiero el Dinofabeto." href="https://wa.me/50671821161" target="_blank" rel="noopener">Pedir</a></div>
           </div>
         </article>
 
@@ -345,7 +323,7 @@ footer a:hover { opacity: 1; color: var(--gold); }
             <span class="cat">Niños</span>
             <h3>Graduaciones y etapas</h3>
             <p>Kínder, escuela, primer día de clases. Las etapas pasan rápido; la foto se queda.</p>
-            <div class="foot"><span class="price">₡1 700 <small>c/u</small></span><a class="btn btn-burgundy" data-wa="Hola, quiero imanes de la graduación de mi hijo/a." href="https://wa.me/50671821161" target="_blank" rel="noopener">Pedir</a></div>
+            <div class="foot"><span class="price">₡1 700 <small>c/u</small></span><a class="btn btn-main" data-wa="Hola, quiero imanes de la graduación de mi hijo/a." href="https://wa.me/50671821161" target="_blank" rel="noopener">Pedir</a></div>
           </div>
         </article>
 
@@ -355,7 +333,7 @@ footer a:hover { opacity: 1; color: var(--gold); }
             <span class="cat">Eventos</span>
             <h3>Bodas</h3>
             <p>Imanes con las fotos del gran día, para los invitados o para ustedes. El recuerdo que sí se llevan a casa.</p>
-            <div class="foot"><span class="price ask">Consulta el precio</span><a class="btn btn-burgundy" data-wa="Hola, nos casamos y queremos información de los paquetes de boda." href="https://wa.me/50671821161" target="_blank" rel="noopener">Cotizar</a></div>
+            <div class="foot"><span class="price ask">Consulta el precio</span><a class="btn btn-main" data-wa="Hola, nos casamos y queremos información de los paquetes de boda." href="https://wa.me/50671821161" target="_blank" rel="noopener">Cotizar</a></div>
           </div>
         </article>
 
@@ -365,47 +343,47 @@ footer a:hover { opacity: 1; color: var(--gold); }
             <span class="cat">Eventos</span>
             <h3>Aniversarios</h3>
             <p>Un año, diez, cincuenta. Los momentos que construyeron la historia de los dos.</p>
-            <div class="foot"><span class="price ask">Consulta el precio</span><a class="btn btn-burgundy" data-wa="Hola, quiero un regalo de aniversario." href="https://wa.me/50671821161" target="_blank" rel="noopener">Cotizar</a></div>
+            <div class="foot"><span class="price ask">Consulta el precio</span><a class="btn btn-main" data-wa="Hola, quiero un regalo de aniversario." href="https://wa.me/50671821161" target="_blank" rel="noopener">Cotizar</a></div>
           </div>
         </article>
 
         <article class="card" data-cat="eventos">
-          <div class="ph soon"><svg aria-hidden="true"><use href="#i-baby"/></svg><span>Foto próximamente</span></div>
+          <div class="ph soon"><img src="assets/brand/kippi-foto.png" alt="" width="180" height="170"><span>Foto próximamente</span></div>
           <div class="body">
             <span class="cat">Eventos</span>
             <h3>Baby showers</h3>
             <p>Recuerdos para los invitados que acompañan la llegada del bebé.</p>
-            <div class="foot"><span class="price ask">Consulta el precio</span><a class="btn btn-burgundy" data-wa="Hola, quiero información para un baby shower." href="https://wa.me/50671821161" target="_blank" rel="noopener">Cotizar</a></div>
+            <div class="foot"><span class="price ask">Consulta el precio</span><a class="btn btn-main" data-wa="Hola, quiero información para un baby shower." href="https://wa.me/50671821161" target="_blank" rel="noopener">Cotizar</a></div>
           </div>
         </article>
 
         <article class="card" data-cat="metales">
-          <div class="ph soon"><svg aria-hidden="true"><use href="#i-heart"/></svg><span>Foto próximamente</span></div>
+          <div class="ph soon"><img src="assets/brand/kippi-foto.png" alt="" width="180" height="170"><span>Foto próximamente</span></div>
           <div class="body">
             <span class="cat">Metales</span>
             <h3>Corazones de metal</h3>
             <p>Tu foto en un corazón de metal, pensado para durar tanto como el vínculo que representa.</p>
-            <div class="foot"><span class="price ask">Consulta el precio</span><a class="btn btn-burgundy" data-wa="Hola, quiero información de los corazones de metal." href="https://wa.me/50671821161" target="_blank" rel="noopener">Pedir</a></div>
+            <div class="foot"><span class="price ask">Consulta el precio</span><a class="btn btn-main" data-wa="Hola, quiero información de los corazones de metal." href="https://wa.me/50671821161" target="_blank" rel="noopener">Pedir</a></div>
           </div>
         </article>
 
         <article class="card" data-cat="calendarios">
-          <div class="ph soon"><svg aria-hidden="true"><use href="#i-cal"/></svg><span>Foto próximamente</span></div>
+          <div class="ph soon"><img src="assets/brand/kippi-foto.png" alt="" width="180" height="170"><span>Foto próximamente</span></div>
           <div class="body">
             <span class="cat">Calendarios</span>
             <h3>Calendario mensual con música</h3>
             <p>Un mes, una foto y su música. Para tener presente a quien quieres durante todo el mes.</p>
-            <div class="foot"><span class="price ask">Consulta el precio</span><a class="btn btn-burgundy" data-wa="Hola, quiero información del calendario mensual con música." href="https://wa.me/50671821161" target="_blank" rel="noopener">Pedir</a></div>
+            <div class="foot"><span class="price ask">Consulta el precio</span><a class="btn btn-main" data-wa="Hola, quiero información del calendario mensual con música." href="https://wa.me/50671821161" target="_blank" rel="noopener">Pedir</a></div>
           </div>
         </article>
 
         <article class="card" data-cat="calendarios">
-          <div class="ph soon"><svg aria-hidden="true"><use href="#i-cal"/></svg><span>Foto próximamente</span></div>
+          <div class="ph soon"><img src="assets/brand/kippi-foto.png" alt="" width="180" height="170"><span>Foto próximamente</span></div>
           <div class="body">
             <span class="cat">Calendarios</span>
             <h3>Calendario anual con música</h3>
             <p>Doce meses con tus fotos y su música. Un recuerdo distinto cada vez que cambia el mes.</p>
-            <div class="foot"><span class="price ask">Consulta el precio</span><a class="btn btn-burgundy" data-wa="Hola, quiero información del calendario anual con música." href="https://wa.me/50671821161" target="_blank" rel="noopener">Pedir</a></div>
+            <div class="foot"><span class="price ask">Consulta el precio</span><a class="btn btn-main" data-wa="Hola, quiero información del calendario anual con música." href="https://wa.me/50671821161" target="_blank" rel="noopener">Pedir</a></div>
           </div>
         </article>
 
@@ -418,14 +396,15 @@ footer a:hover { opacity: 1; color: var(--gold); }
       <figure><img src="assets/img/boda.webp" alt="Novios sosteniendo un imán con su foto" loading="lazy"></figure>
       <div class="quote-copy">
         <span class="eyebrow">Para bodas</span>
-        <h2>Después de la boda… <em>¿qué recuerdo se llevan ustedes?</em></h2>
+        <h2>Después de la boda…</h2>
+        <p class="sub">¿Qué recuerdo se llevan ustedes?</p>
         <ul>
           <li>La comida se disfruta una vez.</li>
           <li>Las flores cumplen su propósito.</li>
           <li>La decoración queda en las fotografías.</li>
         </ul>
         <p class="kicker">Pero hay momentos que merecen permanecer mucho más cerca.</p>
-        <a class="btn btn-line" data-wa="Hola, nos casamos y queremos información de los paquetes de boda." href="https://wa.me/50671821161" target="_blank" rel="noopener">Cotizar mi boda</a>
+        <a class="btn btn-soft" data-wa="Hola, nos casamos y queremos información de los paquetes de boda." href="https://wa.me/50671821161" target="_blank" rel="noopener">Cotizar mi boda</a>
       </div>
     </div>
   </section>
@@ -444,9 +423,10 @@ footer a:hover { opacity: 1; color: var(--gold); }
 
       <div class="order" id="pedido">
         <div class="order-info">
+          <img class="kippi" src="assets/brand/kippi-foto.png" alt="" width="180" height="170">
           <span class="eyebrow">Arma tu pedido</span>
-          <h3 style="font-size:2rem;color:var(--burgundy)">Llega a WhatsApp con el mensaje listo</h3>
-          <p class="lead" style="font-size:1rem">Elige, toca el botón y se abre WhatsApp. Ahí mismo nos mandas tus fotos.</p>
+          <h3>Llega a WhatsApp con el mensaje listo</h3>
+          <p class="lead">Elige, toca el botón y se abre WhatsApp. Ahí mismo nos mandas tus fotos.</p>
           <ul class="facts">
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg><span><b>Pago:</b> SINPE Móvil o transferencia</span></li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 7h11v10H3zM14 10h4l3 3v4h-7"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg><span><b>Envío:</b> todo Costa Rica o Uber Flash</span></li>
@@ -488,7 +468,7 @@ footer a:hover { opacity: 1; color: var(--gold); }
           <div class="field"><label for="f-nombre">Tu nombre</label><input id="f-nombre" type="text" placeholder="Ej. María Fernanda" autocomplete="name"></div>
           <div class="field"><label for="f-nota">Algo más (opcional)</label><textarea id="f-nota" placeholder="Ej. Es para regalar el Día de la Madre"></textarea></div>
           <div class="total" aria-live="polite"><span id="t-label">Total aproximado</span><strong id="t-valor">₡10 200</strong></div>
-          <a class="btn btn-wa" id="send" href="https://wa.me/50671821161" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Enviar pedido por WhatsApp</a>
+          <a class="btn btn-main" id="send" href="https://wa.me/50671821161" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Enviar pedido por WhatsApp</a>
           <p class="hint">El envío se cotiza aparte según la zona. Si WhatsApp no se abre, escríbenos al 7182-1161.</p>
         </form>
       </div>
@@ -497,10 +477,11 @@ footer a:hover { opacity: 1; color: var(--gold); }
 
   <section id="historia" style="padding-top:0">
     <div class="wrap story">
-      <img src="assets/img/proceso.webp" alt="Manos sosteniendo un imán recién hecho" loading="lazy">
+      <img src="assets/brand/mockup.webp" alt="Empaque de Vínculos Eternos con el logo y Kippi" loading="lazy" width="625" height="509">
       <div class="story-copy">
         <span class="eyebrow">Nuestra historia</span>
         <h2>Detrás de cada recuerdo</h2>
+        <p class="sub">Fotografía encapsulada</p>
         <!-- HISTORIA: reemplazar este bloque con la historia de la marca -->
         <div class="todo"><b>Espacio para la historia.</b> Aquí va quién está detrás de Vínculos Eternos, cómo empezó y por qué el nombre.</div>
         <p>Cada pieza se hace a mano en Costa Rica, una por una, para que una foto deje de ser un archivo más en el celular.</p>
@@ -535,9 +516,10 @@ footer a:hover { opacity: 1; color: var(--gold); }
 
   <section class="closing">
     <div class="wrap">
-      <span class="script">Vínculos eternos</span>
-      <h2>¿Qué momento quieres volver a ver todos los días?</h2>
-      <a class="btn btn-wa" data-wa="Hola Vínculos Eternos, quiero hacer un pedido." href="https://wa.me/50671821161" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Escribirnos por WhatsApp</a>
+      <img class="kippi" src="assets/brand/kippi-foto-claro.png" alt="" width="180" height="170">
+      <img class="logo-big" src="assets/brand/logo-destello.png" alt="Vínculos Eternos · Fotografía encapsulada" width="538" height="108">
+      <p class="sub">¿Qué momento quieres volver a ver todos los días?</p>
+      <a class="btn btn-main" data-wa="Hola Vínculos Eternos, quiero hacer un pedido." href="https://wa.me/50671821161" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Escribirnos por WhatsApp</a>
     </div>
   </section>
 
