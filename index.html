@@ -10,8 +10,10 @@
 <meta property="og:image" content="assets/img/graduacion.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap">
 <style>
+@font-face { font-family: "ZT Otez"; src: url("assets/fonts/ZTOtez-Regular.otf") format("opentype"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "ZT Otez"; src: url("assets/fonts/ZTOtez-Italic.otf") format("opentype"); font-weight: 400; font-style: italic; font-display: swap; }
 /* Branding Vínculos Eternos: Destello de fondo, Recuerdo para las bandas oscuras, Rosa Vínculo en titulares, Conexión en botones, Aura para lo suave.
    Diseño comprometido con un solo tema claro, como el manual de marca. */
 :root {
@@ -26,7 +28,7 @@
   --muted: #7a5c5a;
   --shadow: 0 14px 30px -14px rgba(62, 30, 30, .45);
   --f-title: "Poppins", "Segoe UI", system-ui, sans-serif;
-  --f-sub: "DM Serif Display", "Georgia", "Times New Roman", serif;   /* sustituto web de Zt Otez */
+  --f-sub: "ZT Otez", "Georgia", "Times New Roman", serif;
   --f-body: "Poppins", "Segoe UI", system-ui, sans-serif;
   color-scheme: light;
 }
@@ -34,7 +36,7 @@
 html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; animation: none !important; } }
 body { margin: 0; background: var(--destello); color: var(--recuerdo); font: 400 1rem/1.7 var(--f-body); -webkit-font-smoothing: antialiased; }
-img { max-width: 100%; display: block; }
+img { max-width: 100%; height: auto; display: block; }
 a { color: inherit; }
 :focus-visible { outline: 2px solid var(--conexion); outline-offset: 3px; border-radius: 4px; }
 
@@ -59,12 +61,12 @@ p { margin: 0; }
 /* Encabezado */
 header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: color-mix(in srgb, var(--destello) 92%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--linea); }
 .top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 12px; }
-.logo img { height: 40px; width: auto; }
+.logo img { height: 30px; width: auto; }
 nav.links { display: flex; gap: 26px; font-size: .9rem; font-weight: 500; }
 nav.links a { text-decoration: none; }
 nav.links a:hover { color: var(--conexion); }
 .top .btn { padding: 10px 20px; font-size: .85rem; }
-@media (max-width: 860px) { nav.links { display: none; } .logo img { height: 32px; } }
+@media (max-width: 860px) { nav.links { display: none; } .logo img { height: 22px; } }
 
 /* Portada */
 .hero { background: var(--recuerdo); color: var(--destello); padding-block: clamp(56px, 9vw, 100px); overflow: hidden; }
@@ -90,7 +92,7 @@ nav.links a:hover { color: var(--conexion); }
 /* Manifiesto */
 .manifesto { text-align: center; }
 .manifesto .wrap { display: grid; gap: 22px; justify-items: center; max-width: 880px; }
-.manifesto .kippi { width: 150px; }
+.manifesto .kippi { width: 170px; }
 .manifesto .big { font-family: var(--f-sub); font-size: clamp(1.5rem, 3.2vw, 2.2rem); line-height: 1.3; color: var(--recuerdo); text-wrap: balance; }
 .manifesto .no { font-family: var(--f-title); font-weight: 800; text-transform: uppercase; font-size: clamp(2.2rem, 6.4vw, 4.2rem); color: var(--conexion); line-height: 1; letter-spacing: -.02em; }
 .manifesto .yes { font-size: 1.1rem; color: var(--muted); max-width: 46ch; }
@@ -107,8 +109,8 @@ nav.links a:hover { color: var(--conexion); }
 .card .ph { aspect-ratio: 4 / 3.4; background: var(--aura); overflow: hidden; }
 .card .ph img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
 .card:hover .ph img { transform: scale(1.04); }
-.card .ph.soon { display: grid; place-items: center; align-content: center; gap: 6px; }
-.card .ph.soon img { width: 46%; height: auto; object-fit: contain; transform: none; }
+.card .ph.soon { display: grid; place-items: center; align-content: center; gap: 6px; background: var(--destello); }
+.card .ph.soon img { width: 52%; height: auto; object-fit: contain; transform: none; }
 .card .ph.soon span { font-size: .7rem; letter-spacing: .18em; text-transform: uppercase; color: var(--rosa); font-weight: 600; }
 .card .body { padding: 22px; display: grid; gap: 8px; grid-template-rows: auto auto 1fr auto; min-width: 0; }
 .card .cat { font-size: .68rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--rosa-claro); }
@@ -123,8 +125,9 @@ nav.links a:hover { color: var(--conexion); }
 
 /* Bodas */
 .quote { background: var(--rosa); color: var(--destello); }
-.quote .wrap { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(32px, 6vw, 72px); align-items: center; }
-.quote figure { margin: 0; justify-self: center; max-width: 300px; width: 100%; }
+.quote .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 72px); align-items: center; }
+.quote figure { margin: 0; justify-self: center; max-width: 420px; width: 100%; display: grid; gap: 14px; justify-items: center; }
+.quote figcaption { font-family: var(--f-sub); font-style: italic; color: var(--aura); font-size: 1.1rem; }
 .quote figure img { border-radius: 3px; box-shadow: 0 18px 36px -12px rgba(0,0,0,.5); transform: rotate(-2deg); background: var(--papel); padding: 8px 8px 30px; }
 .quote-copy { display: grid; gap: 16px; min-width: 0; }
 .quote .eyebrow { color: var(--aura); }
@@ -144,14 +147,17 @@ nav.links a:hover { color: var(--conexion); }
 @media (max-width: 780px) { .steps { grid-template-columns: 1fr; } }
 
 /* Pedido */
-.order { margin-top: 48px; background: var(--aura); border-radius: 28px; padding: clamp(24px, 4vw, 48px); display: grid; grid-template-columns: 1fr 1.15fr; gap: clamp(28px, 5vw, 56px); position: relative; }
+.order { margin-top: 48px; background: var(--rosa); color: var(--destello); border-radius: 28px; padding: clamp(24px, 4vw, 48px); display: grid; grid-template-columns: 1fr 1.15fr; gap: clamp(28px, 5vw, 56px); position: relative; }
 .order-info { display: grid; gap: 16px; align-content: start; min-width: 0; }
-.order-info h3 { font-size: clamp(1.5rem, 3vw, 2rem); text-transform: uppercase; color: var(--rosa); }
-.order-info .kippi { width: 120px; }
+.order-info h3 { font-size: clamp(1.5rem, 3vw, 2rem); text-transform: uppercase; color: var(--destello); }
+.order-info .eyebrow { color: var(--aura); }
+.order-info .lead { color: var(--destello); opacity: .85; }
+form.builder { color: var(--recuerdo); }
+.order-info .kippi { width: 130px; }
 .facts { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
 .facts li { display: grid; grid-template-columns: 22px 1fr; gap: 12px; font-size: .95rem; }
 .facts b { font-weight: 600; }
-.facts svg { width: 20px; height: 20px; margin-top: 3px; color: var(--conexion); }
+.facts svg { width: 20px; height: 20px; margin-top: 3px; color: var(--aura); }
 form.builder { background: var(--papel); border-radius: 20px; padding: 24px; display: grid; gap: 16px; min-width: 0; }
 .field { display: grid; gap: 6px; }
 .field label { font-weight: 500; font-size: .88rem; }
@@ -192,7 +198,7 @@ form.builder { background: var(--papel); border-radius: 20px; padding: 24px; dis
 /* Cierre y pie */
 .closing { background: var(--recuerdo); color: var(--destello); text-align: center; }
 .closing .wrap { display: grid; gap: 22px; justify-items: center; }
-.closing .kippi { width: 140px; }
+.closing .kippi { width: 170px; }
 .closing .logo-big { width: min(100%, 420px); }
 .closing .sub { color: var(--aura); }
 footer { background: var(--recuerdo); color: var(--destello); border-top: 1px solid rgba(248, 239, 232, .15); padding-block: 26px; font-size: .85rem; }
@@ -213,7 +219,7 @@ footer a:hover { opacity: 1; color: var(--aura); }
 
 <header class="top">
   <div class="wrap">
-    <a class="logo" href="#inicio"><img src="assets/brand/logo-recuerdo.png" alt="Vínculos Eternos · Fotografía encapsulada" width="538" height="108"></a>
+    <a class="logo" href="#inicio"><img src="assets/brand/logo-recuerdo.webp" alt="Vínculos Eternos" width="1000" height="141"></a>
     <nav class="links" aria-label="Secciones">
       <a href="#concepto">Concepto</a>
       <a href="#catalogo">Catálogo</a>
@@ -242,14 +248,14 @@ footer a:hover { opacity: 1; color: var(--aura); }
         <figure class="photo p1"><img src="assets/img/graduacion.webp" alt="" width="960" height="1280"></figure>
         <figure class="photo p2"><img src="assets/img/mascota.webp" alt="" width="960" height="1280"></figure>
         <figure class="photo p3"><img src="assets/img/regalo.webp" alt="" width="346" height="430"></figure>
-        <img class="kippi-hero" src="assets/brand/kippi-foto-claro.png" alt="" width="180" height="170">
+        <img class="kippi-hero" src="assets/brand/kippi-camara-crema-botas.webp" alt="" width="600" height="586">
       </div>
     </div>
   </section>
 
   <section id="concepto" class="manifesto">
     <div class="wrap">
-      <img class="kippi" src="assets/brand/kippi-abrazo.png" alt="Kippi, la estrella de Vínculos Eternos" width="180" height="170">
+      <img class="kippi" src="assets/brand/kippi-abrazo-roja-botas.webp" alt="Kippi, la estrella de Vínculos Eternos" width="600" height="585">
       <span class="eyebrow">Nuestro concepto</span>
       <p class="big">Vínculos Eternos existe para devolver presencia a los momentos que realmente importan.</p>
       <p class="no">No vendemos imanes.</p>
@@ -278,7 +284,7 @@ footer a:hover { opacity: 1; color: var(--aura); }
       <div class="grid" id="grid">
 
         <article class="card" data-cat="personalizados">
-          <div class="ph"><img src="assets/img/pareja.webp" alt="Tres imanes con fotos de viaje y de pareja" loading="lazy"></div>
+          <div class="ph soon"><img src="assets/brand/kippi-camara-roja.webp" alt="" width="600" height="507"><span>Foto próximamente</span></div>
           <div class="body">
             <span class="cat">Personalizados</span>
             <h3>Imán con tu foto</h3>
@@ -298,7 +304,7 @@ footer a:hover { opacity: 1; color: var(--aura); }
         </article>
 
         <article class="card" data-cat="personalizados">
-          <div class="ph"><img src="assets/img/marca.webp" alt="Imán con el logo de un emprendimiento" loading="lazy"></div>
+          <div class="ph soon"><img src="assets/brand/kippi-camara-roja.webp" alt="" width="600" height="507"><span>Foto próximamente</span></div>
           <div class="body">
             <span class="cat">Personalizados</span>
             <h3>Imanes para tu marca</h3>
@@ -318,7 +324,7 @@ footer a:hover { opacity: 1; color: var(--aura); }
         </article>
 
         <article class="card" data-cat="ninos">
-          <div class="ph"><img src="assets/img/graduacion.webp" alt="Imán con la foto de graduación de una niña" loading="lazy" style="object-position:50% 60%"></div>
+          <div class="ph soon"><img src="assets/brand/kippi-camara-roja.webp" alt="" width="600" height="507"><span>Foto próximamente</span></div>
           <div class="body">
             <span class="cat">Niños</span>
             <h3>Graduaciones y etapas</h3>
@@ -328,7 +334,7 @@ footer a:hover { opacity: 1; color: var(--aura); }
         </article>
 
         <article class="card" data-cat="eventos">
-          <div class="ph"><img src="assets/img/proceso.webp" alt="Imán recién hecho con la foto de una pareja" loading="lazy"></div>
+          <div class="ph"><img src="assets/img/boda.webp" alt="Novios sosteniendo un imán con su foto de boda" loading="lazy" style="object-position:50% 40%"></div>
           <div class="body">
             <span class="cat">Eventos</span>
             <h3>Bodas</h3>
@@ -338,7 +344,7 @@ footer a:hover { opacity: 1; color: var(--aura); }
         </article>
 
         <article class="card" data-cat="eventos">
-          <div class="ph"><img src="assets/img/regalo.webp" alt="Imán con la foto de una pareja" loading="lazy"></div>
+          <div class="ph soon"><img src="assets/brand/kippi-camara-roja.webp" alt="" width="600" height="507"><span>Foto próximamente</span></div>
           <div class="body">
             <span class="cat">Eventos</span>
             <h3>Aniversarios</h3>
@@ -348,7 +354,7 @@ footer a:hover { opacity: 1; color: var(--aura); }
         </article>
 
         <article class="card" data-cat="eventos">
-          <div class="ph soon"><img src="assets/brand/kippi-foto.png" alt="" width="180" height="170"><span>Foto próximamente</span></div>
+          <div class="ph soon"><img src="assets/brand/kippi-camara-roja.webp" alt="" width="600" height="507"><span>Foto próximamente</span></div>
           <div class="body">
             <span class="cat">Eventos</span>
             <h3>Baby showers</h3>
@@ -358,7 +364,7 @@ footer a:hover { opacity: 1; color: var(--aura); }
         </article>
 
         <article class="card" data-cat="metales">
-          <div class="ph soon"><img src="assets/brand/kippi-foto.png" alt="" width="180" height="170"><span>Foto próximamente</span></div>
+          <div class="ph soon"><img src="assets/brand/kippi-camara-roja.webp" alt="" width="600" height="507"><span>Foto próximamente</span></div>
           <div class="body">
             <span class="cat">Metales</span>
             <h3>Corazones de metal</h3>
@@ -368,7 +374,7 @@ footer a:hover { opacity: 1; color: var(--aura); }
         </article>
 
         <article class="card" data-cat="calendarios">
-          <div class="ph soon"><img src="assets/brand/kippi-foto.png" alt="" width="180" height="170"><span>Foto próximamente</span></div>
+          <div class="ph soon"><img src="assets/brand/kippi-camara-roja.webp" alt="" width="600" height="507"><span>Foto próximamente</span></div>
           <div class="body">
             <span class="cat">Calendarios</span>
             <h3>Calendario mensual con música</h3>
@@ -378,7 +384,7 @@ footer a:hover { opacity: 1; color: var(--aura); }
         </article>
 
         <article class="card" data-cat="calendarios">
-          <div class="ph soon"><img src="assets/brand/kippi-foto.png" alt="" width="180" height="170"><span>Foto próximamente</span></div>
+          <div class="ph soon"><img src="assets/brand/kippi-camara-roja.webp" alt="" width="600" height="507"><span>Foto próximamente</span></div>
           <div class="body">
             <span class="cat">Calendarios</span>
             <h3>Calendario anual con música</h3>
@@ -393,7 +399,7 @@ footer a:hover { opacity: 1; color: var(--aura); }
 
   <section class="quote">
     <div class="wrap">
-      <figure><img src="assets/img/boda.webp" alt="Novios sosteniendo un imán con su foto" loading="lazy"></figure>
+      <figure><img src="assets/img/boda.webp" alt="Novios sosteniendo un imán con su foto de boda" loading="lazy" width="540" height="615"><figcaption>Su foto del gran día, convertida en imán.</figcaption></figure>
       <div class="quote-copy">
         <span class="eyebrow">Para bodas</span>
         <h2>Después de la boda…</h2>
@@ -423,7 +429,7 @@ footer a:hover { opacity: 1; color: var(--aura); }
 
       <div class="order" id="pedido">
         <div class="order-info">
-          <img class="kippi" src="assets/brand/kippi-foto.png" alt="" width="180" height="170">
+          <img class="kippi" src="assets/brand/kippi-abrazo-crema-botas.webp" alt="" width="600" height="586">
           <span class="eyebrow">Arma tu pedido</span>
           <h3>Llega a WhatsApp con el mensaje listo</h3>
           <p class="lead">Elige, toca el botón y se abre WhatsApp. Ahí mismo nos mandas tus fotos.</p>
@@ -516,8 +522,8 @@ footer a:hover { opacity: 1; color: var(--aura); }
 
   <section class="closing">
     <div class="wrap">
-      <img class="kippi" src="assets/brand/kippi-foto-claro.png" alt="" width="180" height="170">
-      <img class="logo-big" src="assets/brand/logo-destello.png" alt="Vínculos Eternos · Fotografía encapsulada" width="538" height="108">
+      <img class="kippi" src="assets/brand/kippi-camara-crema.webp" alt="" width="600" height="508">
+      <img class="logo-big" src="assets/brand/logo-destello-lema.webp" alt="Vínculos Eternos · Fotografía encapsulada" width="1000" height="200">
       <p class="sub">¿Qué momento quieres volver a ver todos los días?</p>
       <a class="btn btn-main" data-wa="Hola Vínculos Eternos, quiero hacer un pedido." href="https://wa.me/50671821161" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Escribirnos por WhatsApp</a>
     </div>
