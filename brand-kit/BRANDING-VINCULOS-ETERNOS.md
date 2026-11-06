@@ -87,3 +87,25 @@ Ver `referencias/manual-kippi-sobre-fondos.png`.
 - Texto de la historia de la marca
 - Reseñas de clientes
 - Cómo funciona la música de los calendarios
+
+## Borrador para "Nuestra historia" (pendiente de aprobar)
+
+Cambiar lo que está entre [corchetes].
+
+**Versión larga**
+
+> Hola, soy [nombre]. Vínculos Eternos empezó en [año], cuando me di cuenta de que tenía miles de fotos en el celular y casi nunca las veía. Las mejores, las de [mi familia / mi abuela / mi perro], estaban perdidas entre capturas de pantalla y memes.
+>
+> Así que hice mi primer imán. Lo pegué en la refri y cada vez que pasaba por ahí, me detenía un segundo a recordar. Ahí entendí que no estaba haciendo un imán: estaba devolviéndole presencia a un momento.
+>
+> El nombre salió de esa idea. Las personas que amamos, los momentos que nos marcaron, merecen quedarse cerca para siempre. Eso es un vínculo eterno.
+>
+> Hoy cada pieza la hago a mano en [ciudad], Costa Rica, una por una, pensando en la historia que hay detrás de cada foto.
+
+**Versión corta**
+
+> Vínculos Eternos nació de una pregunta simple: ¿de qué sirve tener miles de fotos si nunca las vemos? Soy [nombre] y desde [año] convierto esas fotos en recuerdos que se quedan a la vista, hechos a mano en Costa Rica. Porque los vínculos que importan merecen estar cerca, siempre.
+
+## Vista previa de la página
+
+https://claude.ai/artifact/LG9r1mR81pFZPicJmGoCU7
