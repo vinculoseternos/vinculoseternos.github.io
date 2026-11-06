@@ -91,7 +91,7 @@ Ver `referencias/manual-kippi-sobre-fondos.png`.
 ## Página web
 
 - Código: repositorio GitHub `marcoaef7-pixel/cisco`, rama `claude/clever-galileo-4gxier`, archivo `index.html`.
-- Secciones: portada, concepto, catálogo con filtros, bodas, cómo pedir con formulario a WhatsApp, historia, reseñas, preguntas frecuentes y contacto.
+- Páginas: Inicio (portada, concepto y accesos), Catálogo con carrito, Ideas, Bodas y eventos (con agenda), Conócenos (historia, Kipi y reseñas) y Cómo pedir (pasos y preguntas). Todo en `index.html`; cada página se abre con su enlace (#catalogo, #ideas, #eventos, #conocenos, #como-pedir).
 
 ## Pendiente
 

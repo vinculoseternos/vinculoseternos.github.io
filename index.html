@@ -67,13 +67,19 @@ header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; 
 .logo img { height: 30px; width: auto; }
 nav.links { display: flex; gap: 24px; font-size: .9rem; font-weight: 500; }
 nav.links a { text-decoration: none; }
-nav.links a:hover { color: var(--conexion); }
+nav.links a:hover, nav.links a[aria-current="page"] { color: var(--conexion); }
+nav.links a[aria-current="page"] { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 8px; }
 .cart-btn { padding: 10px 18px; font-size: .85rem; }
 .cart-btn svg { width: 18px; height: 18px; }
 .badge { min-width: 22px; height: 22px; padding: 0 6px; border-radius: 999px; background: var(--destello); color: var(--conexion); font-size: .75rem; font-weight: 700; display: inline-grid; place-items: center; font-variant-numeric: tabular-nums; }
 .bump { animation: bump .4s ease; }
 @keyframes bump { 40% { transform: scale(1.12); } }
-@media (max-width: 920px) { nav.links { display: none; } .logo img { height: 22px; } }
+@media (max-width: 980px) {
+  .top .wrap { flex-wrap: wrap; row-gap: 8px; }
+  .logo img { height: 22px; }
+  nav.links { order: 3; width: calc(100% + 40px); margin-inline: -20px; padding: 2px 20px 4px; overflow-x: auto; gap: 20px; white-space: nowrap; scrollbar-width: none; font-size: .86rem; }
+  nav.links::-webkit-scrollbar { display: none; }
+}
 
 /* Portada */
 .hero { background: var(--recuerdo); color: var(--destello); padding-block: clamp(56px, 9vw, 100px); overflow: hidden; }
@@ -241,9 +247,19 @@ nav.links a:hover { color: var(--conexion); }
 .closing .sub { color: var(--aura); }
 footer { background: var(--recuerdo); color: var(--destello); border-top: 1px solid rgba(248, 239, 232, .15); padding-block: 26px calc(26px + env(safe-area-inset-bottom, 0px)); font-size: .85rem; }
 footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 32px; justify-content: space-between; align-items: center; }
-footer .contact { display: flex; flex-wrap: wrap; gap: 8px 24px; }
+footer .contact, .foot-links { display: flex; flex-wrap: wrap; gap: 8px 24px; }
 footer a { text-decoration: none; opacity: .85; }
 footer a:hover { opacity: 1; color: var(--aura); }
+
+/* Páginas */
+.page > section.first, .page > section:first-child:not(.hero) { padding-top: clamp(48px, 7vw, 80px); }
+.explore { padding-top: 0; }
+.explore-grid { grid-template-columns: repeat(4, 1fr); }
+.card.go { text-decoration: none; color: inherit; transition: transform .2s, box-shadow .2s; }
+.card.go:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+.card.go .more { color: var(--conexion); font-weight: 600; font-size: .88rem; margin-top: 4px; }
+@media (max-width: 960px) { .explore-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .explore-grid { grid-template-columns: 1fr; } }
 
 /* Botones flotantes */
 .wa-float { position: fixed; right: 18px; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); z-index: 30; width: 56px; height: 56px; border-radius: 50%; background: var(--conexion); color: var(--destello); display: grid; place-items: center; box-shadow: var(--shadow); }
@@ -299,19 +315,20 @@ dialog.cart[open] { animation: slide .25s ease; }
   <div class="wrap">
     <a class="logo" href="#inicio"><img src="assets/brand/logo-recuerdo.webp" alt="Vínculos Eternos" width="1000" height="141"></a>
     <nav class="links" aria-label="Secciones">
-      <a href="#concepto">Concepto</a>
+      <a href="#inicio">Inicio</a>
       <a href="#catalogo">Catálogo</a>
       <a href="#ideas">Ideas</a>
       <a href="#eventos">Bodas y eventos</a>
-      <a href="#preguntas">Preguntas</a>
+      <a href="#conocenos">Conócenos</a>
+      <a href="#como-pedir">Cómo pedir</a>
     </nav>
     <button class="btn btn-main cart-btn" type="button" data-open-cart aria-label="Ver mi pedido"><svg aria-hidden="true"><use href="#i-bag"/></svg>Pedido <span class="badge" data-count>0</span></button>
   </div>
 </header>
 
-<main id="inicio">
-
-  <section class="hero">
+<main>
+  <div class="page" id="inicio" data-title="Vínculos Eternos">
+<section class="hero">
     <div class="wrap">
       <div class="hero-copy">
         <span class="eyebrow">Fotografía encapsulada</span>
@@ -332,7 +349,7 @@ dialog.cart[open] { animation: slide .25s ease; }
     </div>
   </section>
 
-  <section id="concepto" class="manifesto">
+<section id="concepto" class="manifesto">
     <div class="wrap">
       <img class="kippi" src="assets/brand/kippi-abrazo-roja-botas.webp" alt="" width="600" height="585">
       <span class="eyebrow">Nuestro concepto</span>
@@ -342,7 +359,22 @@ dialog.cart[open] { animation: slide .25s ease; }
     </div>
   </section>
 
-  <section id="catalogo">
+  <section class="explore">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">Explora</span><h2>¿Por dónde empezamos?</h2></div>
+      <div class="grid explore-grid">
+        <a class="card go" href="#catalogo"><div class="ph"><img src="assets/img/dinofabeto.webp" alt="" loading="lazy" style="object-position:50% 45%" width="960" height="1280"></div><div class="body"><span class="cat">Catálogo</span><h3>Elige tu recuerdo</h3><p>Fotos imantadas, metales, lámparas, calendarios y más. Arma tu pedido aquí mismo.</p><span class="more">Ver catálogo →</span></div></a>
+        <a class="card go" href="#ideas"><div class="ph"><img src="assets/img/mascota.webp" alt="" loading="lazy" style="object-position:50% 65%" width="960" height="1280"></div><div class="body"><span class="cat">Ideas</span><h3>Inspírate</h3><p>Mascotas, familia, parejas, bebés y celebraciones: ideas para lo que quieres recordar.</p><span class="more">Ver ideas →</span></div></a>
+        <a class="card go" href="#eventos"><div class="ph"><img src="assets/img/boda.webp" alt="" loading="lazy" style="object-position:50% 40%" width="540" height="615"></div><div class="body"><span class="cat">Bodas y eventos</span><h3>Para el gran día</h3><p>Recuerdos para bodas, baby showers y celebraciones. Agenda una reunión para cotizar.</p><span class="more">Ver eventos →</span></div></a>
+        <a class="card go" href="#conocenos"><div class="ph"><img src="assets/brand/mockup.webp" alt="" loading="lazy" width="625" height="509"></div><div class="body"><span class="cat">Conócenos</span><h3>Detrás de cada recuerdo</h3><p>La historia de Mary, Kipi y lo que dicen quienes ya recuerdan.</p><span class="more">Conocernos →</span></div></a>
+      </div>
+    </div>
+  </section>
+
+  </div>
+
+  <div class="page" id="catalogo" data-title="Catálogo · Vínculos Eternos" hidden>
+<section>
     <div class="wrap">
       <div class="sec-head">
         <span class="eyebrow">Catálogo</span>
@@ -354,8 +386,10 @@ dialog.cart[open] { animation: slide .25s ease; }
       <noscript><p class="lead">Para armar tu pedido escríbenos al WhatsApp 7182-1161.</p></noscript>
     </div>
   </section>
+  </div>
 
-  <section id="ideas" class="ideas-sec">
+  <div class="page" id="ideas" data-title="Ideas · Vínculos Eternos" hidden>
+<section class="ideas-sec first">
     <div class="wrap">
       <div class="sec-head">
         <span class="eyebrow">Ideas e inspiración</span>
@@ -463,8 +497,10 @@ dialog.cart[open] { animation: slide .25s ease; }
       </div>
     </div>
   </section>
+  </div>
 
-  <section id="eventos" class="quote">
+  <div class="page" id="eventos" data-title="Bodas y eventos · Vínculos Eternos" hidden>
+<section class="quote first">
     <div class="wrap">
       <figure><img src="assets/img/boda.webp" alt="Novios sosteniendo un imán con su foto de boda" loading="lazy" width="540" height="615"><figcaption>Su foto del gran día, convertida en imán.</figcaption></figure>
       <div class="quote-copy">
@@ -489,35 +525,10 @@ dialog.cart[open] { animation: slide .25s ease; }
       </div>
     </div>
   </section>
+  </div>
 
-  <section id="como-pedir">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="eyebrow">Cómo pedir</span>
-        <h2>Tres pasos, una semana</h2>
-      </div>
-      <div class="steps">
-        <article class="step"><h3>Arma tu pedido</h3><p>Elige en el catálogo o toma una idea. Todo se va sumando en tu pedido.</p></article>
-        <article class="step"><h3>Envíalo con tus fotos</h3><p>Se abre WhatsApp con el resumen listo. Ahí nos mandas tus fotos en HD o como archivo, claras y cuadradas (o que se puedan recortar así).</p></article>
-        <article class="step"><h3>Adelantas el 50 % y te llega</h3><p>Con el 50 % por SINPE Móvil o transferencia empezamos tu pedido. El resto lo pagas al recibirlo o antes del envío. En alrededor de una semana lo tienes.</p></article>
-      </div>
-    </div>
-  </section>
-
-  <section class="spark" aria-labelledby="kipi-t">
-    <div class="wrap">
-      <img class="kippi" src="assets/brand/kippi-abrazo-crema-botas.webp" alt="Kipi, una estrellita con boina rosa, abrazando" width="600" height="586">
-      <div class="spark-copy">
-        <span class="eyebrow">Conoce a Kipi</span>
-        <h2 id="kipi-t">La chispa que nos une</h2>
-        <p>Hay vínculos con una energía propia: la que nos mantiene cerca de lo que queremos conservar. Kipi, Sparky de cariño, es esa pequeña chispa. La misma que mantiene un imán unido a una superficie y la que mantiene vivos nuestros recuerdos.</p>
-        <p class="sub">Recuerdos que brillan</p>
-        <p>Es el destello que aparece cuando una foto te devuelve a una persona, a un momento, a una historia que todavía te hace sentir algo. Por eso Kipi acompaña cada pieza: para recordarte que esa foto guarda algo que merece permanecer.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="historia">
+  <div class="page" id="conocenos" data-title="Conócenos · Vínculos Eternos" hidden>
+<section id="historia">
     <div class="wrap story">
       <div class="story-pics" aria-hidden="true">
         <figure class="photo s1"><img src="assets/brand/mockup.webp" alt="" loading="lazy" width="625" height="509"></figure>
@@ -537,7 +548,20 @@ dialog.cart[open] { animation: slide .25s ease; }
     </div>
   </section>
 
-  <section id="resenas" style="padding-top:0">
+<section class="spark" aria-labelledby="kipi-t">
+    <div class="wrap">
+      <img class="kippi" src="assets/brand/kippi-abrazo-crema-botas.webp" alt="Kipi, una estrellita con boina rosa, abrazando" width="600" height="586">
+      <div class="spark-copy">
+        <span class="eyebrow">Conoce a Kipi</span>
+        <h2 id="kipi-t">La chispa que nos une</h2>
+        <p>Hay vínculos con una energía propia: la que nos mantiene cerca de lo que queremos conservar. Kipi, Sparky de cariño, es esa pequeña chispa. La misma que mantiene un imán unido a una superficie y la que mantiene vivos nuestros recuerdos.</p>
+        <p class="sub">Recuerdos que brillan</p>
+        <p>Es el destello que aparece cuando una foto te devuelve a una persona, a un momento, a una historia que todavía te hace sentir algo. Por eso Kipi acompaña cada pieza: para recordarte que esa foto guarda algo que merece permanecer.</p>
+      </div>
+    </div>
+  </section>
+
+<section id="resenas">
     <div class="wrap">
       <div class="sec-head"><span class="eyebrow">Reseñas</span><h2>Lo que dicen quienes ya recuerdan</h2></div>
       <!-- RESEÑAS: mensajes reales de clientes -->
@@ -551,8 +575,24 @@ dialog.cart[open] { animation: slide .25s ease; }
       </div>
     </div>
   </section>
+  </div>
 
-  <section id="preguntas" style="padding-top:0">
+  <div class="page" id="como-pedir" data-title="Cómo pedir · Vínculos Eternos" hidden>
+<section>
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Cómo pedir</span>
+        <h2>Tres pasos, una semana</h2>
+      </div>
+      <div class="steps">
+        <article class="step"><h3>Arma tu pedido</h3><p>Elige en el catálogo o toma una idea. Todo se va sumando en tu pedido.</p></article>
+        <article class="step"><h3>Envíalo con tus fotos</h3><p>Se abre WhatsApp con el resumen listo. Ahí nos mandas tus fotos en HD o como archivo, claras y cuadradas (o que se puedan recortar así).</p></article>
+        <article class="step"><h3>Adelantas el 50 % y te llega</h3><p>Con el 50 % por SINPE Móvil o transferencia empezamos tu pedido. El resto lo pagas al recibirlo o antes del envío. En alrededor de una semana lo tienes.</p></article>
+      </div>
+    </div>
+  </section>
+
+<section id="preguntas" style="padding-top:0">
     <div class="wrap">
       <div class="sec-head"><span class="eyebrow">Preguntas frecuentes</span><h2>Lo que más nos preguntan</h2></div>
       <div class="faq">
@@ -566,8 +606,9 @@ dialog.cart[open] { animation: slide .25s ease; }
       </div>
     </div>
   </section>
+  </div>
 
-  <section class="closing">
+<section class="closing">
     <div class="wrap">
       <img class="kippi" src="assets/brand/kippi-camara-crema.webp" alt="" width="600" height="508">
       <img class="logo-big" src="assets/brand/logo-destello-lema.webp" alt="Vínculos Eternos · Fotografía encapsulada" width="1000" height="200">
@@ -575,12 +616,12 @@ dialog.cart[open] { animation: slide .25s ease; }
       <a class="btn btn-main" data-wa="Hola Vínculos Eternos, tengo una consulta." href="https://wa.me/50671821161" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Escribirnos por WhatsApp</a>
     </div>
   </section>
-
 </main>
 
 <footer>
   <div class="wrap">
     <span>© <span id="year">2026</span> Vínculos Eternos · Fotografía encapsulada</span>
+    <nav class="foot-links" aria-label="Páginas"><a href="#catalogo">Catálogo</a><a href="#ideas">Ideas</a><a href="#eventos">Eventos</a><a href="#conocenos">Conócenos</a><a href="#como-pedir">Cómo pedir</a></nav>
     <div class="contact">
       <a href="https://www.instagram.com/vinculos_eternos_cr/" target="_blank" rel="noopener">Instagram @vinculos_eternos_cr</a>
       <a href="https://wa.me/50671821161" target="_blank" rel="noopener">WhatsApp 7182-1161</a>
@@ -917,6 +958,23 @@ dialog.cart[open] { animation: slide .25s ease; }
   }
 
   renderCart();
+
+  // Páginas: cada sección principal se muestra sola según el enlace (#catalogo, #ideas, ...)
+  var pagesEls = $$(".page");
+  function route() {
+    var id = decodeURIComponent(location.hash.slice(1)) || "inicio";
+    var target = document.getElementById(id);
+    var page = target ? (target.classList.contains("page") ? target : target.closest(".page")) : null;
+    if (!page) { page = $("#inicio"); target = page; }
+    pagesEls.forEach(function (p) { p.hidden = p !== page; });
+    $$("nav.links a").forEach(function (a) { a.toggleAttribute("aria-current", a.getAttribute("href") === "#" + page.id); if (a.hasAttribute("aria-current")) a.setAttribute("aria-current", "page"); });
+    var cur = $('nav.links a[aria-current]'); if (cur && cur.scrollIntoView) cur.scrollIntoView({ block: "nearest", inline: "center" });
+    document.title = page.dataset.title || "Vínculos Eternos";
+    if (target === page) window.scrollTo(0, 0);
+    else requestAnimationFrame(function () { target.scrollIntoView({ block: "start" }); });
+  }
+  window.addEventListener("hashchange", route);
+  route();
 })();
 </script>
 </body>
