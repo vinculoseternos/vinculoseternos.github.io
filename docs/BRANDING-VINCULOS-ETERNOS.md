@@ -26,7 +26,7 @@ Este archivo resume el branding y la información del negocio. Si abres un chat 
 
 | Producto | Opciones y precio |
 |---|---|
-| Fotos imantadas | 1 imán ₡1 700 · 5 imanes ₡7 500 · 10 imanes ₡13 000 · 20 o más ₡1 200 c/u |
+| Fotos imantadas | Precio por imán según cantidad: 1 a 4 ₡1 700 · 5 a 9 ₡1 500 · 10 a 19 ₡1 300 · 20 o más ₡1 200 (la web calcula cualquier cantidad) |
 | Empaque listo para regalar (opcional) | +₡1 000 sobre el pedido de imanes |
 | Dinofabeto | ₡22 500: 27 letras con dinosaurios y líneas de trazo (caligrafía, formar palabras) |
 | Matesaurios | Números 0-9 ₡13 000 · 0-9 + 5 signos ₡18 000 · números dobles + signos ₡27 500 (este último si ya hacen operaciones de 2 dígitos o más) |
@@ -91,7 +91,7 @@ Ver `referencias/manual-kippi-sobre-fondos.png`.
 ## Página web
 
 - Código: repositorio GitHub `marcoaef7-pixel/cisco`, rama `claude/clever-galileo-4gxier`, archivo `index.html`.
-- Páginas: Inicio (portada, concepto y accesos), Catálogo con carrito, Ideas, Bodas y eventos (con agenda), Conócenos (historia, Kipi y reseñas) y Cómo pedir (pasos y preguntas). Todo en `index.html`; cada página se abre con su enlace (#catalogo, #ideas, #eventos, #conocenos, #como-pedir).
+- Páginas: Inicio, Catálogo (con detalle de cada producto y los 3 pasos para pedir), Ideas, Bodas y eventos (cómo funciona en 3 pasos y agenda), Sobre nosotros (historia, Kipi y reseñas) y Preguntas frecuentes con Contáctanos. Todo en `index.html` (#catalogo, #ideas, #eventos, #nosotros, #preguntas, #contacto).
 
 ## Pendiente
 
@@ -126,3 +126,9 @@ https://claude.ai/artifact/LG9r1mR81pFZPicJmGoCU7
 ## Reuniones para eventos
 
 Lunes a viernes de 6:00 a 8:00 p. m. Hoy la web pide la cita por WhatsApp. Cuando exista la página de citas de Google Calendar, se pega su enlace en `BOOKING_URL` dentro de `index.html`.
+
+## Bodas: cómo funciona
+
+1. Antes de la boda: los novios escogen cuántos imanes y cuántas horas (para ellos, los invitados o ambos).
+2. El día de la boda: fotos a los invitados o a los novios; cada quien escoge en la que salió más guapo.
+3. Minutos después: el imán en la mano, ese mismo día. Lo más importante: que los novios se lleven el suyo.
