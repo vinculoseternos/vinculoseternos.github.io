@@ -16,7 +16,7 @@
 @font-face { font-family: "ZT Otez"; src: url("assets/fonts/ZTOtez-Italic.otf") format("opentype"); font-weight: 400; font-style: italic; font-display: swap; }
 /* Branding Vínculos Eternos: Destello de fondo, Recuerdo para las bandas oscuras, Rosa Vínculo en titulares, Conexión en botones, Aura para lo suave.
    Diseño comprometido con un solo tema claro, como el manual de marca.
-   Regla de Kippi: boina roja sobre fondos claros, boina rosa (cuerpo crema) sobre Recuerdo o Rosa Vínculo. */
+   Regla de Kipi: boina roja sobre fondos claros, boina rosa (cuerpo crema) sobre Recuerdo o Rosa Vínculo. */
 :root {
   --destello: #f8efe8;
   --aura: #f5d5d2;
@@ -104,7 +104,7 @@ nav.links a:hover { color: var(--conexion); }
 .manifesto .no { font-family: var(--f-title); font-weight: 800; text-transform: uppercase; font-size: clamp(2.2rem, 6.4vw, 4.2rem); color: var(--conexion); line-height: 1; letter-spacing: -.02em; }
 .manifesto .yes { font-size: 1.1rem; color: var(--muted); max-width: 46ch; }
 
-/* Kippi: la chispa */
+/* Kipi: la chispa */
 .spark { background: var(--rosa); color: var(--destello); }
 .spark .wrap { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(32px, 6vw, 72px); align-items: center; }
 .spark .kippi { width: min(100%, 340px); justify-self: center; filter: drop-shadow(0 14px 22px rgba(0,0,0,.28)); }
@@ -186,6 +186,14 @@ nav.links a:hover { color: var(--conexion); }
 .quote .kicker { font-family: var(--f-sub); font-style: italic; font-size: 1.5rem; line-height: 1.3; }
 .quote .events { opacity: .88; max-width: 52ch; }
 .quote .btn { justify-self: start; }
+.book { margin-top: 8px; background: rgba(62, 30, 30, .28); border: 1px solid rgba(245, 213, 210, .25); border-radius: 20px; padding: 22px; display: grid; gap: 12px; }
+.book h3 { color: var(--destello); font-size: 1.2rem; text-transform: uppercase; }
+.book-sub, .book-hint { font-size: .86rem; opacity: .85; }
+.book-hint a { color: var(--aura); }
+.slots { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: thin; }
+.slot { flex: none; border: 1.5px solid rgba(245, 213, 210, .45); background: transparent; color: var(--destello); border-radius: 12px; padding: 8px 12px; font-size: .82rem; line-height: 1.2; cursor: pointer; text-align: center; }
+.slot small { display: block; opacity: .75; font-size: .72rem; }
+.slot[aria-pressed="true"] { background: var(--aura); border-color: var(--aura); color: var(--recuerdo); }
 @media (max-width: 780px) { .quote .wrap { grid-template-columns: 1fr; } }
 
 /* Cómo pedir */
@@ -334,19 +342,6 @@ dialog.cart[open] { animation: slide .25s ease; }
     </div>
   </section>
 
-  <section class="spark" aria-labelledby="kippi-t">
-    <div class="wrap">
-      <img class="kippi" src="assets/brand/kippi-abrazo-crema-botas.webp" alt="Kippi, una estrellita con boina rosa, abrazando" width="600" height="586">
-      <div class="spark-copy">
-        <span class="eyebrow">Conoce a Kippi</span>
-        <h2 id="kippi-t">La chispa que nos une</h2>
-        <p>Hay vínculos con una energía propia: la que nos mantiene cerca de lo que queremos conservar. Kippi, Sparky de cariño, es esa pequeña chispa. La misma que mantiene un imán unido a una superficie y la que mantiene vivos nuestros recuerdos.</p>
-        <p class="sub">Recuerdos que brillan</p>
-        <p>Es el destello que aparece cuando una foto te devuelve a una persona, a un momento, a una historia que todavía te hace sentir algo. Por eso Kippi acompaña cada pieza: para recordarte que esa foto guarda algo que merece permanecer.</p>
-      </div>
-    </div>
-  </section>
-
   <section id="catalogo">
     <div class="wrap">
       <div class="sec-head">
@@ -483,7 +478,14 @@ dialog.cart[open] { animation: slide .25s ease; }
         </ul>
         <p class="kicker">Pero hay momentos que merecen permanecer mucho más cerca.</p>
         <p class="events">Bodas, baby showers, cumpleaños o eventos de empresa. Cada evento es distinto, así que lo cotizamos con ustedes según lo que tengan en mente.</p>
-        <a class="btn btn-soft" data-wa="Hola Vínculos Eternos, quiero cotizar recuerdos para un evento." href="https://wa.me/50671821161" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Cotizar mi evento</a>
+        <div class="book" id="agendar">
+          <h3>Agenda una reunión</h3>
+          <p class="book-sub">Lunes a viernes, de 6:00 a 8:00 p. m. Elige el día y la hora.</p>
+          <div class="slots" id="book-days" role="group" aria-label="Día"></div>
+          <div class="slots" id="book-times" role="group" aria-label="Hora"></div>
+          <a class="btn btn-soft" id="book-send" href="https://wa.me/50671821161" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Pedir esta cita</a>
+          <p class="book-hint" id="book-hint">Te confirmamos por WhatsApp. ¿Prefieres escribir? <a data-wa="Hola Vínculos Eternos, quiero cotizar recuerdos para un evento." href="https://wa.me/50671821161" target="_blank" rel="noopener">Cotizar por WhatsApp</a></p>
+        </div>
       </div>
     </div>
   </section>
@@ -502,7 +504,20 @@ dialog.cart[open] { animation: slide .25s ease; }
     </div>
   </section>
 
-  <section id="historia" style="padding-top:0">
+  <section class="spark" aria-labelledby="kipi-t">
+    <div class="wrap">
+      <img class="kippi" src="assets/brand/kippi-abrazo-crema-botas.webp" alt="Kipi, una estrellita con boina rosa, abrazando" width="600" height="586">
+      <div class="spark-copy">
+        <span class="eyebrow">Conoce a Kipi</span>
+        <h2 id="kipi-t">La chispa que nos une</h2>
+        <p>Hay vínculos con una energía propia: la que nos mantiene cerca de lo que queremos conservar. Kipi, Sparky de cariño, es esa pequeña chispa. La misma que mantiene un imán unido a una superficie y la que mantiene vivos nuestros recuerdos.</p>
+        <p class="sub">Recuerdos que brillan</p>
+        <p>Es el destello que aparece cuando una foto te devuelve a una persona, a un momento, a una historia que todavía te hace sentir algo. Por eso Kipi acompaña cada pieza: para recordarte que esa foto guarda algo que merece permanecer.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="historia">
     <div class="wrap story">
       <div class="story-pics" aria-hidden="true">
         <figure class="photo s1"><img src="assets/brand/mockup.webp" alt="" loading="lazy" width="625" height="509"></figure>
@@ -639,7 +654,7 @@ dialog.cart[open] { animation: slide .25s ease; }
       desc: "Tu foto grabada en la lámpara: al encenderla aparece con todos sus detalles. La forma la eliges tú.",
       options: [{ label: "Pequeña", price: 25000 }, { label: "Mediana", price: 30000 }, { label: "Grande", price: 37000 }] },
     { id: "cal", cat: "Calendarios", name: "Calendarios con música",
-      desc: "Personalizados al 100 %: fotos, colores y diseño. Agrégale las canciones que te recuerdan ese momento.",
+      desc: "Personalizados al 100 %: fotos, colores y diseño. Si quieres, agrégale las canciones que te recuerdan ese momento.",
       options: [
         { label: "Anual", price: 3500, unit: ["calendario", "calendarios"], tag: "₡3 500 c/u" },
         { label: "Mensual", price: 800, min: 4, unit: ["calendario", "calendarios"], tag: "₡800 c/u · mín. 4" }
@@ -689,8 +704,9 @@ dialog.cart[open] { animation: slide .25s ease; }
       "<div>" + opts + '<p class="note" hidden></p></div>' +
       '<div class="extras">' +
         '<div class="qty"><span class="qty-l">Cantidad</span><div class="stepper"><button type="button" data-step="-1" aria-label="Menos">−</button><output>1</output><button type="button" data-step="1" aria-label="Más">+</button></div></div>' +
-        (p.song ? '<div class="qty"><span>Canciones <small style="color:var(--muted)">+' + crc(p.song) + ' c/u</small></span><div class="stepper" data-songs><button type="button" data-step="-1" aria-label="Menos canciones">−</button><output>0</output><button type="button" data-step="1" aria-label="Más canciones">+</button></div></div>' : "") +
-        (p.gift ? '<label class="check"><input type="checkbox" data-gift> Empaque para regalo <small>+' + crc(p.gift) + "</small></label>" : "") +
+        (p.song ? '<label class="check"><input type="checkbox" data-song-on> ¿Con música? <small>opcional · +' + crc(p.song) + ' por canción</small></label>' +
+                 '<div class="qty" data-song-row hidden><span>Canciones</span><div class="stepper" data-songs><button type="button" data-step="-1" aria-label="Menos canciones">−</button><output>1</output><button type="button" data-step="1" aria-label="Más canciones">+</button></div></div>' : "") +
+        (p.gift ? '<label class="check"><input type="checkbox" data-gift> Empaque para regalo <small>opcional · +' + crc(p.gift) + "</small></label>" : "") +
       "</div>" +
       '<div class="buy"><span class="price" aria-live="polite"></span><button class="btn btn-main" type="button" data-add>Agregar al pedido</button></div>' +
       "</div></article>";
@@ -700,10 +716,10 @@ dialog.cart[open] { animation: slide .25s ease; }
   function cardState(card) {
     var p = byId[card.dataset.pid];
     var r = $("input[type=radio]:checked", card);
-    var songs = $("[data-songs] output", card);
+    var songs = $("[data-songs] output", card), songOn = $("[data-song-on]", card);
     var gift = $("[data-gift]", card);
     return { p: p, oi: r ? +r.value : 0, qty: +$(".stepper:not([data-songs]) output", card).textContent,
-             songs: songs ? +songs.textContent : 0, gift: gift ? gift.checked : false };
+             songs: songs && songOn.checked ? +songs.textContent : 0, gift: gift ? gift.checked : false };
   }
   function renderCard(card) {
     var s = cardState(card), o = s.p.options[s.oi], min = o.min || 1;
@@ -712,7 +728,11 @@ dialog.cart[open] { animation: slide .25s ease; }
     out.textContent = s.qty;
     $(".stepper:not([data-songs]) [data-step='-1']", card).disabled = s.qty <= min;
     var sOut = $("[data-songs] output", card);
-    if (sOut) $("[data-songs] [data-step='-1']", card).disabled = +sOut.textContent <= 0;
+    if (sOut) {
+      if (+sOut.textContent < 1) sOut.textContent = 1;
+      $("[data-songs] [data-step='-1']", card).disabled = +sOut.textContent <= 1;
+      $("[data-song-row]", card).hidden = !$("[data-song-on]", card).checked;
+    }
     $(".qty-l", card).textContent = o.unit ? o.unit[1].charAt(0).toUpperCase() + o.unit[1].slice(1) : "Cantidad";
     var note = $(".note", card);
     note.hidden = !o.note; note.textContent = o.note || "";
@@ -765,6 +785,47 @@ dialog.cart[open] { animation: slide .25s ease; }
     var card = $(a.getAttribute("href"));
     if (card) { setTimeout(function () { card.classList.add("flash"); setTimeout(function () { card.classList.remove("flash"); }, 1600); }, 350); }
   });
+
+  /* Agenda de eventos. Cuando exista la página de citas de Google Calendar,
+     pegar su enlace en BOOKING_URL y el botón abrirá esa página con la disponibilidad real. */
+  var BOOKING_URL = "";
+  (function () {
+    var send = $("#book-send");
+    if (BOOKING_URL) {
+      $("#book-days").hidden = $("#book-times").hidden = true;
+      $(".book-sub").textContent = "Lunes a viernes, de 6:00 a 8:00 p. m. Mira los espacios libres y reserva el tuyo.";
+      send.textContent = "Ver horarios disponibles"; send.href = BOOKING_URL;
+      return;
+    }
+    var dias = ["dom", "lun", "mar", "mié", "jue", "vie", "sáb"], meses = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"];
+    var largo = ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"];
+    var horas = ["6:00", "6:30", "7:00", "7:30"];
+    var d = new Date(), days = [];
+    d.setHours(0, 0, 0, 0);
+    while (days.length < 10) { d.setDate(d.getDate() + 1); if (d.getDay() > 0 && d.getDay() < 6) days.push(new Date(d)); }
+    var sel = { day: days[0], time: horas[0] };
+    $("#book-days").innerHTML = days.map(function (x, i) {
+      return '<button class="slot" type="button" data-i="' + i + '" aria-pressed="' + (i === 0) + '">' + dias[x.getDay()] + "<small>" + x.getDate() + " " + meses[x.getMonth()] + "</small></button>";
+    }).join("");
+    $("#book-times").innerHTML = horas.map(function (h, i) {
+      return '<button class="slot" type="button" data-h="' + h + '" aria-pressed="' + (i === 0) + '">' + h + " p. m.</button>";
+    }).join("");
+    function upd() {
+      var x = sel.day;
+      send.href = waUrl("Hola Vínculos Eternos, quiero agendar una reunión para cotizar un evento el " + largo[x.getDay()] + " " + x.getDate() + " de " + meses[x.getMonth()] + " a las " + sel.time + " p. m. ¿Está disponible?");
+    }
+    $("#book-days").addEventListener("click", function (e) {
+      var b = e.target.closest(".slot"); if (!b) return;
+      $$("#book-days .slot").forEach(function (o) { o.setAttribute("aria-pressed", String(o === b)); });
+      sel.day = days[+b.dataset.i]; upd();
+    });
+    $("#book-times").addEventListener("click", function (e) {
+      var b = e.target.closest(".slot"); if (!b) return;
+      $$("#book-times .slot").forEach(function (o) { o.setAttribute("aria-pressed", String(o === b)); });
+      sel.time = b.dataset.h; upd();
+    });
+    upd();
+  })();
 
   // Filtro de ideas
   var intros = {

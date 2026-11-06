@@ -27,13 +27,13 @@ Este archivo resume el branding y la información del negocio. Si abres un chat 
 | Producto | Opciones y precio |
 |---|---|
 | Fotos imantadas | 1 imán ₡1 700 · 5 imanes ₡7 500 · 10 imanes ₡13 000 · 20 o más ₡1 200 c/u |
-| Empaque listo para regalar | +₡1 000 sobre el pedido de imanes |
+| Empaque listo para regalar (opcional) | +₡1 000 sobre el pedido de imanes |
 | Dinofabeto | ₡22 500: 27 letras con dinosaurios y líneas de trazo (caligrafía, formar palabras) |
 | Matesaurios | Números 0-9 ₡13 000 · 0-9 + 5 signos ₡18 000 · números dobles + signos ₡27 500 (este último si ya hacen operaciones de 2 dígitos o más) |
 | Siluetas de metal | Corazón ₡10 000 · Gato ₡5 000. Se cuelgan como cuadro y llevan fotos imantadas encima |
 | Lámpara de litofanía | Pequeña ₡25 000 · Mediana ₡30 000 · Grande ₡37 000. Forma personalizable |
-| Calendario anual con música | ₡3 500 c/u + ₡500 por canción. 100 % personalizable |
-| Calendario mensual con música | ₡800 c/u (mínimo 4) + ₡500 por canción. 100 % personalizable |
+| Calendario anual con música | ₡3 500 c/u; música opcional, ₡500 por canción. 100 % personalizable |
+| Calendario mensual con música | ₡800 c/u (mínimo 4); música opcional, ₡500 por canción. 100 % personalizable |
 | Bodas y eventos | Se cotizan aparte con cada persona |
 
 ## Ideas e inspiración (sección aparte, sin repetir precios)
@@ -42,7 +42,7 @@ Mascotas (las que están y las que ya no) · Familia (abuelos, hijos, papás; l�
 
 ## Tono de la marca
 
-- Conceptos: "La chispa que nos une" (Kippi, Sparky de cariño, es la chispa que une el imán a la superficie y mantiene vivos los recuerdos) y "Recuerdos que brillan" (el destello de memoria que queremos mantener cerca).
+- Conceptos: "La chispa que nos une" (Kipi, Sparky de cariño, es la chispa que une el imán a la superficie y mantiene vivos los recuerdos) y "Recuerdos que brillan" (el destello de memoria que queremos mantener cerca).
 - No repetir mucho "hecho a mano", "uno por uno" ni "Costa Rica": no es el mensaje principal.
 
 ## Colores
@@ -74,17 +74,17 @@ Cuatro versiones en cada color (Aura, Destello, Recuerdo, Rosa Vínculo), todas 
 
 Usar el logo claro (Destello o Aura) sobre fondos oscuros y el oscuro (Recuerdo o Rosa Vínculo) sobre fondos claros.
 
-## Kippi, el personaje
+## Kipi, el personaje
 
 Estrella con boina. Ocho versiones PNG sin fondo en `kippi/`:
 
 - **Boina roja (cuerpo rosa):** feliz, feliz con botas, con cámara, con cámara y botas
 - **Boina rosa (cuerpo crema):** feliz, feliz con botas, con cámara, con cámara y botas
 
-**Regla de contraste:** Kippi nunca va sobre un fondo de su mismo color.
-- Fondos claros (Destello): Kippi de boina roja.
-- Fondos oscuros (Recuerdo, Rosa Vínculo): Kippi de boina rosa.
-- Evitar Kippi de boina roja sobre Aura (rosa sobre rosa).
+**Regla de contraste:** Kipi nunca va sobre un fondo de su mismo color.
+- Fondos claros (Destello): Kipi de boina roja.
+- Fondos oscuros (Recuerdo, Rosa Vínculo): Kipi de boina rosa.
+- Evitar Kipi de boina roja sobre Aura (rosa sobre rosa).
 
 Ver `referencias/manual-kippi-sobre-fondos.png`.
 
@@ -122,3 +122,7 @@ Ver `referencias/manual-kippi-sobre-fondos.png`.
 ## Vista previa de la página
 
 https://claude.ai/artifact/LG9r1mR81pFZPicJmGoCU7
+
+## Reuniones para eventos
+
+Lunes a viernes de 6:00 a 8:00 p. m. Hoy la web pide la cita por WhatsApp. Cuando exista la página de citas de Google Calendar, se pega su enlace en `BOOKING_URL` dentro de `index.html`.

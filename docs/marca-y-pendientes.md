@@ -20,7 +20,7 @@ Notas para la próxima actualización de la página. Todavía no se han aplicado
 ## Pendiente de recibir
 
 - [x] Branding recibido y aplicado (ver abajo).
-- [x] PNG originales del logo y de Kippi recibidos y aplicados.
+- [x] PNG originales del logo y de Kipi recibidos y aplicados.
 - [x] Fuente ZT Otez instalada en assets/fonts.
 - [ ] Fotos nuevas para el catálogo (hoy solo tienen foto: mascota, Dinofabeto y bodas).
 - [ ] Foto de bodas en mejor resolución (la actual sale de una captura).
@@ -41,12 +41,12 @@ Notas para la próxima actualización de la página. Todavía no se han aplicado
 ## Branding
 
 - Lema: Fotografía encapsulada
-- Personaje: Kippi (estrella con boina)
+- Personaje: Kipi (estrella con boina)
 - Colores: Rosa Vínculo #825050 · Aura #F5D6D3 · Destello #F9F0E8 · Recuerdo #3F1E1E · Conexión #913F3F
 - Tipografías: títulos Poppins ExtraBold · subtítulos Zt Otez Regular/Italic · texto Poppins Regular
 
-## Regla de contraste de Kippi
+## Regla de contraste de Kipi
 
-- Fondos claros (Destello): Kippi rosa con boina roja.
-- Fondos oscuros (Recuerdo, Rosa Vínculo): Kippi crema con boina rosa.
-- Nunca poner a Kippi sobre un fondo de su mismo color (por ejemplo, Kippi rosa sobre Aura).
+- Fondos claros (Destello): Kipi rosa con boina roja.
+- Fondos oscuros (Recuerdo, Rosa Vínculo): Kipi crema con boina rosa.
+- Nunca poner a Kipi sobre un fondo de su mismo color (por ejemplo, Kipi rosa sobre Aura).
