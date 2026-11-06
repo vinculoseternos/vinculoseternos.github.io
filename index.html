@@ -7,7 +7,7 @@
 <meta name="description" content="Acumulamos miles de fotografías, pero dedicamos cada vez menos tiempo a recordar. Vínculos Eternos convierte tus fotos en recuerdos que brillan cerca de ti.">
 <meta property="og:title" content="Vínculos Eternos">
 <meta property="og:description" content="No vendemos imanes. Ayudamos a las personas a detenerse un momento y recordar lo que realmente importa.">
-<meta property="og:image" content="assets/img/graduacion.webp">
+<meta property="og:image" content="assets/img/boda.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap">
@@ -102,6 +102,20 @@ nav.links a[aria-current="page"] { text-decoration: underline; text-decoration-t
 .kippi-hero { position: absolute; right: -2%; bottom: -2%; width: 36%; z-index: 4; transform: rotate(8deg); filter: drop-shadow(0 8px 14px rgba(0,0,0,.35)); }
 @media (max-width: 780px) { .hero .wrap { grid-template-columns: 1fr; } .memories { width: min(100%, 400px); justify-self: center; } }
 
+/* Banda de bodas en Inicio */
+.wed-band { background: var(--rosa); color: var(--destello); }
+.wed-band .wrap { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(32px, 6vw, 72px); align-items: center; }
+.wed-photo { margin: 0; justify-self: center; width: min(100%, 380px); background: var(--papel); padding: 8px 8px 30px; border-radius: 3px; transform: rotate(-3deg); box-shadow: 0 18px 36px -12px rgba(0,0,0,.5); }
+.wed-copy { display: grid; gap: 16px; min-width: 0; }
+.wed-copy h2 { color: var(--destello); }
+.wed-copy .sub { color: var(--aura); }
+.wed-copy > p:not(.sub) { opacity: .92; max-width: 56ch; }
+.wed-copy .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.wed-copy .btn-line { color: var(--destello); }
+.wed-quote { margin: 0; font-family: var(--f-sub); font-style: italic; font-size: 1.15rem; line-height: 1.35; color: var(--aura); }
+.wed-quote cite { display: block; margin-top: 4px; font: 400 .8rem/1.4 var(--f-body); font-style: normal; color: var(--destello); opacity: .8; }
+@media (max-width: 780px) { .wed-band .wrap { grid-template-columns: 1fr; } .wed-photo { width: min(78%, 320px); } }
+
 /* Manifiesto */
 .manifesto { text-align: center; }
 .manifesto .wrap { display: grid; gap: 22px; justify-items: center; max-width: 880px; }
@@ -170,7 +184,8 @@ nav.links a[aria-current="page"] { text-decoration: underline; text-decoration-t
 .more-b:hover { text-decoration: underline; }
 .ctrl-home { display: contents; }
 .ctrl { display: grid; gap: 10px; align-content: end; }
-.product .body { grid-template-rows: auto auto auto auto 1fr; }
+.product .body { grid-template-rows: auto auto 1fr auto; }
+.product .price small { font: 500 .78rem var(--f-body); color: var(--muted); }
 .opt-b { border: 0; padding: 0; background: none; cursor: pointer; }
 .opt-b span { display: grid; gap: 1px; padding: 8px 12px; border-radius: 12px; border: 1.5px solid var(--linea); background: var(--destello); font-size: .82rem; font-weight: 500; line-height: 1.25; text-align: left; transition: border-color .15s, background .15s; }
 .opt-b span small { font-size: .74rem; color: var(--muted); font-weight: 400; font-variant-numeric: tabular-nums; }
@@ -208,6 +223,7 @@ dialog.pd[open] { animation: pop .22s ease; }
 .pd-prices th, .pd-prices td { padding: 7px 0; border-bottom: 1px solid var(--linea); text-align: left; font-weight: 400; }
 .pd-prices td { text-align: right; font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .pd-buy { padding-top: 6px; }
+.pd-cart { justify-self: start; border: 0; background: none; padding: 4px 0; color: var(--conexion); font-weight: 600; font-size: .9rem; cursor: pointer; text-decoration: underline; text-underline-offset: 4px; }
 @media (max-width: 760px) { .pd-body { grid-template-columns: 1fr; } .pd-gallery { padding: 14px; } .pd-main { aspect-ratio: 4 / 3.4; } }
 
 /* Ideas */
@@ -244,10 +260,19 @@ dialog.pd[open] { animation: pop .22s ease; }
 .book h3 { color: var(--destello); font-size: 1.2rem; text-transform: uppercase; }
 .book-sub, .book-hint { font-size: .86rem; opacity: .85; }
 .book-hint a { color: var(--aura); }
-.slots { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: thin; }
-.slot { flex: none; border: 1.5px solid rgba(245, 213, 210, .45); background: transparent; color: var(--destello); border-radius: 12px; padding: 8px 12px; font-size: .82rem; line-height: 1.2; cursor: pointer; text-align: center; }
-.slot small { display: block; opacity: .75; font-size: .72rem; }
+.week { display: grid; gap: 6px; }
+#book-days { display: grid; gap: 12px; }
+.slot-l { font-size: .74rem; font-weight: 600; letter-spacing: .06em; color: var(--aura); }
+.days { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; }
+.times { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+.slot { min-height: 44px; border: 1.5px solid rgba(245, 213, 210, .45); background: transparent; color: var(--destello); border-radius: 12px; padding: 6px 4px; font-size: .82rem; line-height: 1.3; cursor: pointer; text-align: center; }
+.slot small { display: block; font-size: .95rem; font-weight: 600; }
+.slot:hover:not(:disabled) { border-color: var(--aura); }
+.slot:disabled { opacity: .3; cursor: default; }
 .slot[aria-pressed="true"] { background: var(--aura); border-color: var(--aura); color: var(--recuerdo); }
+.btn-book { width: 100%; background: var(--destello); color: var(--recuerdo); font-weight: 700; padding-block: 16px; }
+.btn-light { background: var(--destello); color: var(--recuerdo); }
+@media (max-width: 420px) { .times { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 780px) { .quote .wrap { grid-template-columns: 1fr; } }
 
 /* Bodas: cómo funciona */
@@ -329,7 +354,7 @@ footer a:hover { opacity: 1; color: var(--aura); }
 /* Páginas */
 .page > section.first, .page > section:first-child:not(.hero) { padding-top: clamp(48px, 7vw, 80px); }
 .explore { padding-top: 0; }
-.explore-grid { grid-template-columns: repeat(4, 1fr); }
+.explore-grid { grid-template-columns: repeat(3, 1fr); }
 .card.go { text-decoration: none; color: inherit; transition: transform .2s, box-shadow .2s; }
 .card.go:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
 .card.go .more { color: var(--conexion); font-weight: 600; font-size: .88rem; margin-top: 4px; }
@@ -391,9 +416,9 @@ dialog.cart[open] { animation: slide .25s ease; }
     <a class="logo" href="#inicio"><img src="assets/brand/logo-recuerdo.webp" alt="Vínculos Eternos" width="1000" height="141"></a>
     <nav class="links" aria-label="Secciones">
       <a href="#inicio">Inicio</a>
+      <a href="#eventos">Bodas y eventos</a>
       <a href="#catalogo">Catálogo</a>
       <a href="#ideas">Ideas</a>
-      <a href="#eventos">Bodas y eventos</a>
       <a href="#nosotros">Sobre nosotros</a>
       <a href="#preguntas">Preguntas frecuentes</a>
     </nav>
@@ -411,8 +436,8 @@ dialog.cart[open] { animation: slide .25s ease; }
         <p class="sub">pero dedicamos cada vez menos tiempo a recordar.</p>
         <p class="lead">Sacamos tus fotos del celular para que vuelvan a brillar donde las ves todos los días: en la refri, en la pared o en la mesa de noche.</p>
         <div class="actions">
-          <a class="btn btn-main" href="#catalogo">Ver catálogo</a>
-          <a class="btn btn-line" href="#ideas">Buscar ideas</a>
+          <a class="btn btn-main" href="#eventos">Imanes en vivo para tu boda</a>
+          <a class="btn btn-line" href="#catalogo">Ver catálogo</a>
         </div>
       </div>
       <div class="memories" aria-hidden="true">
@@ -423,6 +448,23 @@ dialog.cart[open] { animation: slide .25s ease; }
       </div>
     </div>
   </section>
+
+<section class="wed-band" aria-labelledby="wed-t">
+    <div class="wrap">
+      <figure class="wed-photo"><img src="assets/img/boda.webp" alt="Novios sosteniendo un imán con su foto de boda" loading="lazy" width="540" height="615"></figure>
+      <div class="wed-copy">
+        <h2 id="wed-t">En su boda, cada invitado se lleva su foto</h2>
+        <p class="sub">En imán. Minutos después, ese mismo día.</p>
+        <p>Ustedes escogen cuántos imanes y cuántas horas. Nosotros tomamos las fotos, cada quien escoge en la que salió más guapo y se lo lleva en la mano. Y ustedes, el suyo.</p>
+        <blockquote class="wed-quote">“Y así se ven en casa. Excelente trabajo. Como invitadas, ¡lo amamos!”<cite>Dani, invitada de una boda</cite></blockquote>
+        <div class="actions">
+          <a class="btn btn-light" href="#agendar">Agendar una reunión</a>
+          <a class="btn btn-line" href="#eventos">Cómo funciona</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
 
 <section id="concepto" class="manifesto">
     <div class="wrap">
@@ -440,7 +482,6 @@ dialog.cart[open] { animation: slide .25s ease; }
       <div class="grid explore-grid">
         <a class="card go" href="#catalogo"><div class="ph"><img src="assets/img/dinofabeto.webp" alt="" loading="lazy" style="object-position:50% 45%" width="960" height="1280"></div><div class="body"><span class="cat">Catálogo</span><h3>Elige tu recuerdo</h3><p>Fotos imantadas, metales, lámparas, calendarios y más. Arma tu pedido aquí mismo.</p><span class="more">Ver catálogo →</span></div></a>
         <a class="card go" href="#ideas"><div class="ph"><img src="assets/img/mascota.webp" alt="" loading="lazy" style="object-position:50% 65%" width="960" height="1280"></div><div class="body"><span class="cat">Ideas</span><h3>Inspírate</h3><p>Mascotas, familia, parejas, bebés y celebraciones: ideas para lo que quieres recordar.</p><span class="more">Ver ideas →</span></div></a>
-        <a class="card go" href="#eventos"><div class="ph"><img src="assets/img/boda.webp" alt="" loading="lazy" style="object-position:50% 40%" width="540" height="615"></div><div class="body"><span class="cat">Bodas y eventos</span><h3>Para el gran día</h3><p>Recuerdos para bodas, baby showers y celebraciones. Agenda una reunión para cotizar.</p><span class="more">Ver eventos →</span></div></a>
         <a class="card go" href="#nosotros"><div class="ph"><img src="assets/brand/mockup.webp" alt="" loading="lazy" width="625" height="509"></div><div class="body"><span class="cat">Sobre nosotros</span><h3>Detrás de cada recuerdo</h3><p>La historia de Mary, Kipi y lo que dicen quienes ya recuerdan.</p><span class="more">Conocernos →</span></div></a>
       </div>
     </div>
@@ -454,7 +495,7 @@ dialog.cart[open] { animation: slide .25s ease; }
       <div class="sec-head">
         <span class="eyebrow">Catálogo</span>
         <h2>Elige tu recuerdo</h2>
-        <p class="lead">Escoge la opción, agrégala a tu pedido y al final lo envías por WhatsApp con tus fotos.</p>
+        <p class="lead">Toca un producto para ver sus opciones y agregarlo a tu pedido. Al final lo envías por WhatsApp con tus fotos.</p>
       </div>
       <!-- Las tarjetas se generan desde PRODUCTOS en el script de abajo. Ahí se cambian precios y textos. -->
       <div class="grid" id="products"></div>
@@ -487,6 +528,7 @@ dialog.cart[open] { animation: slide .25s ease; }
 
       <div class="tabs" role="group" aria-label="Filtrar ideas">
         <button class="tab" type="button" data-filter="todas" aria-pressed="true">Todas</button>
+        <button class="tab" type="button" data-filter="bodas" aria-pressed="false">Bodas</button>
         <button class="tab" type="button" data-filter="mascotas" aria-pressed="false">Mascotas</button>
         <button class="tab" type="button" data-filter="familia" aria-pressed="false">Familia</button>
         <button class="tab" type="button" data-filter="parejas" aria-pressed="false">Parejas</button>
@@ -497,6 +539,13 @@ dialog.cart[open] { animation: slide .25s ease; }
 
       <!-- IDEAS: data-make = producto del catálogo; data-set = producto:opción:cantidad para agregar un set completo -->
       <div class="grid" id="ideas-grid">
+
+        <article class="card idea" data-cat="bodas">
+          <div class="ph"><img src="assets/img/boda.webp" alt="Novios sosteniendo un imán con su foto de boda" loading="lazy" style="object-position:50% 40%" width="540" height="615"></div>
+          <div class="body"><span class="cat">Bodas</span><h3>Imanes en vivo en su boda</h3>
+            <p>Fotos a los invitados y a ustedes durante la fiesta, y cada quien se lleva su imán minutos después.</p>
+            <div class="idea-foot"><span class="make"><a href="#eventos">Cómo funciona</a></span><a class="btn btn-main" href="#agendar">Agendar reunión</a></div></div>
+        </article>
 
         <article class="card idea" data-cat="mascotas">
           <div class="ph"><img src="assets/img/mascota.webp" alt="Imán con la foto de un cachorro husky" loading="lazy" style="object-position:50% 65%" width="960" height="1280"></div>
@@ -619,13 +668,15 @@ dialog.cart[open] { animation: slide .25s ease; }
           <img class="kippi" src="assets/brand/kippi-abrazo-crema-botas.webp" alt="" loading="lazy" width="600" height="586">
           <p class="kicker">Lo más importante es que ustedes se lleven el suyo.</p>
           <p>Toda la boda es para los demás, pero ¿qué queda para ustedes? Si están planeando su boda, escríbanme y les cuento cómo sería la suya.</p>
+          <blockquote class="wed-quote">“Y así se ven en casa. Excelente trabajo. Como invitadas, ¡lo amamos!”<cite>Dani, invitada de una boda</cite></blockquote>
         </div>
         <div class="book" id="agendar">
           <h3>Agenda una reunión</h3>
           <p class="book-sub">Lunes a viernes, de 6:00 a 8:00 p. m. Elige el día y la hora.</p>
-          <div class="slots" id="book-days" role="group" aria-label="Día"></div>
-          <div class="slots" id="book-times" role="group" aria-label="Hora"></div>
-          <a class="btn btn-soft" id="book-send" href="https://wa.me/50671821161" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Pedir esta cita</a>
+          <div id="book-days"></div>
+          <p class="slot-l">Hora</p>
+          <div class="times" id="book-times" role="group" aria-label="Hora"></div>
+          <a class="btn btn-book" id="book-send" href="https://wa.me/50671821161" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg><span>Pedir esta cita</span></a>
           <p class="book-hint" id="book-hint">Te confirmamos por WhatsApp. ¿Prefieres escribir? <a data-wa="Hola Vínculos Eternos, quiero cotizar recuerdos para un evento." href="https://wa.me/50671821161" target="_blank" rel="noopener">Cotizar por WhatsApp</a></p>
         </div>
       </div>
@@ -735,7 +786,7 @@ dialog.cart[open] { animation: slide .25s ease; }
 <footer>
   <div class="wrap">
     <span>© <span id="year">2026</span> Vínculos Eternos · Fotografía encapsulada</span>
-    <nav class="foot-links" aria-label="Páginas"><a href="#catalogo">Catálogo</a><a href="#ideas">Ideas</a><a href="#eventos">Eventos</a><a href="#nosotros">Sobre nosotros</a><a href="#preguntas">Preguntas frecuentes</a><a href="#contacto">Contacto</a></nav>
+    <nav class="foot-links" aria-label="Páginas"><a href="#eventos">Bodas y eventos</a><a href="#catalogo">Catálogo</a><a href="#ideas">Ideas</a><a href="#nosotros">Sobre nosotros</a><a href="#preguntas">Preguntas frecuentes</a><a href="#contacto">Contacto</a></nav>
     <div class="contact">
       <a href="https://www.instagram.com/vinculos_eternos_cr/" target="_blank" rel="noopener">Instagram @vinculos_eternos_cr</a>
       <a href="https://wa.me/50671821161" target="_blank" rel="noopener">WhatsApp 7182-1161</a>
@@ -756,8 +807,8 @@ dialog.cart[open] { animation: slide .25s ease; }
       <h2 id="pd-t"></h2>
       <p class="pd-desc"></p>
       <ul class="pd-list"></ul>
-      <table class="pd-prices"><caption>Precios</caption><tbody></tbody></table>
       <div class="pd-buy"></div>
+      <button class="pd-cart" type="button" hidden>Agregado. Ver mi pedido →</button>
     </div>
   </div>
 </dialog>
@@ -873,6 +924,12 @@ dialog.cart[open] { animation: slide .25s ease; }
     return { pid: pid, oi: oi, qty: qty, gift: gift, songs: songs, total: total, name: p.name, detail: detail, extras: extras };
   }
 
+  function fromPrice(p) {
+    var vals = [], each = false;
+    p.options.forEach(function (o) { if (o.tiers) o.tiers.forEach(function (t) { vals.push(t[1]); }); else vals.push(o.price); if (o.unit) each = true; });
+    return { v: Math.min.apply(null, vals), many: vals.length > 1, each: each };
+  }
+
   // Tarjetas del catálogo
   var KIPI_PH = '<img src="assets/brand/kippi-camara-roja.webp" alt="" width="600" height="507"><span>Fotos próximamente</span>';
   var grid = $("#products");
@@ -903,8 +960,8 @@ dialog.cart[open] { animation: slide .25s ease; }
       "</div>";
     var html = '<article class="card product" id="p-' + p.id + '" data-pid="' + p.id + '">' + ph +
       '<div class="body"><span class="cat">' + esc(p.cat) + '</span><h3><button class="link-h" type="button" data-detail>' + esc(p.name) + "</button></h3><p>" + esc(p.desc) + "</p>" +
-      '<button class="more-b" type="button" data-detail>Ver fotos y detalles →</button>' +
-      '<div class="ctrl-home">' + ctrl + "</div></div></article>";
+      '<div class="buy"><span class="price"><small>' + (fromPrice(p).many ? "Desde " : "") + "</small>" + crc(fromPrice(p).v) + (fromPrice(p).each ? " <small>c/u</small>" : "") + '</span><button class="btn btn-main" type="button" data-detail>Elegir</button></div>' +
+      '<div class="ctrl-home" hidden>' + ctrl + "</div></div></article>";
     grid.insertAdjacentHTML("beforeend", html);
   });
 
@@ -966,6 +1023,7 @@ dialog.cart[open] { animation: slide .25s ease; }
         var s = ctrlState(ctrl);
         addLine(lineOf(s.p.id, s.oi, s.qty, s.gift, s.songs));
         toast(s.p.name + " agregado a tu pedido");
+        if (ctrl.closest("#pd")) $("#pd .pd-cart").hidden = false;
         add.classList.add("added"); add.textContent = "¡Agregado!";
         setTimeout(function () { add.classList.remove("added"); add.textContent = "Agregar al pedido"; }, 1400);
       }
@@ -998,7 +1056,7 @@ dialog.cart[open] { animation: slide .25s ease; }
     $("#pd-t").textContent = p.name;
     $(".pd-desc", pd).textContent = p.desc;
     $(".pd-list", pd).innerHTML = (p.details || []).map(function (d) { return "<li>" + esc(d) + "</li>"; }).join("");
-    $(".pd-prices tbody", pd).innerHTML = priceRows(p);
+    $(".pd-cart", pd).hidden = true;
     $(".pd-thumbs", pd).innerHTML = p.photos.length > 1 ? p.photos.map(function (f, i) {
       return '<button type="button" data-ph="' + i + '" aria-label="Foto ' + (i + 1) + '"><img src="' + f.src + '" alt=""></button>';
     }).join("") : "";
@@ -1013,6 +1071,7 @@ dialog.cart[open] { animation: slide .25s ease; }
   pd.addEventListener("close", function () { if (pdCtrl && pdHome) pdHome.appendChild(pdCtrl); pdCtrl = pdHome = null; });
   pd.addEventListener("click", function (e) {
     if (e.target === pd || e.target.closest("[data-pd-close]")) { pd.close(); return; }
+    if (e.target.closest(".pd-cart")) { pd.close(); var c = $("#cart"); if (c.showModal) c.showModal(); else c.setAttribute("open", ""); return; }
     var t = e.target.closest("[data-ph]");
     if (t) showPhoto(+t.dataset.ph);
   });
@@ -1042,7 +1101,7 @@ dialog.cart[open] { animation: slide .25s ease; }
     var a = e.target.closest('a[href^="#p-"]');
     if (!a) return;
     var card = $(a.getAttribute("href"));
-    if (card) { setTimeout(function () { card.classList.add("flash"); setTimeout(function () { card.classList.remove("flash"); }, 1600); }, 350); }
+    if (card) { setTimeout(function () { card.classList.add("flash"); setTimeout(function () { card.classList.remove("flash"); }, 1600); openDetail(card.dataset.pid); }, 350); }
   });
 
   /* Agenda de eventos. Cuando exista la página de citas de Google Calendar,
@@ -1053,30 +1112,41 @@ dialog.cart[open] { animation: slide .25s ease; }
     if (BOOKING_URL) {
       $("#book-days").hidden = $("#book-times").hidden = true;
       $(".book-sub").textContent = "Lunes a viernes, de 6:00 a 8:00 p. m. Mira los espacios libres y reserva el tuyo.";
-      send.textContent = "Ver horarios disponibles"; send.href = BOOKING_URL;
+      $$(".book .slot-l").forEach(function (l) { l.hidden = true; }); $("span", send).textContent = "Ver horarios disponibles"; send.href = BOOKING_URL;
       return;
     }
     var dias = ["dom", "lun", "mar", "mié", "jue", "vie", "sáb"], meses = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"];
     var largo = ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"];
     var horas = ["6:00", "6:30", "7:00", "7:30"];
-    var d = new Date(), days = [];
-    d.setHours(0, 0, 0, 0);
-    while (days.length < 10) { d.setDate(d.getDate() + 1); if (d.getDay() > 0 && d.getDay() < 6) days.push(new Date(d)); }
-    var sel = { day: days[0], time: horas[0] };
-    $("#book-days").innerHTML = days.map(function (x, i) {
-      return '<button class="slot" type="button" data-i="' + i + '" aria-pressed="' + (i === 0) + '">' + dias[x.getDay()] + "<small>" + x.getDate() + " " + meses[x.getMonth()] + "</small></button>";
+    var tomorrow = new Date(); tomorrow.setHours(0, 0, 0, 0); tomorrow.setDate(tomorrow.getDate() + 1);
+    var mon = new Date(tomorrow), wd = mon.getDay();
+    mon.setDate(mon.getDate() + (wd === 6 ? 2 : wd === 0 ? 1 : 1 - wd));
+    if (tomorrow.getDay() === 5) mon.setDate(mon.getDate() + 7); // si solo quedaría el viernes, empezar la otra semana
+    var weeks = [0, 1].map(function (w) {
+      return [0, 1, 2, 3, 4].map(function (i) { var x = new Date(mon); x.setDate(mon.getDate() + w * 7 + i); return x; });
+    });
+    var all = weeks[0].concat(weeks[1]);
+    var firstOk = all.filter(function (x) { return x >= tomorrow; })[0];
+    var sel = { day: firstOk, time: horas[0] };
+    $("#book-days").innerHTML = weeks.map(function (wk, w) {
+      return '<div class="week"><p class="slot-l">Semana del ' + wk[0].getDate() + " " + meses[wk[0].getMonth()] + '</p><div class="days" role="group" aria-label="Día, semana del ' + wk[0].getDate() + " " + meses[wk[0].getMonth()] + '">' +
+        wk.map(function (x, i) {
+          var k = w * 5 + i, off = x < tomorrow;
+          return '<button class="slot" type="button" data-i="' + k + '"' + (off ? " disabled" : "") + ' aria-pressed="' + (x === firstOk) + '">' + dias[x.getDay()] + "<small>" + x.getDate() + "</small></button>";
+        }).join("") + "</div></div>";
     }).join("");
     $("#book-times").innerHTML = horas.map(function (h, i) {
       return '<button class="slot" type="button" data-h="' + h + '" aria-pressed="' + (i === 0) + '">' + h + " p. m.</button>";
     }).join("");
     function upd() {
       var x = sel.day;
+      $("span", send).textContent = "Pedir cita · " + dias[x.getDay()] + " " + x.getDate() + " " + meses[x.getMonth()] + ", " + sel.time + " p. m.";
       send.href = waUrl("Hola Vínculos Eternos, quiero agendar una reunión para cotizar un evento el " + largo[x.getDay()] + " " + x.getDate() + " de " + meses[x.getMonth()] + " a las " + sel.time + " p. m. ¿Está disponible?");
     }
     $("#book-days").addEventListener("click", function (e) {
-      var b = e.target.closest(".slot"); if (!b) return;
+      var b = e.target.closest(".slot"); if (!b || b.disabled) return;
       $$("#book-days .slot").forEach(function (o) { o.setAttribute("aria-pressed", String(o === b)); });
-      sel.day = days[+b.dataset.i]; upd();
+      sel.day = all[+b.dataset.i]; upd();
     });
     $("#book-times").addEventListener("click", function (e) {
       var b = e.target.closest(".slot"); if (!b) return;
@@ -1098,6 +1168,7 @@ dialog.cart[open] { animation: slide .25s ease; }
   // Filtro de ideas
   var intros = {
     todas: "Personas, mascotas, etapas y fechas que merecen salir del celular.",
+    bodas: "El recuerdo que sí se llevan a casa, el mismo día.",
     mascotas: "Los que están y los que ya no, pero siguen siendo parte de la familia.",
     familia: "Abuelos, papás, hijos. Los vínculos que nos hacen quienes somos.",
     parejas: "Para aniversarios, San Valentín o porque sí.",
