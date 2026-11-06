@@ -21,15 +21,28 @@ Este archivo resume el branding y la información del negocio. Si abres un chat 
 > No vendemos imanes.
 > Ayudamos a las personas a detenerse un momento y recordar lo que realmente importa.
 
-## Catálogo por categorías
+## Catálogo con precios (carrito de la web)
 
-| Categoría | Productos | Precio |
-|---|---|---|
-| Niños | Dinofabeto (abecedario con Ñ, dinosaurios y flechas de trazo), graduaciones y etapas | Graduaciones ₡1 700 c/u; Dinofabeto por confirmar |
-| Personalizados | Imán con tu foto, tu mascota, imanes para marcas | ₡1 700 c/u; marcas por cotizar |
-| Eventos | Bodas, aniversarios, baby showers | Por cotizar |
-| Metales | Corazones de metal | Por confirmar |
-| Calendarios | Mensual con música, anual con música | Por confirmar |
+| Producto | Opciones y precio |
+|---|---|
+| Fotos imantadas | 1 imán ₡1 700 · 5 imanes ₡7 500 · 10 imanes ₡13 000 · 20 o más ₡1 200 c/u |
+| Empaque listo para regalar | +₡1 000 sobre el pedido de imanes |
+| Dinofabeto | ₡22 500: 27 letras con dinosaurios y líneas de trazo (caligrafía, formar palabras) |
+| Matesaurios | Números 0-9 ₡13 000 · 0-9 + 5 signos ₡18 000 · números dobles + signos ₡27 500 (este último si ya hacen operaciones de 2 dígitos o más) |
+| Siluetas de metal | Corazón ₡10 000 · Gato ₡5 000. Se cuelgan como cuadro y llevan fotos imantadas encima |
+| Lámpara de litofanía | Pequeña ₡25 000 · Mediana ₡30 000 · Grande ₡37 000. Forma personalizable |
+| Calendario anual con música | ₡3 500 c/u + ₡500 por canción. 100 % personalizable |
+| Calendario mensual con música | ₡800 c/u (mínimo 4) + ₡500 por canción. 100 % personalizable |
+| Bodas y eventos | Se cotizan aparte con cada persona |
+
+## Ideas e inspiración (sección aparte, sin repetir precios)
+
+Mascotas (las que están y las que ya no) · Familia (abuelos, hijos, papás; lámpara para recordar a alguien) · Parejas (aniversario, San Valentín; sets corazón + 5 fotos, corazón + 10 fotos, 12 calendarios mensuales con fotos de la pareja) · Bebés y etapas (baby shower, primer año mes a mes, graduaciones) · Celebraciones (boda, cumpleaños, sesión de Navidad con fotógrafo).
+
+## Tono de la marca
+
+- Conceptos: "La chispa que nos une" (Kippi, Sparky de cariño, es la chispa que une el imán a la superficie y mantiene vivos los recuerdos) y "Recuerdos que brillan" (el destello de memoria que queremos mantener cerca).
+- No repetir mucho "hecho a mano", "uno por uno" ni "Costa Rica": no es el mensaje principal.
 
 ## Colores
 

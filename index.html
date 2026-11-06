@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Vínculos Eternos</title>
-<meta name="description" content="Acumulamos miles de fotografías, pero dedicamos cada vez menos tiempo a recordar. Vínculos Eternos devuelve presencia a los momentos que importan. Hecho en Costa Rica.">
+<meta name="description" content="Acumulamos miles de fotografías, pero dedicamos cada vez menos tiempo a recordar. Vínculos Eternos convierte tus fotos en recuerdos que brillan cerca de ti.">
 <meta property="og:title" content="Vínculos Eternos">
 <meta property="og:description" content="No vendemos imanes. Ayudamos a las personas a detenerse un momento y recordar lo que realmente importa.">
 <meta property="og:image" content="assets/img/graduacion.webp">
@@ -15,7 +15,8 @@
 @font-face { font-family: "ZT Otez"; src: url("assets/fonts/ZTOtez-Regular.otf") format("opentype"); font-weight: 400; font-style: normal; font-display: swap; }
 @font-face { font-family: "ZT Otez"; src: url("assets/fonts/ZTOtez-Italic.otf") format("opentype"); font-weight: 400; font-style: italic; font-display: swap; }
 /* Branding Vínculos Eternos: Destello de fondo, Recuerdo para las bandas oscuras, Rosa Vínculo en titulares, Conexión en botones, Aura para lo suave.
-   Diseño comprometido con un solo tema claro, como el manual de marca. */
+   Diseño comprometido con un solo tema claro, como el manual de marca.
+   Regla de Kippi: boina roja sobre fondos claros, boina rosa (cuerpo crema) sobre Recuerdo o Rosa Vínculo. */
 :root {
   --destello: #f8efe8;
   --aura: #f5d5d2;
@@ -33,12 +34,14 @@
   color-scheme: light;
 }
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 76px; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; animation: none !important; } }
 body { margin: 0; background: var(--destello); color: var(--recuerdo); font: 400 1rem/1.7 var(--f-body); -webkit-font-smoothing: antialiased; }
 img { max-width: 100%; height: auto; display: block; }
 a { color: inherit; }
+button { font: inherit; color: inherit; }
 :focus-visible { outline: 2px solid var(--conexion); outline-offset: 3px; border-radius: 4px; }
+[hidden] { display: none !important; }
 
 .wrap { width: 100%; max-width: 1140px; margin-inline: auto; padding-inline: 20px; }
 section { padding-block: clamp(64px, 10vw, 110px); }
@@ -51,7 +54,7 @@ p { margin: 0; }
 .lead { font-size: 1.05rem; color: var(--muted); max-width: 58ch; }
 .sec-head { display: grid; gap: 12px; margin-bottom: 40px; max-width: 720px; }
 
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 14px 26px; border-radius: 999px; border: 1.5px solid transparent; font: 600 .95rem/1 var(--f-body); text-decoration: none; cursor: pointer; transition: transform .15s ease, box-shadow .15s ease; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 14px 26px; border-radius: 999px; border: 1.5px solid transparent; font: 600 .95rem/1 var(--f-body); text-decoration: none; cursor: pointer; transition: transform .15s ease, box-shadow .15s ease, background .15s; }
 .btn:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
 .btn svg { width: 19px; height: 19px; flex: none; }
 .btn-main { background: var(--conexion); color: var(--destello); }
@@ -62,11 +65,15 @@ p { margin: 0; }
 header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: color-mix(in srgb, var(--destello) 92%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--linea); }
 .top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 12px; }
 .logo img { height: 30px; width: auto; }
-nav.links { display: flex; gap: 26px; font-size: .9rem; font-weight: 500; }
+nav.links { display: flex; gap: 24px; font-size: .9rem; font-weight: 500; }
 nav.links a { text-decoration: none; }
 nav.links a:hover { color: var(--conexion); }
-.top .btn { padding: 10px 20px; font-size: .85rem; }
-@media (max-width: 860px) { nav.links { display: none; } .logo img { height: 22px; } }
+.cart-btn { padding: 10px 18px; font-size: .85rem; }
+.cart-btn svg { width: 18px; height: 18px; }
+.badge { min-width: 22px; height: 22px; padding: 0 6px; border-radius: 999px; background: var(--destello); color: var(--conexion); font-size: .75rem; font-weight: 700; display: inline-grid; place-items: center; font-variant-numeric: tabular-nums; }
+.bump { animation: bump .4s ease; }
+@keyframes bump { 40% { transform: scale(1.12); } }
+@media (max-width: 920px) { nav.links { display: none; } .logo img { height: 22px; } }
 
 /* Portada */
 .hero { background: var(--recuerdo); color: var(--destello); padding-block: clamp(56px, 9vw, 100px); overflow: hidden; }
@@ -75,7 +82,7 @@ nav.links a:hover { color: var(--conexion); }
 .hero .eyebrow { color: var(--aura); }
 .hero h1 { font-size: clamp(2.2rem, 5vw, 3.7rem); text-transform: uppercase; color: var(--destello); letter-spacing: -.015em; }
 .hero .sub { color: var(--aura); font-size: clamp(1.5rem, 3vw, 2.1rem); }
-.hero .lead { color: var(--destello); opacity: .78; }
+.hero .lead { color: var(--destello); opacity: .8; }
 .hero .actions { display: flex; flex-wrap: wrap; gap: 12px; }
 .hero .btn-line { color: var(--destello); }
 .memories { position: relative; aspect-ratio: 1 / 1.05; max-width: 100%; }
@@ -92,38 +99,79 @@ nav.links a:hover { color: var(--conexion); }
 /* Manifiesto */
 .manifesto { text-align: center; }
 .manifesto .wrap { display: grid; gap: 22px; justify-items: center; max-width: 880px; }
-.manifesto .kippi { width: 170px; }
+.manifesto .kippi { width: 150px; }
 .manifesto .big { font-family: var(--f-sub); font-size: clamp(1.5rem, 3.2vw, 2.2rem); line-height: 1.3; color: var(--recuerdo); text-wrap: balance; }
 .manifesto .no { font-family: var(--f-title); font-weight: 800; text-transform: uppercase; font-size: clamp(2.2rem, 6.4vw, 4.2rem); color: var(--conexion); line-height: 1; letter-spacing: -.02em; }
 .manifesto .yes { font-size: 1.1rem; color: var(--muted); max-width: 46ch; }
 
-/* Catálogo */
-.tabs { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 26px; }
-.tab { font: 500 .9rem/1 var(--f-body); padding: 12px 20px; border-radius: 999px; border: 1.5px solid var(--linea); background: var(--papel); color: var(--recuerdo); cursor: pointer; transition: background .15s, color .15s, border-color .15s; }
-.tab:hover { border-color: var(--rosa); }
-.tab[aria-pressed="true"] { background: var(--rosa); border-color: var(--rosa); color: var(--destello); }
-.tab small { opacity: .7; margin-left: 4px; font-variant-numeric: tabular-nums; }
-.cat-intro { margin: -6px 0 28px; max-width: 60ch; }
+/* Kippi: la chispa */
+.spark { background: var(--rosa); color: var(--destello); }
+.spark .wrap { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(32px, 6vw, 72px); align-items: center; }
+.spark .kippi { width: min(100%, 340px); justify-self: center; filter: drop-shadow(0 14px 22px rgba(0,0,0,.28)); }
+.spark-copy { display: grid; gap: 18px; min-width: 0; }
+.spark .eyebrow { color: var(--aura); }
+.spark h2 { color: var(--destello); }
+.spark p { opacity: .9; max-width: 56ch; }
+.spark .sub { color: var(--aura); opacity: 1; margin-top: 8px; }
+@media (max-width: 780px) { .spark .wrap { grid-template-columns: 1fr; } .spark .kippi { width: 200px; } }
+
+/* Tarjetas comunes */
 .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-.card { background: var(--papel); border: 1px solid var(--linea); border-radius: 20px; overflow: hidden; display: grid; grid-template-rows: auto 1fr; min-width: 0; }
-.card .ph { aspect-ratio: 4 / 3.4; background: var(--aura); overflow: hidden; }
+.card { background: var(--papel); border: 1px solid var(--linea); border-radius: 20px; overflow: hidden; display: grid; grid-template-rows: auto 1fr; min-width: 0; transition: box-shadow .3s, border-color .3s; }
+.card .ph { aspect-ratio: 4 / 3.2; background: var(--aura); overflow: hidden; }
 .card .ph img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
 .card:hover .ph img { transform: scale(1.04); }
 .card .ph.soon { display: grid; place-items: center; align-content: center; gap: 6px; background: var(--destello); }
-.card .ph.soon img { width: 52%; height: auto; object-fit: contain; transform: none; }
-.card .ph.soon span { font-size: .7rem; letter-spacing: .18em; text-transform: uppercase; color: var(--rosa); font-weight: 600; }
-.card .body { padding: 22px; display: grid; gap: 8px; grid-template-rows: auto auto 1fr auto; min-width: 0; }
+.card .ph.soon img { width: 44%; height: auto; object-fit: contain; transform: none; }
+.card .ph.soon span { font-size: .68rem; letter-spacing: .18em; text-transform: uppercase; color: var(--rosa); font-weight: 600; }
+.card .body { padding: 22px; display: grid; gap: 10px; align-content: start; min-width: 0; }
 .card .cat { font-size: .68rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--rosa-claro); }
 .card p { color: var(--muted); font-size: .92rem; }
-.card .foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-top: 12px; border-top: 1px solid var(--linea); margin-top: 6px; }
-.price { font-family: var(--f-title); font-weight: 800; font-size: 1.3rem; color: var(--rosa); font-variant-numeric: tabular-nums; }
-.price small { font-weight: 400; font-size: .78rem; color: var(--muted); }
-.price.ask { font-size: .85rem; font-weight: 600; }
-.card .btn { padding: 10px 18px; font-size: .84rem; }
+.card.flash { border-color: var(--conexion); box-shadow: 0 0 0 4px color-mix(in srgb, var(--conexion) 22%, transparent); }
 @media (max-width: 960px) { .grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
 
-/* Bodas */
+/* Catálogo (con carrito) */
+.product .body { grid-template-rows: auto auto auto 1fr auto; height: 100%; }
+.opts { border: 0; margin: 4px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; min-width: 0; }
+.opts legend { font-size: .78rem; font-weight: 600; color: var(--recuerdo); padding: 0; margin-bottom: 8px; }
+.opt { position: relative; }
+.opt input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.opt span { display: grid; gap: 1px; padding: 8px 14px; border-radius: 12px; border: 1.5px solid var(--linea); background: var(--destello); font-size: .84rem; font-weight: 500; line-height: 1.25; cursor: pointer; transition: border-color .15s, background .15s; }
+.opt span small { font-size: .74rem; color: var(--muted); font-weight: 400; font-variant-numeric: tabular-nums; }
+.opt input:checked + span { border-color: var(--rosa); background: var(--aura); }
+.opt input:focus-visible + span { outline: 2px solid var(--conexion); outline-offset: 2px; }
+.note { font-size: .78rem; color: var(--rosa-claro); font-style: italic; }
+.extras { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; }
+.qty { display: flex; align-items: center; gap: 10px; font-size: .82rem; font-weight: 500; }
+.stepper { display: inline-flex; align-items: center; border: 1.5px solid var(--linea); border-radius: 999px; background: var(--destello); }
+.stepper button { width: 34px; height: 34px; border: 0; background: none; cursor: pointer; font-size: 1.1rem; line-height: 1; color: var(--conexion); border-radius: 50%; }
+.stepper button:disabled { opacity: .3; cursor: default; }
+.stepper output { min-width: 30px; text-align: center; font-weight: 600; font-variant-numeric: tabular-nums; }
+.check { display: flex; gap: 8px; align-items: center; font-size: .84rem; cursor: pointer; }
+.check input { width: 18px; height: 18px; accent-color: var(--conexion); margin: 0; }
+.check small { color: var(--muted); }
+.buy { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-top: 14px; border-top: 1px solid var(--linea); margin-top: 6px; }
+.price { font-family: var(--f-title); font-weight: 800; font-size: 1.35rem; color: var(--rosa); font-variant-numeric: tabular-nums; line-height: 1; }
+.buy .btn { padding: 11px 18px; font-size: .85rem; }
+.btn.added { background: var(--rosa); }
+
+/* Ideas */
+.ideas-sec { background: var(--papel); border-block: 1px solid var(--linea); }
+.ideas-sec .card { background: var(--destello); }
+.tabs { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
+.tab { font: 500 .9rem/1 var(--f-body); padding: 12px 20px; border-radius: 999px; border: 1.5px solid var(--linea); background: var(--destello); color: var(--recuerdo); cursor: pointer; transition: background .15s, color .15s, border-color .15s; }
+.tab:hover { border-color: var(--rosa); }
+.tab[aria-pressed="true"] { background: var(--rosa); border-color: var(--rosa); color: var(--destello); }
+.cat-intro { margin: 0 0 30px; max-width: 60ch; font-size: 1.2rem; }
+.idea .body { grid-template-rows: auto auto 1fr auto; height: 100%; }
+.idea-foot { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; padding-top: 12px; border-top: 1px solid var(--linea); margin-top: 6px; }
+.make { font-size: .8rem; color: var(--muted); }
+.make a { color: var(--conexion); font-weight: 600; text-decoration: none; }
+.make a:hover { text-decoration: underline; }
+.idea .btn { padding: 10px 16px; font-size: .82rem; }
+
+/* Bodas y eventos */
 .quote { background: var(--rosa); color: var(--destello); }
 .quote .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 72px); align-items: center; }
 .quote figure { margin: 0; justify-self: center; max-width: 420px; width: 100%; display: grid; gap: 14px; justify-items: center; }
@@ -136,6 +184,7 @@ nav.links a:hover { color: var(--conexion); }
 .quote ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; opacity: .88; }
 .quote li::before { content: "— "; color: var(--aura); }
 .quote .kicker { font-family: var(--f-sub); font-style: italic; font-size: 1.5rem; line-height: 1.3; }
+.quote .events { opacity: .88; max-width: 52ch; }
 .quote .btn { justify-self: start; }
 @media (max-width: 780px) { .quote .wrap { grid-template-columns: 1fr; } }
 
@@ -145,32 +194,6 @@ nav.links a:hover { color: var(--conexion); }
 .step::before { counter-increment: paso; content: counter(paso); font-family: var(--f-sub); font-style: italic; font-size: 2.6rem; line-height: 1; color: var(--conexion); }
 .step p { color: var(--muted); font-size: .95rem; }
 @media (max-width: 780px) { .steps { grid-template-columns: 1fr; } }
-
-/* Pedido */
-.order { margin-top: 48px; background: var(--rosa); color: var(--destello); border-radius: 28px; padding: clamp(24px, 4vw, 48px); display: grid; grid-template-columns: 1fr 1.15fr; gap: clamp(28px, 5vw, 56px); position: relative; }
-.order-info { display: grid; gap: 16px; align-content: start; min-width: 0; }
-.order-info h3 { font-size: clamp(1.5rem, 3vw, 2rem); text-transform: uppercase; color: var(--destello); }
-.order-info .eyebrow { color: var(--aura); }
-.order-info .lead { color: var(--destello); opacity: .85; }
-form.builder { color: var(--recuerdo); }
-.order-info .kippi { width: 130px; }
-.facts { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
-.facts li { display: grid; grid-template-columns: 22px 1fr; gap: 12px; font-size: .95rem; }
-.facts b { font-weight: 600; }
-.facts svg { width: 20px; height: 20px; margin-top: 3px; color: var(--aura); }
-form.builder { background: var(--papel); border-radius: 20px; padding: 24px; display: grid; gap: 16px; min-width: 0; }
-.field { display: grid; gap: 6px; }
-.field label { font-weight: 500; font-size: .88rem; }
-.field input, .field select, .field textarea { font: inherit; font-size: .98rem; color: var(--recuerdo); background: var(--destello); border: 1px solid var(--linea); border-radius: 12px; padding: 12px 14px; width: 100%; }
-.field textarea { min-height: 80px; resize: vertical; }
-.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.total { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; border-top: 1px dashed var(--linea); padding-top: 14px; }
-.total span { color: var(--muted); font-size: .88rem; }
-.total strong { font-family: var(--f-title); font-weight: 800; font-size: 1.5rem; color: var(--rosa); font-variant-numeric: tabular-nums; }
-.builder .btn-main { width: 100%; }
-.hint { font-size: .8rem; color: var(--muted); }
-@media (max-width: 860px) { .order { grid-template-columns: 1fr; } }
-@media (max-width: 420px) { .row2 { grid-template-columns: 1fr; } }
 
 /* Historia y reseñas */
 .story { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 64px); align-items: center; }
@@ -201,20 +224,58 @@ form.builder { background: var(--papel); border-radius: 20px; padding: 24px; dis
 .closing .kippi { width: 170px; }
 .closing .logo-big { width: min(100%, 420px); }
 .closing .sub { color: var(--aura); }
-footer { background: var(--recuerdo); color: var(--destello); border-top: 1px solid rgba(248, 239, 232, .15); padding-block: 26px; font-size: .85rem; }
+footer { background: var(--recuerdo); color: var(--destello); border-top: 1px solid rgba(248, 239, 232, .15); padding-block: 26px calc(26px + env(safe-area-inset-bottom, 0px)); font-size: .85rem; }
 footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 32px; justify-content: space-between; align-items: center; }
 footer .contact { display: flex; flex-wrap: wrap; gap: 8px 24px; }
 footer a { text-decoration: none; opacity: .85; }
 footer a:hover { opacity: 1; color: var(--aura); }
 
+/* Botones flotantes */
 .wa-float { position: fixed; right: 18px; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); z-index: 30; width: 56px; height: 56px; border-radius: 50%; background: var(--conexion); color: var(--destello); display: grid; place-items: center; box-shadow: var(--shadow); }
 .wa-float svg { width: 28px; height: 28px; }
+.cart-bar { position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(16px + env(safe-area-inset-bottom, 0px)); z-index: 30; width: min(calc(100% - 32px), 420px); display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 14px 12px 20px; border: 0; border-radius: 999px; background: var(--recuerdo); color: var(--destello); box-shadow: 0 18px 36px -12px rgba(0,0,0,.55); cursor: pointer; font-size: .92rem; }
+.cart-bar b { font-family: var(--f-title); font-weight: 800; font-variant-numeric: tabular-nums; }
+.cart-bar .go { background: var(--conexion); border-radius: 999px; padding: 9px 16px; font-weight: 600; font-size: .85rem; }
+
+/* Pedido (carrito) */
+dialog.cart { margin: 0 0 0 auto; width: min(460px, 100%); height: 100%; max-height: 100dvh; max-width: 100%; border: 0; padding: 0; background: var(--destello); color: var(--recuerdo); box-shadow: -20px 0 50px -20px rgba(0,0,0,.4); }
+dialog.cart::backdrop { background: rgba(62, 30, 30, .45); backdrop-filter: blur(2px); }
+dialog.cart[open] { animation: slide .25s ease; }
+@keyframes slide { from { transform: translateX(40px); opacity: 0; } }
+.cart-inner { display: grid; grid-template-rows: auto 1fr auto; height: 100%; }
+.cart-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 20px 22px; border-bottom: 1px solid var(--linea); }
+.cart-head h2 { font-size: 1.35rem; }
+.x { width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid var(--linea); background: var(--papel); cursor: pointer; font-size: 1.3rem; line-height: 1; color: var(--conexion); }
+.cart-body { overflow-y: auto; padding: 18px 22px; display: grid; gap: 18px; align-content: start; }
+.empty { display: grid; justify-items: center; text-align: center; gap: 12px; padding: 30px 10px; color: var(--muted); }
+.empty img { width: 120px; }
+.lines { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.line { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; background: var(--papel); border: 1px solid var(--linea); border-radius: 14px; padding: 12px 14px; }
+.line b { font-weight: 600; font-size: .95rem; }
+.line span { font-size: .82rem; color: var(--muted); grid-column: 1; }
+.line strong { font-family: var(--f-title); font-weight: 800; color: var(--rosa); font-variant-numeric: tabular-nums; grid-row: 1; grid-column: 2; }
+.line .rm { grid-column: 2; grid-row: 2 / span 2; justify-self: end; align-self: end; border: 0; background: none; color: var(--conexion); font-size: .78rem; text-decoration: underline; cursor: pointer; padding: 2px 0; }
+.field { display: grid; gap: 6px; }
+.field label { font-weight: 500; font-size: .86rem; }
+.field input, .field select, .field textarea { font: inherit; font-size: .98rem; color: var(--recuerdo); background: var(--papel); border: 1px solid var(--linea); border-radius: 12px; padding: 11px 14px; width: 100%; }
+.field textarea { min-height: 70px; resize: vertical; }
+.cart-foot { border-top: 1px solid var(--linea); padding: 16px 22px calc(18px + env(safe-area-inset-bottom, 0px)); display: grid; gap: 12px; background: var(--papel); }
+.total { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.total span { color: var(--muted); font-size: .88rem; }
+.total strong { font-family: var(--f-title); font-weight: 800; font-size: 1.5rem; color: var(--rosa); font-variant-numeric: tabular-nums; }
+.cart-foot .btn-main { width: 100%; }
+.cart-foot .btn-main[aria-disabled="true"] { opacity: .45; pointer-events: none; }
+.hint { font-size: .78rem; color: var(--muted); }
+
+.toast { position: fixed; left: 50%; top: 84px; transform: translate(-50%, -12px); z-index: 40; background: var(--recuerdo); color: var(--destello); padding: 10px 18px; border-radius: 999px; font-size: .88rem; box-shadow: var(--shadow); opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s; max-width: calc(100% - 32px); }
+.toast.show { opacity: 1; transform: translate(-50%, 0); }
 </style>
 </head>
 <body>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.4-.3Z"/></symbol>
+  <symbol id="i-bag" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M5 8h14l-1 12H6L5 8Zm4 0V6a3 3 0 0 1 6 0v2"/></symbol>
 </svg>
 
 <header class="top">
@@ -223,10 +284,11 @@ footer a:hover { opacity: 1; color: var(--aura); }
     <nav class="links" aria-label="Secciones">
       <a href="#concepto">Concepto</a>
       <a href="#catalogo">Catálogo</a>
-      <a href="#como-pedir">Cómo pedir</a>
+      <a href="#ideas">Ideas</a>
+      <a href="#eventos">Bodas y eventos</a>
       <a href="#preguntas">Preguntas</a>
     </nav>
-    <a class="btn btn-main" data-wa="Hola Vínculos Eternos, quiero hacer un pedido." href="https://wa.me/50671821161" target="_blank" rel="noopener">Pedir</a>
+    <button class="btn btn-main cart-btn" type="button" data-open-cart aria-label="Ver mi pedido"><svg aria-hidden="true"><use href="#i-bag"/></svg>Pedido <span class="badge" data-count>0</span></button>
   </div>
 </header>
 
@@ -235,13 +297,13 @@ footer a:hover { opacity: 1; color: var(--aura); }
   <section class="hero">
     <div class="wrap">
       <div class="hero-copy">
-        <span class="eyebrow">Fotografía encapsulada · Costa Rica</span>
+        <span class="eyebrow">Fotografía encapsulada</span>
         <h1>Acumulamos miles de fotografías</h1>
         <p class="sub">pero dedicamos cada vez menos tiempo a recordar.</p>
-        <p class="lead">Llevamos tus momentos del celular a un lugar donde los veas todos los días. Imanes, corazones de metal y calendarios hechos a mano, uno por uno.</p>
+        <p class="lead">Sacamos tus fotos del celular para que vuelvan a brillar donde las ves todos los días: en la refri, en la pared o en la mesa de noche.</p>
         <div class="actions">
-          <a class="btn btn-main" data-wa="Hola Vínculos Eternos, quiero encapsular mis fotos en un recuerdo." href="https://wa.me/50671821161" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Pedir por WhatsApp</a>
-          <a class="btn btn-line" href="#catalogo">Ver catálogo</a>
+          <a class="btn btn-main" href="#catalogo">Ver catálogo</a>
+          <a class="btn btn-line" href="#ideas">Buscar ideas</a>
         </div>
       </div>
       <div class="memories" aria-hidden="true">
@@ -255,7 +317,7 @@ footer a:hover { opacity: 1; color: var(--aura); }
 
   <section id="concepto" class="manifesto">
     <div class="wrap">
-      <img class="kippi" src="assets/brand/kippi-abrazo-roja-botas.webp" alt="Kippi, la estrella de Vínculos Eternos" width="600" height="585">
+      <img class="kippi" src="assets/brand/kippi-abrazo-roja-botas.webp" alt="" width="600" height="585">
       <span class="eyebrow">Nuestro concepto</span>
       <p class="big">Vínculos Eternos existe para devolver presencia a los momentos que realmente importan.</p>
       <p class="no">No vendemos imanes.</p>
@@ -263,145 +325,146 @@ footer a:hover { opacity: 1; color: var(--aura); }
     </div>
   </section>
 
-  <section id="catalogo" style="padding-top:0">
+  <section class="spark" aria-labelledby="kippi-t">
+    <div class="wrap">
+      <img class="kippi" src="assets/brand/kippi-abrazo-crema-botas.webp" alt="Kippi, una estrellita con boina rosa, abrazando" width="600" height="586">
+      <div class="spark-copy">
+        <span class="eyebrow">Conoce a Kippi</span>
+        <h2 id="kippi-t">La chispa que nos une</h2>
+        <p>Hay vínculos con una energía propia: la que nos mantiene cerca de lo que queremos conservar. Kippi, Sparky de cariño, es esa pequeña chispa. La misma que mantiene un imán unido a una superficie y la que mantiene vivos nuestros recuerdos.</p>
+        <p class="sub">Recuerdos que brillan</p>
+        <p>Es el destello que aparece cuando una foto te devuelve a una persona, a un momento, a una historia que todavía te hace sentir algo. Por eso Kippi acompaña cada pieza: para recordarte que esa foto guarda algo que merece permanecer.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="catalogo">
     <div class="wrap">
       <div class="sec-head">
         <span class="eyebrow">Catálogo</span>
-        <h2>Encuentra tu recuerdo</h2>
+        <h2>Elige tu recuerdo</h2>
+        <p class="lead">Escoge la opción, agrégala a tu pedido y al final lo envías por WhatsApp con tus fotos.</p>
+      </div>
+      <!-- Las tarjetas se generan desde PRODUCTOS en el script de abajo. Ahí se cambian precios y textos. -->
+      <div class="grid" id="products"></div>
+      <noscript><p class="lead">Para armar tu pedido escríbenos al WhatsApp 7182-1161.</p></noscript>
+    </div>
+  </section>
+
+  <section id="ideas" class="ideas-sec">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Ideas e inspiración</span>
+        <h2>¿Qué recuerdo quieres tener cerca?</h2>
+        <p class="lead">Todo es personalizado, así que aquí van algunas ideas para empezar. Cada una te lleva a lo que necesitas del catálogo.</p>
       </div>
 
-      <div class="tabs" role="group" aria-label="Filtrar por categoría">
-        <button class="tab" type="button" data-filter="todos" aria-pressed="true">Todos</button>
-        <button class="tab" type="button" data-filter="ninos" aria-pressed="false">Niños</button>
-        <button class="tab" type="button" data-filter="personalizados" aria-pressed="false">Personalizados</button>
-        <button class="tab" type="button" data-filter="eventos" aria-pressed="false">Eventos</button>
-        <button class="tab" type="button" data-filter="metales" aria-pressed="false">Metales</button>
-        <button class="tab" type="button" data-filter="calendarios" aria-pressed="false">Calendarios</button>
+      <div class="tabs" role="group" aria-label="Filtrar ideas">
+        <button class="tab" type="button" data-filter="todas" aria-pressed="true">Todas</button>
+        <button class="tab" type="button" data-filter="mascotas" aria-pressed="false">Mascotas</button>
+        <button class="tab" type="button" data-filter="familia" aria-pressed="false">Familia</button>
+        <button class="tab" type="button" data-filter="parejas" aria-pressed="false">Parejas</button>
+        <button class="tab" type="button" data-filter="bebes" aria-pressed="false">Bebés y etapas</button>
+        <button class="tab" type="button" data-filter="celebraciones" aria-pressed="false">Celebraciones</button>
       </div>
-      <p class="cat-intro sub" id="cat-intro" style="font-size:1.2rem" aria-live="polite">Todo lo que hacemos, en un solo lugar. Elige una categoría para ver menos.</p>
+      <p class="cat-intro sub" id="idea-intro" aria-live="polite">Personas, mascotas, etapas y fechas que merecen salir del celular.</p>
 
-      <!-- PRECIOS: donde dice "Consulta el precio", cambiar por el precio real -->
-      <div class="grid" id="grid">
+      <!-- IDEAS: data-make = producto del catálogo; data-set = producto:opción:cantidad para agregar un set completo -->
+      <div class="grid" id="ideas-grid">
 
-        <article class="card" data-cat="personalizados">
+        <article class="card idea" data-cat="mascotas">
+          <div class="ph"><img src="assets/img/mascota.webp" alt="Imán con la foto de un cachorro husky" loading="lazy" style="object-position:50% 65%" width="960" height="1280"></div>
+          <div class="body"><span class="cat">Mascotas</span><h3>Los que siempre te esperan</h3>
+            <p>El perro que te recibe en la puerta, el gato que se adueña del sillón. Los que están y los que ya no, pero siguen en casa.</p>
+            <div class="idea-foot"><span class="make" data-make="fotos"></span></div></div>
+        </article>
+
+        <article class="card idea" data-cat="mascotas">
           <div class="ph soon"><img src="assets/brand/kippi-camara-roja.webp" alt="" width="600" height="507"><span>Foto próximamente</span></div>
-          <div class="body">
-            <span class="cat">Personalizados</span>
-            <h3>Imán con tu foto</h3>
-            <p>Cualquier foto tuya: familia, pareja, amigos, viajes. Cuadrado, brillante y hecho a mano.</p>
-            <div class="foot"><span class="price">₡1 700 <small>c/u</small></span><a class="btn btn-main" data-wa="Hola, quiero imanes personalizados con mis fotos." href="https://wa.me/50671821161" target="_blank" rel="noopener">Pedir</a></div>
-          </div>
+          <div class="body"><span class="cat">Mascotas</span><h3>Un gato lleno de gatos</h3>
+            <p>La silueta de gato en metal, colgada como un cuadro, con las fotos de tu michi encima.</p>
+            <div class="idea-foot"><span class="make" data-make="metal"></span><button class="btn btn-main" type="button" data-set="metal:1:1,fotos:1:1" data-set-name="Gato de metal + 5 fotos">Agregar set</button></div></div>
         </article>
 
-        <article class="card" data-cat="personalizados">
-          <div class="ph"><img src="assets/img/mascota.webp" alt="Imán con la foto de un cachorro husky" loading="lazy" style="object-position:50% 65%"></div>
-          <div class="body">
-            <span class="cat">Personalizados</span>
-            <h3>Tu mascota</h3>
-            <p>Para el miembro de la familia que siempre te espera en la puerta.</p>
-            <div class="foot"><span class="price">₡1 700 <small>c/u</small></span><a class="btn btn-main" data-wa="Hola, quiero imanes con la foto de mi mascota." href="https://wa.me/50671821161" target="_blank" rel="noopener">Pedir</a></div>
-          </div>
+        <article class="card idea" data-cat="familia">
+          <div class="ph soon"><img src="assets/brand/kippi-abrazo-roja-botas.webp" alt="" width="600" height="585"><span>Foto próximamente</span></div>
+          <div class="body"><span class="cat">Familia</span><h3>Los abuelos</h3>
+            <p>Sus caras, sus manos, sus historias. Los que todavía nos abrazan y los que nos cuidan desde lejos.</p>
+            <div class="idea-foot"><span class="make" data-make="fotos"></span></div></div>
         </article>
 
-        <article class="card" data-cat="personalizados">
+        <article class="card idea" data-cat="familia">
           <div class="ph soon"><img src="assets/brand/kippi-camara-roja.webp" alt="" width="600" height="507"><span>Foto próximamente</span></div>
-          <div class="body">
-            <span class="cat">Personalizados</span>
-            <h3>Imanes para tu marca</h3>
-            <p>Con el logo de tu emprendimiento, para regalar en talleres, eventos o junto a cada compra.</p>
-            <div class="foot"><span class="price ask">Consulta el precio</span><a class="btn btn-main" data-wa="Hola, quiero cotizar imanes con el logo de mi marca." href="https://wa.me/50671821161" target="_blank" rel="noopener">Cotizar</a></div>
-          </div>
+          <div class="body"><span class="cat">Familia</span><h3>Hijos, papás y hermanos</h3>
+            <p>Las fotos de todos los días, las que no son perfectas pero cuentan quiénes somos.</p>
+            <div class="idea-foot"><span class="make" data-make="fotos"></span></div></div>
         </article>
 
-        <article class="card" data-cat="ninos">
-          <div class="ph"><img src="assets/img/dinofabeto.webp" alt="Abecedario de imanes de colores con dinosaurios en un refrigerador" loading="lazy" style="object-position:50% 45%"></div>
-          <div class="body">
-            <span class="cat">Niños</span>
-            <h3>Dinofabeto</h3>
-            <p>El abecedario con Ñ en imanes de colores, con dinosaurios y flechas para aprender a trazar cada letra.</p>
-            <div class="foot"><span class="price ask">Consulta el precio</span><a class="btn btn-main" data-wa="Hola, quiero el Dinofabeto." href="https://wa.me/50671821161" target="_blank" rel="noopener">Pedir</a></div>
-          </div>
+        <article class="card idea" data-cat="familia">
+          <div class="ph soon"><img src="assets/brand/kippi-abrazo-roja-botas.webp" alt="" width="600" height="585"><span>Foto próximamente</span></div>
+          <div class="body"><span class="cat">Familia</span><h3>Una luz para recordar</h3>
+            <p>Una lámpara con la foto de alguien que extrañas. Cuando la enciendes, aparece.</p>
+            <div class="idea-foot"><span class="make" data-make="lampara"></span></div></div>
         </article>
 
-        <article class="card" data-cat="ninos">
+        <article class="card idea" data-cat="parejas">
+          <div class="ph soon"><img src="assets/brand/kippi-abrazo-roja-botas.webp" alt="" width="600" height="585"><span>Foto próximamente</span></div>
+          <div class="body"><span class="cat">Parejas</span><h3>Nuestro corazón</h3>
+            <p>Para un aniversario o San Valentín: el corazón de metal con cinco fotos de los dos.</p>
+            <div class="idea-foot"><span class="make" data-make="metal"></span><button class="btn btn-main" type="button" data-set="metal:0:1,fotos:1:1" data-set-name="Corazón + 5 fotos">Agregar set</button></div></div>
+        </article>
+
+        <article class="card idea" data-cat="parejas">
           <div class="ph soon"><img src="assets/brand/kippi-camara-roja.webp" alt="" width="600" height="507"><span>Foto próximamente</span></div>
-          <div class="body">
-            <span class="cat">Niños</span>
-            <h3>Graduaciones y etapas</h3>
-            <p>Kínder, escuela, primer día de clases. Las etapas pasan rápido; la foto se queda.</p>
-            <div class="foot"><span class="price">₡1 700 <small>c/u</small></span><a class="btn btn-main" data-wa="Hola, quiero imanes de la graduación de mi hijo/a." href="https://wa.me/50671821161" target="_blank" rel="noopener">Pedir</a></div>
-          </div>
+          <div class="body"><span class="cat">Parejas</span><h3>Nuestra historia en diez fotos</h3>
+            <p>El mismo corazón, con diez momentos: la primera cita, el primer viaje, el día que dijeron que sí.</p>
+            <div class="idea-foot"><span class="make" data-make="metal"></span><button class="btn btn-main" type="button" data-set="metal:0:1,fotos:2:1" data-set-name="Corazón + 10 fotos">Agregar set</button></div></div>
         </article>
 
-        <article class="card" data-cat="eventos">
-          <div class="ph"><img src="assets/img/boda.webp" alt="Novios sosteniendo un imán con su foto de boda" loading="lazy" style="object-position:50% 40%"></div>
-          <div class="body">
-            <span class="cat">Eventos</span>
-            <h3>Bodas</h3>
-            <p>Imanes con las fotos del gran día, para los invitados o para ustedes. El recuerdo que sí se llevan a casa.</p>
-            <div class="foot"><span class="price ask">Consulta el precio</span><a class="btn btn-main" data-wa="Hola, nos casamos y queremos información de los paquetes de boda." href="https://wa.me/50671821161" target="_blank" rel="noopener">Cotizar</a></div>
-          </div>
+        <article class="card idea" data-cat="parejas">
+          <div class="ph soon"><img src="assets/brand/kippi-abrazo-roja-botas.webp" alt="" width="600" height="585"><span>Foto próximamente</span></div>
+          <div class="body"><span class="cat">Parejas</span><h3>Doce meses juntos</h3>
+            <p>Doce calendarios mensuales, cada uno con una foto de su tiempo juntos. Un recuerdo nuevo cada mes del año.</p>
+            <div class="idea-foot"><span class="make" data-make="cal"></span><button class="btn btn-main" type="button" data-set="cal:1:12" data-set-name="12 calendarios mensuales">Agregar set</button></div></div>
         </article>
 
-        <article class="card" data-cat="eventos">
+        <article class="card idea" data-cat="bebes">
           <div class="ph soon"><img src="assets/brand/kippi-camara-roja.webp" alt="" width="600" height="507"><span>Foto próximamente</span></div>
-          <div class="body">
-            <span class="cat">Eventos</span>
-            <h3>Aniversarios</h3>
-            <p>Un año, diez, cincuenta. Los momentos que construyeron la historia de los dos.</p>
-            <div class="foot"><span class="price ask">Consulta el precio</span><a class="btn btn-main" data-wa="Hola, quiero un regalo de aniversario." href="https://wa.me/50671821161" target="_blank" rel="noopener">Cotizar</a></div>
-          </div>
+          <div class="body"><span class="cat">Bebés y etapas</span><h3>Baby shower</h3>
+            <p>La ecografía, la pancita, la primera foto. Para quienes esperan con ustedes.</p>
+            <div class="idea-foot"><span class="make" data-make="fotos"></span></div></div>
         </article>
 
-        <article class="card" data-cat="eventos">
-          <div class="ph soon"><img src="assets/brand/kippi-camara-roja.webp" alt="" width="600" height="507"><span>Foto próximamente</span></div>
-          <div class="body">
-            <span class="cat">Eventos</span>
-            <h3>Baby showers</h3>
-            <p>Recuerdos para los invitados que acompañan la llegada del bebé.</p>
-            <div class="foot"><span class="price ask">Consulta el precio</span><a class="btn btn-main" data-wa="Hola, quiero información para un baby shower." href="https://wa.me/50671821161" target="_blank" rel="noopener">Cotizar</a></div>
-          </div>
+        <article class="card idea" data-cat="bebes">
+          <div class="ph soon"><img src="assets/brand/kippi-abrazo-roja-botas.webp" alt="" width="600" height="585"><span>Foto próximamente</span></div>
+          <div class="body"><span class="cat">Bebés y etapas</span><h3>Su primer año, mes a mes</h3>
+            <p>Una foto cada mes y, al cumplir el año, los doce meses juntos en la refri.</p>
+            <div class="idea-foot"><span class="make" data-make="fotos"></span></div></div>
         </article>
 
-        <article class="card" data-cat="metales">
+        <article class="card idea" data-cat="bebes">
           <div class="ph soon"><img src="assets/brand/kippi-camara-roja.webp" alt="" width="600" height="507"><span>Foto próximamente</span></div>
-          <div class="body">
-            <span class="cat">Metales</span>
-            <h3>Corazones de metal</h3>
-            <p>Tu foto en un corazón de metal, pensado para durar tanto como el vínculo que representa.</p>
-            <div class="foot"><span class="price ask">Consulta el precio</span><a class="btn btn-main" data-wa="Hola, quiero información de los corazones de metal." href="https://wa.me/50671821161" target="_blank" rel="noopener">Pedir</a></div>
-          </div>
+          <div class="body"><span class="cat">Bebés y etapas</span><h3>Graduaciones</h3>
+            <p>Kínder, escuela, colegio. Las etapas pasan rápido; la foto se queda.</p>
+            <div class="idea-foot"><span class="make" data-make="fotos"></span></div></div>
         </article>
 
-        <article class="card" data-cat="calendarios">
-          <div class="ph soon"><img src="assets/brand/kippi-camara-roja.webp" alt="" width="600" height="507"><span>Foto próximamente</span></div>
-          <div class="body">
-            <span class="cat">Calendarios</span>
-            <h3>Calendario mensual con música</h3>
-            <p>Un mes, una foto y su música. Para tener presente a quien quieres durante todo el mes.</p>
-            <div class="foot"><span class="price ask">Consulta el precio</span><a class="btn btn-main" data-wa="Hola, quiero información del calendario mensual con música." href="https://wa.me/50671821161" target="_blank" rel="noopener">Pedir</a></div>
-          </div>
-        </article>
-
-        <article class="card" data-cat="calendarios">
-          <div class="ph soon"><img src="assets/brand/kippi-camara-roja.webp" alt="" width="600" height="507"><span>Foto próximamente</span></div>
-          <div class="body">
-            <span class="cat">Calendarios</span>
-            <h3>Calendario anual con música</h3>
-            <p>Doce meses con tus fotos y su música. Un recuerdo distinto cada vez que cambia el mes.</p>
-            <div class="foot"><span class="price ask">Consulta el precio</span><a class="btn btn-main" data-wa="Hola, quiero información del calendario anual con música." href="https://wa.me/50671821161" target="_blank" rel="noopener">Pedir</a></div>
-          </div>
+        <article class="card idea" data-cat="celebraciones">
+          <div class="ph soon"><img src="assets/brand/kippi-abrazo-roja-botas.webp" alt="" width="600" height="585"><span>Foto próximamente</span></div>
+          <div class="body"><span class="cat">Celebraciones</span><h3>Fotos del fotógrafo</h3>
+            <p>La sesión de Navidad, el cumpleaños, la boda. Fotos hermosas que terminan en una carpeta. Mejor verlas todos los días.</p>
+            <div class="idea-foot"><span class="make" data-make="fotos"></span></div></div>
         </article>
 
       </div>
     </div>
   </section>
 
-  <section class="quote">
+  <section id="eventos" class="quote">
     <div class="wrap">
       <figure><img src="assets/img/boda.webp" alt="Novios sosteniendo un imán con su foto de boda" loading="lazy" width="540" height="615"><figcaption>Su foto del gran día, convertida en imán.</figcaption></figure>
       <div class="quote-copy">
-        <span class="eyebrow">Para bodas</span>
+        <span class="eyebrow">Bodas y eventos</span>
         <h2>Después de la boda…</h2>
         <p class="sub">¿Qué recuerdo se llevan ustedes?</p>
         <ul>
@@ -410,7 +473,8 @@ footer a:hover { opacity: 1; color: var(--aura); }
           <li>La decoración queda en las fotografías.</li>
         </ul>
         <p class="kicker">Pero hay momentos que merecen permanecer mucho más cerca.</p>
-        <a class="btn btn-soft" data-wa="Hola, nos casamos y queremos información de los paquetes de boda." href="https://wa.me/50671821161" target="_blank" rel="noopener">Cotizar mi boda</a>
+        <p class="events">Bodas, baby showers, cumpleaños o eventos de empresa. Cada evento es distinto, así que lo cotizamos con ustedes según lo que tengan en mente.</p>
+        <a class="btn btn-soft" data-wa="Hola Vínculos Eternos, quiero cotizar recuerdos para un evento." href="https://wa.me/50671821161" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Cotizar mi evento</a>
       </div>
     </div>
   </section>
@@ -422,61 +486,9 @@ footer a:hover { opacity: 1; color: var(--aura); }
         <h2>Tres pasos, una semana</h2>
       </div>
       <div class="steps">
-        <article class="step"><h3>Escríbenos y manda tus fotos</h3><p>Por WhatsApp al 7182-1161. Cuéntanos qué quieres y envíanos las fotos en la mejor calidad que tengas.</p></article>
-        <article class="step"><h3>Confirmas y pagas</h3><p>Te enviamos el resumen. Pagas por SINPE Móvil o transferencia y empezamos a hacerlo.</p></article>
-        <article class="step"><h3>Te llega a casa</h3><p>En alrededor de una semana. Enviamos a todo Costa Rica, o por Uber Flash si estás cerca.</p></article>
-      </div>
-
-      <div class="order" id="pedido">
-        <div class="order-info">
-          <img class="kippi" src="assets/brand/kippi-abrazo-crema-botas.webp" alt="" width="600" height="586">
-          <span class="eyebrow">Arma tu pedido</span>
-          <h3>Llega a WhatsApp con el mensaje listo</h3>
-          <p class="lead">Elige, toca el botón y se abre WhatsApp. Ahí mismo nos mandas tus fotos.</p>
-          <ul class="facts">
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg><span><b>Pago:</b> SINPE Móvil o transferencia</span></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 7h11v10H3zM14 10h4l3 3v4h-7"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg><span><b>Envío:</b> todo Costa Rica o Uber Flash</span></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span><b>Tiempo:</b> alrededor de 1 semana</span></li>
-            <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg><span><b>WhatsApp:</b> 7182-1161</span></li>
-          </ul>
-        </div>
-        <form class="builder" id="builder" novalidate>
-          <div class="field">
-            <label for="f-producto">¿Qué quieres?</label>
-            <select id="f-producto">
-              <optgroup label="Personalizados">
-                <option data-precio="1700" selected>Imanes con tus fotos (₡1 700 c/u)</option>
-                <option data-precio="1700">Imanes de tu mascota (₡1 700 c/u)</option>
-                <option>Imanes para tu marca</option>
-              </optgroup>
-              <optgroup label="Niños">
-                <option>Dinofabeto</option>
-                <option data-precio="1700">Graduaciones y etapas (₡1 700 c/u)</option>
-              </optgroup>
-              <optgroup label="Eventos">
-                <option>Boda</option>
-                <option>Aniversario</option>
-                <option>Baby shower</option>
-              </optgroup>
-              <optgroup label="Metales">
-                <option>Corazón de metal</option>
-              </optgroup>
-              <optgroup label="Calendarios">
-                <option>Calendario mensual con música</option>
-                <option>Calendario anual con música</option>
-              </optgroup>
-            </select>
-          </div>
-          <div class="row2">
-            <div class="field"><label for="f-cantidad">Cantidad</label><input id="f-cantidad" type="number" min="1" max="500" value="6" inputmode="numeric"></div>
-            <div class="field"><label for="f-entrega">Entrega</label><select id="f-entrega"><option>Envío por Correos de CR</option><option>Uber Flash</option></select></div>
-          </div>
-          <div class="field"><label for="f-nombre">Tu nombre</label><input id="f-nombre" type="text" placeholder="Ej. María Fernanda" autocomplete="name"></div>
-          <div class="field"><label for="f-nota">Algo más (opcional)</label><textarea id="f-nota" placeholder="Ej. Es para regalar el Día de la Madre"></textarea></div>
-          <div class="total" aria-live="polite"><span id="t-label">Total aproximado</span><strong id="t-valor">₡10 200</strong></div>
-          <a class="btn btn-main" id="send" href="https://wa.me/50671821161" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Enviar pedido por WhatsApp</a>
-          <p class="hint">El envío se cotiza aparte según la zona. Si WhatsApp no se abre, escríbenos al 7182-1161.</p>
-        </form>
+        <article class="step"><h3>Arma tu pedido</h3><p>Elige en el catálogo o toma una idea. Todo se va sumando en tu pedido.</p></article>
+        <article class="step"><h3>Envíalo por WhatsApp</h3><p>Se abre con el resumen listo. Ahí nos mandas tus fotos y afinamos los detalles.</p></article>
+        <article class="step"><h3>Pagas y te llega</h3><p>Por SINPE Móvil o transferencia. En alrededor de una semana lo tienes, por envío o Uber Flash.</p></article>
       </div>
     </div>
   </section>
@@ -490,7 +502,6 @@ footer a:hover { opacity: 1; color: var(--aura); }
         <p class="sub">Fotografía encapsulada</p>
         <!-- HISTORIA: reemplazar este bloque con la historia de la marca -->
         <div class="todo"><b>Espacio para la historia.</b> Aquí va quién está detrás de Vínculos Eternos, cómo empezó y por qué el nombre.</div>
-        <p>Cada pieza se hace a mano en Costa Rica, una por una, para que una foto deje de ser un archivo más en el celular.</p>
       </div>
     </div>
   </section>
@@ -511,11 +522,13 @@ footer a:hover { opacity: 1; color: var(--aura); }
     <div class="wrap">
       <div class="sec-head"><span class="eyebrow">Preguntas frecuentes</span><h2>Lo que más nos preguntan</h2></div>
       <div class="faq">
-        <details open><summary>¿Cuánto cuesta un imán?</summary><p>Cada imán personalizado cuesta ₡1 700. Los eventos, metales, calendarios y el Dinofabeto se cotizan por WhatsApp.</p></details>
+        <details open><summary>¿El total del pedido es el precio final?</summary><p>Es un total aproximado, sin el envío. Antes de pagar te confirmamos todo por WhatsApp.</p></details>
         <details><summary>¿Cuánto tarda mi pedido?</summary><p>Alrededor de una semana desde que confirmas el pedido y el pago. Si lo necesitas para una fecha específica, avísanos al escribir.</p></details>
         <details><summary>¿Cómo pago?</summary><p>Por SINPE Móvil o transferencia bancaria. Te damos los datos cuando confirmamos el pedido.</p></details>
         <details><summary>¿Hacen envíos?</summary><p>Sí, a todo Costa Rica. Si estás cerca también podemos mandarlo por Uber Flash. El costo depende de la zona.</p></details>
+        <details><summary>¿Lo pueden mandar listo para regalar?</summary><p>Sí. Al agregar tus fotos imantadas marca el empaque de regalo, por ₡1 000 adicionales.</p></details>
         <details><summary>¿Qué fotos sirven?</summary><p>Las del celular funcionan perfecto. Mándalas en la mejor calidad posible, idealmente como documento en WhatsApp, y con lo importante en el centro.</p></details>
+        <details><summary>¿Puedo pedir algo que no está aquí?</summary><p>Claro. Todo es personalizado: escríbenos con tu idea y vemos cómo hacerla.</p></details>
       </div>
     </div>
   </section>
@@ -525,7 +538,7 @@ footer a:hover { opacity: 1; color: var(--aura); }
       <img class="kippi" src="assets/brand/kippi-camara-crema.webp" alt="" width="600" height="508">
       <img class="logo-big" src="assets/brand/logo-destello-lema.webp" alt="Vínculos Eternos · Fotografía encapsulada" width="1000" height="200">
       <p class="sub">¿Qué momento quieres volver a ver todos los días?</p>
-      <a class="btn btn-main" data-wa="Hola Vínculos Eternos, quiero hacer un pedido." href="https://wa.me/50671821161" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Escribirnos por WhatsApp</a>
+      <a class="btn btn-main" data-wa="Hola Vínculos Eternos, tengo una consulta." href="https://wa.me/50671821161" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Escribirnos por WhatsApp</a>
     </div>
   </section>
 
@@ -533,7 +546,7 @@ footer a:hover { opacity: 1; color: var(--aura); }
 
 <footer>
   <div class="wrap">
-    <span>© <span id="year">2026</span> Vínculos Eternos · Hecho a mano en Costa Rica</span>
+    <span>© <span id="year">2026</span> Vínculos Eternos · Fotografía encapsulada</span>
     <div class="contact">
       <a href="https://www.instagram.com/vinculos_eternos_cr/" target="_blank" rel="noopener">Instagram @vinculos_eternos_cr</a>
       <a href="https://wa.me/50671821161" target="_blank" rel="noopener">WhatsApp 7182-1161</a>
@@ -541,69 +554,287 @@ footer a:hover { opacity: 1; color: var(--aura); }
   </div>
 </footer>
 
-<a class="wa-float" data-wa="Hola Vínculos Eternos, quiero hacer un pedido." href="https://wa.me/50671821161" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg aria-hidden="true"><use href="#i-wa"/></svg></a>
+<a class="wa-float" id="wa-float" data-wa="Hola Vínculos Eternos, tengo una consulta." href="https://wa.me/50671821161" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg aria-hidden="true"><use href="#i-wa"/></svg></a>
+<button class="cart-bar" id="cart-bar" type="button" data-open-cart hidden><span><span data-count>0</span> en tu pedido · <b data-total>₡0</b></span><span class="go">Ver pedido</span></button>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<dialog class="cart" id="cart" aria-labelledby="cart-t">
+  <div class="cart-inner">
+    <div class="cart-head"><h2 id="cart-t">Tu pedido</h2><button class="x" type="button" data-close aria-label="Cerrar">×</button></div>
+    <div class="cart-body">
+      <div class="empty" id="cart-empty">
+        <img src="assets/brand/kippi-camara-roja.webp" alt="" width="600" height="507">
+        <p>Tu pedido está vacío.<br>Elige algo del catálogo o toma una idea.</p>
+        <button class="btn btn-soft" type="button" data-close data-go="#catalogo">Ver catálogo</button>
+      </div>
+      <ul class="lines" id="cart-lines"></ul>
+      <form id="cart-form" class="field-group" novalidate style="display:grid;gap:14px">
+        <div class="field"><label for="f-nombre">Tu nombre</label><input id="f-nombre" type="text" placeholder="Ej. María Fernanda" autocomplete="name"></div>
+        <div class="field"><label for="f-entrega">Entrega</label><select id="f-entrega"><option>Envío por Correos de Costa Rica</option><option>Uber Flash</option></select></div>
+        <div class="field"><label for="f-nota">Algo más (opcional)</label><textarea id="f-nota" placeholder="Ej. Es para regalar el Día de la Madre"></textarea></div>
+      </form>
+    </div>
+    <div class="cart-foot">
+      <div class="total" aria-live="polite"><span>Total aproximado</span><strong data-total>₡0</strong></div>
+      <a class="btn btn-main" id="send" href="https://wa.me/50671821161" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Enviar pedido por WhatsApp</a>
+      <p class="hint">Más el envío según la zona. Si WhatsApp no se abre, escríbenos al 7182-1161.</p>
+    </div>
+  </div>
+</dialog>
 
 <script>
 (function () {
+  "use strict";
   var WA = "50671821161";
-  var waUrl = function (t) { return "https://wa.me/" + WA + "?text=" + encodeURIComponent(t); };
-  document.querySelectorAll("[data-wa]").forEach(function (a) { a.href = waUrl(a.getAttribute("data-wa")); });
-  document.getElementById("year").textContent = new Date().getFullYear();
 
-  // Filtro del catálogo
+  /* PRODUCTOS: aquí se cambian precios, opciones y textos del catálogo.
+     min: cantidad mínima de esa opción. unit: si la cantidad cuenta piezas sueltas (ej. "imanes").
+     gift: precio del empaque de regalo. song: precio por canción. */
+  var PRODUCTS = [
+    { id: "fotos", cat: "Fotos imantadas", name: "Fotos imantadas",
+      img: "assets/img/mascota.webp", pos: "50% 65%", alt: "Imán con la foto de un cachorro husky",
+      desc: "Tus fotos favoritas en imanes, para tenerlas a la vista y no perdidas entre miles en el celular.",
+      options: [
+        { label: "1 imán", price: 1700 },
+        { label: "5 imanes", price: 7500 },
+        { label: "10 imanes", price: 13000 },
+        { label: "20 o más", price: 1200, min: 20, unit: ["imán", "imanes"], tag: "₡1 200 c/u" }
+      ],
+      gift: 1000 },
+    { id: "dino", cat: "Niños", name: "Dinofabeto",
+      img: "assets/img/dinofabeto.webp", pos: "50% 45%", alt: "Abecedario de imanes de colores con dinosaurios en un refrigerador",
+      desc: "Las 27 letras del abecedario en imanes, con dinosaurios y líneas de trazo. Practican caligrafía, forman palabras nuevas y aprenden jugando.",
+      options: [{ label: "Set de 27 letras", price: 22500 }] },
+    { id: "mate", cat: "Niños", name: "Matesaurios",
+      desc: "Números, signos y dinosaurios magnéticos. Arman sumas y restas en la refri, buscan la pieza con la respuesta y repasan cómo se escribe cada número. Se limpia y a jugar otra vez.",
+      options: [
+        { label: "Números 0 al 9", price: 13000 },
+        { label: "0 al 9 + 5 signos", price: 18000 },
+        { label: "Números dobles + signos", price: 27500, note: "Recomendado si ya hacen operaciones de dos dígitos o más." }
+      ] },
+    { id: "metal", cat: "Metales", name: "Siluetas de metal",
+      desc: "Para quien no quiere llenar la refri: se cuelgan como un cuadro y encima van tus fotos imantadas.",
+      options: [{ label: "Corazón", price: 10000 }, { label: "Gato", price: 5000 }] },
+    { id: "lampara", cat: "Lámparas", name: "Lámpara de litofanía",
+      desc: "Tu foto grabada en la lámpara: al encenderla aparece con todos sus detalles. La forma la eliges tú.",
+      options: [{ label: "Pequeña", price: 25000 }, { label: "Mediana", price: 30000 }, { label: "Grande", price: 37000 }] },
+    { id: "cal", cat: "Calendarios", name: "Calendarios con música",
+      desc: "Personalizados al 100 %: fotos, colores y diseño. Agrégale las canciones que te recuerdan ese momento.",
+      options: [
+        { label: "Anual", price: 3500, unit: ["calendario", "calendarios"], tag: "₡3 500 c/u" },
+        { label: "Mensual", price: 800, min: 4, unit: ["calendario", "calendarios"], tag: "₡800 c/u · mín. 4" }
+      ],
+      song: 500 }
+  ];
+  var byId = {};
+  PRODUCTS.forEach(function (p) { byId[p.id] = p; });
+
+  var crc = function (n) { return "₡" + Math.round(n).toLocaleString("es-CR").replace(/[.,  ]/g, " "); };
+  var waUrl = function (t) { return "https://wa.me/" + WA + "?text=" + encodeURIComponent(t); };
+  var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); };
+  var $ = function (s, el) { return (el || document).querySelector(s); };
+  var $$ = function (s, el) { return Array.prototype.slice.call((el || document).querySelectorAll(s)); };
+
+  document.querySelectorAll("[data-wa]").forEach(function (a) { a.href = waUrl(a.getAttribute("data-wa")); });
+  $("#year").textContent = new Date().getFullYear();
+
+  // Cálculo de una línea del pedido
+  function lineOf(pid, oi, qty, gift, songs) {
+    var p = byId[pid], o = p.options[oi], min = o.min || 1;
+    qty = Math.max(min, qty | 0);
+    songs = p.song ? Math.max(0, songs | 0) : 0;
+    gift = !!(p.gift && gift);
+    var total = o.price * qty + (gift ? p.gift : 0) + songs * (p.song || 0);
+    var detail = o.unit ? (p.options.length > 1 ? o.label + " · " : "") + qty + " " + o.unit[qty === 1 ? 0 : 1]
+                        : (p.options.length > 1 ? o.label : "") + (qty > 1 ? (p.options.length > 1 ? " × " : "× ") + qty : "");
+    var extras = [];
+    if (gift) extras.push("empaque de regalo");
+    if (songs) extras.push(songs + (songs === 1 ? " canción" : " canciones"));
+    return { pid: pid, oi: oi, qty: qty, gift: gift, songs: songs, total: total, name: p.name, detail: detail, extras: extras };
+  }
+
+  // Tarjetas del catálogo
+  var grid = $("#products");
+  PRODUCTS.forEach(function (p) {
+    var ph = p.img
+      ? '<div class="ph"><img src="' + p.img + '" alt="' + esc(p.alt) + '" loading="lazy" style="object-position:' + p.pos + '" width="960" height="1280"></div>'
+      : '<div class="ph soon"><img src="assets/brand/kippi-camara-roja.webp" alt="" width="600" height="507"><span>Foto próximamente</span></div>';
+    var opts = p.options.length > 1
+      ? '<fieldset class="opts"><legend>Elige</legend>' + p.options.map(function (o, i) {
+          return '<label class="opt"><input type="radio" name="o-' + p.id + '" value="' + i + '"' + (i === 0 ? " checked" : "") + '><span>' + esc(o.label) + "<small>" + (o.tag || crc(o.price)) + "</small></span></label>";
+        }).join("") + "</fieldset>"
+      : "";
+    var html = '<article class="card product" id="p-' + p.id + '" data-pid="' + p.id + '">' + ph +
+      '<div class="body"><span class="cat">' + esc(p.cat) + "</span><h3>" + esc(p.name) + "</h3><p>" + esc(p.desc) + "</p>" +
+      "<div>" + opts + '<p class="note" hidden></p></div>' +
+      '<div class="extras">' +
+        '<div class="qty"><span class="qty-l">Cantidad</span><div class="stepper"><button type="button" data-step="-1" aria-label="Menos">−</button><output>1</output><button type="button" data-step="1" aria-label="Más">+</button></div></div>' +
+        (p.song ? '<div class="qty"><span>Canciones <small style="color:var(--muted)">+' + crc(p.song) + ' c/u</small></span><div class="stepper" data-songs><button type="button" data-step="-1" aria-label="Menos canciones">−</button><output>0</output><button type="button" data-step="1" aria-label="Más canciones">+</button></div></div>' : "") +
+        (p.gift ? '<label class="check"><input type="checkbox" data-gift> Empaque para regalo <small>+' + crc(p.gift) + "</small></label>" : "") +
+      "</div>" +
+      '<div class="buy"><span class="price" aria-live="polite"></span><button class="btn btn-main" type="button" data-add>Agregar al pedido</button></div>' +
+      "</div></article>";
+    grid.insertAdjacentHTML("beforeend", html);
+  });
+
+  function cardState(card) {
+    var p = byId[card.dataset.pid];
+    var r = $("input[type=radio]:checked", card);
+    var songs = $("[data-songs] output", card);
+    var gift = $("[data-gift]", card);
+    return { p: p, oi: r ? +r.value : 0, qty: +$(".stepper:not([data-songs]) output", card).textContent,
+             songs: songs ? +songs.textContent : 0, gift: gift ? gift.checked : false };
+  }
+  function renderCard(card) {
+    var s = cardState(card), o = s.p.options[s.oi], min = o.min || 1;
+    var out = $(".stepper:not([data-songs]) output", card);
+    if (s.qty < min) { s.qty = min; }
+    out.textContent = s.qty;
+    $(".stepper:not([data-songs]) [data-step='-1']", card).disabled = s.qty <= min;
+    var sOut = $("[data-songs] output", card);
+    if (sOut) $("[data-songs] [data-step='-1']", card).disabled = +sOut.textContent <= 0;
+    $(".qty-l", card).textContent = o.unit ? o.unit[1].charAt(0).toUpperCase() + o.unit[1].slice(1) : "Cantidad";
+    var note = $(".note", card);
+    note.hidden = !o.note; note.textContent = o.note || "";
+    $(".price", card).textContent = crc(lineOf(s.p.id, s.oi, s.qty, s.gift, s.songs).total);
+  }
+  $$(".product").forEach(function (card) {
+    card.addEventListener("change", function (e) {
+      if (e.target.type === "radio") { var o = byId[card.dataset.pid].options[+e.target.value]; $(".stepper:not([data-songs]) output", card).textContent = o.min || 1; }
+      renderCard(card);
+    });
+    card.addEventListener("click", function (e) {
+      var b = e.target.closest("[data-step]");
+      if (b) {
+        var out = $("output", b.parentNode);
+        out.textContent = Math.max(0, Math.min(999, (+out.textContent) + (+b.dataset.step)));
+        renderCard(card);
+      }
+      var add = e.target.closest("[data-add]");
+      if (add) {
+        var s = cardState(card);
+        addLine(lineOf(s.p.id, s.oi, s.qty, s.gift, s.songs));
+        toast(s.p.name + " agregado a tu pedido");
+        add.classList.add("added"); add.textContent = "¡Agregado!";
+        setTimeout(function () { add.classList.remove("added"); add.textContent = "Agregar al pedido"; }, 1400);
+      }
+    });
+    renderCard(card);
+  });
+
+  // Ideas: enlaces al catálogo y sets
+  $$("[data-make]").forEach(function (el) {
+    var p = byId[el.dataset.make];
+    el.innerHTML = 'Hazlo con <a href="#p-' + p.id + '">' + esc(p.name) + "</a>";
+  });
+  function parseSet(str) {
+    return str.split(",").map(function (t) { var a = t.split(":"); return lineOf(a[0], +a[1], +a[2], false, 0); });
+  }
+  $$("[data-set]").forEach(function (b) {
+    var lines = parseSet(b.dataset.set);
+    var sum = lines.reduce(function (n, l) { return n + l.total; }, 0);
+    b.textContent = "Agregar · " + crc(sum);
+    b.addEventListener("click", function () {
+      lines.forEach(function (l) { addLine(Object.assign({}, l)); });
+      toast(b.dataset.setName + " agregado a tu pedido");
+    });
+  });
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest('a[href^="#p-"]');
+    if (!a) return;
+    var card = $(a.getAttribute("href"));
+    if (card) { setTimeout(function () { card.classList.add("flash"); setTimeout(function () { card.classList.remove("flash"); }, 1600); }, 350); }
+  });
+
+  // Filtro de ideas
   var intros = {
-    todos: "Todo lo que hacemos, en un solo lugar. Elige una categoría para ver menos.",
-    ninos: "Para aprender jugando y para guardar las etapas que pasan tan rápido.",
-    personalizados: "Tus fotos, tu mascota, tu marca. Cualquier recuerdo que quieras tener cerca.",
-    eventos: "Bodas, aniversarios y baby showers. Para que el día no se quede solo en el día.",
-    metales: "Corazones de metal con tu foto, hechos para durar.",
-    calendarios: "Mensuales y anuales, con música. Un recuerdo nuevo cada mes."
+    todas: "Personas, mascotas, etapas y fechas que merecen salir del celular.",
+    mascotas: "Los que están y los que ya no, pero siguen siendo parte de la familia.",
+    familia: "Abuelos, papás, hijos. Los vínculos que nos hacen quienes somos.",
+    parejas: "Para aniversarios, San Valentín o porque sí.",
+    bebes: "Las etapas que pasan más rápido de lo que uno quisiera.",
+    celebraciones: "Esas fotos lindas que no deberían quedarse en una carpeta."
   };
-  var cards = document.querySelectorAll("#grid .card");
-  var tabs = document.querySelectorAll(".tab");
+  var ideas = $$("#ideas-grid .idea"), tabs = $$("#ideas .tab");
   tabs.forEach(function (tab) {
-    var f = tab.getAttribute("data-filter");
-    var n = f === "todos" ? cards.length : document.querySelectorAll('#grid .card[data-cat="' + f + '"]').length;
-    tab.insertAdjacentHTML("beforeend", " <small>" + n + "</small>");
     tab.addEventListener("click", function () {
+      var f = tab.dataset.filter;
       tabs.forEach(function (t) { t.setAttribute("aria-pressed", String(t === tab)); });
-      cards.forEach(function (c) { c.hidden = !(f === "todos" || c.getAttribute("data-cat") === f); });
-      document.getElementById("cat-intro").textContent = intros[f];
+      ideas.forEach(function (c) { c.hidden = !(f === "todas" || c.dataset.cat === f); });
+      $("#idea-intro").textContent = intros[f];
     });
   });
 
-  // Armador de pedido
-  var crc = function (n) { return "₡" + n.toLocaleString("es-CR").replace(/[.,  ]/g, " "); };
-  var form = document.getElementById("builder");
-  var producto = document.getElementById("f-producto");
-  var cantidad = document.getElementById("f-cantidad");
-  var send = document.getElementById("send");
-  function opt() { return producto.options[producto.selectedIndex]; }
-  function precio() { return Number(opt().getAttribute("data-precio")) || 0; }
-  function qty() { return Math.max(1, Math.min(500, parseInt(cantidad.value, 10) || 1)); }
-  function nombreProducto() { return opt().text.replace(/ \(.*\)$/, ""); }
-  function refresh() {
-    var p = precio();
-    document.getElementById("t-label").textContent = p ? "Total aproximado" : "Precio";
-    document.getElementById("t-valor").textContent = p ? crc(p * qty()) : "Te cotizamos";
-    var nombre = document.getElementById("f-nombre").value.trim();
-    var nota = document.getElementById("f-nota").value.trim();
-    var lines = [
-      "Hola Vínculos Eternos." + (nombre ? " Soy " + nombre + "." : ""),
-      "Quiero hacer este pedido:",
-      "• " + opt().parentNode.label + ": " + nombreProducto(),
-      "• Cantidad: " + qty(),
-      "• Entrega: " + document.getElementById("f-entrega").value
-    ];
-    if (p) lines.push("• Total aproximado: " + crc(p * qty()) + " + envío");
-    if (nota) lines.push("• Nota: " + nota);
+  // Pedido (carrito)
+  var KEY = "ve-pedido";
+  var cart = [];
+  try { cart = (JSON.parse(localStorage.getItem(KEY)) || []).filter(function (l) { return byId[l.pid] && byId[l.pid].options[l.oi]; })
+                 .map(function (l) { return lineOf(l.pid, l.oi, l.qty, l.gift, l.songs); }); } catch (e) { cart = []; }
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(cart.map(function (l) { return { pid: l.pid, oi: l.oi, qty: l.qty, gift: l.gift, songs: l.songs }; }))); } catch (e) {} }
+
+  function addLine(l) {
+    var same = cart.filter(function (c) { return c.pid === l.pid && c.oi === l.oi && c.gift === l.gift && c.songs === l.songs; })[0];
+    if (same) { var i = cart.indexOf(same); cart[i] = lineOf(l.pid, l.oi, same.qty + l.qty, l.gift, l.songs); }
+    else cart.push(l);
+    save(); renderCart(true);
+  }
+
+  var dlg = $("#cart"), send = $("#send");
+  function total() { return cart.reduce(function (n, l) { return n + l.total; }, 0); }
+  function count() { return cart.length; }
+  function renderCart(bump) {
+    $$("[data-count]").forEach(function (el) { el.textContent = count(); });
+    $$("[data-total]").forEach(function (el) { el.textContent = crc(total()); });
+    if (bump) { var b = $(".cart-btn .badge"); b.classList.remove("bump"); void b.offsetWidth; b.classList.add("bump"); }
+    $("#cart-bar").hidden = !cart.length;
+    $("#wa-float").hidden = !!cart.length;
+    $("#cart-empty").hidden = !!cart.length;
+    $("#cart-form").hidden = !cart.length;
+    $("#cart-lines").innerHTML = cart.map(function (l, i) {
+      var d = [l.detail].concat(l.extras).filter(Boolean).join(" · ");
+      return '<li class="line"><b>' + esc(l.name) + "</b><strong>" + crc(l.total) + "</strong>" + (d ? "<span>" + esc(d) + "</span>" : "") +
+             '<button class="rm" type="button" data-rm="' + i + '" aria-label="Quitar ' + esc(l.name) + '">Quitar</button></li>';
+    }).join("");
+    send.setAttribute("aria-disabled", String(!cart.length));
+    updateMessage();
+  }
+  function updateMessage() {
+    var nombre = $("#f-nombre").value.trim(), nota = $("#f-nota").value.trim();
+    var lines = ["Hola Vínculos Eternos." + (nombre ? " Soy " + nombre + "." : ""), "Quiero hacer este pedido:"];
+    cart.forEach(function (l) {
+      var d = [l.detail].concat(l.extras).filter(Boolean).join(", ");
+      lines.push("• " + l.name + (d ? " (" + d + ")" : "") + ": " + crc(l.total));
+    });
+    lines.push("Total aproximado: " + crc(total()) + " + envío", "Entrega: " + $("#f-entrega").value);
+    if (nota) lines.push("Nota: " + nota);
     lines.push("", "Ahora les mando las fotos.");
     send.href = waUrl(lines.join("\n"));
   }
-  form.addEventListener("input", refresh);
-  form.addEventListener("change", refresh);
-  form.addEventListener("submit", function (e) { e.preventDefault(); send.click(); });
-  refresh();
+  $("#cart-lines").addEventListener("click", function (e) {
+    var b = e.target.closest("[data-rm]");
+    if (!b) return;
+    cart.splice(+b.dataset.rm, 1); save(); renderCart();
+  });
+  $("#cart-form").addEventListener("input", updateMessage);
+  $("#cart-form").addEventListener("change", updateMessage);
+  $("#cart-form").addEventListener("submit", function (e) { e.preventDefault(); });
+
+  $$("[data-open-cart]").forEach(function (b) {
+    b.addEventListener("click", function () { if (dlg.showModal) dlg.showModal(); else dlg.setAttribute("open", ""); });
+  });
+  dlg.addEventListener("click", function (e) {
+    if (e.target === dlg) { dlg.close(); return; }
+    var c = e.target.closest("[data-close]");
+    if (c) { dlg.close(); if (c.dataset.go) location.hash = c.dataset.go; }
+  });
+
+  var tt;
+  function toast(msg) {
+    var t = $("#toast"); t.textContent = msg; t.classList.add("show");
+    clearTimeout(tt); tt = setTimeout(function () { t.classList.remove("show"); }, 1800);
+  }
+
+  renderCart();
 })();
 </script>
 </body>
