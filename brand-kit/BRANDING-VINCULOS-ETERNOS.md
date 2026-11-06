@@ -9,8 +9,9 @@ Este archivo resume el branding y la información del negocio. Si abres un chat 
 - **Qué hace:** imanes personalizados con fotos, corazones de metal y calendarios, hechos a mano en Costa Rica.
 - **Instagram:** @vinculos_eternos_cr
 - **WhatsApp de pedidos:** 7182-1161 (+506 7182 1161)
-- **Pago:** SINPE Móvil o transferencia
-- **Envíos:** a todo Costa Rica, o Uber Flash
+- **Pago:** SINPE Móvil o transferencia. Se adelanta el 50 % para encargar (sin adelanto no se inicia); el resto al recibirlo o antes de enviarlo por Correos o Uber.
+- **Envíos:** sin costo adicional en San Pedro, Barrio Dent y San José. A otros lugares por Correos de Costa Rica o Uber, cobrando el envío.
+- **Fotos:** claras y cuadradas (o que se puedan recortar en cuadrado), por WhatsApp al 7182-1161, de preferencia en HD o como archivo.
 - **Tiempo de entrega:** alrededor de 1 semana
 - **Dominio web:** todavía no hay
 
@@ -97,27 +98,26 @@ Ver `referencias/manual-kippi-sobre-fondos.png`.
 - Fotos para el catálogo (hoy solo hay de mascota, Dinofabeto y bodas)
 - Foto de bodas en alta resolución
 - Precios de eventos, metales, calendarios, Dinofabeto e imanes para marcas
-- Texto de la historia de la marca
-- Reseñas de clientes
 - Cómo funciona la música de los calendarios
 
-## Borrador para "Nuestra historia" (pendiente de aprobar)
+## Nuestra historia (aprobada)
 
-Cambiar lo que está entre [corchetes].
-
-**Versión larga**
-
-> Hola, soy [nombre]. Vínculos Eternos empezó en [año], cuando me di cuenta de que tenía miles de fotos en el celular y casi nunca las veía. Las mejores, las de [mi familia / mi abuela / mi perro], estaban perdidas entre capturas de pantalla y memes.
+> Hola, soy Mary, la creadora de Vínculos Eternos. Este sueño empezó en 2025, cuando me di cuenta de que tenía miles de fotos en el celular y casi nunca las veía. Las mejores, las de mi familia, mi abuela, mi gatito, estaban perdidas entre capturas de pantalla y memes.
 >
 > Así que hice mi primer imán. Lo pegué en la refri y cada vez que pasaba por ahí, me detenía un segundo a recordar. Ahí entendí que no estaba haciendo un imán: estaba devolviéndole presencia a un momento.
 >
 > El nombre salió de esa idea. Las personas que amamos, los momentos que nos marcaron, merecen quedarse cerca para siempre. Eso es un vínculo eterno.
 >
-> Hoy cada pieza la hago a mano en [ciudad], Costa Rica, una por una, pensando en la historia que hay detrás de cada foto.
+> Hoy cada pieza la hago a mano una por una con mucho amor, pensando en la historia que hay detrás de cada foto.
 
-**Versión corta**
+## Reseñas reales
 
-> Vínculos Eternos nació de una pregunta simple: ¿de qué sirve tener miles de fotos si nunca las vemos? Soy [nombre] y desde [año] convierto esas fotos en recuerdos que se quedan a la vista, hechos a mano en Costa Rica. Porque los vínculos que importan merecen estar cerca, siempre.
+- **Karo** (WhatsApp): "Ya me llegaron los imanes, qué hermosos están de verdad, muchas gracias. Los subiré a Insta para que te sigan más personas. Muy bonito el emprendimiento."
+- **María Paula** (WhatsApp): "Mil gracias, quedaron hermosos 😍😍"
+- **Tami** (WhatsApp): "Hola, ya me llegó, muchísimas gracias, están hermosos."
+- **Kattya** (WhatsApp): "Tengo un problema con el pedido... quedó hermoso y quiero más fotos. Muchísimas gracias, están hermosas. Voy a alistar otro pedido ❤️"
+- **Dani** (Instagram, invitada de una boda, con foto del imán en su refri): "Y así se ven en casa. Excelente trabajo, como invitadas lo amamos."
+- **Katia** (Instagram): "Hermoso trabajo, súper recomendados."
 
 ## Vista previa de la página
 

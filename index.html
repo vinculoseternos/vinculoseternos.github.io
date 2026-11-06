@@ -197,17 +197,24 @@ nav.links a:hover { color: var(--conexion); }
 
 /* Historia y reseñas */
 .story { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 64px); align-items: center; }
-.story > img { border-radius: 20px; box-shadow: var(--shadow); width: 100%; }
+.story-pics { position: sticky; top: 100px; aspect-ratio: 1 / 1.05; width: 100%; max-width: 520px; justify-self: center; align-self: start; }
+.story-pics .s1 { width: 78%; aspect-ratio: 625 / 509; left: 0; top: 0; transform: rotate(-4deg); padding-bottom: 8px; }
+.story-pics .s2 { width: 48%; aspect-ratio: 1 / 1.15; right: 0; bottom: 4%; transform: rotate(5deg); z-index: 2; }
+.story-pics .photo { box-shadow: 0 18px 36px -14px rgba(62,30,30,.45); }
+.kippi-story { position: absolute; left: 4%; bottom: 0; width: 34%; z-index: 3; transform: rotate(-8deg); filter: drop-shadow(0 8px 12px rgba(62,30,30,.25)); }
+.story-copy .pull { font-family: var(--f-sub); font-style: italic; font-size: clamp(1.3rem, 2.4vw, 1.6rem); line-height: 1.3; color: var(--conexion); border-left: 3px solid var(--aura); padding-left: 18px; }
 .story-copy { display: grid; gap: 16px; min-width: 0; }
 .story-copy p { color: var(--muted); max-width: 60ch; }
 .todo { border: 1.5px dashed var(--rosa-claro); border-radius: 14px; padding: 14px 16px; font-size: .88rem; color: var(--muted); }
 .todo b { color: var(--conexion); }
-@media (max-width: 780px) { .story { grid-template-columns: 1fr; } }
+@media (max-width: 780px) { .story { grid-template-columns: 1fr; } .story-pics { position: relative; top: 0; width: min(100%, 400px); } }
 .reviews { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.review { margin: 0; background: var(--papel); border: 1px dashed var(--rosa-claro); border-radius: 20px; padding: 26px; display: grid; gap: 14px; align-content: space-between; min-width: 0; }
-.review blockquote { margin: 0; font-family: var(--f-sub); font-style: italic; font-size: 1.2rem; line-height: 1.35; color: var(--muted); }
-.review cite { font-style: normal; font-size: .85rem; color: var(--muted); font-weight: 500; }
-@media (max-width: 860px) { .reviews { grid-template-columns: 1fr; } }
+.review { margin: 0; background: var(--papel); border: 1px solid var(--linea); border-radius: 20px; padding: 26px; display: grid; gap: 14px; align-content: space-between; min-width: 0; }
+.review blockquote { margin: 0; font-family: var(--f-sub); font-style: italic; font-size: 1.25rem; line-height: 1.35; color: var(--recuerdo); }
+.review cite { font-style: normal; font-size: .85rem; color: var(--muted); }
+.review cite b { color: var(--conexion); font-weight: 600; }
+@media (max-width: 960px) { .reviews { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .reviews { grid-template-columns: 1fr; } }
 
 /* Preguntas */
 .faq { display: grid; max-width: 800px; border-top: 1px solid var(--linea); }
@@ -264,6 +271,8 @@ dialog.cart[open] { animation: slide .25s ease; }
 .total span { color: var(--muted); font-size: .88rem; }
 .total strong { font-family: var(--f-title); font-weight: 800; font-size: 1.5rem; color: var(--rosa); font-variant-numeric: tabular-nums; }
 .cart-foot .btn-main { width: 100%; }
+.total.deposit { margin-top: -8px; }
+.total.deposit b { font-weight: 600; color: var(--recuerdo); font-variant-numeric: tabular-nums; }
 .cart-foot .btn-main[aria-disabled="true"] { opacity: .45; pointer-events: none; }
 .hint { font-size: .78rem; color: var(--muted); }
 
@@ -487,21 +496,28 @@ dialog.cart[open] { animation: slide .25s ease; }
       </div>
       <div class="steps">
         <article class="step"><h3>Arma tu pedido</h3><p>Elige en el catálogo o toma una idea. Todo se va sumando en tu pedido.</p></article>
-        <article class="step"><h3>Envíalo por WhatsApp</h3><p>Se abre con el resumen listo. Ahí nos mandas tus fotos y afinamos los detalles.</p></article>
-        <article class="step"><h3>Pagas y te llega</h3><p>Por SINPE Móvil o transferencia. En alrededor de una semana lo tienes, por envío o Uber Flash.</p></article>
+        <article class="step"><h3>Envíalo con tus fotos</h3><p>Se abre WhatsApp con el resumen listo. Ahí nos mandas tus fotos en HD o como archivo, claras y cuadradas (o que se puedan recortar así).</p></article>
+        <article class="step"><h3>Adelantas el 50 % y te llega</h3><p>Con el 50 % por SINPE Móvil o transferencia empezamos tu pedido. El resto lo pagas al recibirlo o antes del envío. En alrededor de una semana lo tienes.</p></article>
       </div>
     </div>
   </section>
 
   <section id="historia" style="padding-top:0">
     <div class="wrap story">
-      <img src="assets/brand/mockup.webp" alt="Empaque de Vínculos Eternos con el logo y Kippi" loading="lazy" width="625" height="509">
+      <div class="story-pics" aria-hidden="true">
+        <figure class="photo s1"><img src="assets/brand/mockup.webp" alt="" loading="lazy" width="625" height="509"></figure>
+        <figure class="photo s2"><img src="assets/img/regalo.webp" alt="" loading="lazy" width="346" height="430"></figure>
+        <img class="kippi-story" src="assets/brand/kippi-camara-roja.webp" alt="" loading="lazy" width="600" height="507">
+      </div>
       <div class="story-copy">
         <span class="eyebrow">Nuestra historia</span>
         <h2>Detrás de cada recuerdo</h2>
-        <p class="sub">Fotografía encapsulada</p>
-        <!-- HISTORIA: reemplazar este bloque con la historia de la marca -->
-        <div class="todo"><b>Espacio para la historia.</b> Aquí va quién está detrás de Vínculos Eternos, cómo empezó y por qué el nombre.</div>
+        <p class="sub">Hola, soy Mary, la creadora de Vínculos Eternos.</p>
+        <p>Este sueño empezó en 2025, cuando me di cuenta de que tenía miles de fotos en el celular y casi nunca las veía. Las mejores, las de mi familia, mi abuela, mi gatito, estaban perdidas entre capturas de pantalla y memes.</p>
+        <p>Así que hice mi primer imán. Lo pegué en la refri y cada vez que pasaba por ahí, me detenía un segundo a recordar. Ahí entendí que no estaba haciendo un imán: estaba devolviéndole presencia a un momento.</p>
+        <p>El nombre salió de esa idea.</p>
+        <p class="pull">Las personas que amamos, los momentos que nos marcaron, merecen quedarse cerca para siempre. Eso es un vínculo eterno.</p>
+        <p>Hoy cada pieza la hago a mano, una por una, con mucho amor, pensando en la historia que hay detrás de cada foto.</p>
       </div>
     </div>
   </section>
@@ -509,11 +525,14 @@ dialog.cart[open] { animation: slide .25s ease; }
   <section id="resenas" style="padding-top:0">
     <div class="wrap">
       <div class="sec-head"><span class="eyebrow">Reseñas</span><h2>Lo que dicen quienes ya recuerdan</h2></div>
-      <!-- RESEÑAS: reemplazar con testimonios reales -->
+      <!-- RESEÑAS: mensajes reales de clientes -->
       <div class="reviews">
-        <figure class="review"><blockquote>Espacio para una reseña real de un cliente.</blockquote><cite>Nombre · Ciudad</cite></figure>
-        <figure class="review"><blockquote>Espacio para una reseña real de un cliente.</blockquote><cite>Nombre · Ciudad</cite></figure>
-        <figure class="review"><blockquote>Espacio para una reseña real de un cliente.</blockquote><cite>Nombre · Ciudad</cite></figure>
+        <figure class="review"><blockquote>“Ya me llegaron los imanes, ¡qué hermosos están de verdad! Muchas gracias. Los subiré a Insta para que te sigan más personas. Muy bonito el emprendimiento.”</blockquote><cite><b>Karo</b> · por WhatsApp</cite></figure>
+        <figure class="review"><blockquote>“Tengo un problema con el pedido… ¡quedó hermoso y quiero más fotos! Muchísimas gracias, están hermosas. Voy a alistar otro pedido ❤️”</blockquote><cite><b>Kattya</b> · por WhatsApp</cite></figure>
+        <figure class="review"><blockquote>“Y así se ven en casa. Excelente trabajo. Como invitadas, ¡lo amamos!”</blockquote><cite><b>Dani</b> · invitada de una boda, en Instagram</cite></figure>
+        <figure class="review"><blockquote>“¡Mil gracias, quedaron hermosos! 😍😍”</blockquote><cite><b>María Paula</b> · por WhatsApp</cite></figure>
+        <figure class="review"><blockquote>“Hola, ya me llegó. ¡Muchísimas gracias, están hermosos!”</blockquote><cite><b>Tami</b> · por WhatsApp</cite></figure>
+        <figure class="review"><blockquote>“Hermoso trabajo, ¡súper recomendados!”</blockquote><cite><b>Katia</b> · en Instagram</cite></figure>
       </div>
     </div>
   </section>
@@ -522,12 +541,12 @@ dialog.cart[open] { animation: slide .25s ease; }
     <div class="wrap">
       <div class="sec-head"><span class="eyebrow">Preguntas frecuentes</span><h2>Lo que más nos preguntan</h2></div>
       <div class="faq">
-        <details open><summary>¿El total del pedido es el precio final?</summary><p>Es un total aproximado, sin el envío. Antes de pagar te confirmamos todo por WhatsApp.</p></details>
-        <details><summary>¿Cuánto tarda mi pedido?</summary><p>Alrededor de una semana desde que confirmas el pedido y el pago. Si lo necesitas para una fecha específica, avísanos al escribir.</p></details>
-        <details><summary>¿Cómo pago?</summary><p>Por SINPE Móvil o transferencia bancaria. Te damos los datos cuando confirmamos el pedido.</p></details>
-        <details><summary>¿Hacen envíos?</summary><p>Sí, a todo Costa Rica. Si estás cerca también podemos mandarlo por Uber Flash. El costo depende de la zona.</p></details>
+        <details open><summary>¿Cómo se paga?</summary><p>Para encargar el pedido se adelanta el 50 % por SINPE Móvil o transferencia; sin ese adelanto no se inicia. El otro 50 % se paga al recibirlo, o antes de enviarlo si va por Correos o Uber.</p></details>
+        <details><summary>¿Cuánto cuesta el envío?</summary><p>La entrega es sin costo adicional en San Pedro, Barrio Dent y San José. A cualquier otro lugar lo enviamos por Correos de Costa Rica o Uber, y se cobra el costo del envío.</p></details>
+        <details><summary>¿Qué fotos sirven?</summary><p>Fotos claras y cuadradas, o que se puedan recortar en cuadrado. Mándalas al WhatsApp 7182-1161, de preferencia en HD o como archivo para que no pierdan calidad.</p></details>
+        <details><summary>¿Cuánto tarda mi pedido?</summary><p>Alrededor de una semana desde que recibimos el adelanto y las fotos. Si lo necesitas para una fecha específica, avísanos al escribir.</p></details>
+        <details><summary>¿El total del pedido es el precio final?</summary><p>Es el total de los productos. Si tu entrega tiene costo, se suma aparte. Antes de pagar te confirmamos todo por WhatsApp.</p></details>
         <details><summary>¿Lo pueden mandar listo para regalar?</summary><p>Sí. Al agregar tus fotos imantadas marca el empaque de regalo, por ₡1 000 adicionales.</p></details>
-        <details><summary>¿Qué fotos sirven?</summary><p>Las del celular funcionan perfecto. Mándalas en la mejor calidad posible, idealmente como documento en WhatsApp, y con lo importante en el centro.</p></details>
         <details><summary>¿Puedo pedir algo que no está aquí?</summary><p>Claro. Todo es personalizado: escríbenos con tu idea y vemos cómo hacerla.</p></details>
       </div>
     </div>
@@ -570,14 +589,15 @@ dialog.cart[open] { animation: slide .25s ease; }
       <ul class="lines" id="cart-lines"></ul>
       <form id="cart-form" class="field-group" novalidate style="display:grid;gap:14px">
         <div class="field"><label for="f-nombre">Tu nombre</label><input id="f-nombre" type="text" placeholder="Ej. María Fernanda" autocomplete="name"></div>
-        <div class="field"><label for="f-entrega">Entrega</label><select id="f-entrega"><option>Envío por Correos de Costa Rica</option><option>Uber Flash</option></select></div>
+        <div class="field"><label for="f-entrega">Entrega</label><select id="f-entrega"><option>Entrega sin costo (San Pedro, Barrio Dent o San José)</option><option>Correos de Costa Rica (envío aparte)</option><option>Uber (envío aparte)</option></select></div>
         <div class="field"><label for="f-nota">Algo más (opcional)</label><textarea id="f-nota" placeholder="Ej. Es para regalar el Día de la Madre"></textarea></div>
       </form>
     </div>
     <div class="cart-foot">
-      <div class="total" aria-live="polite"><span>Total aproximado</span><strong data-total>₡0</strong></div>
+      <div class="total" aria-live="polite"><span>Total</span><strong data-total>₡0</strong></div>
+      <div class="total deposit"><span>Adelanto para iniciar (50 %)</span><b data-deposit>₡0</b></div>
       <a class="btn btn-main" id="send" href="https://wa.me/50671821161" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Enviar pedido por WhatsApp</a>
-      <p class="hint">Más el envío según la zona. Si WhatsApp no se abre, escríbenos al 7182-1161.</p>
+      <p class="hint">El resto se paga al recibirlo o antes del envío. Fotos claras y cuadradas, en HD o como archivo. Si WhatsApp no se abre, escríbenos al 7182-1161.</p>
     </div>
   </div>
 </dialog>
@@ -785,6 +805,7 @@ dialog.cart[open] { animation: slide .25s ease; }
   function renderCart(bump) {
     $$("[data-count]").forEach(function (el) { el.textContent = count(); });
     $$("[data-total]").forEach(function (el) { el.textContent = crc(total()); });
+    $$("[data-deposit]").forEach(function (el) { el.textContent = crc(Math.ceil(total() / 2)); });
     if (bump) { var b = $(".cart-btn .badge"); b.classList.remove("bump"); void b.offsetWidth; b.classList.add("bump"); }
     $("#cart-bar").hidden = !cart.length;
     $("#wa-float").hidden = !!cart.length;
@@ -805,9 +826,9 @@ dialog.cart[open] { animation: slide .25s ease; }
       var d = [l.detail].concat(l.extras).filter(Boolean).join(", ");
       lines.push("• " + l.name + (d ? " (" + d + ")" : "") + ": " + crc(l.total));
     });
-    lines.push("Total aproximado: " + crc(total()) + " + envío", "Entrega: " + $("#f-entrega").value);
+    lines.push("Total: " + crc(total()), "Adelanto del 50 %: " + crc(Math.ceil(total() / 2)), "Entrega: " + $("#f-entrega").value);
     if (nota) lines.push("Nota: " + nota);
-    lines.push("", "Ahora les mando las fotos.");
+    lines.push("", "Ahora les mando las fotos en HD.");
     send.href = waUrl(lines.join("\n"));
   }
   $("#cart-lines").addEventListener("click", function (e) {
