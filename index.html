@@ -409,6 +409,63 @@ dialog.cart { position: fixed; }
 .ig .heart { width: 14px; height: 14px; color: var(--conexion); }
 @media (max-width: 600px) { .chat { padding: 16px 14px 2px 22px; } }
 
+/* Refri virtual */
+.fridge-sec { padding-top: 0; }
+.fridge-wrap { display: grid; grid-template-columns: minmax(260px, 420px) 1fr; gap: clamp(24px, 4vw, 56px); align-items: start; }
+.fridge { position: relative; aspect-ratio: 3 / 4.2; border-radius: 26px; background: linear-gradient(100deg, #fdfaf7 0%, #f3ebe4 55%, #e9ded5 100%); border: 1px solid var(--linea); box-shadow: inset -10px 0 24px -14px rgba(62,30,30,.25), 0 24px 40px -24px rgba(62,30,30,.45); overflow: hidden; touch-action: none; }
+.fridge-top { position: absolute; left: 0; right: 0; top: 30%; height: 2px; background: var(--linea); box-shadow: 0 1px 0 #fff; }
+.fridge-handle { position: absolute; right: 16px; top: 8%; width: 8px; height: 16%; border-radius: 6px; background: linear-gradient(90deg, #d9cbc1, #f8f2ec); box-shadow: 1px 2px 4px rgba(62,30,30,.25); }
+.fridge-handle.low { top: 36%; height: 22%; }
+.fridge-empty { position: absolute; inset: 0; display: grid; place-content: center; text-align: center; color: var(--muted); font-family: var(--f-sub); font-style: italic; font-size: 1.2rem; pointer-events: none; }
+.fmag, .tmag-drag { position: absolute; width: 22%; aspect-ratio: 1 / 1.12; margin: 0; padding: 4px 4px 12px; background: var(--papel); border-radius: 3px; box-shadow: 0 8px 16px -8px rgba(62,30,30,.55); touch-action: none; cursor: grab; user-select: none; }
+.fmag img, .tmag-drag img { width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+.fmag i, .tmag-drag i, .tmag i { display: grid; place-items: center; width: 100%; height: 100%; background: linear-gradient(135deg, var(--aura), color-mix(in srgb, var(--rosa-claro) 55%, var(--aura))); color: var(--recuerdo); font-family: var(--f-sub); font-style: italic; font-size: .85rem; text-align: center; padding: 2px; }
+.fmag.dragging, .tmag-drag { cursor: grabbing; z-index: 50; box-shadow: 0 18px 28px -10px rgba(62,30,30,.55); }
+.tmag-drag { position: fixed; width: 80px; pointer-events: none; }
+.fmag .x { position: absolute; top: -9px; right: -9px; width: 24px; height: 24px; border-radius: 50%; border: 0; background: var(--recuerdo); color: var(--destello); font-size: .85rem; line-height: 1; cursor: pointer; opacity: 0; transition: opacity .15s; }
+.fmag:hover .x, .fmag:focus-within .x { opacity: 1; }
+@media (hover: none) { .fmag .x { opacity: .85; } }
+.fridge-side { display: grid; gap: 14px; align-content: start; }
+.tray { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.tmag { display: grid; gap: 6px; padding: 0; border: 0; background: none; cursor: grab; touch-action: none; font: 500 .78rem/1.2 var(--f-body); color: var(--recuerdo); text-align: center; }
+.tmag img, .tmag i { aspect-ratio: 1 / 1.12; width: 100%; object-fit: cover; border: 4px solid var(--papel); border-bottom-width: 12px; border-radius: 3px; box-shadow: 0 8px 16px -10px rgba(62,30,30,.55); transition: transform .2s; }
+.tmag:hover img, .tmag:hover i { transform: rotate(-4deg) translateY(-3px); }
+.fridge-sum { display: flex; justify-content: space-between; align-items: baseline; border-top: 1px solid var(--linea); padding-top: 12px; }
+.fridge-sum span { color: var(--muted); }
+.fridge-sum strong { font-family: var(--f-title); font-weight: 800; font-size: 1.5rem; color: var(--rosa); font-variant-numeric: tabular-nums; }
+.fridge-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.fridge-actions .btn:disabled { opacity: .45; cursor: default; transform: none; box-shadow: none; }
+.fridge.pulse { animation: fpulse .5s ease; }
+@keyframes fpulse { 40% { box-shadow: inset -10px 0 24px -14px rgba(62,30,30,.25), 0 0 0 6px color-mix(in srgb, var(--aura) 80%, transparent); } }
+@media (max-width: 820px) { .fridge-wrap { grid-template-columns: 1fr; } .fridge { width: min(100%, 360px); justify-self: center; } }
+@media (max-width: 420px) { .tray { gap: 8px; } }
+
+/* Simulador de bodas */
+.sim { display: grid; grid-template-columns: 1fr 1.1fr; grid-template-areas: "copy view" "out out"; gap: 20px clamp(24px, 4vw, 48px); background: var(--papel); border: 1px solid var(--linea); border-radius: 28px; padding: clamp(20px, 3vw, 36px); margin-bottom: 40px; }
+.sim-copy { grid-area: copy; display: grid; gap: 14px; align-content: start; }
+.sim-copy h3 { font-size: 1.5rem; color: var(--rosa); text-transform: uppercase; font-weight: 800; }
+.sim-lead { color: var(--muted); }
+.sim input[type=range] { width: 100%; accent-color: var(--conexion); padding: 0; border: 0; background: none; }
+.sim .field label b { color: var(--conexion); font-variant-numeric: tabular-nums; }
+.sim-view { grid-area: view; display: grid; gap: 14px; align-content: start; background: var(--destello); border-radius: 20px; padding: 18px; }
+.sim-hours { display: grid; grid-template-columns: repeat(6, 1fr); gap: 4px; }
+.sim-hours span { height: 8px; border-radius: 999px; background: var(--linea); transition: background .3s; }
+.sim-hours span.on { background: linear-gradient(90deg, var(--rosa-claro), var(--conexion)); }
+.sim-couple { display: flex; gap: 8px; }
+.sim-c { flex: 1; text-align: center; font-family: var(--f-sub); font-style: italic; font-size: .92rem; color: var(--recuerdo); padding: 6px; border-radius: 3px; background: var(--aura); transition: background .3s, box-shadow .3s; }
+.sim-l { font-size: .78rem; font-weight: 600; color: var(--rosa-texto); margin-bottom: -8px; }
+.sim-l small { font-weight: 400; color: var(--muted); }
+.tray-l { font-size: .78rem; font-weight: 600; letter-spacing: .06em; color: var(--rosa-texto); }
+.sim-couple.mag .sim-c { background: var(--papel); box-shadow: 0 0 0 2px var(--conexion), 0 8px 14px -8px rgba(62,30,30,.5); }
+.sim-dots { display: grid; grid-template-columns: repeat(auto-fill, minmax(12px, 1fr)); gap: 4px; }
+.sim-dot { aspect-ratio: 1; border-radius: 50%; background: color-mix(in srgb, var(--rosa-claro) 45%, transparent); transition: border-radius .35s, background .35s, box-shadow .35s, transform .35s; }
+.sim-dot.mag { border-radius: 2px; background: var(--papel); box-shadow: 0 0 0 1.5px var(--conexion); transform: rotate(-6deg); }
+.sim-dot.mag:nth-child(even) { transform: rotate(5deg); }
+.sim-out { grid-area: out; display: flex; flex-wrap: wrap; gap: 14px 24px; align-items: center; justify-content: space-between; border-top: 1px solid var(--linea); padding-top: 16px; }
+.sim-out p { max-width: 62ch; color: var(--recuerdo); }
+.sim-out p b { color: var(--conexion); }
+@media (max-width: 820px) { .sim { grid-template-columns: 1fr; grid-template-areas: "copy" "view" "out"; } }
+
 /* Contacto */
 .contact-sec { padding-top: 0; }
 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; align-items: start; }
@@ -780,6 +837,31 @@ dialog.cart[open] { animation: slide .25s ease; }
       </div>
     </div>
   </section>
+
+<section class="fridge-sec" aria-labelledby="refri-t">
+    <div class="wrap">
+      <div class="sec-head"><h2 id="refri-t">Arma tu refri</h2><p class="sub">Así se vería tu cocina con tus recuerdos.</p><p class="lead">Arrastra imanes a la refri, o tócalos para agregarlos. Para quitar uno, sácalo de la refri o toca su ×. Cuando te guste, conviértela en tu pedido.</p></div>
+      <div class="fridge-wrap">
+        <div class="fridge" id="fridge" aria-label="Refri con tus imanes"><div class="fridge-top"></div><div class="fridge-handle"></div><div class="fridge-handle low"></div><p class="fridge-empty" id="fridge-empty">Tu refri está vacía.<br>Trae aquí tus recuerdos.</p></div>
+        <div class="fridge-side">
+          <p class="tray-l">Imanes de ejemplo</p>
+          <div class="tray" id="tray">
+            <button type="button" class="tmag" data-kind="Mascotas" data-img="mascota"><img src="assets/img/mascota.webp" alt="" draggable="false" style="object-position:50% 65%"><span>Mascotas</span></button>
+            <button type="button" class="tmag" data-kind="Boda" data-img="boda"><img src="assets/img/boda.webp" alt="" draggable="false" style="object-position:50% 40%"><span>Boda</span></button>
+            <button type="button" class="tmag" data-kind="Graduación" data-img="graduacion"><img src="assets/img/graduacion.webp" alt="" draggable="false" style="object-position:50% 62%"><span>Graduación</span></button>
+            <button type="button" class="tmag" data-kind="Pareja" data-img="regalo"><img src="assets/img/regalo.webp" alt="" draggable="false"><span>Pareja</span></button>
+            <button type="button" class="tmag" data-kind="Abuelos"><i>Abuelos</i><span>Abuelos</span></button>
+            <button type="button" class="tmag" data-kind="Bebé"><i>Bebé</i><span>Bebé</span></button>
+            <button type="button" class="tmag" data-kind="Familia"><i>Familia</i><span>Familia</span></button>
+            <button type="button" class="tmag" data-kind="Viajes"><i>Viajes</i><span>Viajes</span></button>
+          </div>
+          <div class="fridge-sum" aria-live="polite"><span id="fridge-count">0 imanes</span><strong id="fridge-price">₡0</strong></div>
+          <p class="hint" id="fridge-hint">Mientras más imanes, más barato cada uno.</p>
+          <div class="fridge-actions"><button class="btn btn-main" type="button" id="fridge-order" disabled>Pedir estos imanes</button><button class="btn btn-line" type="button" id="fridge-clear">Vaciar</button></div>
+        </div>
+      </div>
+    </div>
+  </section>
   </div>
 
   <div class="page" id="eventos" data-title="Bodas y eventos · Vínculos Eternos" hidden>
@@ -810,6 +892,31 @@ dialog.cart[open] { animation: slide .25s ease; }
         <li class="tl"><span class="tl-when">Durante la fiesta</span><h3>El día de la boda</h3><p>Les tomamos fotos a ustedes y a sus invitados, y cada quien escoge en la que salió más guapo. Porque sí, eso es lo más importante.</p></li>
         <li class="tl tl-peak"><figure class="tl-magnet" aria-hidden="true"><img src="assets/img/boda.webp" alt="" loading="lazy" width="540" height="615"></figure><span class="tl-when">Minutos después</span><h3>El imán en la mano</h3><p>No en días ni en semanas: ese mismo día, en la boda. Cada quien se lo lleva a casa.</p></li>
       </ol>
+      <div class="sim" id="simulador">
+        <div class="sim-copy">
+          <h3>Imaginen su boda</h3>
+          <p class="sim-lead">Muevan los controles y vean cómo se vería el día. Sin precios: eso lo vemos juntos en la reunión.</p>
+          <div class="field"><label for="sim-guests">Invitados: <b id="sim-guests-v">100</b></label><input id="sim-guests" type="range" min="20" max="300" step="10" value="100"></div>
+          <div class="field"><label for="sim-hours">Horas en la fiesta: <b id="sim-hours-v">3</b></label><input id="sim-hours" type="range" min="1" max="6" step="1" value="3"></div>
+          <fieldset class="opts sim-for"><legend>Los imanes son para</legend>
+            <label class="opt"><input type="radio" name="sim-for" value="ustedes"><span>Ustedes</span></label>
+            <label class="opt"><input type="radio" name="sim-for" value="invitados"><span>Los invitados</span></label>
+            <label class="opt"><input type="radio" name="sim-for" value="todos" checked><span>Todos</span></label>
+          </fieldset>
+        </div>
+        <div class="sim-view" aria-hidden="true">
+          <p class="sim-l">Horas en la fiesta</p>
+          <div class="sim-hours" id="sim-hours-bar"></div>
+          <p class="sim-l">Los novios</p>
+          <div class="sim-couple"><span class="sim-c">Ustedes</span></div>
+          <p class="sim-l">Invitados <small>(cada cuadrito es una persona; con borde, se lleva su imán)</small></p>
+          <div class="sim-dots" id="sim-dots"></div>
+        </div>
+        <div class="sim-out">
+          <p id="sim-text" aria-live="polite"></p>
+          <a class="btn btn-main" href="#agendar" id="sim-book">Agendar reunión con esto</a>
+        </div>
+      </div>
       <div class="quote-facts">
         <div class="depends">
           <h3>¿Cuánto cuesta en su boda?</h3>
@@ -1311,7 +1418,7 @@ dialog.cart[open] { animation: slide .25s ease; }
 
   /* Agenda de eventos. Cuando exista la página de citas de Google Calendar,
      pegar su enlace en BOOKING_URL y el botón abrirá esa página con la disponibilidad real. */
-  var BOOKING_URL = "";
+  var BOOKING_URL = "", simText = "", refreshBook = null;
   (function () {
     var send = $("#book-send");
     if (BOOKING_URL) {
@@ -1343,10 +1450,11 @@ dialog.cart[open] { animation: slide .25s ease; }
     $("#book-times").innerHTML = horas.map(function (h, i) {
       return '<button class="slot" type="button" data-h="' + h + '" aria-pressed="' + (i === 0) + '">' + h + " p. m.</button>";
     }).join("");
+    refreshBook = upd;
     function upd() {
       var x = sel.day;
       $("span", send).textContent = "Pedir cita · " + dias[x.getDay()] + " " + x.getDate() + " " + meses[x.getMonth()] + ", " + sel.time + " p. m.";
-      send.href = waUrl("Hola Vínculos Eternos, quiero agendar una reunión para cotizar un evento el " + largo[x.getDay()] + " " + x.getDate() + " de " + meses[x.getMonth()] + " a las " + sel.time + " p. m. ¿Está disponible?");
+      send.href = waUrl("Hola Vínculos Eternos, quiero agendar una reunión para cotizar un evento el " + largo[x.getDay()] + " " + x.getDate() + " de " + meses[x.getMonth()] + " a las " + sel.time + " p. m." + (simText || "") + " ¿Está disponible?");
     }
     $("#book-days").addEventListener("click", function (e) {
       var b = e.target.closest(".slot"); if (!b || b.disabled) return;
@@ -1578,6 +1686,134 @@ dialog.cart[open] { animation: slide .25s ease; }
       }
       setTimeout(function () { box.remove(); }, 4500);
     });
+  })();
+
+
+  // Refri virtual: arrastrar imanes de ejemplo y convertirlos en pedido
+  (function () {
+    var fr = $("#fridge"), tray = $("#tray"); if (!fr) return;
+    var mags = [], z = 1, MAX = 40;
+    function sum() {
+      var n = mags.length;
+      $("#fridge-empty").hidden = n > 0;
+      $("#fridge-count").textContent = n === 1 ? "1 imán" : n + " imanes";
+      $("#fridge-price").textContent = n ? crc(lineOf("fotos", 0, n, false, 0).total) : crc(0);
+      var u = n ? unitPrice(byId.fotos.options[0], n) : 0;
+      $("#fridge-hint").textContent = n ? n + " × " + crc(u) + " c/u" + (n >= MAX ? " · máximo " + MAX + " en la refri" : "") : "Mientras más imanes, más barato cada uno.";
+      $("#fridge-order").disabled = !n;
+      $("#fridge-order").textContent = n ? "Pedir " + (n === 1 ? "este imán" : "estos " + n + " imanes") : "Pedir estos imanes";
+    }
+    function inner(src) {
+      return src.dataset.img ? '<img src="assets/img/' + src.dataset.img + '.webp" alt="" draggable="false" style="' + (src.querySelector("img").getAttribute("style") || "") + '">' : "<i>" + esc(src.dataset.kind) + "</i>";
+    }
+    function place(src, xPct, yPct) {
+      if (mags.length >= MAX) { fr.classList.remove("pulse"); void fr.offsetWidth; fr.classList.add("pulse"); return; }
+      var m = document.createElement("figure");
+      m.className = "fmag"; m.dataset.kind = src.dataset.kind;
+      m.innerHTML = inner(src) + '<button type="button" class="x" aria-label="Quitar ' + esc(src.dataset.kind) + '">×</button>';
+      var rot = (Math.random() * 16 - 8).toFixed(1);
+      m.style.left = Math.max(0, Math.min(78, xPct)) + "%"; m.style.top = Math.max(0, Math.min(84, yPct)) + "%";
+      m.style.transform = "rotate(" + rot + "deg)"; m.style.zIndex = ++z;
+      fr.appendChild(m); mags.push(m);
+      if (!calm) m.animate([{ transform: "translateY(-24px) rotate(" + (rot - 12) + "deg) scale(1.1)", opacity: 0 }, { transform: "rotate(" + rot + "deg)", opacity: 1 }], { duration: 380, easing: "cubic-bezier(0.16, 1, 0.3, 1)" });
+      sum();
+    }
+    function remove(m) {
+      mags = mags.filter(function (x) { return x !== m; });
+      if (calm || !m.animate) { m.remove(); sum(); return; }
+      var a = m.animate([{ opacity: 1 }, { opacity: 0, transform: "translateY(30px) rotate(20deg) scale(.8)" }], { duration: 260, easing: "ease-in" });
+      a.onfinish = function () { m.remove(); }; sum();
+    }
+    function inFridge(x, y) { var r = fr.getBoundingClientRect(); return x >= r.left && x <= r.right && y >= r.top && y <= r.bottom ? r : null; }
+
+    // Desde la bandeja: tocar agrega, arrastrar coloca donde lo sueltes
+    tray.addEventListener("pointerdown", function (e) {
+      var src = e.target.closest(".tmag"); if (!src || e.button > 0) return;
+      e.preventDefault();
+      var sx = e.clientX, sy = e.clientY, ghost = null;
+      function move(ev) {
+        if (!ghost && Math.hypot(ev.clientX - sx, ev.clientY - sy) < 6) return;
+        if (!ghost) { ghost = document.createElement("figure"); ghost.className = "tmag-drag"; ghost.innerHTML = inner(src); document.body.appendChild(ghost); }
+        ghost.style.left = (ev.clientX - 40) + "px"; ghost.style.top = (ev.clientY - 45) + "px";
+        ghost.style.transform = "rotate(" + ((ev.clientX - sx) / 30).toFixed(1) + "deg)";
+      }
+      function up(ev) {
+        document.removeEventListener("pointermove", move); document.removeEventListener("pointerup", up); document.removeEventListener("pointercancel", up);
+        if (!ghost) { place(src, 6 + Math.random() * 68, 6 + Math.random() * 74); return; }
+        ghost.remove();
+        var r = inFridge(ev.clientX, ev.clientY);
+        if (r && ev.type === "pointerup") place(src, (ev.clientX - r.left) / r.width * 100 - 11, (ev.clientY - r.top) / r.height * 100 - 8);
+      }
+      document.addEventListener("pointermove", move); document.addEventListener("pointerup", up); document.addEventListener("pointercancel", up);
+    });
+    tray.addEventListener("click", function (e) { if (e.detail === 0) { var src = e.target.closest(".tmag"); if (src) place(src, 6 + Math.random() * 68, 6 + Math.random() * 74); } });
+
+    // En la refri: arrastrar mueve; sacarlo de la refri lo quita
+    fr.addEventListener("pointerdown", function (e) {
+      if (e.target.closest(".x")) return;
+      var m = e.target.closest(".fmag"); if (!m) return;
+      e.preventDefault();
+      var r = fr.getBoundingClientRect(), ox = e.clientX - m.getBoundingClientRect().left, oy = e.clientY - m.getBoundingClientRect().top;
+      m.style.zIndex = ++z; m.classList.add("dragging");
+      try { m.setPointerCapture(e.pointerId); } catch (err) {}
+      function move(ev) {
+        m.style.left = ((ev.clientX - r.left - ox) / r.width * 100) + "%";
+        m.style.top = ((ev.clientY - r.top - oy) / r.height * 100) + "%";
+        m.style.opacity = inFridge(ev.clientX, ev.clientY) ? 1 : .45;
+      }
+      function up(ev) {
+        m.removeEventListener("pointermove", move); m.removeEventListener("pointerup", up); m.removeEventListener("pointercancel", up);
+        m.classList.remove("dragging"); m.style.opacity = "";
+        if (!inFridge(ev.clientX, ev.clientY)) { remove(m); return; }
+        m.style.left = Math.max(0, Math.min(78, parseFloat(m.style.left))) + "%"; m.style.top = Math.max(0, Math.min(84, parseFloat(m.style.top))) + "%";
+      }
+      m.addEventListener("pointermove", move); m.addEventListener("pointerup", up); m.addEventListener("pointercancel", up);
+    });
+    fr.addEventListener("click", function (e) { var x = e.target.closest(".x"); if (x) remove(x.closest(".fmag")); });
+
+    $("#fridge-clear").addEventListener("click", function () { mags.slice().forEach(remove); });
+    $("#fridge-order").addEventListener("click", function (e) {
+      var n = mags.length; if (!n) return;
+      addLine(lineOf("fotos", 0, n, false, 0));
+      var kinds = {}; mags.forEach(function (m) { kinds[m.dataset.kind] = (kinds[m.dataset.kind] || 0) + 1; });
+      var idea = "Ideas de mi refri: " + Object.keys(kinds).map(function (k) { return k + (kinds[k] > 1 ? " (" + kinds[k] + ")" : ""); }).join(", ");
+      var nota = $("#f-nota"); nota.value = nota.value ? nota.value + "\n" + idea : idea; updateMessage();
+      sparkle(e.currentTarget);
+      toast(n + (n === 1 ? " imán agregado" : " imanes agregados") + " a tu pedido");
+    });
+    sum();
+  })();
+
+  // Simulador de bodas: invitados, horas y para quién son los imanes
+  (function () {
+    var g = $("#sim-guests"); if (!g) return;
+    var hrs = $("#sim-hours"), dots = $("#sim-dots"), bar = $("#sim-hours-bar");
+    bar.innerHTML = "<span></span><span></span><span></span><span></span><span></span><span></span>";
+    function render() {
+      var n = +g.value, h = +hrs.value, who = $('input[name="sim-for"]:checked').value;
+      $("#sim-guests-v").textContent = n; $("#sim-hours-v").textContent = h;
+      $$("span", bar).forEach(function (sp, i) { sp.classList.toggle("on", i < h); });
+      var cur = dots.children.length;
+      for (var i = cur; i < n; i++) { var d = document.createElement("span"); d.className = "sim-dot"; dots.appendChild(d); }
+      while (dots.children.length > n) dots.lastChild.remove();
+      var guestsMag = who !== "ustedes";
+      $$(".sim-dot", dots).forEach(function (d, i) {
+        d.style.transitionDelay = calm ? "0s" : Math.min(i * 4, 600) + "ms";
+        d.classList.toggle("mag", guestsMag);
+      });
+      $(".sim-couple").classList.toggle("mag", who !== "invitados");
+      var t;
+      if (who === "ustedes") t = "Durante <b>" + h + (h === 1 ? " hora" : " horas") + "</b> tomamos fotos en su fiesta y ustedes escogen sus favoritas para llevárselas en imán ese mismo día.";
+      else if (who === "invitados") t = "Si cada uno de sus <b>" + n + " invitados</b> se lleva su foto, serían <b>" + n + " imanes</b>, y estaríamos <b>" + h + (h === 1 ? " hora" : " horas") + "</b> en la fiesta.";
+      else t = "Si cada uno de sus <b>" + n + " invitados</b> se lleva su foto, más la de ustedes, serían <b>" + (n + 1) + " imanes</b>, y estaríamos <b>" + h + (h === 1 ? " hora" : " horas") + "</b> en la fiesta.";
+      $("#sim-text").innerHTML = t + " En la reunión les confirmamos cuántos imanes caben en ese tiempo y el precio.";
+      simText = " Somos unos " + n + " invitados, pensamos en " + h + (h === 1 ? " hora" : " horas") + " y los imanes serían para " + (who === "ustedes" ? "nosotros" : who === "invitados" ? "los invitados" : "todos") + ".";
+      if (refreshBook) refreshBook();
+    }
+    g.addEventListener("input", render); hrs.addEventListener("input", render);
+    $$('input[name="sim-for"]').forEach(function (r) { r.addEventListener("change", render); });
+    $("#sim-book").addEventListener("click", function () { $("#sim-book").textContent = "¡Listo! Elijan día y hora abajo"; });
+    render();
   })();
 
   // La línea de tiempo de bodas se dibuja cuando aparece en pantalla
