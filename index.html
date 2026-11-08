@@ -105,9 +105,19 @@ nav.links a[aria-current="page"] { text-decoration: underline; text-decoration-t
 .photo { position: absolute; margin: 0; background: var(--papel); padding: 8px 8px 30px; border-radius: 3px; box-shadow: 0 18px 36px -12px rgba(0,0,0,.6); transition: transform .35s ease; }
 .photo img { width: 100%; height: 100%; object-fit: cover; }
 .photo:hover { transform: rotate(0) scale(1.03) !important; z-index: 5; }
-.p1 { width: 52%; aspect-ratio: 1 / 1.12; left: 0; top: 2%; transform: rotate(-7deg); }
-.p2 { width: 50%; aspect-ratio: 1 / 1.12; right: 0; top: 12%; transform: rotate(6deg); z-index: 2; }
-.p3 { width: 46%; aspect-ratio: 1 / 1.12; left: 20%; bottom: 0; transform: rotate(-1deg); z-index: 3; }
+.p1 { --r: -7deg; width: 52%; aspect-ratio: 1 / 1.12; left: 0; top: 2%; transform: rotate(var(--r)); }
+.p2 { --r: 6deg; width: 50%; aspect-ratio: 1 / 1.12; right: 0; top: 12%; transform: rotate(var(--r)); z-index: 2; }
+.p3 { --r: -1deg; width: 46%; aspect-ratio: 1 / 1.12; left: 20%; bottom: 0; transform: rotate(var(--r)); z-index: 3; }
+.kippi-hero { --r: 8deg; }
+.memories.drop .photo, .memories.drop .kippi-hero { animation: stick .75s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.memories.drop .p1 { animation-delay: .1s; } .memories.drop .p2 { animation-delay: .38s; } .memories.drop .p3 { animation-delay: .66s; } .memories.drop .kippi-hero { animation-delay: 1s; }
+@keyframes stick { 0% { opacity: 0; transform: translateY(-90px) rotate(calc(var(--r) - 14deg)) scale(1.08); } 65% { opacity: 1; transform: translateY(5px) rotate(calc(var(--r) + 2deg)) scale(.99); } 100% { opacity: 1; transform: rotate(var(--r)); } }
+.kipi-hello { position: absolute; right: 30%; bottom: 28%; z-index: 6; max-width: 210px; background: var(--destello); color: var(--recuerdo); font-size: .85rem; line-height: 1.35; padding: 10px 14px; border-radius: 16px 16px 4px 16px; box-shadow: 0 12px 24px -12px rgba(0,0,0,.6); display: flex; gap: 8px; align-items: center; pointer-events: none; }
+.kipi-hello svg { width: 18px; height: 18px; flex: none; color: var(--conexion); }
+.kipi-hello.show { animation: hello .5s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.kipi-hello.hide { opacity: 0; transform: translateY(6px); transition: opacity .4s, transform .4s; }
+@keyframes hello { from { opacity: 0; transform: translateY(10px) scale(.9); } }
+@media (max-width: 780px) { .kipi-hello { right: 24%; bottom: 24%; max-width: 180px; font-size: .78rem; } }
 .p1 img { object-position: 50% 62%; } .p2 img { object-position: 50% 66%; } .p3 img { object-position: 50% 45%; }
 .kippi-hero { position: absolute; right: -2%; bottom: -2%; width: 36%; z-index: 4; transform: rotate(8deg); filter: drop-shadow(0 8px 14px rgba(0,0,0,.35)); }
 @media (max-width: 780px) { .hero { padding-top: 28px; } .hero .wrap { grid-template-columns: 1fr; gap: 20px; } .memories { order: -1; width: min(78%, 300px); justify-self: center; } .hero h1 { font-size: clamp(1.9rem, 8vw, 2.4rem); } }
@@ -200,7 +210,7 @@ nav.links a[aria-current="page"] { text-decoration: underline; text-decoration-t
 .opt-b[aria-pressed="true"] span { border-color: var(--rosa); background: var(--aura); }
 .stepper input.q { width: 48px; border: 0; background: none; text-align: center; font: 600 1rem var(--f-body); color: var(--recuerdo); -moz-appearance: textfield; padding: 0; }
 .stepper input.q::-webkit-outer-spin-button, .stepper input.q::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
-.unit-note { font-size: .85rem; color: var(--rosa-texto); font-variant-numeric: tabular-nums; }
+.unit-note { border-radius: 8px; padding: 2px 6px; margin-inline: -6px; justify-self: start; font-size: .85rem; color: var(--rosa-texto); font-variant-numeric: tabular-nums; }
 
 /* Detalle de producto */
 dialog.pd { width: min(980px, calc(100% - 24px)); max-height: calc(100dvh - 24px); border: 0; border-radius: 24px; padding: 0; background: var(--papel); color: var(--recuerdo); box-shadow: 0 30px 60px -20px rgba(0,0,0,.5); overflow: hidden; }
@@ -361,6 +371,43 @@ dialog.pd[open] { animation: pop .22s ease; }
   .timeline.anim::before, .timeline.anim .tl::before, .timeline.anim .tl-magnet, .timeline.anim .tl::after { transform: none !important; opacity: 1 !important; }
   .sparks { display: none; }
 }
+
+/* El brillo de Kipi: un halo suave detrás del personaje (blanco cálido en fondos claros, Aura en bandas oscuras) */
+.kippi-hero, .spark .kippi, .closing .kippi, .bp-copy .kippi { background: radial-gradient(closest-side, color-mix(in srgb, var(--aura) 55%, transparent) 0%, color-mix(in srgb, var(--aura) 18%, transparent) 60%, transparent 100%) center / 100% 100% no-repeat; animation: glow 4.5s ease-in-out infinite; }
+.manifesto .kippi, .empty img, .card .ph.soon img, .pd-main .ph.soon img { background: radial-gradient(closest-side, #fffdfb 0%, #fffdfb 42%, color-mix(in srgb, var(--rosa-claro) 16%, transparent) 72%, transparent 100%) center / 100% 100% no-repeat; }
+.manifesto .kippi { animation: glow 4.5s ease-in-out infinite; }
+@keyframes glow { 50% { background-size: 86% 86%; } }
+
+.rain { position: fixed; inset: 0; pointer-events: none; z-index: 70; overflow: hidden; }
+.rain figure { position: absolute; top: 0; width: 70px; margin: 0; background: var(--papel); padding: 4px 4px 14px; border-radius: 3px; box-shadow: 0 10px 20px -8px rgba(0,0,0,.45); }
+.rain img { aspect-ratio: 1 / 1.1; object-fit: cover; }
+
+.sent { position: absolute; inset: 0; z-index: 5; background: var(--destello); display: grid; place-content: center; justify-items: center; text-align: center; gap: 14px; padding: 28px; }
+.sent img { width: 150px; }
+.sent h2 { font-size: 1.5rem; }
+.sent p { color: var(--muted); max-width: 32ch; }
+.sent .btn { width: min(100%, 300px); }
+.sent.pop img { animation: kipi-cheer .9s cubic-bezier(0.16, 1, 0.3, 1); }
+.sent.pop h2, .sent.pop p, .sent.pop .btn { animation: hello .5s .15s cubic-bezier(0.16, 1, 0.3, 1) both; }
+@keyframes kipi-cheer { 0% { transform: scale(.4) rotate(-20deg); opacity: 0; } 55% { transform: scale(1.12) rotate(8deg); opacity: 1; } 75% { transform: scale(.96) rotate(-4deg); } 100% { transform: none; } }
+dialog.cart { position: fixed; }
+.cart-inner { position: relative; }
+
+/* Reseñas como mensajes reales */
+.chat { columns: 3 280px; column-gap: 22px; padding: clamp(18px, 3vw, 32px); border-radius: 28px; background: var(--aura) radial-gradient(color-mix(in srgb, var(--rosa-claro) 22%, transparent) 1.2px, transparent 1.4px) 0 0 / 22px 22px; }
+.msg { break-inside: avoid; margin: 0 0 22px; position: relative; display: grid; gap: 6px; padding: 12px 16px 10px; background: var(--papel); box-shadow: 0 10px 22px -14px rgba(62,30,30,.5); max-width: 100%; }
+.msg:nth-child(odd) { transform: rotate(-1.2deg); } .msg:nth-child(even) { transform: rotate(1deg); }
+.msg figcaption { font-size: .78rem; color: var(--muted); display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.msg figcaption b { color: var(--conexion); font-weight: 700; font-size: .85rem; }
+.msg blockquote { margin: 0; font-size: 1.05rem; line-height: 1.5; color: var(--recuerdo); }
+.msg .meta { justify-self: end; display: inline-flex; align-items: center; gap: 4px; font-size: .75rem; color: var(--muted); }
+.wa { border-radius: 4px 18px 18px 18px; }
+.wa::before { content: ""; position: absolute; left: -8px; top: 0; width: 10px; height: 14px; background: var(--papel); clip-path: polygon(0 0, 100% 0, 100% 100%); }
+.wa .seen { width: 18px; height: 12px; color: #34a6e0; }
+.ig { border-radius: 18px; border: 1px solid var(--linea); }
+.ig .ava { width: 26px; height: 26px; border-radius: 50%; display: inline-grid; place-items: center; color: var(--destello); font-weight: 700; font-size: .78rem; background: linear-gradient(135deg, var(--conexion), var(--rosa-claro)); }
+.ig .heart { width: 14px; height: 14px; color: var(--conexion); }
+@media (max-width: 600px) { .chat { padding: 16px 14px 2px 22px; } }
 
 /* Contacto */
 .contact-sec { padding-top: 0; }
@@ -534,6 +581,7 @@ dialog.cart[open] { animation: slide .25s ease; }
         <figure class="photo p2"><img src="assets/img/mascota.webp" alt="" width="960" height="1280"></figure>
         <figure class="photo p3"><img src="assets/img/regalo.webp" alt="" width="346" height="430"></figure>
         <img class="kippi-hero" src="assets/brand/kippi-camara-crema-botas.webp" alt="" width="600" height="586">
+        <p class="kipi-hello" id="kipi-hello" hidden></p>
       </div>
     </div>
   </section>
@@ -840,13 +888,13 @@ dialog.cart[open] { animation: slide .25s ease; }
     <div class="wrap">
       <div class="sec-head"><span class="eyebrow">Reseñas</span><h2>Lo que dicen quienes ya recuerdan</h2></div>
       <!-- RESEÑAS: mensajes reales de clientes -->
-      <div class="reviews">
-        <figure class="review"><blockquote>“Ya me llegaron los imanes, ¡qué hermosos están de verdad! Muchas gracias. Los subiré a Insta para que te sigan más personas. Muy bonito el emprendimiento.”</blockquote><cite><b>Karo</b> · por WhatsApp</cite></figure>
-        <figure class="review"><blockquote>“Tengo un problema con el pedido… ¡quedó hermoso y quiero más fotos! Muchísimas gracias, están hermosas. Voy a alistar otro pedido ❤️”</blockquote><cite><b>Kattya</b> · por WhatsApp</cite></figure>
-        <figure class="review"><blockquote>“Y así se ven en casa. Excelente trabajo. Como invitadas, ¡lo amamos!”</blockquote><cite><b>Dani</b> · invitada de una boda, en Instagram</cite></figure>
-        <figure class="review"><blockquote>“¡Mil gracias, quedaron hermosos! 😍😍”</blockquote><cite><b>María Paula</b> · por WhatsApp</cite></figure>
-        <figure class="review"><blockquote>“Hola, ya me llegó. ¡Muchísimas gracias, están hermosos!”</blockquote><cite><b>Tami</b> · por WhatsApp</cite></figure>
-        <figure class="review"><blockquote>“Hermoso trabajo, ¡súper recomendados!”</blockquote><cite><b>Katia</b> · en Instagram</cite></figure>
+      <div class="chat">
+        <figure class="msg wa"><figcaption><b>Karo</b> · WhatsApp</figcaption><blockquote>Ya me llegaron los imanes, ¡qué hermosos están de verdad! Muchas gracias. Los subiré a Insta para que te sigan más personas. Muy bonito el emprendimiento.</blockquote><span class="meta"><svg class="seen" viewBox="0 0 18 12" aria-label="Visto"><path d="M1 6.5l3.2 3.2L10.5 3M6.6 9.4l.6.6L13.5 3.3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></figure>
+        <figure class="msg ig"><figcaption><span class="ava" aria-hidden="true">D</span><b>Dani</b> · invitada de una boda, en Instagram</figcaption><blockquote>Y así se ven en casa. Excelente trabajo. Como invitadas, ¡lo amamos!</blockquote><span class="meta"><svg class="heart" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.7 4.5c2.1 0 3.5 1.2 4.3 2.4.8-1.2 2.2-2.4 4.3-2.4 3.7 0 5.8 3.9 4.3 7.3C19.5 16.4 12 21 12 21Z"/></svg> Me gusta</span></figure>
+        <figure class="msg wa"><figcaption><b>María Paula</b> · WhatsApp</figcaption><blockquote>Mil gracias, quedaron hermosos 😍😍</blockquote><span class="meta"><svg class="seen" viewBox="0 0 18 12" aria-label="Visto"><path d="M1 6.5l3.2 3.2L10.5 3M6.6 9.4l.6.6L13.5 3.3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></figure>
+        <figure class="msg wa"><figcaption><b>Kattya</b> · WhatsApp</figcaption><blockquote>Tengo un problema con el pedido… ¡quedó hermoso y quiero más fotos! Muchísimas gracias, están hermosas. Voy a alistar otro pedido ❤️</blockquote><span class="meta"><svg class="seen" viewBox="0 0 18 12" aria-label="Visto"><path d="M1 6.5l3.2 3.2L10.5 3M6.6 9.4l.6.6L13.5 3.3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></figure>
+        <figure class="msg wa"><figcaption><b>Tami</b> · WhatsApp</figcaption><blockquote>Hola, ya me llegó. ¡Muchísimas gracias, están hermosos!</blockquote><span class="meta"><svg class="seen" viewBox="0 0 18 12" aria-label="Visto"><path d="M1 6.5l3.2 3.2L10.5 3M6.6 9.4l.6.6L13.5 3.3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></figure>
+        <figure class="msg ig"><figcaption><span class="ava" aria-hidden="true">K</span><b>Katia</b> · en Instagram</figcaption><blockquote>Hermoso trabajo, ¡súper recomendados!</blockquote><span class="meta"><svg class="heart" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.7 4.5c2.1 0 3.5 1.2 4.3 2.4.8-1.2 2.2-2.4 4.3-2.4 3.7 0 5.8 3.9 4.3 7.3C19.5 16.4 12 21 12 21Z"/></svg> Me gusta</span></figure>
       </div>
     </div>
   </section>
@@ -927,6 +975,13 @@ dialog.cart[open] { animation: slide .25s ease; }
 </dialog>
 
 <dialog class="cart" id="cart" aria-labelledby="cart-t">
+  <div class="sent" id="sent" hidden>
+    <img src="assets/brand/kippi-abrazo-roja-botas.webp" alt="" width="600" height="585">
+    <h2>¡Tu recuerdo está en camino!</h2>
+    <p>Se abrió WhatsApp con tu pedido. Ahora mándanos ahí tus fotos en HD y te confirmamos el total antes del adelanto.</p>
+    <a class="btn btn-main" id="sent-again" href="https://wa.me/50671821161" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Abrir WhatsApp de nuevo</a>
+    <button class="btn btn-soft" type="button" id="sent-close">Seguir viendo</button>
+  </div>
   <div class="cart-inner">
     <div class="cart-head"><h2 id="cart-t">Tu pedido</h2><button class="x" type="button" data-close aria-label="Cerrar">×</button></div>
     <div class="cart-body">
@@ -1117,7 +1172,20 @@ dialog.cart[open] { animation: slide .25s ease; }
       un.hidden = false;
       un.textContent = eff + " " + o.unit[eff === 1 ? 0 : 1] + " × " + crc(u) + (u < o.tiers[0][1] ? " · ahorras " + crc((o.tiers[0][1] - u) * eff) : "");
     } else un.hidden = true;
-    $(".price", ctrl).textContent = crc(lineOf(s.p.id, s.oi, eff, s.gift, s.songs).total);
+    var priceEl = $(".price", ctrl), newPrice = crc(lineOf(s.p.id, s.oi, eff, s.gift, s.songs).total);
+    if (priceEl.textContent && priceEl.textContent !== newPrice && !calm && priceEl.animate) {
+      var up = parseInt(newPrice.replace(/\D/g, ""), 10) > parseInt(priceEl.textContent.replace(/\D/g, ""), 10);
+      priceEl.animate([{ transform: "translateY(" + (up ? "45%" : "-45%") + ")", opacity: 0 }, { transform: "none", opacity: 1 }], { duration: 260, easing: "cubic-bezier(0.16, 1, 0.3, 1)" });
+    }
+    priceEl.textContent = newPrice;
+    if (o.tiers) {
+      var uNow = unitPrice(o, eff);
+      if (ctrl.dataset.u && +ctrl.dataset.u !== uNow && !calm && un.animate) {
+        un.animate([{ backgroundColor: "rgba(245,213,210,1)", transform: "scale(1.06)" }, { backgroundColor: "rgba(245,213,210,0)", transform: "none" }], { duration: 900, easing: "ease-out" });
+        if (uNow < +ctrl.dataset.u) sparkle(un);
+      }
+      ctrl.dataset.u = uNow;
+    }
   }
   $$(".ctrl").forEach(function (ctrl) {
     ctrl.addEventListener("input", function (e) { if (e.target.classList.contains("q")) renderCtrl(ctrl); });
@@ -1157,8 +1225,15 @@ dialog.cart[open] { animation: slide .25s ease; }
     main.innerHTML = f ? '<img src="' + f.src + '" alt="' + esc(f.alt) + '">' : '<div class="ph soon">' + KIPI_PH + "</div>";
     $$(".pd-thumbs button", pd).forEach(function (b, j) { b.setAttribute("aria-pressed", String(j === i)); });
   }
+  var pdSrc = null;
+  function rectOf(el) { var r = el && el.getBoundingClientRect(); return r && r.width && r.height && r.bottom > 0 && r.top < innerHeight ? r : null; }
+  function flipFrom(from, to) {
+    var sx = from.width / to.width, sy = from.height / to.height;
+    return "translate(" + (from.left - to.left) + "px," + (from.top - to.top) + "px) scale(" + sx + "," + sy + ")";
+  }
   function openDetail(pid) {
     var p = byId[pid];
+    pdSrc = $("#p-" + pid + " .ph");
     pd.dataset.pid = pid;
     $(".pd-cat", pd).textContent = p.cat;
     $(".pd-cat", pd).hidden = p.cat === p.name;
@@ -1176,10 +1251,31 @@ dialog.cart[open] { animation: slide .25s ease; }
     $(".pd-buy", pd).appendChild(pdCtrl);
     if (pd.showModal) pd.showModal(); else pd.setAttribute("open", "");
     $(".pd-body", pd).scrollTop = 0;
+    var from = rectOf(pdSrc), main = $(".pd-main", pd);
+    if (from && !calm && main.animate) {
+      pd.style.animation = "none";
+      var to = main.getBoundingClientRect();
+      main.style.transformOrigin = "0 0";
+      main.animate([{ transform: flipFrom(from, to), borderRadius: "20px 20px 0 0" }, { transform: "none" }], { duration: 480, easing: "cubic-bezier(0.16, 1, 0.3, 1)" });
+      pd.animate([{ backgroundColor: "rgba(253,248,243,0)", boxShadow: "none" }, { backgroundColor: "rgba(253,248,243,1)" }], { duration: 320, easing: "ease-out" });
+      $$(".pd-info, .pd-x, .pd-thumbs, .pd-more", pd).forEach(function (el) { el.animate([{ opacity: 0, transform: "translateY(12px)" }, { opacity: 1, transform: "none" }], { duration: 360, delay: 160, easing: "cubic-bezier(0.16, 1, 0.3, 1)", fill: "backwards" }); });
+    } else pd.style.animation = "";
   }
+  function closeDetail() {
+    var from = rectOf(pdSrc), main = $(".pd-main", pd);
+    if (!pd.open) return;
+    if (!from || calm || !main.animate || pd._closing) { pd.close(); return; }
+    pd._closing = true;
+    var to = main.getBoundingClientRect();
+    $$(".pd-info, .pd-x, .pd-thumbs, .pd-more", pd).forEach(function (el) { el.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 150, fill: "forwards" }); });
+    pd.animate([{ backgroundColor: "rgba(253,248,243,1)" }, { backgroundColor: "rgba(253,248,243,0)", boxShadow: "none" }], { duration: 300, fill: "forwards" });
+    var a = main.animate([{ transform: "none" }, { transform: flipFrom(from, to) }], { duration: 320, easing: "cubic-bezier(0.4, 0, 0.2, 1)", fill: "forwards" });
+    a.onfinish = function () { pd.close(); pd.getAnimations({ subtree: true }).forEach(function (x) { x.cancel(); }); pd._closing = false; };
+  }
+  pd.addEventListener("cancel", function (e) { e.preventDefault(); closeDetail(); });
   pd.addEventListener("close", function () { if (pdCtrl && pdHome) pdHome.appendChild(pdCtrl); pdCtrl = pdHome = null; });
   pd.addEventListener("click", function (e) {
-    if (e.target === pd || e.target.closest("[data-pd-close]")) { pd.close(); return; }
+    if (e.target === pd || e.target.closest("[data-pd-close]")) { closeDetail(); return; }
     if (e.target.closest(".pd-cart")) { pd.close(); var c = $("#cart"); if (c.showModal) c.showModal(); else c.setAttribute("open", ""); return; }
     var t = e.target.closest("[data-ph]");
     if (t) showPhoto(+t.dataset.ph);
@@ -1432,7 +1528,57 @@ dialog.cart[open] { animation: slide .25s ease; }
     var b = e.target.closest("[data-add], [data-set], #book-send, .wed-copy .btn-light");
     if (b) sparkle(b);
   });
-  send.addEventListener("click", function (e) { if (!e.defaultPrevented) sparkle(send); });
+  send.addEventListener("click", function (e) {
+    if (e.defaultPrevented) return;
+    sparkle(send);
+    $("#sent-again").href = send.href;
+    setTimeout(function () { var o = $("#sent"); o.hidden = false; o.classList.remove("pop"); void o.offsetWidth; o.classList.add("pop"); $("#sent-close").focus(); }, 350);
+  });
+  $("#sent-close").addEventListener("click", function () { $("#sent").hidden = true; dlg.close(); });
+  dlg.addEventListener("close", function () { $("#sent").hidden = true; });
+
+  // Portada: las fotos "se pegan" en la refri una por una y Kipi saluda según la hora
+  (function () {
+    var mem = $(".memories"), hello = $("#kipi-hello");
+    var h = new Date().getHours();
+    var moon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg>';
+    var sun = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>';
+    var msg = h >= 5 && h < 12 ? [sun, "¡Buenos días! ¿Qué recuerdo encapsulamos hoy?"]
+            : h >= 12 && h < 18 ? [sun, "¡Buenas tardes! ¿Qué momento quieres volver a ver?"]
+            : [moon, "Buenas noches, aquí seguimos guardando recuerdos."];
+    function say(icon, text, ms) {
+      hello.innerHTML = icon + "<span></span>"; $("span", hello).textContent = text;
+      hello.hidden = false; hello.classList.remove("hide", "show"); void hello.offsetWidth; hello.classList.add("show");
+      clearTimeout(hello._t); hello._t = setTimeout(function () { hello.classList.add("hide"); }, ms || 6000);
+    }
+    var first = !location.hash || location.hash === "#inicio";
+    if (first && !calm) { mem.classList.add("drop"); setTimeout(function () { mem.classList.remove("drop"); }, 2200); }
+    setTimeout(function () { say(msg[0], msg[1]); }, first && !calm ? 1700 : 600);
+
+    // Secreto de Kipi: 3 toques seguidos y llueven recuerdos
+    var taps = 0, tapT, kipi = $(".kippi-hero");
+    kipi.style.cursor = "pointer";
+    kipi.addEventListener("click", function () {
+      taps++; clearTimeout(tapT); tapT = setTimeout(function () { taps = 0; }, 900);
+      kipi.animate([{ transform: "rotate(8deg) scale(1)" }, { transform: "rotate(-6deg) scale(1.1)" }, { transform: "rotate(8deg) scale(1)" }], { duration: 300 });
+      if (taps < 3) return;
+      taps = 0;
+      say(sun, "¡Encontraste el secreto de Kipi! ✨", 4000);
+      if (calm) return;
+      var pics = ["graduacion", "mascota", "regalo", "boda", "dinofabeto"], box = document.createElement("div");
+      box.className = "rain"; box.setAttribute("aria-hidden", "true"); document.body.appendChild(box);
+      for (var i = 0; i < 16; i++) {
+        var f = document.createElement("figure"), x = Math.random() * 92, r = (Math.random() * 50 - 25);
+        f.innerHTML = '<img src="assets/img/' + pics[i % pics.length] + '.webp" alt="">';
+        f.style.left = x + "vw"; box.appendChild(f);
+        f.animate([
+          { transform: "translateY(-30vh) rotate(" + r + "deg)", opacity: 1 },
+          { transform: "translateY(115vh) rotate(" + (r + (Math.random() * 120 - 60)) + "deg)", opacity: 1 }
+        ], { duration: 2200 + Math.random() * 1400, delay: Math.random() * 700, easing: "cubic-bezier(.3,.1,.6,1)", fill: "both" });
+      }
+      setTimeout(function () { box.remove(); }, 4500);
+    });
+  })();
 
   // La línea de tiempo de bodas se dibuja cuando aparece en pantalla
   (function () {
