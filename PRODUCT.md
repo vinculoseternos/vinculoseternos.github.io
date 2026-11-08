@@ -54,7 +54,7 @@ Success on the website means three things:
   | Product | Price |
   |---|---|
   | Photo magnets | 1–4 ₡1 700 each · 5–9 ₡1 500 · 10–19 ₡1 300 · 20+ ₡1 200 |
-  | Gift wrap (optional) | ₡1 000 |
+  | Gift wrap (optional) | ₡1 000, one per order |
   | Dinofabeto | ₡22 500 |
   | Matesaurios | ₡13 000 / ₡18 000 / ₡27 500 |
   | Metal shapes | Heart ₡10 000 · Cat ₡5 000 |

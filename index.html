@@ -106,7 +106,7 @@ nav.links a[aria-current="page"] { text-decoration: underline; text-decoration-t
 .p3 { width: 46%; aspect-ratio: 1 / 1.12; left: 20%; bottom: 0; transform: rotate(-1deg); z-index: 3; }
 .p1 img { object-position: 50% 62%; } .p2 img { object-position: 50% 66%; } .p3 img { object-position: 50% 45%; }
 .kippi-hero { position: absolute; right: -2%; bottom: -2%; width: 36%; z-index: 4; transform: rotate(8deg); filter: drop-shadow(0 8px 14px rgba(0,0,0,.35)); }
-@media (max-width: 780px) { .hero .wrap { grid-template-columns: 1fr; } .memories { width: min(100%, 400px); justify-self: center; } }
+@media (max-width: 780px) { .hero { padding-top: 28px; } .hero .wrap { grid-template-columns: 1fr; gap: 20px; } .memories { order: -1; width: min(78%, 300px); justify-self: center; } .hero h1 { font-size: clamp(1.9rem, 8vw, 2.4rem); } }
 
 /* Banda de bodas en Inicio */
 .wed-band { background: var(--rosa); color: var(--destello); }
@@ -230,7 +230,13 @@ dialog.pd[open] { animation: pop .22s ease; }
 .pd-prices td { text-align: right; font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .pd-buy { padding-top: 6px; }
 .pd-cart { justify-self: start; border: 0; background: none; padding: 4px 0; color: var(--conexion); font-weight: 600; font-size: .9rem; cursor: pointer; text-decoration: underline; text-underline-offset: 4px; }
-@media (max-width: 760px) { .pd-body { grid-template-columns: 1fr; } .pd-gallery { padding: 14px; } .pd-main { aspect-ratio: 4 / 3.4; } }
+@media (max-width: 760px) {
+  .pd-body { grid-template-columns: 1fr; }
+  .pd-gallery { padding: 12px 12px 0; } .pd-main { aspect-ratio: 16 / 10; } .pd-more { display: none; }
+  .pd-info { padding-top: 18px; }
+  .pd-info > h2 { order: 0; } .pd-info > .pd-buy { order: 1; } .pd-info > .pd-cart { order: 2; } .pd-info > .pd-desc { order: 3; } .pd-info > .pd-list { order: 4; }
+  .pd-info > .pd-cat { display: none; }
+}
 
 /* Ideas */
 .ideas-sec { background: var(--papel); border-block: 1px solid var(--linea); }
@@ -297,19 +303,28 @@ dialog.pd[open] { animation: pop .22s ease; }
   .tl { padding: 0; }
   .tl::before { left: -36px; top: 4px; }
   .tl-peak::before { left: -40px; }
-  .tl-peak::after { content: ""; position: absolute; left: -30px; top: 28px; bottom: -8px; width: 8px; background: var(--destello); }
+  .timeline::before { display: none; }
+  .tl:not(:last-child)::after { content: ""; position: absolute; left: -27px; top: 26px; bottom: -30px; width: 2px; background: linear-gradient(180deg, var(--aura), var(--rosa-claro)); }
   .btn-book { font-size: .88rem; padding-inline: 16px; }
 }
 .book-panel { background: var(--rosa); color: var(--destello); border-radius: 28px; padding: clamp(22px, 4vw, 44px); display: grid; grid-template-columns: 1fr 1.2fr; gap: clamp(22px, 4vw, 48px); align-items: center; }
 .bp-copy { display: grid; gap: 14px; min-width: 0; }
 .bp-copy .kippi { width: 120px; }
 .bp-copy .kicker { font-family: var(--f-sub); font-style: italic; font-size: clamp(1.4rem, 2.6vw, 1.8rem); line-height: 1.3; color: var(--aura); }
-.bp-copy p { opacity: .92; }
+.bp-copy p:not(.kicker) { opacity: .92; }
 .book-panel .book { margin: 0; background: none; border: 0; padding: 0; }
 @media (min-width: 821px) { .book-panel .book { border-left: 1px solid rgba(245, 213, 210, .3); padding-left: clamp(22px, 4vw, 48px); } }
 .book-panel .btn { justify-self: start; }
 @media (max-width: 820px) { .book-panel { grid-template-columns: 1fr; } }
 .steps-sec { padding-top: 0; }
+.quote-facts { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 4vw, 48px); margin-bottom: 40px; align-items: start; }
+.depends { background: var(--papel); border: 1px solid var(--linea); border-radius: 20px; padding: 24px; display: grid; gap: 12px; }
+.depends ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; color: var(--muted); }
+.depends li::marker { color: var(--conexion); }
+.depends li b { color: var(--recuerdo); font-weight: 600; }
+.depends > p { color: var(--muted); }
+.wed-faq { max-width: none; }
+@media (max-width: 780px) { .quote-facts { grid-template-columns: 1fr; } }
 
 /* Contacto */
 .contact-sec { padding-top: 0; }
@@ -416,7 +431,10 @@ dialog.cart[open] { animation: slide .25s ease; }
 .undo button { border: 0; background: none; padding: 0; color: var(--conexion); font-weight: 600; text-decoration: underline; cursor: pointer; }
 .assure { font-size: .84rem; color: var(--recuerdo); background: var(--aura); border-radius: 12px; padding: 10px 12px; line-height: 1.45; }
 .field label small { color: var(--muted); font-weight: 400; }
-.line .rm { border: 0; background: none; color: var(--conexion); font-size: .78rem; text-decoration: underline; cursor: pointer; padding: 2px 0; }
+.err { font-size: .82rem; color: var(--conexion); font-weight: 500; }
+.field input[aria-invalid="true"] { border-color: var(--conexion); box-shadow: 0 0 0 3px color-mix(in srgb, var(--conexion) 18%, transparent); }
+@media (max-width: 600px) { .cart-foot .hint { display: none; } .cart-foot { gap: 8px; padding-top: 12px; } .assure { font-size: .78rem; padding: 8px 10px; } }
+.line .rm { border: 0; background: none; color: var(--conexion); font-size: .82rem; text-decoration: underline; cursor: pointer; padding: 12px 4px; margin: -8px -4px; }
 .field { display: grid; gap: 6px; }
 .field label { font-weight: 500; font-size: .86rem; }
 .field input, .field select, .field textarea { font: inherit; font-size: .98rem; color: var(--recuerdo); background: var(--papel); border: 1px solid var(--linea); border-radius: 12px; padding: 11px 14px; width: 100%; }
@@ -555,7 +573,7 @@ dialog.cart[open] { animation: slide .25s ease; }
       <div class="steps">
         <article class="step"><h3>Arma tu pedido</h3><p>Elige en el catálogo o toma una idea. Todo se va sumando en tu pedido.</p></article>
         <article class="step"><h3>Envíalo con tus fotos</h3><p>Se abre WhatsApp con el resumen listo. Ahí nos mandas tus fotos en HD o como archivo, claras y cuadradas (o que se puedan recortar así).</p></article>
-        <article class="step"><h3>Adelantas el 50 % y te llega</h3><p>Con el 50 % por SINPE Móvil o transferencia empezamos tu pedido. El resto lo pagas al recibirlo o antes del envío. En alrededor de una semana lo tienes.</p></article>
+        <article class="step"><h3>Adelantas el 50 % y te llega</h3><p>Con el 50 % por SINPE Móvil o transferencia empezamos tu pedido. El resto lo pagas al recibirlo o antes del envío. En alrededor de una semana lo tienes.</p></article>
       </div>
     </div>
   </section>
@@ -708,6 +726,25 @@ dialog.cart[open] { animation: slide .25s ease; }
         <li class="tl"><span class="tl-when">Durante la fiesta</span><h3>El día de la boda</h3><p>Les tomamos fotos a ustedes y a sus invitados, y cada quien escoge en la que salió más guapo. Porque sí, eso es lo más importante.</p></li>
         <li class="tl tl-peak"><span class="tl-when">Minutos después</span><h3>El imán en la mano</h3><p>No en días ni en semanas: ese mismo día, en la boda. Cada quien se lo lleva a casa.</p></li>
       </ol>
+      <div class="quote-facts">
+        <div class="depends">
+          <h3>¿Cuánto cuesta en su boda?</h3>
+          <p>Cada boda se cotiza aparte. El precio depende de:</p>
+          <ul>
+            <li><b>Las horas</b> que estemos en la fiesta.</li>
+            <li><b>La cantidad de imanes</b> que quieran.</li>
+            <li><b>Para quién son:</b> solo para ustedes, para los invitados o para todos.</li>
+            <li><b>Dónde y cuándo</b> es la boda.</li>
+          </ul>
+          <p>En la reunión les damos el precio exacto.</p>
+        </div>
+        <div class="faq wed-faq">
+          <details><summary>¿Los imanes se entregan el mismo día?</summary><p>Sí. Tomamos la foto, cada quien escoge la suya y minutos después la tiene en la mano, ahí mismo en la boda.</p></details>
+          <details><summary>¿Son para nosotros o para los invitados?</summary><p>Ustedes deciden: pueden ser solo para ustedes, un recuerdo para cada invitado o para todos. Eso lo definimos antes de la boda.</p></details>
+          <details><summary>¿Van a bodas fuera de San José?</summary><p>Escríbannos con el lugar y la fecha y les confirmamos disponibilidad y si hay algún costo de traslado.</p></details>
+          <details><summary>¿Hacen otros eventos?</summary><p>Sí: baby showers, cumpleaños y eventos de empresa. Se cotizan igual, según las horas y la cantidad de imanes.</p></details>
+        </div>
+      </div>
       <div class="book-panel">
         <div class="bp-copy">
           <img class="kippi" src="assets/brand/kippi-abrazo-crema-botas.webp" alt="" loading="lazy" width="600" height="586">
@@ -786,12 +823,12 @@ dialog.cart[open] { animation: slide .25s ease; }
     <div class="wrap">
       <div class="sec-head"><span class="eyebrow">Preguntas frecuentes</span><h2>Lo que más nos preguntan</h2></div>
       <div class="faq">
-        <details open><summary>¿Cómo se paga?</summary><p>Para encargar el pedido se adelanta el 50 % por SINPE Móvil o transferencia; sin ese adelanto no se inicia. El otro 50 % se paga al recibirlo, o antes de enviarlo si va por Correos o Uber.</p></details>
+        <details open><summary>¿Cómo se paga?</summary><p>Para encargar el pedido se adelanta el 50 % por SINPE Móvil o transferencia; sin ese adelanto no se inicia. El otro 50 % se paga al recibirlo, o antes de enviarlo si va por Correos o Uber.</p></details>
         <details><summary>¿Cuánto cuesta el envío?</summary><p>La entrega es sin costo adicional en San Pedro, Barrio Dent y San José. A cualquier otro lugar lo enviamos por Correos de Costa Rica o Uber, y se cobra el costo del envío.</p></details>
         <details><summary>¿Qué fotos sirven?</summary><p>Fotos claras y cuadradas, o que se puedan recortar en cuadrado. Mándalas al WhatsApp 7182-1161, de preferencia en HD o como archivo para que no pierdan calidad.</p></details>
         <details><summary>¿Cuánto tarda mi pedido?</summary><p>Alrededor de una semana desde que recibimos el adelanto y las fotos. Si lo necesitas para una fecha específica, avísanos al escribir.</p></details>
         <details><summary>¿El total del pedido es el precio final?</summary><p>Es el total de los productos. Si tu entrega tiene costo, se suma aparte. Antes de pagar te confirmamos todo por WhatsApp.</p></details>
-        <details><summary>¿Lo pueden mandar listo para regalar?</summary><p>Sí. Al agregar tus fotos imantadas marca el empaque de regalo, por ₡1 000 adicionales.</p></details>
+        <details><summary>¿Lo pueden mandar listo para regalar?</summary><p>Sí. Al agregar tus fotos imantadas marca el empaque de regalo: ₡1 000 adicionales, uno por pedido.</p></details>
         <details><summary>¿Puedo pedir algo que no está aquí?</summary><p>Claro. Todo es personalizado: escríbenos con tu idea y vemos cómo hacerla.</p></details>
       </div>
     </div>
@@ -862,18 +899,18 @@ dialog.cart[open] { animation: slide .25s ease; }
       </div>
       <ul class="lines" id="cart-lines"></ul>
       <form id="cart-form" class="field-group" novalidate style="display:grid;gap:14px">
-        <div class="field"><label for="f-nombre">Tu nombre</label><input id="f-nombre" type="text" placeholder="Ej. María Fernanda" autocomplete="name"></div>
+        <div class="field"><label for="f-nombre">Tu nombre</label><input id="f-nombre" type="text" placeholder="Ej. María Fernanda" autocomplete="name" required aria-describedby="err-nombre"><p class="err" id="err-nombre" hidden>Escribe tu nombre para saber de quién es el pedido.</p></div>
         <div class="field" data-need="lampara" hidden><label for="f-forma">Forma de la lámpara</label><input id="f-forma" type="text" placeholder="Ej. corazón, círculo, la silueta de mi perro"></div>
         <div class="field" data-need="songs" hidden><label for="f-canciones">Canciones para los calendarios</label><textarea id="f-canciones" placeholder="Nombre de la canción y artista, una por línea"></textarea></div>
         <div class="field"><label for="f-fecha">¿Para qué fecha lo necesitas? <small>(opcional)</small></label><input id="f-fecha" type="date"></div>
         <div class="field"><label for="f-entrega">Entrega</label><select id="f-entrega"><option value="Entrega sin costo (San Pedro, Barrio Dent o San José)">Sin costo · San Pedro, B. Dent o San José</option><option value="Correos de Costa Rica (envío aparte)">Correos de Costa Rica (+ envío)</option><option value="Uber (envío aparte)">Uber (+ envío)</option></select></div>
-        <div class="field" data-need="address" hidden><label for="f-dir">Dirección o distrito de entrega</label><input id="f-dir" type="text" autocomplete="street-address" placeholder="Ej. Heredia, San Francisco, 200 m norte del parque"></div>
+        <div class="field" data-need="address" hidden><label for="f-dir">Dirección o distrito de entrega</label><input id="f-dir" type="text" autocomplete="street-address" placeholder="Ej. Heredia, San Francisco, 200 m norte del parque" aria-describedby="err-dir"><p class="err" id="err-dir" hidden>Necesitamos la dirección o el distrito para cotizar el envío.</p></div>
         <div class="field"><label for="f-nota">Algo más <small>(opcional)</small></label><textarea id="f-nota" placeholder="Ej. Es para regalar el Día de la Madre"></textarea></div>
       </form>
     </div>
     <div class="cart-foot">
       <div class="total" aria-live="polite"><span>Total</span><strong data-total>₡0</strong></div>
-      <div class="total deposit"><span>Adelanto para iniciar (50 %)</span><b data-deposit>₡0</b></div>
+      <div class="total deposit"><span>Adelanto para iniciar (50 %)</span><b data-deposit>₡0</b></div>
       <p class="assure">Antes de que pagues, te confirmamos por WhatsApp el total, el envío y la fecha. Después nos mandas el adelanto y tus fotos.</p>
       <a class="btn btn-main" id="send" href="https://wa.me/50671821161" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Enviar pedido por WhatsApp</a>
       <p class="hint">El resto se paga al recibirlo o antes del envío. Fotos claras y cuadradas, en HD o como archivo. Si WhatsApp no se abre, escríbenos al 7182-1161.</p>
@@ -996,7 +1033,7 @@ dialog.cart[open] { animation: slide .25s ease; }
         '<div class="qty"><label class="qty-l" for="q-' + p.id + '">Cantidad</label><div class="stepper"><button type="button" data-step="-1" aria-label="Menos">−</button><input class="q" id="q-' + p.id + '" type="number" inputmode="numeric" min="1" max="999" value="1"><button type="button" data-step="1" aria-label="Más">+</button></div></div>' +
         (p.song ? '<label class="check"><input type="checkbox" data-song-on> ¿Con música? <small>opcional · +' + crc(p.song) + ' por canción</small></label>' +
                  '<div class="qty" data-song-row hidden><span>Canciones</span><div class="stepper" data-songs><button type="button" data-step="-1" aria-label="Menos canciones">−</button><output>1</output><button type="button" data-step="1" aria-label="Más canciones">+</button></div></div>' : "") +
-        (p.gift ? '<label class="check"><input type="checkbox" data-gift> Empaque para regalo <small>opcional · +' + crc(p.gift) + "</small></label>" : "") +
+        (p.gift ? '<label class="check"><input type="checkbox" data-gift> Empaque para regalo <small>opcional · uno por pedido · +' + crc(p.gift) + "</small></label>" : "") +
       "</div>" +
       '<p class="unit-note" hidden></p>' +
       '<div class="buy"><span class="price" aria-live="polite"></span><button class="btn btn-main" type="button" data-add>Agregar al pedido</button></div>' +
@@ -1076,16 +1113,6 @@ dialog.cart[open] { animation: slide .25s ease; }
 
   // Ventana de detalle del producto: fotos grandes, descripción, precios y las mismas opciones de compra
   var pd = $("#pd"), pdHome = null, pdCtrl = null;
-  function priceRows(p) {
-    var rows = [];
-    p.options.forEach(function (o) {
-      if (o.tiers) o.tiers.forEach(function (t, i) { rows.push([tierLabel(o, i) + " " + o.unit[1], crc(t[1]) + " c/u"]); });
-      else rows.push([o.label, o.tag || crc(o.price)]);
-    });
-    if (p.gift) rows.push(["Empaque para regalo (opcional)", "+" + crc(p.gift)]);
-    if (p.song) rows.push(["Música (opcional)", "+" + crc(p.song) + " por canción"]);
-    return rows.map(function (r) { return "<tr><th scope=\"row\">" + esc(r[0]) + "</th><td>" + esc(r[1]) + "</td></tr>"; }).join("");
-  }
   function showPhoto(i) {
     var p = byId[pd.dataset.pid], f = p.photos[i];
     var main = $(".pd-main", pd);
@@ -1096,6 +1123,7 @@ dialog.cart[open] { animation: slide .25s ease; }
     var p = byId[pid];
     pd.dataset.pid = pid;
     $(".pd-cat", pd).textContent = p.cat;
+    $(".pd-cat", pd).hidden = p.cat === p.name;
     $("#pd-t").textContent = p.name;
     $(".pd-desc", pd).textContent = p.desc;
     $(".pd-list", pd).innerHTML = (p.details || []).map(function (d) { return "<li>" + esc(d) + "</li>"; }).join("");
@@ -1244,7 +1272,9 @@ dialog.cart[open] { animation: slide .25s ease; }
   }
 
   var dlg = $("#cart"), send = $("#send"), lastRemoved = null;
-  function total() { return cart.reduce(function (n, l) { return n + l.total; }, 0); }
+  function lineTotal(l) { return l.total - (l.gift ? byId[l.pid].gift : 0); }
+  function giftFee() { var g = cart.filter(function (l) { return l.gift; })[0]; return g ? byId[g.pid].gift : 0; }
+  function total() { return cart.reduce(function (n, l) { return n + lineTotal(l); }, 0) + giftFee(); }
   function count() { return cart.length; }
   function renderCart(bump) {
     $$("[data-count]").forEach(function (el) { el.textContent = count(); });
@@ -1259,10 +1289,10 @@ dialog.cart[open] { animation: slide .25s ease; }
     $("#cart-lines").innerHTML = cart.map(function (l, i) {
       var d = [l.detail].concat(l.extras).filter(Boolean).join(" · ");
       var min = byId[l.pid].options[l.oi].min || 1;
-      return '<li class="line"><b>' + esc(l.name) + "</b><strong>" + crc(l.total) + "</strong>" + (d ? "<span>" + esc(d) + "</span>" : "") +
+      return '<li class="line"><b>' + esc(l.name) + "</b><strong>" + crc(lineTotal(l)) + "</strong>" + (d ? "<span>" + esc(d) + "</span>" : "") +
              '<div class="line-ctl"><div class="stepper sm"><button type="button" data-lq="-1" data-i="' + i + '"' + (l.qty <= min ? " disabled" : "") + ' aria-label="Menos ' + esc(l.name) + '">−</button><output>' + l.qty + '</output><button type="button" data-lq="1" data-i="' + i + '" aria-label="Más ' + esc(l.name) + '">+</button></div>' +
              '<button class="rm" type="button" data-rm="' + i + '" aria-label="Quitar ' + esc(l.name) + '">Quitar</button></div></li>';
-    }).join("") + (lastRemoved ? '<li class="undo">Quitaste ' + esc(lastRemoved.l.name) + '. <button type="button" data-undo>Deshacer</button></li>' : "");
+    }).join("") + (giftFee() ? '<li class="line gift-line"><b>Empaque para regalo</b><strong>' + crc(giftFee()) + "</strong><span>Uno por pedido</span></li>" : "") + (lastRemoved ? '<li class="undo">Quitaste ' + esc(lastRemoved.l.name) + '. <button type="button" data-undo>Deshacer</button></li>' : "");
     var has = function (f) { return cart.some(f); };
     $('[data-need="lampara"]').hidden = !has(function (l) { return l.pid === "lampara"; });
     $('[data-need="songs"]').hidden = !has(function (l) { return l.songs > 0; });
@@ -1275,9 +1305,10 @@ dialog.cart[open] { animation: slide .25s ease; }
     var lines = ["Hola Vínculos Eternos." + (nombre ? " Soy " + nombre + "." : ""), "Quiero hacer este pedido:"];
     cart.forEach(function (l) {
       var d = [l.detail].concat(l.extras).filter(Boolean).join(", ");
-      lines.push("• " + l.name + (d ? " (" + d + ")" : "") + ": " + crc(l.total));
+      lines.push("• " + l.name + (d ? " (" + d + ")" : "") + ": " + crc(lineTotal(l)));
     });
-    lines.push("Total: " + crc(total()), "Adelanto del 50 %: " + crc(Math.ceil(total() / 2)), "Entrega: " + $("#f-entrega").value);
+    if (giftFee()) lines.push("• Empaque para regalo (uno por pedido): " + crc(giftFee()));
+    lines.push("Total: " + crc(total()), "Adelanto del 50 %: " + crc(Math.ceil(total() / 2)), "Entrega: " + $("#f-entrega").value);
     var dir = $("#f-dir").value.trim(), fecha = $("#f-fecha").value, forma = $("#f-forma").value.trim(), canc = $("#f-canciones").value.trim();
     if (dir && !$('[data-need="address"]').hidden) lines.push("Dirección: " + dir);
     if (fecha) { var f = fecha.split("-"); lines.push("Lo necesito para: " + f[2] + "/" + f[1] + "/" + f[0]); }
@@ -1304,7 +1335,21 @@ dialog.cart[open] { animation: slide .25s ease; }
     lastRemoved = { i: +b.dataset.rm, l: cart[+b.dataset.rm] };
     cart.splice(+b.dataset.rm, 1); save(); renderCart();
   });
-  $("#cart-form").addEventListener("input", updateMessage);
+  $("#cart-form").addEventListener("input", function (e) {
+    if (e.target.getAttribute("aria-invalid") === "true" && e.target.value.trim()) { e.target.removeAttribute("aria-invalid"); $("#" + e.target.getAttribute("aria-describedby")).hidden = true; }
+    updateMessage();
+  });
+  send.addEventListener("click", function (e) {
+    if (!cart.length) { e.preventDefault(); return; }
+    var missing = [];
+    if (!$("#f-nombre").value.trim()) missing.push($("#f-nombre"));
+    if (!$('[data-need="address"]').hidden && !$("#f-dir").value.trim()) missing.push($("#f-dir"));
+    if (!missing.length) return;
+    e.preventDefault();
+    missing.forEach(function (f) { f.setAttribute("aria-invalid", "true"); $("#" + f.getAttribute("aria-describedby")).hidden = false; });
+    missing[0].scrollIntoView({ block: "center", behavior: "smooth" });
+    missing[0].focus({ preventScroll: true });
+  });
   $("#cart-form").addEventListener("change", function (e) { if (e.target.id === "f-entrega") renderCart(); else updateMessage(); });
   $("#cart-form").addEventListener("submit", function (e) { e.preventDefault(); });
 
@@ -1334,6 +1379,7 @@ dialog.cart[open] { animation: slide .25s ease; }
     var page = target ? (target.classList.contains("page") ? target : target.closest(".page")) : null;
     if (!page) { page = $("#inicio"); target = page; }
     pagesEls.forEach(function (p) { p.hidden = p !== page; });
+    $("#toast").classList.remove("show");
     $$("nav.links a").forEach(function (a) { a.toggleAttribute("aria-current", a.getAttribute("href") === "#" + page.id); if (a.hasAttribute("aria-current")) a.setAttribute("aria-current", "page"); });
     var cur = $('nav.links a[aria-current]'); if (cur && cur.scrollIntoView) cur.scrollIntoView({ block: "nearest", inline: "center" });
     document.title = page.dataset.title || "Vínculos Eternos";
@@ -1344,6 +1390,8 @@ dialog.cart[open] { animation: slide .25s ease; }
     else requestAnimationFrame(function () { target.scrollIntoView({ block: "start" }); });
     firstRoute = false;
   }
+  function headerPad() { document.documentElement.style.scrollPaddingTop = ($("header.top").offsetHeight + 12) + "px"; }
+  headerPad(); window.addEventListener("resize", headerPad);
   window.addEventListener("hashchange", route);
   $(".skip").addEventListener("click", function (e) {
     e.preventDefault();
