@@ -132,3 +132,28 @@ Lunes a viernes de 6:00 a 8:00 p. m. Hoy la web pide la cita por WhatsApp. Cuand
 1. Antes de la boda: los novios escogen cuántos imanes y cuántas horas (para ellos, los invitados o ambos).
 2. El día de la boda: fotos a los invitados o a los novios; cada quien escoge en la que salió más guapo.
 3. Minutos después: el imán en la mano, ese mismo día. Lo más importante: que los novios se lleven el suyo.
+
+## Estado de la web (noviembre 2026)
+
+- Páginas: Inicio, Bodas y eventos, Catálogo, Ideas, Sobre nosotros y Preguntas frecuentes con Contáctanos.
+- Funciones:
+  - carrito a WhatsApp con adelanto del 50 %, fecha, dirección, forma de lámpara y canciones;
+  - precio de imanes por cantidad;
+  - ventana de detalle de cada producto;
+  - agenda de reuniones de lunes a viernes, de 6 a 8 p. m.;
+  - refri virtual en Ideas;
+  - línea de tiempo animada de bodas;
+  - reseñas con estilo de WhatsApp e Instagram.
+- Detalles de Kipi:
+  - saludo según la hora;
+  - chispas al agregar algo al pedido;
+  - celebración al enviar el pedido;
+  - secreto de 3 toques en la portada.
+- Archivos: guía visual en `DESIGN.md`, ficha del negocio en `PRODUCT.md`, skill Impeccable en `.claude/skills/impeccable`.
+- Pendiente del negocio:
+  - fotos de productos e ideas;
+  - video de bodas;
+  - foto de Dani;
+  - enlace de citas de Google Calendar (se pega en `BOOKING_URL` dentro de `index.html`);
+  - imanes por hora en bodas;
+  - hosting y dominio.
