@@ -45,10 +45,38 @@ typography:
     fontSize: "0.75rem"
     fontWeight: 600
     letterSpacing: "0.16em"
+  lead:
+    fontFamily: "Poppins, Segoe UI, system-ui, sans-serif"
+    fontSize: "1.05rem"
+    fontWeight: 400
+    lineHeight: 1.7
+  small:
+    fontFamily: "Poppins, Segoe UI, system-ui, sans-serif"
+    fontSize: "0.85rem"
+    fontWeight: 400
+  ui:
+    fontFamily: "Poppins, Segoe UI, system-ui, sans-serif"
+    fontSize: "0.92rem"
+    fontWeight: 600
+  caption:
+    fontFamily: "Poppins, Segoe UI, system-ui, sans-serif"
+    fontSize: "0.78rem"
+    fontWeight: 400
+  price:
+    fontFamily: "Poppins, Segoe UI, system-ui, sans-serif"
+    fontSize: "1.35rem"
+    fontWeight: 800
+  voice-sm:
+    fontFamily: "ZT Otez, Georgia, Times New Roman, serif"
+    fontSize: "1.2rem"
+    fontWeight: 400
+    lineHeight: 1.3
 rounded:
   photo: "3px"
+  focus: "4px"
   field: "12px"
   card: "20px"
+  dialog: "24px"
   panel: "28px"
   pill: "999px"
 spacing:
@@ -146,6 +174,11 @@ Paleta cálida de rosas empolvados y vinos sobre crema, sin grises fríos.
 - **Voice** (ZT Otez italic, clamp(1.3rem, 2.6vw, 1.75rem), 1.3): subtítulos bajo los títulos, citas y reseñas.
 - **Body** (400, 1rem, 1.7): texto corrido, con un máximo de 58–60ch.
 - **Label** (600, 0.75rem, 0.16–0.22em, mayúsculas): categorías de tarjetas y la etiqueta del lema.
+- **Lead** (400, 1.05rem): párrafo de introducción bajo los títulos.
+- **UI** (600, 0.92rem): botones, pestañas y menú.
+- **Small** (0.85rem): notas, ayudas, enlaces secundarios y texto de chips.
+- **Caption** (0.78rem): detalles mínimos como "c/u" o la etiqueta de las fotos sin foto.
+- **Price** (800, 1.35rem): precios en tarjetas y ventanas.
 
 ### Named Rules
 **The Two Voices Rule.** Cada sección importante tiene una línea en Poppins que informa y una en ZT Otez que emociona. Nunca dos cursivas seguidas.
