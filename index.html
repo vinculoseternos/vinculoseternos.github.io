@@ -107,11 +107,10 @@ nav.links a[aria-current="page"] { text-decoration: underline; text-decoration-t
 .hero .lead { color: var(--destello); opacity: .85; max-width: 52ch; }
 .hero .actions { display: flex; flex-wrap: wrap; gap: 12px; }
 .hero .btn-line { color: var(--destello); }
-.hero-one { position: relative; justify-self: center; width: min(100%, 330px); }
-.hero-one .pol { margin: 0; background: var(--papel); padding: 10px 10px 44px; border-radius: 3px; box-shadow: 0 30px 60px -20px rgba(0,0,0,.8); transform: rotate(4deg); transition: transform .35s cubic-bezier(0.16, 1, 0.3, 1); }
+.hero-one { position: relative; justify-self: center; width: min(100%, 320px); margin-bottom: 40px; }
+.hero-one .pol { transform: rotate(4deg); transition: transform .35s cubic-bezier(0.16, 1, 0.3, 1); }
 .hero-one .pol:hover { transform: rotate(1deg) scale(1.02); }
-.hero-one .pol img { width: 100%; aspect-ratio: 1 / 1.12; object-fit: cover; }
-.hero-one figcaption { position: absolute; left: 0; right: 0; bottom: 12px; text-align: center; font: italic 400 1.15rem/1 var(--f-sub); color: var(--rosa-texto); }
+.hero-one figcaption { position: absolute; left: 0; right: 0; bottom: -40px; text-align: center; font: italic 400 1.35rem/1 var(--f-sub); color: var(--aura); }
 .kippi-hero { position: absolute; width: 46%; left: -26%; bottom: -10%; z-index: 4; transform: rotate(-8deg); filter: drop-shadow(0 10px 14px rgba(0,0,0,.45)); }
 .hero-hint { position: absolute; right: 20px; bottom: 16px; margin: 0; font-size: .78rem; color: var(--aura); display: flex; align-items: center; gap: 8px; }
 .hero-hint svg { width: 16px; height: 16px; flex: none; }
@@ -145,7 +144,7 @@ nav.links a[aria-current="page"] { text-decoration: underline; text-decoration-t
 /* Banda de bodas en Inicio */
 .wed-band { background: var(--rosa); color: var(--destello); }
 .wed-band .wrap { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(32px, 6vw, 72px); align-items: center; }
-.wed-photo { margin: 0; justify-self: center; width: min(100%, 380px); background: var(--papel); padding: 8px 8px 30px; border-radius: 3px; transform: rotate(-3deg); box-shadow: 0 18px 36px -12px rgba(0,0,0,.5); }
+.wed-photo { justify-self: center; width: min(100%, 360px); transform: rotate(-3deg); }
 .wed-copy { display: grid; gap: 16px; min-width: 0; }
 .wed-copy h2 { color: var(--destello); }
 .wed-copy .sub { color: var(--aura); }
@@ -287,7 +286,7 @@ dialog.pd[open] { animation: pop .22s ease; }
 .quote .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 72px); align-items: center; }
 .quote figure { margin: 0; justify-self: center; max-width: 420px; width: 100%; display: grid; gap: 14px; justify-items: center; }
 .quote figcaption { font-family: var(--f-sub); font-style: italic; color: var(--aura); font-size: 1.1rem; }
-.quote figure img { border-radius: 3px; box-shadow: 0 18px 36px -12px rgba(0,0,0,.5); transform: rotate(-2deg); background: var(--papel); padding: 8px 8px 30px; }
+.quote .iman { width: 100%; transform: rotate(-2deg); }
 .quote-copy { display: grid; gap: 16px; min-width: 0; }
 .quote .eyebrow { color: var(--aura); }
 .quote h2, .quote h1 { color: var(--destello); }
@@ -338,6 +337,13 @@ dialog.pd[open] { animation: pop .22s ease; }
 .depends > p { color: var(--muted); }
 .wed-faq { max-width: none; }
 @media (max-width: 780px) { .quote-facts { grid-template-columns: 1fr; } }
+
+/* Imán terminado: la foto encapsulada, cuadrada, con bordes suaves y brillo. Así se ven todas las fotos del sitio. */
+.iman, .hero-one .pol, .wed-photo, .story-pics .photo, .rain figure, .fmag, .tmag-drag { margin: 0; padding: 0; aspect-ratio: 1; border-radius: 9%; background: var(--recuerdo); box-shadow: 0 22px 36px -16px rgba(40,16,16,.7), 0 3px 6px -2px rgba(40,16,16,.3); }
+.iman, .hero-one .pol, .wed-photo { position: relative; display: block; }
+:is(.iman, .hero-one .pol, .wed-photo, .story-pics .photo, .rain figure, .fmag, .tmag-drag) > :is(img, i) { display: grid; width: 100%; height: 100%; object-fit: cover; border-radius: inherit; }
+:is(.iman, .hero-one .pol, .wed-photo, .story-pics .photo, .rain figure, .fmag, .tmag-drag)::after { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; box-shadow: inset 0 0 0 3px rgba(255,255,255,.3), inset 0 -12px 22px rgba(30,10,10,.3), inset 0 8px 14px rgba(255,255,255,.28); background: linear-gradient(130deg, rgba(255,255,255,.42) 0%, rgba(255,255,255,.1) 26%, transparent 42%); }
+.tmag .iman { box-shadow: 0 12px 18px -10px rgba(40,16,16,.6), 0 2px 4px -2px rgba(40,16,16,.3); }
 
 /* Chispas y Kipi (detalles juguetones) */
 .sparks { position: fixed; left: 0; top: 0; width: 0; height: 0; pointer-events: none; z-index: 60; }
@@ -484,7 +490,7 @@ dialog.pd[open] { animation: pop .22s ease; }
 @keyframes glow { 50% { background-size: 86% 86%; } }
 
 .rain { position: fixed; inset: 0; pointer-events: none; z-index: 70; overflow: hidden; }
-.rain figure { position: absolute; top: 0; width: 70px; margin: 0; background: var(--papel); padding: 4px 4px 14px; border-radius: 3px; box-shadow: 0 10px 20px -8px rgba(0,0,0,.45); }
+.rain figure { position: absolute; top: 0; width: 64px; }
 .rain img { aspect-ratio: 1 / 1.1; object-fit: cover; }
 
 .sent { position: absolute; inset: 0; z-index: 5; background: var(--destello); display: grid; place-content: center; justify-items: center; text-align: center; gap: 14px; padding: 28px; }
@@ -522,10 +528,10 @@ dialog.cart { position: fixed; }
 .fridge-handle { position: absolute; right: 16px; top: 8%; width: 8px; height: 16%; border-radius: 6px; background: linear-gradient(90deg, #d9cbc1, #f8f2ec); box-shadow: 1px 2px 4px rgba(62,30,30,.25); }
 .fridge-handle.low { top: 36%; height: 22%; }
 .fridge-empty { position: absolute; inset: 0; display: grid; place-content: center; text-align: center; color: var(--muted); font-family: var(--f-sub); font-style: italic; font-size: 1.2rem; pointer-events: none; }
-.fmag, .tmag-drag { position: absolute; width: 22%; aspect-ratio: 1 / 1.12; margin: 0; padding: 4px 4px 12px; background: var(--papel); border-radius: 3px; box-shadow: 0 8px 16px -8px rgba(62,30,30,.55); touch-action: none; cursor: grab; user-select: none; }
-.fmag img, .tmag-drag img { width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+.fmag, .tmag-drag { position: absolute; width: 21%; touch-action: none; cursor: grab; user-select: none; -webkit-user-select: none; }
+.fmag img, .tmag-drag img { pointer-events: none; }
 .fmag i, .tmag-drag i, .tmag i { display: grid; place-items: center; width: 100%; height: 100%; background: linear-gradient(135deg, var(--aura), color-mix(in srgb, var(--rosa-claro) 55%, var(--aura))); color: var(--recuerdo); font-family: var(--f-sub); font-style: italic; font-size: .85rem; text-align: center; padding: 2px; }
-.fmag.dragging, .tmag-drag { cursor: grabbing; z-index: 50; box-shadow: 0 18px 28px -10px rgba(62,30,30,.55); }
+.fmag.dragging, .tmag-drag { cursor: grabbing; z-index: 50; box-shadow: 0 26px 34px -12px rgba(40,16,16,.6); }
 .tmag-drag { position: fixed; width: 80px; pointer-events: none; }
 .fmag .x { position: absolute; top: -9px; right: -9px; width: 24px; height: 24px; border-radius: 50%; border: 0; background: var(--recuerdo); color: var(--destello); font-size: .85rem; line-height: 1; cursor: pointer; opacity: 0; transition: opacity .15s; }
 .fmag:hover .x, .fmag:focus-within .x { opacity: 1; }
@@ -533,8 +539,8 @@ dialog.cart { position: fixed; }
 .fridge-side { display: grid; gap: 14px; align-content: start; }
 .tray { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
 .tmag { display: grid; gap: 6px; padding: 0; border: 0; background: none; cursor: grab; touch-action: none; font: 500 .78rem/1.2 var(--f-body); color: var(--recuerdo); text-align: center; }
-.tmag img, .tmag i { aspect-ratio: 1 / 1.12; width: 100%; object-fit: cover; border: 4px solid var(--papel); border-bottom-width: 12px; border-radius: 3px; box-shadow: 0 8px 16px -10px rgba(62,30,30,.55); transition: transform .2s; }
-.tmag:hover img, .tmag:hover i { transform: rotate(-4deg) translateY(-3px); }
+.tmag .iman { width: 100%; transition: transform .2s; }
+.tmag:hover .iman { transform: rotate(-4deg) translateY(-3px); }
 .fridge-sum { display: flex; justify-content: space-between; align-items: baseline; border-top: 1px solid var(--linea); padding-top: 12px; }
 .fridge-sum span { color: var(--muted); }
 .fridge-sum strong { font-family: var(--f-title); font-weight: 800; font-size: 1.5rem; color: var(--rosa); font-variant-numeric: tabular-nums; }
@@ -570,9 +576,10 @@ a.c-card:hover { border-color: var(--rosa); }
 /* Historia y reseñas */
 .story { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 64px); align-items: center; }
 .story-pics { position: sticky; top: 100px; aspect-ratio: 1 / 1.05; width: 100%; max-width: 520px; justify-self: center; align-self: start; }
-.story-pics .s1 { width: 78%; aspect-ratio: 625 / 509; left: 0; top: 0; transform: rotate(-4deg); padding-bottom: 8px; }
-.story-pics .s2 { width: 48%; aspect-ratio: 1 / 1.15; right: 0; bottom: 4%; transform: rotate(5deg); z-index: 2; }
-.story-pics .photo { box-shadow: 0 18px 36px -14px rgba(62,30,30,.45); }
+.story-pics .s1 { width: 66%; left: 2%; top: 0; transform: rotate(-4deg); }
+.story-pics .s1 img { object-position: 62% 50%; }
+.story-pics .s2 { width: 50%; right: 0; bottom: 6%; transform: rotate(5deg); z-index: 2; }
+.story-pics .photo { position: absolute; }
 .kippi-story { position: absolute; left: 4%; bottom: 0; width: 34%; z-index: 3; transform: rotate(-8deg); filter: drop-shadow(0 8px 12px rgba(62,30,30,.25)); }
 .story-copy .pull { font-family: var(--f-sub); font-style: italic; font-size: clamp(1.3rem, 2.4vw, 1.6rem); line-height: 1.3; color: var(--conexion); border-left: 3px solid var(--aura); padding-left: 18px; }
 .story-copy { display: grid; gap: 16px; min-width: 0; }
@@ -925,14 +932,14 @@ dialog.cart[open] { animation: slide .25s ease; }
         <div class="fridge-side">
           <p class="tray-l">Imanes de ejemplo</p>
           <div class="tray" id="tray">
-            <button type="button" class="tmag" data-kind="Mascotas" data-img="mascota"><img src="assets/img/mascota.webp" alt="" draggable="false" style="object-position:50% 65%"><span>Mascotas</span></button>
-            <button type="button" class="tmag" data-kind="Boda" data-img="boda"><img src="assets/img/boda.webp" alt="" draggable="false" style="object-position:50% 40%"><span>Boda</span></button>
-            <button type="button" class="tmag" data-kind="Graduación" data-img="graduacion"><img src="assets/img/graduacion.webp" alt="" draggable="false" style="object-position:50% 62%"><span>Graduación</span></button>
-            <button type="button" class="tmag" data-kind="Pareja" data-img="regalo"><img src="assets/img/regalo.webp" alt="" draggable="false"><span>Pareja</span></button>
-            <button type="button" class="tmag" data-kind="Abuelos"><i>Abuelos</i><span>Abuelos</span></button>
-            <button type="button" class="tmag" data-kind="Bebé"><i>Bebé</i><span>Bebé</span></button>
-            <button type="button" class="tmag" data-kind="Familia"><i>Familia</i><span>Familia</span></button>
-            <button type="button" class="tmag" data-kind="Viajes"><i>Viajes</i><span>Viajes</span></button>
+            <button type="button" class="tmag" data-kind="Mascotas" data-img="mascota"><span class="iman"><img src="assets/img/mascota.webp" alt="" draggable="false" style="object-position:50% 65%"></span><span>Mascotas</span></button>
+            <button type="button" class="tmag" data-kind="Boda" data-img="boda"><span class="iman"><img src="assets/img/boda.webp" alt="" draggable="false" style="object-position:50% 40%"></span><span>Boda</span></button>
+            <button type="button" class="tmag" data-kind="Graduación" data-img="graduacion"><span class="iman"><img src="assets/img/graduacion.webp" alt="" draggable="false" style="object-position:50% 62%"></span><span>Graduación</span></button>
+            <button type="button" class="tmag" data-kind="Pareja" data-img="regalo"><span class="iman"><img src="assets/img/regalo.webp" alt="" draggable="false"></span><span>Pareja</span></button>
+            <button type="button" class="tmag" data-kind="Abuelos"><span class="iman"><i>Abuelos</i></span><span>Abuelos</span></button>
+            <button type="button" class="tmag" data-kind="Bebé"><span class="iman"><i>Bebé</i></span><span>Bebé</span></button>
+            <button type="button" class="tmag" data-kind="Familia"><span class="iman"><i>Familia</i></span><span>Familia</span></button>
+            <button type="button" class="tmag" data-kind="Viajes"><span class="iman"><i>Viajes</i></span><span>Viajes</span></button>
           </div>
           <div class="fridge-sum" aria-live="polite"><span id="fridge-count">0 imanes</span><strong id="fridge-price">₡0</strong></div>
           <p class="hint" id="fridge-hint">Mientras más imanes, más barato cada uno.</p>
@@ -946,7 +953,7 @@ dialog.cart[open] { animation: slide .25s ease; }
   <div class="page" id="eventos" data-title="Bodas y eventos · Vínculos Eternos" hidden>
 <section class="quote first">
     <div class="wrap">
-      <figure><img src="assets/img/boda.webp" alt="Novios sosteniendo un imán con su foto de boda" loading="lazy" width="540" height="615"><figcaption>Su foto del gran día, convertida en imán.</figcaption></figure>
+      <figure><span class="iman"><img src="assets/img/boda.webp" alt="Novios sosteniendo un imán con su foto de boda" loading="lazy" width="540" height="615"></span><figcaption>Su foto del gran día, convertida en imán.</figcaption></figure>
       <div class="quote-copy">
         <span class="eyebrow">Bodas y eventos</span>
         <h1 class="as-h2">Después de la boda…</h1>

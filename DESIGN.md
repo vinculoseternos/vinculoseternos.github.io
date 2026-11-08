@@ -125,12 +125,12 @@ components:
 
 Vínculos Eternos se ve como un recuerdo que todavía brilla. La página es cálida, cercana y un poco juguetona. Kipi (Sparky de cariño), la estrellita con boina, es la chispa que une el imán a la refri y a las personas con sus momentos. El sistema mezcla dos voces: titulares en mayúsculas pesadas, que dicen las cosas claras, y una cursiva con carácter (ZT Otez), que dice lo que se siente.
 
-La superficie es papel crema con bandas de color vino y rosa que marcan los momentos importantes. Las fotos reales van en marcos tipo polaroid, ligeramente ladeados, como pegadas a mano. El movimiento es juguetón pero con propósito. Kipi y pequeñas chispas aparecen cuando alguien hace algo que importa, como agregar un recuerdo al pedido o pedir una cita. Nunca como adorno de fondo.
+La superficie es papel crema con bandas de color vino y rosa que marcan los momentos importantes. Las fotos reales se muestran como imanes terminados: cuadradas, con esquinas suaves y brillo de encapsulado, ligeramente ladeadas. El movimiento es juguetón pero con propósito. Kipi y pequeñas chispas aparecen cuando alguien hace algo que importa, como agregar un recuerdo al pedido o pedir una cita. Nunca como adorno de fondo.
 
 **Key Characteristics:**
 - Crema de fondo, bandas Recuerdo y Rosa Vínculo para lo emocional.
 - Titulares Poppins ExtraBold en mayúsculas y cursiva ZT Otez como contrapunto.
-- Fotos reales en marcos polaroid ladeados; Kipi como personaje, no como icono.
+- Fotos reales como imanes encapsulados, ladeados; Kipi como personaje, no como icono.
 - Formas suaves y redondeadas: botones píldora, tarjetas de 20px.
 - Chispas y gestos de Kipi como respuesta a acciones con significado.
 
@@ -148,7 +148,7 @@ Paleta cálida de rosas empolvados y vinos sobre crema, sin grises fríos.
 ### Neutral
 - **Recuerdo** (#3e1e1e): texto principal, portada y cierre oscuros.
 - **Destello** (#f8efe8): fondo de la página.
-- **Papel** (#fdf8f3): tarjetas, campos y marcos polaroid.
+- **Papel** (#fdf8f3): tarjetas y campos.
 - **Línea** (#e9d6cf): bordes y divisores.
 - **Rosa Claro** (#a46f6e): bordes punteados y detalles; nunca para texto pequeño.
 - **Rosa Texto** (#8c5857): etiquetas pequeñas, subtítulos en cursiva y notas (5:1 sobre Destello).
@@ -189,11 +189,11 @@ Contenedor de 1140px con 20px de margen lateral. Las secciones respiran con clam
 
 ## Elevation & Depth
 
-La profundidad es cálida y suave. Se usan sombras largas y difusas, teñidas de Recuerdo, en elementos que se levantan: fotos polaroid, botones al pasar el mouse y ventanas. Las tarjetas en reposo son planas, con borde Línea.
+La profundidad es cálida y suave. Se usan sombras largas y difusas, teñidas de Recuerdo, en elementos que se levantan: fotos-imán, botones al pasar el mouse y ventanas. Las tarjetas en reposo son planas, con borde Línea.
 
 ### Shadow Vocabulary
 - **Lift** (`box-shadow: 0 14px 30px -14px rgba(62, 30, 30, .45)`): botones y tarjetas al pasar el mouse.
-- **Polaroid** (`box-shadow: 0 18px 36px -12px rgba(0, 0, 0, .5)`): fotos en marco papel sobre bandas oscuras.
+- **Imán** (`box-shadow: 0 22px 36px -16px rgba(40, 16, 16, .7), 0 3px 6px -2px rgba(40, 16, 16, .3)`): fotos-imán.
 - **Dialog** (`box-shadow: 0 30px 60px -20px rgba(0, 0, 0, .5)`): ventana de detalle y carrito.
 
 ### Named Rules
@@ -201,7 +201,7 @@ La profundidad es cálida y suave. Se usan sombras largas y difusas, teñidas de
 
 ## Shapes
 
-Todo es suave y redondeado. Los botones, chips de días y el carrito flotante son píldoras (999px). Las tarjetas son de 20px, los paneles grandes (pedido, agenda) de 28px y los campos y opciones de 12px. La excepción a propósito son las fotos: marcos polaroid casi rectos (3px), con 8px de borde Papel y 30px abajo, rotados entre -7° y 8°.
+Todo es suave y redondeado. Los botones, chips de días y el carrito flotante son píldoras (999px). Las tarjetas son de 20px, los paneles grandes (pedido, agenda) de 28px y los campos y opciones de 12px. Las fotos son imanes cuadrados con esquinas de 9 %, sin marco, con brillo interior y rotados entre -4° y 5°.
 
 ## Components
 
@@ -229,8 +229,8 @@ Todo es suave y redondeado. Los botones, chips de días y el carrito flotante so
 ### Navigation
 - **Style:** encabezado fijo en Destello translúcido con desenfoque. Los enlaces son Poppins 500 y la página activa va subrayada en Conexión. En celular, la fila se desliza de lado.
 
-### Polaroid (signature)
-Foto real con marco Papel y base ancha, ladeada y con sombra Polaroid. Es la forma en que la marca muestra lo que hace.
+### Imán (signature)
+Foto real recortada en cuadrado, esquinas de 9 %, borde interior claro, sombra Imán y un reflejo diagonal arriba a la izquierda: se ve como el imán terminado. Es la forma en que la marca muestra lo que hace (clase `.iman`). La única excepción es el juego de bodas, donde la foto sale impresa antes de encapsularse.
 
 ### Kipi (signature)
 El personaje. Acompaña bandas y estados vacíos, y reacciona a las acciones importantes con un pequeño gesto y chispas. Siempre respeta The Beret Rule.
@@ -238,7 +238,7 @@ El personaje. Acompaña bandas y estados vacíos, y reacciona a las acciones imp
 ## Do's and Don'ts
 
 ### Do:
-- **Do** usar fotos reales de clientes en marcos polaroid; los espacios sin foto dicen "próximamente" con Kipi.
+- **Do** usar fotos reales de clientes con forma de imán; los espacios sin foto dicen "próximamente" con Kipi.
 - **Do** acompañar cada título con una línea en ZT Otez.
 - **Do** reservar las chispas y los gestos de Kipi para acciones con significado (agregar al pedido, pedir cita, enviar).
 - **Do** respetar `prefers-reduced-motion`: sin chispas ni rebotes, solo el cambio de estado.
