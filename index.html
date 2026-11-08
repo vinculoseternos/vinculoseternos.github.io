@@ -91,36 +91,56 @@ nav.links a[aria-current="page"] { text-decoration: underline; text-decoration-t
   nav.links::-webkit-scrollbar { display: none; }
 }
 
-/* Portada */
-.hero { background: var(--recuerdo); color: var(--destello); padding-block: clamp(56px, 9vw, 100px); overflow: hidden; }
-.hero .wrap { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(36px, 6vw, 80px); align-items: center; }
+/* Portada: "De miles, una". Un mosaico de fotos borrosas; donde pasa el dedo, se enfocan. Luego aparece la foto que sí vale la pena. */
+.hero { position: relative; overflow: hidden; isolation: isolate; background: var(--recuerdo); color: var(--destello); --x: 70%; --y: 40%; }
+.hero-mosaic { position: absolute; inset: -60px; display: grid; grid-template-columns: repeat(auto-fill, minmax(92px, 1fr)); grid-auto-rows: 112px; gap: 10px; transform: rotate(-4deg); animation: hero-pan 40s linear infinite alternate; pointer-events: none; }
+@keyframes hero-pan { to { transform: rotate(-4deg) translate(-60px, -40px); } }
+.hero-mosaic img { width: 100%; height: 100%; object-fit: cover; border-radius: 3px; }
+.hero-mosaic.blur { z-index: -3; filter: blur(5px) saturate(.4) brightness(.45); }
+.hero-mosaic.sharp { z-index: -2; -webkit-mask-image: radial-gradient(circle 190px at var(--x) var(--y), #000 30%, transparent 100%); mask-image: radial-gradient(circle 190px at var(--x) var(--y), #000 30%, transparent 100%); filter: saturate(1.05) brightness(.95); }
+.hero::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: radial-gradient(ellipse 70% 80% at 25% 55%, rgba(62,30,30,.94) 30%, rgba(62,30,30,.55) 65%, rgba(62,30,30,.2)); }
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: 40px; align-items: center; min-height: min(78vh, 640px); padding-block: clamp(48px, 6vw, 72px); }
 .hero-copy { display: grid; gap: 22px; min-width: 0; }
-.hero .eyebrow { color: var(--aura); }
-.hero h1 { font-size: clamp(2.2rem, 5vw, 3.7rem); text-transform: uppercase; color: var(--destello); letter-spacing: -.015em; }
-.hero .sub { color: var(--aura); font-size: clamp(1.5rem, 3vw, 2.1rem); }
-.hero .lead { color: var(--destello); opacity: .8; }
+.hero h1 { font-size: clamp(2.3rem, 5.4vw, 4.1rem); text-transform: uppercase; color: var(--destello); letter-spacing: -.02em; line-height: 1.05; }
+.hero h1 .count { display: block; font-size: .42em; letter-spacing: .02em; color: var(--aura); font-variant-numeric: tabular-nums; margin-bottom: .2em; }
+.hero .sub { color: var(--aura); font-size: clamp(1.5rem, 3vw, 2.15rem); }
+.hero .lead { color: var(--destello); opacity: .85; max-width: 52ch; }
 .hero .actions { display: flex; flex-wrap: wrap; gap: 12px; }
 .hero .btn-line { color: var(--destello); }
-.memories { position: relative; aspect-ratio: 1 / 1.05; max-width: 100%; }
-.photo { position: absolute; margin: 0; background: var(--papel); padding: 8px 8px 30px; border-radius: 3px; box-shadow: 0 18px 36px -12px rgba(0,0,0,.6); transition: transform .35s ease; }
-.photo img { width: 100%; height: 100%; object-fit: cover; }
-.photo:hover { transform: rotate(0) scale(1.03) !important; z-index: 5; }
-.p1 { --r: -7deg; width: 52%; aspect-ratio: 1 / 1.12; left: 0; top: 2%; transform: rotate(var(--r)); }
-.p2 { --r: 6deg; width: 50%; aspect-ratio: 1 / 1.12; right: 0; top: 12%; transform: rotate(var(--r)); z-index: 2; }
-.p3 { --r: -1deg; width: 46%; aspect-ratio: 1 / 1.12; left: 20%; bottom: 0; transform: rotate(var(--r)); z-index: 3; }
-.kippi-hero { --r: 8deg; }
-.memories.drop .photo, .memories.drop .kippi-hero { animation: stick .75s cubic-bezier(0.16, 1, 0.3, 1) both; }
-.memories.drop .p1 { animation-delay: .1s; } .memories.drop .p2 { animation-delay: .38s; } .memories.drop .p3 { animation-delay: .66s; } .memories.drop .kippi-hero { animation-delay: 1s; }
-@keyframes stick { 0% { opacity: 0; transform: translateY(-90px) rotate(calc(var(--r) - 14deg)) scale(1.08); } 65% { opacity: 1; transform: translateY(5px) rotate(calc(var(--r) + 2deg)) scale(.99); } 100% { opacity: 1; transform: rotate(var(--r)); } }
-.kipi-hello { position: absolute; right: 30%; bottom: 28%; z-index: 6; max-width: 210px; background: var(--destello); color: var(--recuerdo); font-size: .85rem; line-height: 1.35; padding: 10px 14px; border-radius: 16px 16px 4px 16px; box-shadow: 0 12px 24px -12px rgba(0,0,0,.6); display: flex; gap: 8px; align-items: center; pointer-events: none; }
+.hero-one { position: relative; justify-self: center; width: min(100%, 330px); }
+.hero-one .pol { margin: 0; background: var(--papel); padding: 10px 10px 44px; border-radius: 3px; box-shadow: 0 30px 60px -20px rgba(0,0,0,.8); transform: rotate(4deg); transition: transform .35s cubic-bezier(0.16, 1, 0.3, 1); }
+.hero-one .pol:hover { transform: rotate(1deg) scale(1.02); }
+.hero-one .pol img { width: 100%; aspect-ratio: 1 / 1.12; object-fit: cover; }
+.hero-one figcaption { position: absolute; left: 0; right: 0; bottom: 12px; text-align: center; font: italic 400 1.15rem/1 var(--f-sub); color: var(--rosa-texto); }
+.kippi-hero { position: absolute; width: 46%; left: -26%; bottom: -10%; z-index: 4; transform: rotate(-8deg); filter: drop-shadow(0 10px 14px rgba(0,0,0,.45)); }
+.hero-hint { position: absolute; right: 20px; bottom: 16px; margin: 0; font-size: .78rem; color: var(--aura); display: flex; align-items: center; gap: 8px; }
+.hero-hint svg { width: 16px; height: 16px; flex: none; }
+/* Entrada (solo la primera vez que se abre la portada) */
+.hero.intro .sub { animation: hero-focus 1.1s cubic-bezier(0.16, 1, 0.3, 1) 1.5s both; }
+.hero.intro .lead { animation: hero-in-lead .8s cubic-bezier(0.16, 1, 0.3, 1) 1.9s both; }
+.hero.intro .actions { animation: hero-in .8s cubic-bezier(0.16, 1, 0.3, 1) 2.05s both; }
+.hero.intro .pol { animation: hero-pop 1.3s cubic-bezier(0.16, 1, 0.3, 1) 2.4s both; }
+.hero.intro .kippi-hero { animation: hero-kipi .9s cubic-bezier(0.16, 1, 0.3, 1) 3.1s both, glow 4.5s ease-in-out 4s infinite; }
+@keyframes hero-focus { from { opacity: 0; filter: blur(8px); } }
+@keyframes hero-in { from { opacity: 0; transform: translateY(12px); } }
+@keyframes hero-in-lead { from { opacity: 0; transform: translateY(12px); } to { opacity: .85; } }
+@keyframes hero-pop { 0% { opacity: 0; transform: scale(.25) rotate(-20deg); filter: blur(10px) brightness(3); } 30% { opacity: 1; filter: blur(4px) brightness(1.8); } 100% { opacity: 1; transform: rotate(4deg); filter: none; } }
+@keyframes hero-kipi { from { opacity: 0; transform: translateX(-30px) rotate(-20deg); } to { opacity: 1; transform: rotate(-8deg); } }
+.kipi-hello { position: absolute; left: 4%; bottom: 30%; z-index: 6; max-width: 210px; background: var(--destello); color: var(--recuerdo); font-size: .85rem; line-height: 1.35; padding: 10px 14px; border-radius: 16px 16px 16px 4px; box-shadow: 0 12px 24px -12px rgba(0,0,0,.6); display: flex; gap: 8px; align-items: center; pointer-events: none; }
 .kipi-hello svg { width: 18px; height: 18px; flex: none; color: var(--conexion); }
 .kipi-hello.show { animation: hello .5s cubic-bezier(0.16, 1, 0.3, 1) both; }
 .kipi-hello.hide { opacity: 0; transform: translateY(6px); transition: opacity .4s, transform .4s; }
 @keyframes hello { from { opacity: 0; transform: translateY(10px) scale(.9); } }
-@media (max-width: 780px) { .kipi-hello { right: 24%; bottom: 24%; max-width: 180px; font-size: .78rem; } }
-.p1 img { object-position: 50% 62%; } .p2 img { object-position: 50% 66%; } .p3 img { object-position: 50% 45%; }
-.kippi-hero { position: absolute; right: -2%; bottom: -2%; width: 36%; z-index: 4; transform: rotate(8deg); filter: drop-shadow(0 8px 14px rgba(0,0,0,.35)); }
-@media (max-width: 780px) { .hero { padding-top: 28px; } .hero .wrap { grid-template-columns: 1fr; gap: 20px; } .memories { order: -1; width: min(78%, 300px); justify-self: center; } .hero h1 { font-size: clamp(1.9rem, 8vw, 2.4rem); } }
+@media (max-width: 780px) {
+  .hero .wrap { grid-template-columns: minmax(0, 1fr); min-height: 0; padding-block: 32px 64px; gap: 34px; }
+  .hero::after { background: linear-gradient(180deg, rgba(62,30,30,.35) 0, rgba(62,30,30,.9) 42%, rgba(62,30,30,.96)); }
+  .hero-one { order: -1; width: min(62%, 230px); }
+  .hero h1 { font-size: clamp(2rem, 8.6vw, 2.6rem); }
+  .hero-mosaic { grid-template-columns: repeat(auto-fill, minmax(70px, 1fr)); grid-auto-rows: 86px; }
+  .hero-mosaic.sharp { -webkit-mask-image: radial-gradient(circle 120px at var(--x) var(--y), #000 30%, transparent 100%); mask-image: radial-gradient(circle 120px at var(--x) var(--y), #000 30%, transparent 100%); }
+  .kipi-hello { left: 24%; bottom: 22%; max-width: 180px; font-size: .78rem; }
+}
+@media (prefers-reduced-motion: reduce) { .hero-mosaic { animation: none; } }
 
 /* Banda de bodas en Inicio */
 .wed-band { background: var(--rosa); color: var(--destello); }
@@ -595,11 +615,12 @@ dialog.cart[open] { animation: slide .25s ease; }
 
 <main id="contenido" tabindex="-1">
   <div class="page" id="inicio" data-title="Vínculos Eternos">
-<section class="hero">
+<section class="hero" id="hero">
+    <div class="hero-mosaic blur" aria-hidden="true"></div>
+    <div class="hero-mosaic sharp" aria-hidden="true"></div>
     <div class="wrap">
       <div class="hero-copy">
-        <span class="eyebrow">Fotografía encapsulada</span>
-        <h1>Acumulamos miles de fotografías</h1>
+        <h1><span class="count" aria-hidden="true"><span id="hero-n">4382</span> fotos en tu celular</span>Acumulamos miles de fotografías</h1>
         <p class="sub">pero dedicamos cada vez menos tiempo a recordar.</p>
         <p class="lead">Encapsulamos tus fotos en imanes y otras piezas para que salgan del celular y vuelvan a brillar donde las ves todos los días: en la refri, en la pared o en la mesa de noche.</p>
         <div class="actions">
@@ -607,14 +628,13 @@ dialog.cart[open] { animation: slide .25s ease; }
           <a class="btn btn-line" href="#catalogo">Ver catálogo</a>
         </div>
       </div>
-      <div class="memories" role="img" aria-label="Fotos de clientes convertidas en imanes: una graduación, un cachorro husky y una pareja">
-        <figure class="photo p1"><img src="assets/img/graduacion.webp" alt="" fetchpriority="high" width="960" height="1280"></figure>
-        <figure class="photo p2"><img src="assets/img/mascota.webp" alt="" width="960" height="1280"></figure>
-        <figure class="photo p3"><img src="assets/img/regalo.webp" alt="" width="346" height="430"></figure>
-        <img class="kippi-hero" src="assets/brand/kippi-camara-crema-botas.webp" alt="" width="600" height="586">
+      <div class="hero-one">
+        <figure class="pol" role="img" aria-label="Foto impresa de una pareja de novios sosteniendo su imán de boda"><img src="assets/img/boda.webp" alt="" fetchpriority="high" width="540" height="615"><figcaption aria-hidden="true">esta sí</figcaption></figure>
+        <img class="kippi-hero" src="assets/brand/kippi-camara-crema.webp" alt="" width="600" height="508">
         <p class="kipi-hello" id="kipi-hello" hidden></p>
       </div>
     </div>
+    <p class="hero-hint" id="hero-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Mueve el dedo sobre las fotos</span></p>
   </section>
 
 <section class="wed-band" aria-labelledby="wed-t">
@@ -1593,9 +1613,31 @@ dialog.cart[open] { animation: slide .25s ease; }
   $("#sent-close").addEventListener("click", function () { $("#sent").hidden = true; dlg.close(); });
   dlg.addEventListener("close", function () { $("#sent").hidden = true; });
 
-  // Portada: las fotos "se pegan" en la refri una por una y Kipi saluda según la hora
+  // Portada: mosaico de fotos que se enfocan donde pasa el dedo, la foto "esta sí" y Kipi que saluda según la hora
   (function () {
-    var mem = $(".memories"), hello = $("#kipi-hello");
+    var hero = $("#hero"), hello = $("#kipi-hello");
+    var pics = ["graduacion", "mascota", "regalo", "boda", "dinofabeto"], tiles = "";
+    for (var t = 0; t < 140; t++) tiles += '<img src="assets/img/mosaico/' + pics[(t * 7 + (t >> 3)) % pics.length] + '.webp" alt="" loading="lazy" decoding="async">';
+    $$(".hero-mosaic", hero).forEach(function (m) { m.innerHTML = tiles; });
+    if (window.matchMedia("(hover: hover)").matches) $("#hero-hint span").textContent = "Pasa el mouse sobre las fotos";
+    var pointer = false, pT, t0 = performance.now(), seen = true;
+    function setPos(x, y) { hero.style.setProperty("--x", x + "px"); hero.style.setProperty("--y", y + "px"); }
+    hero.addEventListener("pointermove", function (e) {
+      var r = hero.getBoundingClientRect(); pointer = true; setPos(e.clientX - r.left + 60, e.clientY - r.top + 60);
+      clearTimeout(pT); pT = setTimeout(function () { pointer = false; }, 2500);
+    });
+    if ("IntersectionObserver" in window) new IntersectionObserver(function (en) { seen = en[0].isIntersecting; }).observe(hero);
+    function wander(now) {
+      if (!pointer && seen && hero.offsetParent) {
+        var r = hero.getBoundingClientRect(), k = (now - t0) / 1000, wide = r.width > 780;
+        var cx = wide ? r.width * .72 : r.width * .5, cy = wide ? r.height * .45 : r.height * .2;
+        setPos(cx + Math.sin(k * .5) * r.width * (wide ? .2 : .32) + 60, cy + Math.sin(k * .8) * r.height * (wide ? .28 : .12) + 60);
+      }
+      requestAnimationFrame(wander);
+    }
+    if (!calm) requestAnimationFrame(wander);
+    var nEl = $("#hero-n"), N = 4382;
+    nEl.textContent = N.toLocaleString("es-CR");
     var h = new Date().getHours();
     var moon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg>';
     var sun = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>';
@@ -1608,15 +1650,19 @@ dialog.cart[open] { animation: slide .25s ease; }
       clearTimeout(hello._t); hello._t = setTimeout(function () { hello.classList.add("hide"); }, ms || 6000);
     }
     var first = !location.hash || location.hash === "#inicio";
-    if (first && !calm) { mem.classList.add("drop"); setTimeout(function () { mem.classList.remove("drop"); }, 2200); }
-    setTimeout(function () { say(msg[0], msg[1]); }, first && !calm ? 1700 : 600);
+    if (first && !calm) {
+      hero.classList.add("intro"); setTimeout(function () { hero.classList.remove("intro"); }, 4300);
+      var s0 = performance.now();
+      (function step(n) { var q = Math.min(1, (n - s0) / 1500), e = 1 - Math.pow(1 - q, 4); nEl.textContent = Math.round(N * e).toLocaleString("es-CR"); if (q < 1) requestAnimationFrame(step); })(s0);
+    }
+    setTimeout(function () { say(msg[0], msg[1]); }, first && !calm ? 4200 : 600);
 
     // Secreto de Kipi: 3 toques seguidos y llueven recuerdos
     var taps = 0, tapT, kipi = $(".kippi-hero");
     kipi.style.cursor = "pointer";
     kipi.addEventListener("click", function () {
       taps++; clearTimeout(tapT); tapT = setTimeout(function () { taps = 0; }, 900);
-      kipi.animate([{ transform: "rotate(8deg) scale(1)" }, { transform: "rotate(-6deg) scale(1.1)" }, { transform: "rotate(8deg) scale(1)" }], { duration: 300 });
+      kipi.animate([{ transform: "rotate(-8deg) scale(1)" }, { transform: "rotate(6deg) scale(1.1)" }, { transform: "rotate(-8deg) scale(1)" }], { duration: 300 });
       if (taps < 3) return;
       taps = 0;
       say(sun, "¡Encontraste el secreto de Kipi! ✨", 4000);

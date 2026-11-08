@@ -149,6 +149,7 @@ Lunes a viernes de 6:00 a 8:00 p. m. Hoy la web pide la cita por WhatsApp. Cuand
   - chispas al agregar algo al pedido;
   - celebración al enviar el pedido;
   - secreto de 3 toques en la portada.
+  - portada "De miles, una": mosaico de fotos que se enfocan con el dedo, contador "4 382 fotos en tu celular" y la foto "esta sí" (noviembre 2026).
 - Archivos: guía visual en `DESIGN.md`, ficha del negocio en `PRODUCT.md`, skill Impeccable en `.claude/skills/impeccable`.
 - Pendiente del negocio:
   - fotos de productos e ideas;

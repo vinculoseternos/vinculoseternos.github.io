@@ -168,7 +168,7 @@ Paleta cálida de rosas empolvados y vinos sobre crema, sin grises fríos.
 **Character:** Poppins ExtraBold en mayúsculas dice las cosas con firmeza. ZT Otez en cursiva las dice con el corazón: subtítulos, citas y frases como "Minutos después".
 
 ### Hierarchy
-- **Display** (800, clamp(2.2rem, 5vw, 3.7rem), 1.08, mayúsculas): solo el titular de la portada.
+- **Display** (800, clamp(2.3rem, 5.4vw, 4.1rem), 1.05, mayúsculas): solo el titular de la portada.
 - **Headline** (800, clamp(1.9rem, 4.4vw, 2.9rem), 1.08, mayúsculas, Rosa Vínculo): títulos de sección.
 - **Title** (700, 1.15rem): nombres de productos, pasos e ideas.
 - **Voice** (ZT Otez italic, clamp(1.3rem, 2.6vw, 1.75rem), 1.3): subtítulos bajo los títulos, citas y reseñas.
@@ -185,7 +185,7 @@ Paleta cálida de rosas empolvados y vinos sobre crema, sin grises fríos.
 
 ## Layout
 
-Contenedor de 1140px con 20px de margen lateral. Las secciones respiran con clamp(64px, 10vw, 110px) arriba y abajo. Las rejillas de tarjetas van en 3 columnas, 2 por debajo de 960px y 1 por debajo de 600px. Las bandas a dos columnas (foto y texto) pasan a una columna por debajo de 780px. En celular, las fotos de la portada van arriba del titular. El sitio es una sola página con rutas por enlace (#inicio, #eventos, #catalogo, #ideas, #nosotros, #preguntas). Cada ruta muestra solo su contenido, y el cierre con logo va solo en Inicio.
+Contenedor de 1140px con 20px de margen lateral. Las secciones respiran con clamp(64px, 10vw, 110px) arriba y abajo. Las rejillas de tarjetas van en 3 columnas, 2 por debajo de 960px y 1 por debajo de 600px. Las bandas a dos columnas (foto y texto) pasan a una columna por debajo de 780px. La portada ("De miles, una") lleva detrás un mosaico de fotos borrosas que se enfocan donde pasa el dedo o el mouse, y una sola foto polaroid ("esta sí") con Kipi al lado. En celular, esa foto va arriba del titular. El sitio es una sola página con rutas por enlace (#inicio, #eventos, #catalogo, #ideas, #nosotros, #preguntas). Cada ruta muestra solo su contenido, y el cierre con logo va solo en Inicio.
 
 ## Elevation & Depth
 
