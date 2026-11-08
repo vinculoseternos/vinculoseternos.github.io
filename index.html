@@ -8,12 +8,13 @@
 <meta property="og:title" content="Vínculos Eternos">
 <meta property="og:description" content="No vendemos imanes. Ayudamos a las personas a detenerse un momento y recordar lo que realmente importa.">
 <meta property="og:image" content="assets/img/boda.webp">
+<link rel="preload" href="assets/fonts/ZTOtez-Italic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap">
 <style>
-@font-face { font-family: "ZT Otez"; src: url("assets/fonts/ZTOtez-Regular.otf") format("opentype"); font-weight: 400; font-style: normal; font-display: swap; }
-@font-face { font-family: "ZT Otez"; src: url("assets/fonts/ZTOtez-Italic.otf") format("opentype"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "ZT Otez"; src: url("assets/fonts/ZTOtez-Regular.woff2") format("woff2"), url("assets/fonts/ZTOtez-Regular.otf") format("opentype"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "ZT Otez"; src: url("assets/fonts/ZTOtez-Italic.woff2") format("woff2"), url("assets/fonts/ZTOtez-Italic.otf") format("opentype"); font-weight: 400; font-style: italic; font-display: swap; }
 /* Branding Vínculos Eternos: Destello de fondo, Recuerdo para las bandas oscuras, Rosa Vínculo en titulares, Conexión en botones, Aura para lo suave.
    Diseño comprometido con un solo tema claro, como el manual de marca.
    Regla de Kipi: boina roja sobre fondos claros, boina rosa (cuerpo crema) sobre Recuerdo o Rosa Vínculo. */
@@ -43,6 +44,10 @@ a { color: inherit; }
 button { font: inherit; color: inherit; }
 :focus-visible { outline: 2px solid var(--conexion); outline-offset: 3px; border-radius: 4px; }
 [hidden] { display: none !important; }
+.skip { position: absolute; left: 12px; top: -60px; z-index: 50; background: var(--recuerdo); color: var(--destello); padding: 10px 16px; border-radius: 999px; font-weight: 600; text-decoration: none; transition: top .15s; }
+.skip:focus { top: 12px; }
+main:focus { outline: none; }
+[tabindex="-1"]:focus { outline: none; }
 
 .wrap { width: 100%; max-width: 1140px; margin-inline: auto; padding-inline: 20px; }
 section { padding-block: clamp(64px, 10vw, 110px); }
@@ -439,6 +444,8 @@ dialog.cart[open] { animation: slide .25s ease; }
   <symbol id="i-bag" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M5 8h14l-1 12H6L5 8Zm4 0V6a3 3 0 0 1 6 0v2"/></symbol>
 </svg>
 
+<a class="skip" href="#contenido">Saltar al contenido</a>
+
 <header class="top">
   <div class="wrap">
     <a class="logo" href="#inicio"><img src="assets/brand/logo-recuerdo.webp" alt="Vínculos Eternos" width="1000" height="141"></a>
@@ -454,7 +461,7 @@ dialog.cart[open] { animation: slide .25s ease; }
   </div>
 </header>
 
-<main>
+<main id="contenido" tabindex="-1">
   <div class="page" id="inicio" data-title="Vínculos Eternos">
 <section class="hero">
     <div class="wrap">
@@ -462,14 +469,14 @@ dialog.cart[open] { animation: slide .25s ease; }
         <span class="eyebrow">Fotografía encapsulada</span>
         <h1>Acumulamos miles de fotografías</h1>
         <p class="sub">pero dedicamos cada vez menos tiempo a recordar.</p>
-        <p class="lead">Sacamos tus fotos del celular para que vuelvan a brillar donde las ves todos los días: en la refri, en la pared o en la mesa de noche.</p>
+        <p class="lead">Encapsulamos tus fotos en imanes y otras piezas para que salgan del celular y vuelvan a brillar donde las ves todos los días: en la refri, en la pared o en la mesa de noche.</p>
         <div class="actions">
           <a class="btn btn-main" href="#eventos">Imanes en vivo para tu boda</a>
           <a class="btn btn-line" href="#catalogo">Ver catálogo</a>
         </div>
       </div>
-      <div class="memories" aria-hidden="true">
-        <figure class="photo p1"><img src="assets/img/graduacion.webp" alt="" width="960" height="1280"></figure>
+      <div class="memories" role="img" aria-label="Fotos de clientes convertidas en imanes: una graduación, un cachorro husky y una pareja">
+        <figure class="photo p1"><img src="assets/img/graduacion.webp" alt="" fetchpriority="high" width="960" height="1280"></figure>
         <figure class="photo p2"><img src="assets/img/mascota.webp" alt="" width="960" height="1280"></figure>
         <figure class="photo p3"><img src="assets/img/regalo.webp" alt="" width="346" height="430"></figure>
         <img class="kippi-hero" src="assets/brand/kippi-camara-crema-botas.webp" alt="" width="600" height="586">
@@ -515,6 +522,15 @@ dialog.cart[open] { animation: slide .25s ease; }
     </div>
   </section>
 
+
+<section class="closing">
+    <div class="wrap">
+      <img class="kippi" src="assets/brand/kippi-camara-crema.webp" alt="" width="600" height="508">
+      <img class="logo-big" src="assets/brand/logo-destello-lema.webp" alt="Vínculos Eternos · Fotografía encapsulada" width="1000" height="200">
+      <p class="sub">¿Qué momento quieres volver a ver todos los días?</p>
+      <a class="btn btn-main" data-wa="Hola Vínculos Eternos, tengo una consulta." href="https://wa.me/50671821161" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Escribirnos por WhatsApp</a>
+    </div>
+  </section>
   </div>
 
   <div class="page" id="catalogo" data-title="Catálogo · Vínculos Eternos" hidden>
@@ -802,14 +818,7 @@ dialog.cart[open] { animation: slide .25s ease; }
   </section>
   </div>
 
-<section class="closing">
-    <div class="wrap">
-      <img class="kippi" src="assets/brand/kippi-camara-crema.webp" alt="" width="600" height="508">
-      <img class="logo-big" src="assets/brand/logo-destello-lema.webp" alt="Vínculos Eternos · Fotografía encapsulada" width="1000" height="200">
-      <p class="sub">¿Qué momento quieres volver a ver todos los días?</p>
-      <a class="btn btn-main" data-wa="Hola Vínculos Eternos, tengo una consulta." href="https://wa.me/50671821161" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Escribirnos por WhatsApp</a>
-    </div>
-  </section>
+
 </main>
 
 <footer>
@@ -885,7 +894,7 @@ dialog.cart[open] { animation: slide .25s ease; }
     { id: "fotos", cat: "Fotos imantadas", name: "Fotos imantadas",
       photos: [{ src: "assets/img/mascota.webp", pos: "50% 65%", alt: "Imán con la foto de un cachorro husky" }],
       desc: "Tus fotos favoritas en imanes, para tenerlas a la vista y no perdidas entre miles en el celular.",
-      details: ["Mientras más imanes pidas, más barato sale cada uno.", "Empaque listo para regalar, opcional.", "Envía tus fotos claras y cuadradas, en HD o como archivo."],
+      details: ["Fotografía encapsulada: así llamamos a nuestros imanes, tu foto dentro de una pieza para tenerla siempre a la vista.", "Mientras más imanes pidas, más barato sale cada uno.", "Empaque listo para regalar, opcional.", "Envía tus fotos claras y cuadradas, en HD o como archivo."],
       options: [{ label: "Imanes", unit: ["imán", "imanes"], tiers: [[1, 1700], [5, 1500], [10, 1300], [20, 1200]] }],
       gift: 1000 },
     { id: "dino", cat: "Niños", name: "Dinofabeto",
@@ -906,7 +915,7 @@ dialog.cart[open] { animation: slide .25s ease; }
       details: ["Se cuelgan en la pared como un cuadro.", "Combínalas con tus fotos imantadas.", "Formas disponibles: corazón y gato."],
       options: [{ label: "Corazón", price: 10000 }, { label: "Gato", price: 5000 }] },
     { id: "lampara", cat: "Lámparas", name: "Lámpara de litofanía", photos: [],
-      desc: "Tu foto grabada en la lámpara: al encenderla aparece con todos sus detalles. La forma la eliges tú.",
+      desc: "Litofanía es una foto grabada en relieve: con la luz apagada parece una pieza blanca y, al encenderla, aparece tu foto con todos sus detalles. La forma la eliges tú.",
       details: ["Tres tamaños: pequeña, mediana y grande.", "Forma personalizada a tu gusto.", "La foto se ve completa cuando la lámpara está encendida."],
       options: [{ label: "Pequeña", price: 25000 }, { label: "Mediana", price: 30000 }, { label: "Grande", price: 37000 }] },
     { id: "cal", cat: "Calendarios", name: "Calendarios con música", photos: [],
@@ -1318,6 +1327,7 @@ dialog.cart[open] { animation: slide .25s ease; }
 
   // Páginas: cada sección principal se muestra sola según el enlace (#catalogo, #ideas, ...)
   var pagesEls = $$(".page");
+  var firstRoute = true;
   function route() {
     var id = decodeURIComponent(location.hash.slice(1)) || "inicio";
     var target = document.getElementById(id);
@@ -1327,10 +1337,19 @@ dialog.cart[open] { animation: slide .25s ease; }
     $$("nav.links a").forEach(function (a) { a.toggleAttribute("aria-current", a.getAttribute("href") === "#" + page.id); if (a.hasAttribute("aria-current")) a.setAttribute("aria-current", "page"); });
     var cur = $('nav.links a[aria-current]'); if (cur && cur.scrollIntoView) cur.scrollIntoView({ block: "nearest", inline: "center" });
     document.title = page.dataset.title || "Vínculos Eternos";
-    if (target === page) window.scrollTo(0, 0);
+    if (target === page) {
+      window.scrollTo(0, 0);
+      if (!firstRoute) { var h = page.querySelector("h1, h2"); if (h) { h.setAttribute("tabindex", "-1"); h.focus({ preventScroll: true }); } }
+    }
     else requestAnimationFrame(function () { target.scrollIntoView({ block: "start" }); });
+    firstRoute = false;
   }
   window.addEventListener("hashchange", route);
+  $(".skip").addEventListener("click", function (e) {
+    e.preventDefault();
+    var cur = pagesEls.filter(function (p) { return !p.hidden; })[0], h0 = cur && cur.querySelector("h1, h2");
+    if (h0) { h0.setAttribute("tabindex", "-1"); h0.focus(); }
+  });
   route();
 })();
 </script>
