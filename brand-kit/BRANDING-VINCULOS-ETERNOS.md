@@ -142,7 +142,7 @@ Lunes a viernes de 6:00 a 8:00 p. m. Hoy la web pide la cita por WhatsApp. Cuand
   - ventana de detalle de cada producto;
   - agenda de reuniones de lunes a viernes, de 6 a 8 p. m.;
   - refri virtual en Ideas;
-  - línea de tiempo animada de bodas;
+  - juego "¿Cómo sería en tu evento?" en Bodas y eventos: tomar la foto, escoger la favorita, imprimirla, encapsularla y entregarla (reemplaza la línea de tiempo, noviembre 2026);
   - reseñas con estilo de WhatsApp e Instagram.
 - Detalles de Kipi:
   - saludo según la hora;

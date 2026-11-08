@@ -140,7 +140,7 @@ Paleta cálida de rosas empolvados y vinos sobre crema, sin grises fríos.
 
 ### Primary
 - **Rosa Vínculo** (#825050): titulares, bandas de color (bodas, Kipi, eventos) y el precio en las tarjetas.
-- **Conexión** (#913e3e): botones principales, acentos, enlaces y el punto culminante de la línea de tiempo.
+- **Conexión** (#913e3e): botones principales, acentos, enlaces y el ícono del botón del juego de bodas.
 
 ### Secondary
 - **Aura** (#f5d5d2): botones suaves, opción seleccionada, texto claro sobre fondos oscuros y avisos tranquilizadores.
@@ -150,7 +150,7 @@ Paleta cálida de rosas empolvados y vinos sobre crema, sin grises fríos.
 - **Destello** (#f8efe8): fondo de la página.
 - **Papel** (#fdf8f3): tarjetas, campos y marcos polaroid.
 - **Línea** (#e9d6cf): bordes y divisores.
-- **Rosa Claro** (#a46f6e): bordes punteados, puntos de la línea de tiempo y detalles; nunca para texto pequeño.
+- **Rosa Claro** (#a46f6e): bordes punteados y detalles; nunca para texto pequeño.
 - **Rosa Texto** (#8c5857): etiquetas pequeñas, subtítulos en cursiva y notas (5:1 sobre Destello).
 - **Muted** (#7a5c5a): texto secundario y descripciones.
 
@@ -185,7 +185,7 @@ Paleta cálida de rosas empolvados y vinos sobre crema, sin grises fríos.
 
 ## Layout
 
-Contenedor de 1140px con 20px de margen lateral. Las secciones respiran con clamp(64px, 10vw, 110px) arriba y abajo. Las rejillas de tarjetas van en 3 columnas, 2 por debajo de 960px y 1 por debajo de 600px. Las bandas a dos columnas (foto y texto) pasan a una columna por debajo de 780px. La portada ("De miles, una") lleva detrás un mosaico de fotos borrosas que se enfocan donde pasa el dedo o el mouse, y una sola foto polaroid ("esta sí") con Kipi al lado. En celular, esa foto va arriba del titular. El sitio es una sola página con rutas por enlace (#inicio, #eventos, #catalogo, #ideas, #nosotros, #preguntas). Cada ruta muestra solo su contenido, y el cierre con logo va solo en Inicio.
+Contenedor de 1140px con 20px de margen lateral. Las secciones respiran con clamp(64px, 10vw, 110px) arriba y abajo. Las rejillas de tarjetas van en 3 columnas, 2 por debajo de 960px y 1 por debajo de 600px. Las bandas a dos columnas (foto y texto) pasan a una columna por debajo de 780px. En Bodas y eventos, el juego "¿Cómo sería en tu evento?" reemplaza los pasos escritos: la persona toma la foto, escoge su favorita (queda encerrada en un corazón), la imprime, la encapsula y se la entrega a Kipi. La portada ("De miles, una") lleva detrás un mosaico de fotos borrosas que se enfocan donde pasa el dedo o el mouse, y una sola foto polaroid ("esta sí") con Kipi al lado. En celular, esa foto va arriba del titular. El sitio es una sola página con rutas por enlace (#inicio, #eventos, #catalogo, #ideas, #nosotros, #preguntas). Cada ruta muestra solo su contenido, y el cierre con logo va solo en Inicio.
 
 ## Elevation & Depth
 

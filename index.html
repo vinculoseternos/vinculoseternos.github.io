@@ -317,23 +317,7 @@ dialog.pd[open] { animation: pop .22s ease; }
 @media (max-width: 780px) { .quote .wrap { grid-template-columns: 1fr; } }
 
 /* Bodas: cómo funciona */
-.timeline { list-style: none; margin: 0 0 40px; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; position: relative; }
-.timeline::before { content: ""; position: absolute; left: 0; right: calc(33.333% - 14px); top: 13px; height: 2px; background: linear-gradient(90deg, var(--aura), var(--conexion)); }
-.tl { position: relative; padding: 44px 28px 0 0; display: grid; gap: 8px; align-content: start; min-width: 0; }
-.tl::before { content: ""; position: absolute; top: 4px; left: 0; width: 20px; height: 20px; border-radius: 50%; background: var(--destello); border: 3px solid var(--rosa-claro); }
-.tl-peak::before { width: 28px; height: 28px; top: 0; background: var(--conexion); border-color: var(--conexion); box-shadow: 0 0 0 6px color-mix(in srgb, var(--conexion) 18%, transparent); }
-.tl-when { font-family: var(--f-sub); font-style: italic; font-size: 1.35rem; line-height: 1.3; color: var(--conexion); }
-.tl h3 { font-size: 1.2rem; }
-.tl p { color: var(--muted); max-width: 34ch; }
-.tl-peak h3 { color: var(--conexion); font-size: 1.45rem; }
 @media (max-width: 780px) {
-  .timeline { grid-template-columns: 1fr; gap: 28px; padding-left: 40px; }
-  .timeline::before { left: 13px; right: auto; top: 6px; bottom: 6px; width: 2px; height: auto; background: linear-gradient(180deg, var(--aura), var(--conexion)); }
-  .tl { padding: 0; }
-  .tl::before { left: -36px; top: 4px; }
-  .tl-peak::before { left: -40px; }
-  .timeline::before { display: none; }
-  .tl:not(:last-child)::after { content: ""; position: absolute; left: -27px; top: 26px; bottom: -30px; width: 2px; background: linear-gradient(180deg, var(--aura), var(--rosa-claro)); }
   .btn-book { font-size: .85rem; padding-inline: 16px; }
 }
 .book-panel { background: var(--rosa); color: var(--destello); border-radius: 28px; padding: clamp(22px, 4vw, 44px); display: grid; grid-template-columns: 1fr 1.2fr; gap: clamp(22px, 4vw, 48px); align-items: center; }
@@ -355,24 +339,6 @@ dialog.pd[open] { animation: pop .22s ease; }
 .wed-faq { max-width: none; }
 @media (max-width: 780px) { .quote-facts { grid-template-columns: 1fr; } }
 
-/* Línea de tiempo animada: la línea se dibuja, los puntos se encienden y el imán cae en la mano */
-.tl-magnet { position: absolute; top: -34px; right: 6%; width: 74px; margin: 0; background: var(--papel); padding: 5px 5px 16px; border-radius: 3px; transform: rotate(7deg); box-shadow: 0 12px 24px -10px rgba(62,30,30,.5); }
-.tl-magnet img { aspect-ratio: 1 / 1.12; object-fit: cover; object-position: 50% 40%; }
-.timeline.anim::before { transform: scaleX(0); transform-origin: left; transition: transform 1.1s cubic-bezier(0.16, 1, 0.3, 1); }
-.timeline.anim .tl::before { transform: scale(.4); opacity: .3; transition: transform .4s cubic-bezier(0.16, 1, 0.3, 1), opacity .3s, background .3s; }
-.timeline.anim .tl:nth-child(2)::before { transition-delay: .4s; }
-.timeline.anim .tl:nth-child(3)::before { transition-delay: .85s; }
-.timeline.anim .tl-magnet { opacity: 0; transform: translateY(-40px) rotate(-18deg) scale(.7); transition: opacity .3s 1.05s, transform .7s 1.05s cubic-bezier(0.16, 1, 0.3, 1); }
-.timeline.anim.play::before { transform: scaleX(1); }
-.timeline.anim.play .tl::before { transform: scale(1); opacity: 1; }
-.timeline.anim.play .tl-magnet { opacity: 1; transform: rotate(7deg); }
-@media (max-width: 780px) {
-  .tl-magnet { top: -6px; right: 0; width: 60px; }
-  .timeline.anim .tl:not(:last-child)::after { transform: scaleY(0); transform-origin: top; transition: transform .45s cubic-bezier(0.16, 1, 0.3, 1); }
-  .timeline.anim .tl:nth-child(2)::after { transition-delay: .45s; }
-  .timeline.anim.play .tl:not(:last-child)::after { transform: scaleY(1); }
-}
-
 /* Chispas y Kipi (detalles juguetones) */
 .sparks { position: fixed; left: 0; top: 0; width: 0; height: 0; pointer-events: none; z-index: 60; }
 .sparks i { position: absolute; left: -6px; top: -6px; width: 12px; height: 12px; background: var(--conexion); clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%); }
@@ -388,8 +354,127 @@ dialog.pd[open] { animation: pop .22s ease; }
 .empty img { animation: kipi-float 3.2s ease-in-out infinite; }
 @keyframes kipi-float { 50% { transform: translateY(-6px) rotate(3deg); } }
 @media (prefers-reduced-motion: reduce) {
-  .timeline.anim::before, .timeline.anim .tl::before, .timeline.anim .tl-magnet, .timeline.anim .tl::after { transform: none !important; opacity: 1 !important; }
   .sparks { display: none; }
+}
+
+/* Bodas: el juego "¿Cómo sería en tu evento?" (tomar, escoger, imprimir, encapsular, entregar) */
+/* ===== Juego ===== */
+.game { background: var(--recuerdo); color: var(--destello); padding-block: clamp(56px, 8vw, 96px); overflow: hidden; position: relative; isolation: isolate; }
+.game::before { content: ""; position: absolute; z-index: -1; width: 640px; height: 640px; left: 50%; top: 52%; translate: -50% -50%; border-radius: 50%; background: radial-gradient(closest-side, rgba(145,62,62,.75), transparent); }
+.game h2 { color: var(--destello); }
+.game .wrap { display: grid; justify-items: center; text-align: center; gap: 18px; }
+.game .sub { color: var(--aura); font-size: clamp(1.3rem, 2.6vw, 1.75rem); }
+
+.g-steps { list-style: none; margin: 10px 0 0; padding: 0; display: flex; gap: clamp(6px, 2vw, 18px); counter-reset: s; }
+.g-steps li { display: grid; justify-items: center; gap: 6px; font-size: .72rem; font-weight: 600; color: rgba(248,239,232,.55); width: clamp(54px, 13vw, 84px); transition: color .3s; }
+.g-steps li::before { counter-increment: s; content: counter(s); width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; border: 1.5px solid rgba(248,239,232,.35); font-size: .8rem; transition: background .3s, border-color .3s, color .3s, transform .4s var(--ease); }
+.g-steps li.on { color: var(--destello); }
+.g-steps li.on::before { background: var(--destello); color: var(--recuerdo); border-color: var(--destello); transform: scale(1.12); }
+.g-steps li.done { color: var(--aura); }
+.g-steps li.done::before { content: ""; background: var(--conexion) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f8efe8' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center / 16px no-repeat; border-color: var(--conexion); }
+
+.prompt { font: 700 clamp(1.15rem, 2.4vw, 1.45rem)/1.3 var(--f-title); min-height: 1.3em; }
+.prompt .hint { display: block; font: 400 .92rem/1.5 var(--f-title); color: var(--aura); margin-top: 4px; }
+
+.stage { position: relative; width: min(100%, 580px); height: 440px; border-radius: 28px; background: linear-gradient(180deg, rgba(248,239,232,.06), rgba(248,239,232,.02)); box-shadow: inset 0 0 0 1px rgba(248,239,232,.1); overflow: hidden; }
+
+/* 1. Visor de la cámara */
+.vf { position: absolute; inset: 18px; border-radius: 16px; overflow: hidden; transition: opacity .4s, transform .5s var(--ease); }
+.vf img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; animation: g-breathe 6s ease-in-out infinite alternate; }
+@keyframes g-breathe { from { transform: scale(1.04) translateX(-1%); } to { transform: scale(1.1) translateX(1.5%); } }
+.vf .c { position: absolute; width: 34px; height: 34px; border: 3px solid var(--destello); }
+.vf .c1 { left: 16px; top: 16px; border-right: 0; border-bottom: 0; border-radius: 8px 0 0 0; }
+.vf .c2 { right: 16px; top: 16px; border-left: 0; border-bottom: 0; border-radius: 0 8px 0 0; }
+.vf .c3 { left: 16px; bottom: 16px; border-right: 0; border-top: 0; border-radius: 0 0 0 8px; }
+.vf .c4 { right: 16px; bottom: 16px; border-left: 0; border-top: 0; border-radius: 0 0 8px 0; }
+.vf .g-focus { position: absolute; left: 50%; top: 42%; width: 90px; height: 90px; translate: -50% -50%; border: 2px solid rgba(248,239,232,.85); border-radius: 10px; animation: g-focus 2.4s ease-in-out infinite; }
+@keyframes g-focus { 0%, 100% { scale: 1; } 50% { scale: .86; } }
+.vf .rec { text-shadow: 0 1px 6px rgba(0,0,0,.7); position: absolute; left: 60px; top: 22px; font-size: .72rem; font-weight: 700; letter-spacing: .1em; display: flex; align-items: center; gap: 6px; }
+.vf .rec::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: #e0524f; animation: g-blink 1.2s steps(2) infinite; }
+@keyframes g-blink { 50% { opacity: 0; } }
+.g-flash { position: absolute; inset: 0; background: #fff; opacity: 0; pointer-events: none; z-index: 20; }
+.g-flash.g-go { animation: g-flash .7s ease-out; }
+@keyframes g-flash { 0% { opacity: 0; } 8% { opacity: 1; } 100% { opacity: 0; } }
+
+/* 2. Las tres tomas */
+.shots { position: absolute; inset: 0; display: flex; justify-content: center; align-items: center; gap: clamp(10px, 3vw, 26px); pointer-events: none; }
+.shot { position: relative; width: clamp(96px, 26%, 150px); padding: 7px 7px 24px; background: var(--papel); border: 0; border-radius: 3px; box-shadow: 0 18px 30px -14px rgba(0,0,0,.75); cursor: pointer; opacity: 0; transform: translateY(30px) scale(.8) rotate(var(--r)); transition: opacity .45s var(--ease), transform .55s var(--ease), filter .4s; transition-delay: var(--d); }
+.shot .ph { aspect-ratio: 1 / 1.1; overflow: hidden; }
+.shot img { width: 100%; height: 100%; object-fit: cover; transform: scale(var(--z)); object-position: var(--op); }
+.stage[data-step="2"] .shots { pointer-events: auto; }
+.stage[data-step="2"] .shot { opacity: 1; transform: rotate(var(--r)); }
+.stage[data-step="2"] .shot:hover { transform: rotate(0) translateY(-6px) scale(1.04); }
+.stage.picked .shot:not(.fav) { opacity: .25; filter: grayscale(.6); transform: rotate(var(--r)) scale(.9); }
+.stage.picked .shot.fav { transform: rotate(0) scale(1.1); z-index: 2; }
+.shots.away .shot, .stage.picked .shots.away .shot.fav { opacity: 0 !important; transform: translateY(-30px) scale(.8); transition-delay: 0s; }
+.g-heart { opacity: 0; position: absolute; left: 50%; top: 46%; width: 210%; translate: -50% -50%; overflow: visible; pointer-events: none; }
+.g-heart path { fill: none; stroke: var(--aura); stroke-width: 5; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; filter: drop-shadow(0 0 8px rgba(245,213,210,.7)); }
+.shot.fav .g-heart { opacity: 1; }
+.shot.fav .g-heart path { animation: g-draw .9s var(--ease) forwards; }
+@keyframes g-draw { to { stroke-dashoffset: 0; } }
+
+/* 3. Impresora */
+.printer { position: absolute; left: 50%; top: 34px; width: 270px; translate: -50% 0; z-index: 5; opacity: 0; transform: translateY(-40px); transition: opacity .45s, transform .6s var(--ease); }
+.stage[data-step="3"] .printer, .stage[data-step="4"].printing .printer { opacity: 1; transform: none; }
+.printer.busy { animation: g-buzz .12s linear infinite; }
+@keyframes g-buzz { 50% { transform: translate(1px, -1px); } }
+.printer .led { animation: g-blink .5s steps(2) infinite; animation-play-state: paused; }
+.printer.busy .led { animation-play-state: running; }
+
+/* La foto elegida (impresa, encapsulada, entregada) */
+.pic { position: absolute; left: 50%; top: 152px; width: 184px; translate: -50% 0; z-index: 4; background: var(--papel); padding: 9px 9px 34px; border-radius: 3px; box-shadow: 0 24px 40px -18px rgba(0,0,0,.8); opacity: 0; clip-path: inset(0 0 100% 0); transition: width .7s var(--ease), top .7s var(--ease), padding .6s var(--ease), border-radius .6s var(--ease), box-shadow .6s, transform .7s var(--ease); }
+.pic .ph { aspect-ratio: 1 / 1.1; overflow: hidden; position: relative; transition: aspect-ratio .6s var(--ease), border-radius .6s; }
+.pic img { width: 100%; height: 100%; object-fit: cover; }
+.pic figcaption { position: absolute; left: 0; right: 0; bottom: 9px; text-align: center; font: italic 400 1rem/1 var(--f-sub); color: var(--rosa-texto); transition: opacity .3s; }
+.pic.out { opacity: 1; animation: g-out 2s cubic-bezier(.45, 0, .2, 1) forwards; }
+@keyframes g-out { 0% { clip-path: inset(0 0 100% 0); transform: translateY(-120px); } 100% { clip-path: inset(0 0 0 0); transform: translateY(0); } }
+/* Encapsulada: un bloque cuadrado brillante, como los imanes reales */
+.pic.cap { animation: none; opacity: 1; clip-path: none; top: 92px; width: 210px; padding: 0; border-radius: 18px; background: transparent; box-shadow: inset 0 0 0 1px rgba(255,255,255,.35), 0 30px 50px -18px rgba(0,0,0,.85), 0 0 0 0 rgba(245,213,210,.0); }
+.pic.cap .ph { aspect-ratio: 1; border-radius: 18px; }
+.pic.cap figcaption { opacity: 0; }
+.pic.cap .ph::before { content: ""; position: absolute; inset: 0; border-radius: inherit; z-index: 1; box-shadow: inset 0 0 0 5px rgba(255,255,255,.28), inset 0 -16px 26px rgba(30,10,10,.35), inset 0 10px 18px rgba(255,255,255,.35); }
+.pic.cap .ph::after { content: ""; position: absolute; inset: -40%; z-index: 2; background: linear-gradient(115deg, transparent 40%, rgba(255,255,255,.75) 50%, transparent 60%); transform: translateX(-70%); animation: g-shine 1.4s var(--ease) .35s forwards; }
+@keyframes g-shine { to { transform: translateX(70%); } }
+.pic.cap.glow { box-shadow: inset 0 0 0 1px rgba(255,255,255,.35), 0 30px 50px -18px rgba(0,0,0,.85), 0 0 60px 6px rgba(245,213,210,.35); }
+/* Entregada: el imán vuela a los brazos de Kipi */
+.pic.give { top: 300px; width: 96px; border-radius: 12px; transform: rotate(-6deg); z-index: 7; }
+.pic.give .ph { border-radius: 12px; }
+.g-kipi { position: absolute; left: 50%; bottom: -46px; width: 250px; translate: -50% 0; z-index: 6; opacity: 0; transform: translateY(120px); transition: opacity .4s, transform .8s var(--ease); filter: drop-shadow(0 12px 16px rgba(0,0,0,.45)); }
+.stage[data-step="5"] .g-kipi { opacity: 1; transform: none; }
+.g-sparks { position: absolute; left: 50%; top: 50%; width: 0; height: 0; z-index: 8; pointer-events: none; }
+.g-sparks i { position: absolute; width: 8px; height: 8px; border-radius: 50%; background: var(--aura); animation: g-spark .9s var(--ease) forwards; }
+@keyframes g-spark { from { transform: translate(0, 0) scale(1); opacity: 1; } to { transform: translate(var(--tx), var(--ty)) scale(.2); opacity: 0; } }
+
+/* Final */
+.end { position: absolute; inset: 0; z-index: 9; display: grid; align-content: start; justify-items: center; gap: 8px; padding: 30px 24px; text-align: center; background: linear-gradient(180deg, rgba(62,30,30,.94) 0, rgba(62,30,30,.8) 38%, rgba(62,30,30,0) 62%); opacity: 0; pointer-events: none; transition: opacity .6s .9s; }
+.end strong { font: 800 clamp(1.4rem, 3.2vw, 1.9rem)/1.15 var(--f-title); }
+.end p { color: var(--aura); max-width: 34ch; }
+.stage.finished .end { opacity: 1; }
+
+.controls { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; min-height: 52px; }
+.g-go { display: inline-flex; align-items: center; gap: 12px; padding: 10px 26px 10px 10px; border: 0; border-radius: 999px; background: var(--destello); color: var(--recuerdo); font: 700 1rem/1 var(--f-title); cursor: pointer; box-shadow: 0 16px 30px -14px rgba(0,0,0,.7); transition: transform .15s, opacity .3s, box-shadow .2s; }
+.g-go:hover { transform: translateY(-2px); }
+.g-go:active { transform: scale(.96); }
+.g-go[hidden] { display: none; }
+.g-go[disabled] { opacity: .35; cursor: default; transform: none; }
+.g-go .ic { width: 38px; height: 38px; border-radius: 50%; background: var(--conexion); color: var(--destello); display: grid; place-items: center; }
+.g-go .ic svg { width: 20px; height: 20px; }
+.g-go.pulse:not([disabled]) { animation: g-pulse 2s ease-in-out infinite; }
+@keyframes g-pulse { 0%, 100% { box-shadow: 0 16px 30px -14px rgba(0,0,0,.7), 0 0 0 0 rgba(248,239,232,.45); } 50% { box-shadow: 0 16px 30px -14px rgba(0,0,0,.7), 0 0 0 12px rgba(248,239,232,0); } }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+@media (max-width: 600px) {
+  .stage { height: 400px; border-radius: 22px; }
+  .printer { width: 230px; top: 30px; }
+  .pic { top: 130px; width: 160px; }
+  .pic.cap { top: 78px; width: 190px; }
+  .pic.give { top: 284px; width: 84px; }
+  .g-kipi { width: 220px; }
+  .g-steps li { font-size: .66rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .game *, .game *::before, .game *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; transition-delay: 0s !important; }
+  .g-flash.g-go { animation: none; }
 }
 
 /* El brillo de Kipi: un halo suave detrás del personaje (blanco cálido en fondos claros, Aura en bandas oscuras) */
@@ -877,15 +962,61 @@ dialog.cart[open] { animation: slide .25s ease; }
     </div>
   </section>
 
+<!-- VIDEO: cuando llegue el video explicativo, puede ir aquí arriba del juego -->
+<section class="game" aria-labelledby="game-t">
+  <div class="wrap">
+    <h2 id="game-t">¿Cómo sería en tu evento?</h2>
+    <p class="sub">Vive lo mismo que vive cada invitado.</p>
+
+    <ol class="g-steps" id="g-steps" aria-label="Pasos">
+      <li class="on">Foto</li><li>Escoger</li><li>Imprimir</li><li>Encapsular</li><li>Entregar</li>
+    </ol>
+
+    <p class="prompt" id="prompt" aria-live="polite"></p>
+
+    <div class="stage" id="stage" data-step="1">
+      <div class="vf" aria-hidden="true">
+        <img src="assets/img/boda.webp" alt="" loading="lazy" width="540" height="615">
+        <span class="c c1"></span><span class="c c2"></span><span class="c c3"></span><span class="c c4"></span>
+        <span class="g-focus"></span><span class="rec">EN VIVO</span>
+      </div>
+
+      <div class="shots" id="shots">
+        <button class="shot" type="button" style="--r:-6deg;--d:0s;--z:1.25;--op:30% 35%" aria-label="Toma 1"><div class="ph"><img src="assets/img/boda.webp" alt="" loading="lazy" width="540" height="615"></div><svg class="g-heart" viewBox="0 0 100 92" aria-hidden="true"><path pathLength="1" d="M50 88 C20 66 4 50 4 30 C4 14 16 4 29 4 C39 4 46 10 50 18 C54 10 61 4 71 4 C84 4 96 14 96 30 C96 50 80 66 50 88 Z"/></svg></button>
+        <button class="shot" type="button" style="--r:2deg;--d:.12s;--z:1;--op:50% 40%" aria-label="Toma 2"><div class="ph"><img src="assets/img/boda.webp" alt="" loading="lazy" width="540" height="615"></div><svg class="g-heart" viewBox="0 0 100 92" aria-hidden="true"><path pathLength="1" d="M50 88 C20 66 4 50 4 30 C4 14 16 4 29 4 C39 4 46 10 50 18 C54 10 61 4 71 4 C84 4 96 14 96 30 C96 50 80 66 50 88 Z"/></svg></button>
+        <button class="shot" type="button" style="--r:7deg;--d:.24s;--z:1.6;--op:55% 28%" aria-label="Toma 3"><div class="ph"><img src="assets/img/boda.webp" alt="" loading="lazy" width="540" height="615"></div><svg class="g-heart" viewBox="0 0 100 92" aria-hidden="true"><path pathLength="1" d="M50 88 C20 66 4 50 4 30 C4 14 16 4 29 4 C39 4 46 10 50 18 C54 10 61 4 71 4 C84 4 96 14 96 30 C96 50 80 66 50 88 Z"/></svg></button>
+      </div>
+
+      <svg class="printer" id="printer" viewBox="0 0 270 130" aria-hidden="true">
+        <rect x="55" y="0" width="160" height="34" rx="6" fill="#f5d5d2"/>
+        <rect x="0" y="26" width="270" height="92" rx="22" fill="#f8efe8"/>
+        <rect x="0" y="86" width="270" height="32" rx="16" fill="#e9d6cf"/>
+        <rect x="40" y="106" width="190" height="14" rx="7" fill="#3e1e1e"/>
+        <rect x="26" y="46" width="64" height="10" rx="5" fill="#e9d6cf"/>
+        <circle class="led" cx="236" cy="52" r="7" fill="#913e3e"/>
+        <text x="135" y="74" text-anchor="middle" font-family="ZT Otez, Georgia, serif" font-style="italic" font-size="17" fill="#8c5857">Vínculos Eternos</text>
+      </svg>
+
+      <figure class="pic" id="pic" aria-hidden="true"><div class="ph"><img id="pic-img" src="assets/img/boda.webp" alt=""></div><figcaption>la favorita</figcaption></figure>
+
+      <img class="g-kipi" src="assets/brand/kippi-abrazo-crema-botas.webp" alt="" loading="lazy" width="600" height="586" aria-hidden="true">
+      <div class="g-sparks" id="g-sparks" aria-hidden="true"></div>
+      <div class="g-flash" id="g-flash" aria-hidden="true"></div>
+
+      <div class="end" id="end">
+        <strong>¡Listo! Ese imán es suyo.</strong>
+        <p id="end-p">Así de fácil se lleva cada invitado su foto, minutos después. Y ustedes, la suya.</p>
+      </div>
+    </div>
+
+    <div class="controls" id="controls">
+      <button class="g-go pulse" type="button" id="g-go"><span class="ic" id="g-go-ic"></span><span id="g-go-t"></span></button>
+    </div>
+  </div>
+</section>
+
 <section class="how">
     <div class="wrap">
-      <div class="sec-head"><h2>Así funciona en su boda</h2><p class="sub">Tres momentos, el mismo día.</p></div>
-      <!-- VIDEO: cuando llegue el video explicativo, va aquí arriba de la línea de tiempo -->
-      <ol class="timeline">
-        <li class="tl"><span class="tl-when">Semanas antes</span><h3>Antes de la boda</h3><p>Ustedes escogen cuántos imanes quieren y cuántas horas vamos a estar. Así sabemos si son para ustedes, para los invitados o para todos.</p></li>
-        <li class="tl"><span class="tl-when">Durante la fiesta</span><h3>El día de la boda</h3><p>Les tomamos fotos a ustedes y a sus invitados, y cada quien escoge en la que salió más guapo. Porque sí, eso es lo más importante.</p></li>
-        <li class="tl tl-peak"><figure class="tl-magnet" aria-hidden="true"><img src="assets/img/boda.webp" alt="" loading="lazy" width="540" height="615"></figure><span class="tl-when">Minutos después</span><h3>El imán en la mano</h3><p>No en días ni en semanas: ese mismo día, en la boda. Cada quien se lo lleva a casa.</p></li>
-      </ol>
       <div class="quote-facts">
         <div class="depends">
           <h3>¿Cuánto cuesta en su boda?</h3>
@@ -1779,16 +1910,119 @@ dialog.cart[open] { animation: slide .25s ease; }
   })();
 
 
-  // La línea de tiempo de bodas se dibuja cuando aparece en pantalla
-  (function () {
-    var tl = $(".timeline");
-    if (!tl || calm || !("IntersectionObserver" in window)) return;
-    tl.classList.add("anim");
-    var io = new IntersectionObserver(function (es) {
-      es.forEach(function (en) { if (en.isIntersecting) { tl.classList.add("play"); io.disconnect(); } });
-    }, { threshold: .35 });
-    io.observe(tl);
-  })();
+
+  // Bodas: juego "¿Cómo sería en tu evento?"
+(function () {
+  const $ = s => document.querySelector(".game " + s) || document.querySelector(s);
+  const stage = $("#stage"), go = $("#g-go"), goT = $("#g-go-t"), goIc = $("#g-go-ic"), prompt = $("#prompt"), pic = $("#pic"), printer = $("#printer");
+  const steps = [...document.querySelectorAll("#g-steps li")];
+  const shots = [...document.querySelectorAll(".shot")];
+  const calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const IC = {
+    cam: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg>',
+    print: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 9V3h10v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M7 14h10v7H7z"/></svg>',
+    gem: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M8 9l3-3M9 13l6-6"/></svg>',
+    give: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 5.6a5 5 0 0 0-7.1 0L12 7.3l-1.7-1.7a5 5 0 1 0-7.1 7.1L12 21.5l8.8-8.8a5 5 0 0 0 0-7.1z"/></svg>',
+    again: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>'
+  };
+  let step = 1, t0 = 0, busy = false;
+  const wait = ms => new Promise(r => setTimeout(r, calm ? 0 : ms));
+
+  function setStep(n, text, hint) {
+    step = n; stage.dataset.step = n;
+    steps.forEach((li, i) => { li.classList.toggle("on", i === n - 1); li.classList.toggle("done", i < n - 1); });
+    prompt.innerHTML = text + (hint ? `<span class="hint">${hint}</span>` : "");
+  }
+  function button(label, icon, enabled = true) {
+    goT.textContent = label; goIc.innerHTML = IC[icon]; go.disabled = !enabled; go.hidden = false;
+  }
+  function sparkle(x, y, n = 14) {
+    if (calm) return;
+    const box = $("#g-sparks"); box.style.left = x + "px"; box.style.top = y + "px";
+    for (let i = 0; i < n; i++) {
+      const s = document.createElement("i"), a = (i / n) * Math.PI * 2, d = 60 + Math.random() * 60;
+      s.style.setProperty("--tx", Math.cos(a) * d + "px"); s.style.setProperty("--ty", Math.sin(a) * d + "px");
+      if (i % 3 === 0) s.style.background = "#f8efe8";
+      box.appendChild(s); setTimeout(() => s.remove(), 1000);
+    }
+  }
+
+  function start() {
+    stage.classList.remove("picked", "finished"); $("#shots").classList.remove("away");
+    shots.forEach(s => s.classList.remove("fav"));
+    pic.className = "pic"; printer.classList.remove("busy");
+    document.querySelectorAll(".controls .extra").forEach(e => e.remove());
+    $(".vf").style.opacity = 1; $(".vf").style.transform = "";
+    setStep(1, "Toma la foto", "Eres el fotógrafo del evento. Encuadra y dispara.");
+    button("Toma la foto", "cam"); go.classList.add("g-pulse");
+  }
+
+  async function next() {
+    if (busy) return; busy = true;
+    if (step === 1) {
+      t0 = performance.now();
+      const f = $("#g-flash"); f.classList.remove("go"); void f.offsetWidth; f.classList.add("go");
+      await wait(220);
+      $(".vf").style.opacity = 0; $(".vf").style.transform = "scale(.9)";
+      setStep(2, "Escoge tu favorita", "Tomamos tres. Toca la foto donde saliste mejor.");
+      go.hidden = true;
+      await wait(500); shots[1].focus({ preventScroll: true });
+    } else if (step === 3) {
+      printer.classList.add("busy"); go.disabled = true;
+      prompt.innerHTML = "Imprimiendo…<span class=\"hint\">Sale en papel fotográfico.</span>";
+      pic.classList.add("out");
+      await wait(2000);
+      printer.classList.remove("busy");
+      setStep(4, "Encapsúlala", "Así queda protegida y con brillo, lista para la refri.");
+      button("Encapsúlala", "gem");
+    } else if (step === 4) {
+      stage.dataset.step = "4x";
+      pic.classList.add("cap");
+      await wait(500);
+      const r = pic.getBoundingClientRect(), sr = stage.getBoundingClientRect();
+      sparkle(r.left - sr.left + r.width / 2, r.top - sr.top + r.width / 2, 18);
+      pic.classList.add("glow");
+      await wait(900);
+      setStep(5, "Entrégala", "Cada invitado se lleva la suya en la mano.");
+      button("Entrégala", "give");
+    } else if (step === 5) {
+      go.disabled = true;
+      pic.classList.remove("glow"); pic.classList.add("give");
+      await wait(750);
+      const r = pic.getBoundingClientRect(), sr = stage.getBoundingClientRect();
+      sparkle(r.left - sr.left + r.width / 2, r.top - sr.top + r.height / 2, 16);
+      steps.forEach(li => { li.classList.remove("on"); li.classList.add("done"); });
+      const secs = Math.max(1, Math.round((performance.now() - t0) / 1000));
+      $("#end-p").textContent = `Lo hiciste en ${secs} segundos. En su boda lo hacemos nosotros y cada invitado se lleva su foto minutos después.`;
+      prompt.innerHTML = "¡Lo lograste!";
+      stage.classList.add("finished");
+      await wait(900);
+      button("Jugar otra vez", "again"); go.classList.remove("g-pulse");
+      const book = document.createElement("a");
+      book.className = "btn btn-light extra"; book.href = "#agendar"; book.textContent = "Agendar una reunión";
+            $("#controls").prepend(book);
+      step = 6;
+    } else if (step === 6) {
+      start();
+    }
+    busy = false;
+  }
+
+  shots.forEach(s => s.addEventListener("click", async () => {
+    if (step !== 2 || busy) return; busy = true;
+    s.classList.add("fav"); stage.classList.add("picked");
+    const img = s.querySelector("img"); const pi = $("#pic-img");
+    pi.style.objectPosition = getComputedStyle(img).objectPosition; pi.style.transform = getComputedStyle(img).transform;
+    await wait(950);
+    $("#shots").classList.add("away");
+    setStep(3, "Imprímela", "Tu favorita pasa directo a la impresora.");
+    button("Imprímela", "print");
+    go.focus({ preventScroll: true });
+    busy = false;
+  }));
+  go.addEventListener("click", next);
+  start();
+})();
 
   renderCart();
 
