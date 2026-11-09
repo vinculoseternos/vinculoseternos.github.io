@@ -143,6 +143,7 @@ Lunes a viernes de 6:00 a 8:00 p. m. Hoy la web pide la cita por WhatsApp. Cuand
   - agenda de reuniones de lunes a viernes, de 6 a 8 p. m.;
   - refri virtual en Ideas;
   - juego "¿Cómo sería en tu evento?" en Bodas y eventos: tomar la foto, escoger la favorita, imprimirla, encapsularla y entregarla (reemplaza la línea de tiempo, noviembre 2026);
+  - fotos reales de clientes (noviembre 2026): mascotas, invitados de la boda de Kari & Vini, Día de la Mujer, Dinofabeto, Matesaurios, siluetas de metal (gato, corazón, corazón con 6 y con 10 fotos) y calendarios anuales y mensuales. Guardadas en assets/img/productos (fotos completas) y assets/img/imanes (solo la cara del imán).
   - reseñas con estilo de WhatsApp e Instagram.
 - Detalles de Kipi:
   - saludo según la hora;
