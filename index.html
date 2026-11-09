@@ -577,7 +577,7 @@ a.c-card:hover { border-color: var(--rosa); }
 .story { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 64px); align-items: center; }
 .story-pics { position: sticky; top: 100px; aspect-ratio: 1 / 1.05; width: 100%; max-width: 520px; justify-self: center; align-self: start; }
 .story-pics .s1 { width: 66%; left: 2%; top: 0; transform: rotate(-4deg); }
-.story-pics .s1 img { object-position: 62% 50%; }
+
 .story-pics .s2 { width: 50%; right: 0; bottom: 6%; transform: rotate(5deg); z-index: 2; }
 .story-pics .photo { position: absolute; }
 .kippi-story { position: absolute; left: 4%; bottom: 0; width: 34%; z-index: 3; transform: rotate(-8deg); filter: drop-shadow(0 8px 12px rgba(62,30,30,.25)); }
@@ -762,7 +762,7 @@ dialog.cart[open] { animation: slide .25s ease; }
       <div class="grid explore-grid">
         <a class="card go" href="#catalogo"><div class="ph"><img src="assets/img/productos/dino-1.webp" alt="" loading="lazy" style="object-position:50% 45%" width="825" height="1100"></div><div class="body"><span class="cat">Catálogo</span><h2 class="h-card">Elige tu recuerdo</h2><p>Fotos imantadas, metales, lámparas, calendarios y más. Arma tu pedido aquí mismo.</p><span class="more">Ver catálogo →</span></div></a>
         <a class="card go" href="#ideas"><div class="ph"><img src="assets/img/productos/corazon-6.webp" alt="" loading="lazy" style="object-position:50% 55%" width="825" height="1100"></div><div class="body"><span class="cat">Ideas</span><h2 class="h-card">Inspírate</h2><p>Mascotas, familia, parejas, bebés y celebraciones: ideas para lo que quieres recordar.</p><span class="more">Ver ideas →</span></div></a>
-        <a class="card go" href="#nosotros"><div class="ph"><img src="assets/brand/mockup.webp" alt="" loading="lazy" width="625" height="509"></div><div class="body"><span class="cat">Sobre nosotros</span><h2 class="h-card">Detrás de cada recuerdo</h2><p>La historia de Mary, Kipi y lo que dicen quienes ya recuerdan.</p><span class="more">Conocernos →</span></div></a>
+        <a class="card go" href="#nosotros"><div class="ph"><img src="assets/img/productos/mary-imanes.webp" alt="" loading="lazy" style="object-position:50% 40%" width="825" height="1100"></div><div class="body"><span class="cat">Sobre nosotros</span><h2 class="h-card">Detrás de cada recuerdo</h2><p>La historia de Mary, Kipi y lo que dicen quienes ya recuerdan.</p><span class="more">Conocernos →</span></div></a>
       </div>
     </div>
   </section>
@@ -851,21 +851,28 @@ dialog.cart[open] { animation: slide .25s ease; }
         </article>
 
         <article class="card idea" data-cat="familia">
-          <div class="ph soon"><img src="assets/brand/kippi-abrazo-roja-botas.webp" alt="" width="600" height="585"><span>Foto próximamente</span></div>
+          <div class="ph"><img src="assets/img/productos/abuelita-1.webp" alt="Una nieta abrazando a su abuela" loading="lazy" style="object-position:50% 40%" width="825" height="1100"></div>
           <div class="body"><span class="cat">Familia</span><h2 class="h-card">Los abuelos</h2>
             <p>Sus caras, sus manos, sus historias. Los que todavía nos abrazan y los que nos cuidan desde lejos.</p>
             <div class="idea-foot"><span class="make" data-make="fotos"></span></div></div>
         </article>
 
         <article class="card idea" data-cat="familia">
-          <div class="ph soon"><img src="assets/brand/kippi-camara-roja.webp" alt="" width="600" height="507"><span>Foto próximamente</span></div>
+          <div class="ph"><img src="assets/img/productos/familia.webp" alt="Selfie de una familia caminando en el bosque" loading="lazy" style="object-position:50% 45%" width="825" height="1100"></div>
           <div class="body"><span class="cat">Familia</span><h2 class="h-card">Hijos, papás y hermanos</h2>
             <p>Las fotos de todos los días, las que no son perfectas pero cuentan quiénes somos.</p>
             <div class="idea-foot"><span class="make" data-make="fotos"></span></div></div>
         </article>
 
         <article class="card idea" data-cat="familia">
-          <div class="ph soon"><img src="assets/brand/kippi-abrazo-roja-botas.webp" alt="" width="600" height="585"><span>Foto próximamente</span></div>
+          <div class="ph"><img src="assets/img/productos/viaje-1.webp" alt="Una viajera con dos alpacas en la Montaña de Colores" loading="lazy" style="object-position:50% 60%" width="825" height="1100"></div>
+          <div class="body"><span class="cat">Familia</span><h2 class="h-card">Viajes y amigos</h2>
+            <p>Ese viaje que todavía cuentan, el paseo con los amigos de siempre. Que no se quede en el carrete.</p>
+            <div class="idea-foot"><span class="make" data-make="fotos"></span></div></div>
+        </article>
+
+        <article class="card idea" data-cat="familia">
+          <div class="ph"><img src="assets/img/productos/lampara-bebe.webp" alt="Lámpara de litofanía encendida con la foto de un bebé" loading="lazy" style="object-position:50% 45%" width="825" height="1100"></div>
           <div class="body"><span class="cat">Familia</span><h2 class="h-card">Una luz para recordar</h2>
             <p>Una lámpara con la foto de alguien que extrañas. Cuando la enciendes, aparece.</p>
             <div class="idea-foot"><span class="make" data-make="lampara"></span></div></div>
@@ -907,7 +914,7 @@ dialog.cart[open] { animation: slide .25s ease; }
         </article>
 
         <article class="card idea" data-cat="bebes">
-          <div class="ph soon"><img src="assets/brand/kippi-camara-roja.webp" alt="" width="600" height="507"><span>Foto próximamente</span></div>
+          <div class="ph"><img src="assets/img/productos/graduacion-1.webp" alt="Graduada de la Universidad de Costa Rica con su título" loading="lazy" style="object-position:50% 35%" width="825" height="1100"></div>
           <div class="body"><span class="cat">Bebés y etapas</span><h2 class="h-card">Graduaciones</h2>
             <p>Kínder, escuela, colegio. Las etapas pasan rápido; la foto se queda.</p>
             <div class="idea-foot"><span class="make" data-make="fotos"></span></div></div>
@@ -942,12 +949,12 @@ dialog.cart[open] { animation: slide .25s ease; }
             <button type="button" class="tmag" data-kind="Mascotas" data-img="imanes/husky-pasto"><span class="iman"><img src="assets/img/imanes/husky-pasto.webp" alt="" draggable="false"></span><span>Mascotas</span></button>
             <button type="button" class="tmag" data-kind="Boda" data-img="imanes/boda-amigas"><span class="iman"><img src="assets/img/imanes/boda-amigas.webp" alt="" draggable="false"></span><span>Boda</span></button>
             <button type="button" class="tmag" data-kind="Día de la Mujer" data-img="imanes/mujer-fuego"><span class="iman"><img src="assets/img/imanes/mujer-fuego.webp" alt="" draggable="false"></span><span>Día de la Mujer</span></button>
-            <button type="button" class="tmag" data-kind="Pareja" data-img="imanes/boda-mirada"><span class="iman"><img src="assets/img/imanes/boda-mirada.webp" alt="" draggable="false"></span><span>Pareja</span></button>
-            <button type="button" class="tmag" data-kind="Graduación" data-img="graduacion"><span class="iman"><img src="assets/img/graduacion.webp" alt="" draggable="false" style="object-position:50% 62%"></span><span>Graduación</span></button>
-            <button type="button" class="tmag" data-kind="Abuelos"><span class="iman"><i>Abuelos</i></span><span>Abuelos</span></button>
+            <button type="button" class="tmag" data-kind="Pareja" data-img="imanes/pareja-banca"><span class="iman"><img src="assets/img/imanes/pareja-banca.webp" alt="" draggable="false"></span><span>Pareja</span></button>
+            <button type="button" class="tmag" data-kind="Graduación" data-img="imanes/graduacion"><span class="iman"><img src="assets/img/imanes/graduacion.webp" alt="" draggable="false"></span><span>Graduación</span></button>
+            <button type="button" class="tmag" data-kind="Abuelos" data-img="imanes/abuelos"><span class="iman"><img src="assets/img/imanes/abuelos.webp" alt="" draggable="false"></span><span>Abuelos</span></button>
             <button type="button" class="tmag" data-kind="Bebé"><span class="iman"><i>Bebé</i></span><span>Bebé</span></button>
-            <button type="button" class="tmag" data-kind="Familia"><span class="iman"><i>Familia</i></span><span>Familia</span></button>
-            <button type="button" class="tmag" data-kind="Viajes"><span class="iman"><i>Viajes</i></span><span>Viajes</span></button>
+            <button type="button" class="tmag" data-kind="Familia" data-img="imanes/familia"><span class="iman"><img src="assets/img/imanes/familia.webp" alt="" draggable="false"></span><span>Familia</span></button>
+            <button type="button" class="tmag" data-kind="Viajes" data-img="imanes/viajes"><span class="iman"><img src="assets/img/imanes/viajes.webp" alt="" draggable="false"></span><span>Viajes</span></button>
           </div>
           <div class="fridge-sum" aria-live="polite"><span id="fridge-count">0 imanes</span><strong id="fridge-price">₡0</strong></div>
           <p class="hint" id="fridge-hint">Mientras más imanes, más barato cada uno.</p>
@@ -1075,9 +1082,9 @@ dialog.cart[open] { animation: slide .25s ease; }
   <div class="page" id="nosotros" data-title="Sobre nosotros · Vínculos Eternos" hidden>
 <section id="historia">
     <div class="wrap story">
-      <div class="story-pics" aria-hidden="true">
-        <figure class="photo s1"><img src="assets/brand/mockup.webp" alt="" loading="lazy" width="625" height="509"></figure>
-        <figure class="photo s2"><img src="assets/img/regalo.webp" alt="" loading="lazy" width="346" height="430"></figure>
+      <div class="story-pics" role="img" aria-label="Mary, la creadora de Vínculos Eternos, sosteniendo dos de sus imanes">
+        <figure class="photo s1"><img src="assets/img/productos/mary.webp" alt="" loading="lazy" width="619" height="1100" style="object-position:50% 30%"></figure>
+        <figure class="photo s2"><img src="assets/img/productos/mary-imanes.webp" alt="" loading="lazy" width="825" height="1100" style="object-position:50% 45%"></figure>
         <img class="kippi-story" src="assets/brand/kippi-camara-roja.webp" alt="" loading="lazy" width="600" height="507">
       </div>
       <div class="story-copy">
@@ -1252,6 +1259,9 @@ dialog.cart[open] { animation: slide .25s ease; }
         { src: "assets/img/productos/mascota-5.webp", pos: "50% 58%", alt: "Imán con la foto de un pastor alemán en la nieve" },
         { src: "assets/img/productos/mascota-6.webp", pos: "50% 58%", alt: "Imán con la foto de un husky panza arriba" },
         { src: "assets/img/productos/boda-refri.webp", pos: "58% 45%", alt: "Ocho imanes con fotos de una boda pegados en una refri" },
+        { src: "assets/img/productos/pareja-3.webp", pos: "50% 55%", alt: "Imán con la foto de una pareja de novios en una banca" },
+        { src: "assets/img/productos/pareja-1.webp", pos: "50% 55%", alt: "Imán con la foto de una pareja sentada en unas gradas" },
+        { src: "assets/img/productos/graduacion-1.webp", pos: "50% 35%", alt: "Graduada de la Universidad de Costa Rica con su título" },
         { src: "assets/img/productos/boda-invitados-1.webp", pos: "50% 55%", alt: "Imán de una boda con tres invitadas, pegado en una refri" },
         { src: "assets/img/productos/mujer.webp", pos: "50% 52%", alt: "Dos imanes para el Día de la Mujer en la mano" }
       ],
@@ -1291,7 +1301,11 @@ dialog.cart[open] { animation: slide .25s ease; }
       desc: "Para quien no quiere llenar la refri: se cuelgan como un cuadro y encima van tus fotos imantadas.",
       details: ["Se cuelgan en la pared como un cuadro.", "Combínalas con tus fotos imantadas.", "Formas disponibles: corazón y gato."],
       options: [{ label: "Corazón", price: 10000 }, { label: "Gato", price: 5000 }] },
-    { id: "lampara", cat: "Lámparas", name: "Lámpara de litofanía", photos: [],
+    { id: "lampara", cat: "Lámparas", name: "Lámpara de litofanía", photos: [
+        { src: "assets/img/productos/lampara-angel.webp", pos: "50% 40%", alt: "Lámpara de litofanía encendida con un ángel" },
+        { src: "assets/img/productos/lampara-bebe.webp", pos: "50% 45%", alt: "Lámpara de litofanía encendida con la foto de un bebé" },
+        { src: "assets/img/productos/lampara-navidad.webp", pos: "50% 45%", alt: "Lámpara redonda de litofanía con un reno de Navidad" }
+      ],
       desc: "Litofanía es una foto grabada en relieve: con la luz apagada parece una pieza blanca y, al encenderla, aparece tu foto con todos sus detalles. La forma la eliges tú.",
       details: ["Tres tamaños: pequeña, mediana y grande.", "Forma personalizada a tu gusto.", "La foto se ve completa cuando la lámpara está encendida."],
       options: [{ label: "Pequeña", price: 25000 }, { label: "Mediana", price: 30000 }, { label: "Grande", price: 37000 }] },
@@ -1795,7 +1809,7 @@ dialog.cart[open] { animation: slide .25s ease; }
   // Portada: mosaico de fotos que se enfocan donde pasa el dedo, la foto "esta sí" y Kipi que saluda según la hora
   (function () {
     var hero = $("#hero"), hello = $("#kipi-hello");
-    var pics = ["husky-mira", "boda-beso", "boda-amigas", "husky-pasto", "boda-brindis", "mujer-fuego", "husky-cachorro", "boda-sonrisa", "boda-angel", "pastor-nieve", "boda-anillos", "husky-duerme", "boda-amigos", "boda-altar", "mujer-guerrera", "husky-panza", "boda-campo", "boda-abrazo", "boda-mirada"], tiles = "";
+    var pics = ["husky-mira", "boda-beso", "boda-amigas", "husky-pasto", "boda-brindis", "mujer-fuego", "husky-cachorro", "boda-sonrisa", "boda-angel", "pastor-nieve", "boda-anillos", "husky-duerme", "boda-amigos", "boda-altar", "mujer-guerrera", "husky-panza", "boda-campo", "boda-abrazo", "boda-mirada", "pareja-sentados", "abuelos", "viajes", "pareja-banca", "familia", "graduacion", "pareja-camino", "amigos", "pareja-abrazo", "pareja-muro"], tiles = "";
     for (var t = 0; t < 140; t++) tiles += '<img src="assets/img/mosaico/' + pics[(t * 7 + (t >> 3) * 3) % pics.length] + '.webp" alt="" loading="lazy" decoding="async">';
     $$(".hero-mosaic", hero).forEach(function (m) { m.innerHTML = tiles; });
     if (window.matchMedia("(hover: hover)").matches) $("#hero-hint span").textContent = "Pasa el mouse sobre las fotos";

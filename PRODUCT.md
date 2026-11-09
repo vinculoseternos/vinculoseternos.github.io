@@ -80,7 +80,7 @@ Success on the website means three things:
 
 - **Photos:**
   - `assets/img/`: wedding (couple holding their magnet), Dinofabeto, husky puppy magnet, graduation, gift.
-  - `assets/brand/`: packaging mockup.
+  - `assets/brand/`: brand assets (Kipi, logos, packaging mockup).
   - Most catalog and idea cards still use Kipi placeholders. The owner will send more product photos later. Do not fabricate product imagery.
 - **Real reviews:** six of them, on the "Sobre nosotros" page and in the brand guide. Karo, Kattya, Dani (a wedding guest, on Instagram), María Paula, Tami and Katia. Do not invent more.
 - **Founder story:** Mary started in 2025. The approved text is on the "Sobre nosotros" page.
