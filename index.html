@@ -950,7 +950,7 @@ dialog.cart[open] { animation: slide .25s ease; }
             <button type="button" class="tmag" data-kind="Boda" data-img="imanes/boda-amigas"><span class="iman"><img src="assets/img/imanes/boda-amigas.webp" alt="" draggable="false"></span><span>Boda</span></button>
             <button type="button" class="tmag" data-kind="Día de la Mujer" data-img="imanes/mujer-fuego"><span class="iman"><img src="assets/img/imanes/mujer-fuego.webp" alt="" draggable="false"></span><span>Día de la Mujer</span></button>
             <button type="button" class="tmag" data-kind="Pareja" data-img="imanes/pareja-banca"><span class="iman"><img src="assets/img/imanes/pareja-banca.webp" alt="" draggable="false"></span><span>Pareja</span></button>
-            <button type="button" class="tmag" data-kind="Graduación" data-img="imanes/graduacion"><span class="iman"><img src="assets/img/imanes/graduacion.webp" alt="" draggable="false"></span><span>Graduación</span></button>
+            <button type="button" class="tmag" data-kind="Graduación" data-img="imanes/graduacion-iman"><span class="iman"><img src="assets/img/imanes/graduacion-iman.webp" alt="" draggable="false"></span><span>Graduación</span></button>
             <button type="button" class="tmag" data-kind="Abuelos" data-img="imanes/abuelos"><span class="iman"><img src="assets/img/imanes/abuelos.webp" alt="" draggable="false"></span><span>Abuelos</span></button>
             <button type="button" class="tmag" data-kind="Bebé"><span class="iman"><i>Bebé</i></span><span>Bebé</span></button>
             <button type="button" class="tmag" data-kind="Familia" data-img="imanes/familia"><span class="iman"><img src="assets/img/imanes/familia.webp" alt="" draggable="false"></span><span>Familia</span></button>
@@ -1261,6 +1261,7 @@ dialog.cart[open] { animation: slide .25s ease; }
         { src: "assets/img/productos/boda-refri.webp", pos: "58% 45%", alt: "Ocho imanes con fotos de una boda pegados en una refri" },
         { src: "assets/img/productos/pareja-3.webp", pos: "50% 55%", alt: "Imán con la foto de una pareja de novios en una banca" },
         { src: "assets/img/productos/pareja-1.webp", pos: "50% 55%", alt: "Imán con la foto de una pareja sentada en unas gradas" },
+        { src: "assets/img/productos/graduacion-iman.webp", pos: "50% 60%", alt: "Imán con la foto de una niña con toga roja de graduación" },
         { src: "assets/img/productos/graduacion-1.webp", pos: "50% 35%", alt: "Graduada de la Universidad de Costa Rica con su título" },
         { src: "assets/img/productos/boda-invitados-1.webp", pos: "50% 55%", alt: "Imán de una boda con tres invitadas, pegado en una refri" },
         { src: "assets/img/productos/mujer.webp", pos: "50% 52%", alt: "Dos imanes para el Día de la Mujer en la mano" }
@@ -1809,7 +1810,7 @@ dialog.cart[open] { animation: slide .25s ease; }
   // Portada: mosaico de fotos que se enfocan donde pasa el dedo, la foto "esta sí" y Kipi que saluda según la hora
   (function () {
     var hero = $("#hero"), hello = $("#kipi-hello");
-    var pics = ["husky-mira", "boda-beso", "boda-amigas", "husky-pasto", "boda-brindis", "mujer-fuego", "husky-cachorro", "boda-sonrisa", "boda-angel", "pastor-nieve", "boda-anillos", "husky-duerme", "boda-amigos", "boda-altar", "mujer-guerrera", "husky-panza", "boda-campo", "boda-abrazo", "boda-mirada", "pareja-sentados", "abuelos", "viajes", "pareja-banca", "familia", "graduacion", "pareja-camino", "amigos", "pareja-abrazo", "pareja-muro"], tiles = "";
+    var pics = ["husky-mira", "boda-beso", "boda-amigas", "husky-pasto", "boda-brindis", "mujer-fuego", "husky-cachorro", "boda-sonrisa", "boda-angel", "pastor-nieve", "boda-anillos", "husky-duerme", "boda-amigos", "boda-altar", "husky-panza", "boda-campo", "boda-abrazo", "boda-mirada", "pareja-sentados", "abuelos", "viajes", "pareja-banca", "familia", "graduacion", "pareja-camino", "graduacion-iman", "amigos", "pareja-abrazo", "pareja-muro"], tiles = "";
     for (var t = 0; t < 140; t++) tiles += '<img src="assets/img/mosaico/' + pics[(t * 7 + (t >> 3) * 3) % pics.length] + '.webp" alt="" loading="lazy" decoding="async">';
     $$(".hero-mosaic", hero).forEach(function (m) { m.innerHTML = tiles; });
     if (window.matchMedia("(hover: hover)").matches) $("#hero-hint span").textContent = "Pasa el mouse sobre las fotos";
