@@ -365,6 +365,28 @@ dialog.pd[open] { animation: pop .22s ease; }
 .pair figcaption { text-align: center; font: italic 400 1.15rem/1.2 var(--f-sub); color: var(--rosa-texto); margin-top: 14px; }
 @media (max-width: 780px) { .restore .wrap { grid-template-columns: minmax(0, 1fr); } .restore-pairs { order: -1; } }
 
+/* Arreglos de la revisión (noviembre 2026) */
+.to-fridge { margin: -4px 0 18px; font-size: .92rem; } .to-fridge a { color: var(--rosa-texto); font-weight: 600; text-underline-offset: 3px; }
+.more-wrap { display: flex; justify-content: center; margin-top: 28px; } .more-wrap .btn-line { color: var(--conexion); }
+.quote-copy .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 6px; } .quote-copy .btn-line { color: var(--destello); }
+.book .guests { font: inherit; font-size: .98rem; width: 100%; max-width: 200px; padding: 11px 14px; border-radius: 12px; border: 1px solid rgba(245,213,210,.4); background: rgba(255,255,255,.1); color: var(--destello); margin-bottom: 14px; } .book .guests::placeholder { color: rgba(248,239,232,.65); } .book label.slot-l small { font-weight: 400; color: var(--destello); }
+.link-btn { background: none; border: 0; padding: 8px; font: 500 .88rem/1.3 var(--f-body); color: var(--rosa-texto); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.qty-hint { margin: 0; font-size: .8rem; color: var(--conexion); min-height: 0; } .qty-hint:empty { display: none; } .qty { flex-wrap: wrap; }
+@media (max-width: 600px) {
+  .game { padding-block: 44px 52px; }
+  .game .wrap { gap: 12px; }
+  .game .sub { display: none; }
+  .stage { height: min(58vh, 380px); }
+  .g-steps li { font-size: .72rem; width: clamp(56px, 17vw, 76px); }
+  .prompt { position: relative; z-index: 2; }
+  .g-kipi { bottom: -10px; width: 190px; }
+}
+.msg .who { display: inline-flex; flex-wrap: wrap; column-gap: 6px; align-items: baseline; } .msg .who span { white-space: nowrap; } .msg-photo { width: 100%; max-width: 220px; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 55%; border-radius: 12px; margin: 4px 0 2px; }
+.story-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; } .story-cta .btn-line { color: var(--conexion); }
+.price .tier-note { display: block; font-size: .72rem; font-weight: 500; color: var(--muted); margin-top: 2px; }
+.date-es { display: block; margin-top: 4px; font-size: .82rem; color: var(--rosa-texto); }
+p, li, blockquote { text-wrap: pretty; }
+
 /* Chispas y Kipi (detalles juguetones) */
 .sparks { position: fixed; left: 0; top: 0; width: 0; height: 0; pointer-events: none; z-index: 60; }
 .sparks i { position: absolute; left: -6px; top: -6px; width: 12px; height: 12px; background: var(--conexion); clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%); }
@@ -876,6 +898,7 @@ dialog.cart[open] { animation: slide .25s ease; }
         <button class="tab" type="button" data-filter="celebraciones" aria-pressed="false">Celebraciones</button>
       </div>
       <p class="cat-intro sub" id="idea-intro" aria-live="polite">Personas, mascotas, etapas y fechas que merecen salir del celular.</p>
+      <p class="to-fridge"><a href="#refri-t">¿Prefieres jugar? Arma tu refri con imanes de ejemplo ↓</a></p>
 
       <!-- IDEAS: data-make = producto del catálogo; data-set = producto:opción:cantidad para agregar un set completo -->
       <div class="grid" id="ideas-grid">
@@ -1000,6 +1023,7 @@ dialog.cart[open] { animation: slide .25s ease; }
         </article>
 
       </div>
+      <div class="more-wrap"><button class="btn btn-line" type="button" id="ideas-more" hidden>Ver más ideas</button></div>
     </div>
   </section>
 
@@ -1045,6 +1069,7 @@ dialog.cart[open] { animation: slide .25s ease; }
         </ul>
         <p class="kicker">Pero hay momentos que merecen permanecer mucho más cerca.</p>
         <p class="events">También hacemos baby showers, cumpleaños y eventos de empresa. Cada evento es distinto, así que lo cotizamos con ustedes.</p>
+        <div class="actions"><a class="btn btn-light" href="#agendar">Agendar una reunión</a><a class="btn btn-line" href="#game-t">Ver cómo funciona</a></div>
       </div>
     </div>
   </section>
@@ -1135,6 +1160,8 @@ dialog.cart[open] { animation: slide .25s ease; }
           <div id="book-days"></div>
           <p class="slot-l">Hora</p>
           <div class="times" id="book-times" role="group" aria-label="Hora"></div>
+          <label class="slot-l" for="book-guests">Invitados aproximados <small>(opcional)</small></label>
+          <input class="guests" id="book-guests" type="number" inputmode="numeric" min="1" max="2000" placeholder="Ej.: 80">
           <a class="btn btn-book" id="book-send" href="https://wa.me/50671821161" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg><span>Pedir esta cita</span></a>
           <p class="book-hint" id="book-hint">Te confirmamos por WhatsApp. ¿Prefieres escribir? <a data-wa="Hola Vínculos Eternos, quiero cotizar recuerdos para un evento." href="https://wa.me/50671821161" target="_blank" rel="noopener">Cotizar por WhatsApp</a></p>
         </div>
@@ -1160,6 +1187,7 @@ dialog.cart[open] { animation: slide .25s ease; }
         <p>El nombre salió de esa idea.</p>
         <p class="pull">Las personas que amamos, los momentos que nos marcaron, merecen quedarse cerca para siempre. Eso es un vínculo eterno.</p>
         <p>Hoy cada pieza la hago a mano, una por una, con mucho amor, pensando en la historia que hay detrás de cada foto.</p>
+        <div class="actions story-cta"><a class="btn btn-main" href="#catalogo">Ver el catálogo</a><a class="btn btn-line" data-wa="Hola Mary, tengo una consulta sobre Vínculos Eternos." href="https://wa.me/50671821161" target="_blank" rel="noopener">Escribirle a Mary</a></div>
       </div>
     </div>
   </section>
@@ -1183,7 +1211,7 @@ dialog.cart[open] { animation: slide .25s ease; }
       <!-- RESEÑAS: mensajes reales de clientes -->
       <div class="chat">
         <figure class="msg wa"><figcaption><b>Karo</b> · WhatsApp</figcaption><blockquote>Ya me llegaron los imanes, ¡qué hermosos están de verdad! Muchas gracias. Los subiré a Insta para que te sigan más personas. Muy bonito el emprendimiento.</blockquote><span class="meta"><svg class="seen" viewBox="0 0 18 12" aria-label="Visto"><path d="M1 6.5l3.2 3.2L10.5 3M6.6 9.4l.6.6L13.5 3.3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></figure>
-        <figure class="msg ig"><figcaption><span class="ava" aria-hidden="true">D</span><b>Dani</b> · invitada de una boda, en Instagram</figcaption><blockquote>Y así se ven en casa. Excelente trabajo. Como invitadas, ¡lo amamos!</blockquote><span class="meta"><svg class="heart" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.7 4.5c2.1 0 3.5 1.2 4.3 2.4.8-1.2 2.2-2.4 4.3-2.4 3.7 0 5.8 3.9 4.3 7.3C19.5 16.4 12 21 12 21Z"/></svg> Me gusta</span></figure>
+        <figure class="msg ig"><figcaption><span class="ava" aria-hidden="true">D</span><span class="who"><b>Dani</b> <span>invitada de una boda · Instagram</span></span></figcaption><img class="msg-photo" src="assets/img/productos/boda-invitados-1.webp" alt="Imán con la foto de Dani y sus amigas en la boda, pegado en su refri" loading="lazy" width="825" height="1100"><blockquote>Y así se ven en casa. Excelente trabajo. Como invitadas, ¡lo amamos!</blockquote><span class="meta"><svg class="heart" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.7 4.5c2.1 0 3.5 1.2 4.3 2.4.8-1.2 2.2-2.4 4.3-2.4 3.7 0 5.8 3.9 4.3 7.3C19.5 16.4 12 21 12 21Z"/></svg> Me gusta</span></figure>
         <figure class="msg wa"><figcaption><b>María Paula</b> · WhatsApp</figcaption><blockquote>Mil gracias, quedaron hermosos 😍😍</blockquote><span class="meta"><svg class="seen" viewBox="0 0 18 12" aria-label="Visto"><path d="M1 6.5l3.2 3.2L10.5 3M6.6 9.4l.6.6L13.5 3.3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></figure>
         <figure class="msg wa"><figcaption><b>Kattya</b> · WhatsApp</figcaption><blockquote>Tengo un problema con el pedido… ¡quedó hermoso y quiero más fotos! Muchísimas gracias, están hermosas. Voy a alistar otro pedido ❤️</blockquote><span class="meta"><svg class="seen" viewBox="0 0 18 12" aria-label="Visto"><path d="M1 6.5l3.2 3.2L10.5 3M6.6 9.4l.6.6L13.5 3.3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></figure>
         <figure class="msg wa"><figcaption><b>Tami</b> · WhatsApp</figcaption><blockquote>Hola, ya me llegó. ¡Muchísimas gracias, están hermosos!</blockquote><span class="meta"><svg class="seen" viewBox="0 0 18 12" aria-label="Visto"><path d="M1 6.5l3.2 3.2L10.5 3M6.6 9.4l.6.6L13.5 3.3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></figure>
@@ -1271,10 +1299,11 @@ dialog.cart[open] { animation: slide .25s ease; }
 <dialog class="cart" id="cart" aria-labelledby="cart-t">
   <div class="sent" id="sent" hidden>
     <img src="assets/brand/kippi-abrazo-roja-botas.webp" alt="" width="600" height="585">
-    <h2>¡Tu recuerdo está en camino!</h2>
-    <p>Se abrió WhatsApp con tu pedido. Ahora mándanos ahí tus fotos en HD y te confirmamos el total antes del adelanto.</p>
+    <h2>¡Ya casi! Solo falta enviarlo</h2>
+    <p>Se abrió WhatsApp con tu pedido escrito. Toca enviar, mándanos tus fotos en HD y te confirmamos el total antes del adelanto.</p>
     <a class="btn btn-main" id="sent-again" href="https://wa.me/50671821161" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Abrir WhatsApp de nuevo</a>
     <button class="btn btn-soft" type="button" id="sent-close">Seguir viendo</button>
+    <button class="link-btn" type="button" id="sent-clear">Ya lo envié, vaciar mi pedido</button>
   </div>
   <div class="cart-inner">
     <div class="cart-head"><h2 id="cart-t">Tu pedido</h2><button class="x" type="button" data-close aria-label="Cerrar">×</button></div>
@@ -1289,7 +1318,7 @@ dialog.cart[open] { animation: slide .25s ease; }
         <div class="field"><label for="f-nombre">Tu nombre</label><input id="f-nombre" type="text" placeholder="Ej. María Fernanda" autocomplete="name" required aria-describedby="err-nombre"><p class="err" id="err-nombre" hidden>Escribe tu nombre para saber de quién es el pedido.</p></div>
         <div class="field" data-need="lampara" hidden><label for="f-forma">Forma de la lámpara</label><input id="f-forma" type="text" placeholder="Ej. corazón, círculo, la silueta de mi perro"></div>
         <div class="field" data-need="songs" hidden><label for="f-canciones">Canciones para los calendarios <small>(nombre y artista, o el link de Spotify o YouTube)</small></label><textarea id="f-canciones" placeholder="Una por línea. Ej.: Perfect – Ed Sheeran, o https://open.spotify.com/…"></textarea></div>
-        <div class="field"><label for="f-fecha">¿Para qué fecha lo necesitas? <small>(solo si es urgente)</small></label><input id="f-fecha" type="date"></div>
+        <div class="field"><label for="f-fecha">¿Para qué fecha lo necesitas? <small>(solo si es urgente)</small></label><input id="f-fecha" type="date"><small class="date-es" id="f-fecha-es" aria-live="polite"></small></div>
         <div class="field"><label for="f-entrega">Entrega</label><select id="f-entrega"><option value="Entrega sin costo (San Pedro o Barrio Dent)">Sin costo · San Pedro o Barrio Dent</option><option value="Correos de Costa Rica (envío aparte)">Correos de Costa Rica (+ envío)</option><option value="Uber (envío aparte)">Uber (+ envío)</option></select></div>
         <div class="field" data-need="address" hidden><label for="f-dir">Dirección o distrito de entrega</label><input id="f-dir" type="text" autocomplete="street-address" placeholder="Ej. Heredia, San Francisco, 200 m norte del parque" aria-describedby="err-dir"><p class="err" id="err-dir" hidden>Necesitamos la dirección o el distrito para cotizar el envío.</p></div>
         <div class="field"><label for="f-nota">Algo más <small>(opcional)</small></label><textarea id="f-nota" placeholder="Ej. Es para regalar el Día de la Madre"></textarea></div>
@@ -1478,7 +1507,7 @@ dialog.cart[open] { animation: slide .25s ease; }
     var ctrl = '<div class="ctrl" data-pid="' + p.id + '">' +
       "<div>" + opts + '<p class="note" hidden></p></div>' +
       '<div class="extras">' +
-        '<div class="qty"><label class="qty-l" for="q-' + p.id + '">Cantidad</label><div class="stepper"><button type="button" data-step="-1" aria-label="Menos">−</button><input class="q" id="q-' + p.id + '" type="number" inputmode="numeric" min="1" max="999" value="1"><button type="button" data-step="1" aria-label="Más">+</button></div></div>' +
+        '<div class="qty"><label class="qty-l" for="q-' + p.id + '">Cantidad</label><div class="stepper"><button type="button" data-step="-1" aria-label="Menos">−</button><input class="q" id="q-' + p.id + '" type="number" inputmode="numeric" min="1" max="999" value="1"><button type="button" data-step="1" aria-label="Más">+</button></div><p class="qty-hint" aria-live="polite"></p></div>' +
         (p.song ? '<label class="check"><input type="checkbox" data-song-on> ¿Con música? <small>opcional · +' + crc(p.song) + ' por canción</small></label>' +
                  '<div class="qty" data-song-row hidden><span>Canciones</span><div class="stepper" data-songs><button type="button" data-step="-1" aria-label="Menos canciones">−</button><output>1</output><button type="button" data-step="1" aria-label="Más canciones">+</button></div></div>' : "") +
         (p.gift ? '<label class="check"><input type="checkbox" data-gift> Empaque para regalo <small>opcional · uno por pedido · +' + crc(p.gift) + "</small></label>" : "") +
@@ -1488,7 +1517,7 @@ dialog.cart[open] { animation: slide .25s ease; }
       "</div>";
     var html = '<article class="card product" id="p-' + p.id + '" data-pid="' + p.id + '">' + ph +
       '<div class="body"><span class="cat">' + esc(p.cat) + '</span><h2 class="h-card"><button class="link-h" type="button" data-detail>' + esc(p.name) + "</button></h2><p>" + esc(p.desc) + "</p>" +
-      '<div class="buy"><span class="price"><small>' + (fromPrice(p).many ? "Desde " : "") + "</small>" + (p.extra ? "+" : "") + crc(fromPrice(p).v) + (fromPrice(p).each ? " <small>c/u</small>" : "") + '</span><button class="btn btn-main" type="button" data-detail>Elegir</button></div>' +
+      '<div class="buy"><span class="price"><small>' + (fromPrice(p).many ? "Desde " : "") + "</small>" + (p.extra ? "+" : "") + crc(fromPrice(p).v) + (fromPrice(p).each ? " <small>c/u</small>" : "") + (p.options.some(function (o) { return o.tiers; }) ? '<small class="tier-note">desde ' + p.options[0].tiers[p.options[0].tiers.length - 1][0] + ' imanes</small>' : "") + '</span><button class="btn btn-main" type="button" data-detail>Elegir</button></div>' +
       '<div class="ctrl-home" hidden>' + ctrl + "</div></div></article>";
     grid.insertAdjacentHTML("beforeend", html);
   });
@@ -1505,7 +1534,11 @@ dialog.cart[open] { animation: slide .25s ease; }
   function renderCtrl(ctrl, clamp) {
     var s = ctrlState(ctrl), o = s.p.options[s.oi], min = o.min || 1, q = qtyIn(ctrl);
     q.min = min;
-    if (clamp || s.qty > 999) { s.qty = Math.min(999, Math.max(min, s.qty)); q.value = s.qty; }
+    var hint = $(".qty-hint", ctrl);
+    if (clamp || s.qty > 999) {
+      var before = s.qty; s.qty = Math.min(999, Math.max(min, s.qty)); q.value = s.qty;
+      if (hint && before !== s.qty) { hint.textContent = before < min ? (min > 1 ? "El mínimo es " + min + "." : "Mínimo 1.") : before > 999 ? "El máximo es 999; para más, escríbenos." : ""; }
+    } else if (hint) hint.textContent = "";
     var eff = Math.max(min, s.qty);
     $(".stepper:not([data-songs]) [data-step='-1']", ctrl).disabled = eff <= min;
     var sOut = $("[data-songs] output", ctrl);
@@ -1698,10 +1731,12 @@ dialog.cart[open] { animation: slide .25s ease; }
     $("#book-times").innerHTML = horas.map(function (h, i) {
       return '<button class="slot" type="button" data-h="' + h + '" aria-pressed="' + (i === 0) + '">' + h + " p. m.</button>";
     }).join("");
+    var guests = $("#book-guests");
+    guests.addEventListener("input", function () { upd(); });
     function upd() {
       var x = sel.day;
       $("span", send).textContent = "Pedir cita · " + dias[x.getDay()] + " " + x.getDate() + " " + meses[x.getMonth()] + ", " + sel.time + " p. m.";
-      send.href = waUrl("Hola Vínculos Eternos, quiero agendar una reunión para cotizar un evento el " + largo[x.getDay()] + " " + x.getDate() + " de " + meses[x.getMonth()] + " a las " + sel.time + " p. m. ¿Está disponible?");
+      send.href = waUrl("Hola Vínculos Eternos, quiero agendar una reunión para cotizar un evento el " + largo[x.getDay()] + " " + x.getDate() + " de " + meses[x.getMonth()] + " a las " + sel.time + " p. m." + (+guests.value > 0 ? " Seríamos unos " + (+guests.value) + " invitados." : "") + " ¿Está disponible?");
     }
     $("#book-days").addEventListener("click", function (e) {
       var b = e.target.closest(".slot"); if (!b || b.disabled) return;
@@ -1741,10 +1776,24 @@ dialog.cart[open] { animation: slide .25s ease; }
     tab.addEventListener("click", function () {
       var f = tab.dataset.filter;
       tabs.forEach(function (t) { t.setAttribute("aria-pressed", String(t === tab)); });
-      ideas.forEach(function (c) { c.hidden = !(f === "todas" || c.dataset.cat === f); });
+      cur = f; open = false; showIdeas();
       $("#idea-intro").textContent = intros[f];
     });
   });
+  var cur = "todas", open = false, more = $("#ideas-more"), LIMIT = 6;
+  function showIdeas() {
+    var match = ideas.filter(function (c) { return cur === "todas" || c.dataset.cat === cur; });
+    ideas.forEach(function (c) { c.hidden = true; });
+    match.forEach(function (c, n) { c.hidden = !open && n >= LIMIT; });
+    var rest = match.length - LIMIT;
+    more.hidden = open || rest <= 0;
+    more.textContent = "Ver " + rest + (rest === 1 ? " idea más" : " ideas más");
+  }
+  more.addEventListener("click", function () {
+    open = true; var first = ideas.filter(function (c) { return c.hidden; })[0]; showIdeas();
+    var h = first && $("h2", first); if (h) { h.setAttribute("tabindex", "-1"); h.focus(); }
+  });
+  showIdeas();
 
   // Pedido (carrito)
   var KEY = "ve-pedido";
@@ -1764,7 +1813,7 @@ dialog.cart[open] { animation: slide .25s ease; }
   function lineTotal(l) { return l.total - (l.gift ? byId[l.pid].gift : 0); }
   function giftFee() { var g = cart.filter(function (l) { return l.gift; })[0]; return g ? byId[g.pid].gift : 0; }
   function total() { return cart.reduce(function (n, l) { return n + lineTotal(l); }, 0) + giftFee(); }
-  function count() { return cart.length; }
+  function count() { return cart.reduce(function (n, l) { return n + l.qty; }, 0); }
   function renderCart(bump) {
     $$("[data-count]").forEach(function (el) { el.textContent = count(); });
     $$("[data-total]").forEach(function (el) { el.textContent = crc(total()); });
@@ -1840,6 +1889,10 @@ dialog.cart[open] { animation: slide .25s ease; }
     missing[0].focus({ preventScroll: true });
   });
   $("#cart-form").addEventListener("change", function (e) { if (e.target.id === "f-entrega") renderCart(); else updateMessage(); });
+  $("#f-fecha").addEventListener("input", function () {
+    var v = this.value, out = $("#f-fecha-es"), m = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","setiembre","octubre","noviembre","diciembre"];
+    if (!v) { out.textContent = ""; return; } var f = v.split("-"); out.textContent = "Para el " + (+f[2]) + " de " + m[+f[1] - 1] + " de " + f[0];
+  });
   $("#cart-form").addEventListener("submit", function (e) { e.preventDefault(); });
 
   $$("[data-open-cart]").forEach(function (b) {
@@ -1890,6 +1943,7 @@ dialog.cart[open] { animation: slide .25s ease; }
     setTimeout(function () { var o = $("#sent"); o.hidden = false; o.classList.remove("pop"); void o.offsetWidth; o.classList.add("pop"); $("#sent-close").focus(); }, 350);
   });
   $("#sent-close").addEventListener("click", function () { $("#sent").hidden = true; dlg.close(); });
+  $("#sent-clear").addEventListener("click", function () { cart = []; save(); renderCart(); $("#sent").hidden = true; dlg.close(); toast("Listo, tu pedido quedó vacío."); });
   dlg.addEventListener("close", function () { $("#sent").hidden = true; });
 
   // Portada: mosaico de fotos que se enfocan donde pasa el dedo, la foto "esta sí" y Kipi que saluda según la hora
@@ -1979,6 +2033,15 @@ dialog.cart[open] { animation: slide .25s ease; }
     function inner(src) {
       return src.dataset.img ? '<img src="assets/img/' + src.dataset.img + '.webp" alt="" draggable="false" style="' + (src.querySelector("img").getAttribute("style") || "") + '">' : "<i>" + esc(src.dataset.kind) + "</i>";
     }
+    function freeSpot() {
+      var best = null, bestD = -1;
+      for (var t = 0; t < 24; t++) {
+        var x = 4 + Math.random() * 70, y = 4 + Math.random() * 78, d = 1e9;
+        mags.forEach(function (m) { var dx = parseFloat(m.style.left) - x, dy = (parseFloat(m.style.top) - y) * .75; d = Math.min(d, Math.hypot(dx, dy)); });
+        if (d > bestD) { bestD = d; best = [x, y]; }
+      }
+      return best;
+    }
     function place(src, xPct, yPct) {
       if (mags.length >= MAX) { fr.classList.remove("pulse"); void fr.offsetWidth; fr.classList.add("pulse"); return; }
       var m = document.createElement("figure");
@@ -2012,14 +2075,14 @@ dialog.cart[open] { animation: slide .25s ease; }
       }
       function up(ev) {
         document.removeEventListener("pointermove", move); document.removeEventListener("pointerup", up); document.removeEventListener("pointercancel", up);
-        if (!ghost) { place(src, 6 + Math.random() * 68, 6 + Math.random() * 74); return; }
+        if (!ghost) { var sp = freeSpot(); place(src, sp[0], sp[1]); return; }
         ghost.remove();
         var r = inFridge(ev.clientX, ev.clientY);
         if (r && ev.type === "pointerup") place(src, (ev.clientX - r.left) / r.width * 100 - 11, (ev.clientY - r.top) / r.height * 100 - 8);
       }
       document.addEventListener("pointermove", move); document.addEventListener("pointerup", up); document.addEventListener("pointercancel", up);
     });
-    tray.addEventListener("click", function (e) { if (e.detail === 0) { var src = e.target.closest(".tmag"); if (src) place(src, 6 + Math.random() * 68, 6 + Math.random() * 74); } });
+    tray.addEventListener("click", function (e) { if (e.detail === 0) { var src = e.target.closest(".tmag"); if (src) { var sp = freeSpot(); place(src, sp[0], sp[1]); } } });
 
     // En la refri: arrastrar mueve; sacarlo de la refri lo quita
     fr.addEventListener("pointerdown", function (e) {
