@@ -772,9 +772,10 @@ dialog.cart[open] { animation: slide .25s ease; }
         <h2 id="restore-t">Fotos que se estaban perdiendo</h2>
         <p class="sub">Las devolvemos a la vida.</p>
         <p>Estas eran las únicas fotos que una abuelita tenía de sus papás. Una estaba manchada y quemada; la otra, pegada en un cuaderno y casi borrada. Las reconstruimos con ayuda de inteligencia artificial, cuidando que se parecieran a ellos, y se las entregamos para que los pudiera volver a ver.</p>
-        <p>Si tienes una foto vieja, rota o desteñida, mándanosla. La reconstruimos y te la entregamos en imán, en lámpara o en calendario.</p>
+        <p>Si tienes una foto vieja, rota o desteñida, mándanosla. La reconstruimos por <b>₡2 000 por foto</b> y, si quieres, te la entregamos en imán, en lámpara o en calendario.</p>
         <div class="actions">
-          <a class="btn btn-main" data-wa="Hola Vínculos Eternos, quiero restaurar una foto antigua." href="https://wa.me/50671821161" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Cotizar mi foto</a>
+          <a class="btn btn-main" data-wa="Hola Vínculos Eternos, quiero restaurar una foto antigua." href="https://wa.me/50671821161" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Restaurar mi foto</a>
+          <a class="btn btn-line" href="#catalogo">Ver en el catálogo</a>
         </div>
       </div>
       <div class="restore-pairs">
@@ -911,7 +912,7 @@ dialog.cart[open] { animation: slide .25s ease; }
           <div class="ph"><img src="assets/img/restauracion/papa-despues.webp" alt="Foto antigua de un señor reconstruida a color" loading="lazy" style="object-position:50% 30%" width="800" height="1200"></div>
           <div class="body"><span class="cat">Familia</span><h2 class="h-card">Fotos que se estaban perdiendo</h2>
             <p>Esa única foto de los bisabuelos, rota o desteñida. La reconstruimos y la convertimos en un recuerdo que no se borra.</p>
-            <div class="idea-foot"><span class="make"><a href="#restaurar">Ver antes y después</a></span><a class="btn btn-main" data-wa="Hola Vínculos Eternos, quiero restaurar una foto antigua." href="https://wa.me/50671821161" target="_blank" rel="noopener">Cotizar</a></div></div>
+            <div class="idea-foot"><span class="make"><a href="#restaurar">Ver antes y después</a></span><a class="btn btn-main" data-wa="Hola Vínculos Eternos, quiero restaurar una foto antigua." href="https://wa.me/50671821161" target="_blank" rel="noopener">Restaurar · ₡2 000</a></div></div>
         </article>
 
         <article class="card idea" data-cat="familia">
@@ -1193,7 +1194,7 @@ dialog.cart[open] { animation: slide .25s ease; }
       <div class="sec-head"><span class="eyebrow">Preguntas frecuentes</span><h1 class="as-h2">Lo que más nos preguntan</h1></div>
       <div class="faq">
         <details open><summary>¿Cómo se paga?</summary><p>Para encargar el pedido se adelanta el 50 % por SINPE Móvil o transferencia; sin ese adelanto no se inicia. El otro 50 % se paga al recibirlo, o antes de enviarlo si va por Correos o Uber.</p></details>
-        <details><summary>¿Pueden arreglar una foto vieja o dañada?</summary><p>Sí. Mándanos la foto (aunque esté rota, manchada o desteñida) por WhatsApp. La reconstruimos con ayuda de inteligencia artificial, te la mostramos para que la apruebes y luego la hacemos en imán, lámpara o calendario. El precio depende de la foto; escríbenos para cotizarla.</p></details>
+        <details><summary>¿Pueden arreglar una foto vieja o dañada?</summary><p>Sí. Mándanos la foto (aunque esté rota, manchada o desteñida) por WhatsApp. La reconstruimos con ayuda de inteligencia artificial, te la mostramos para que la apruebes y luego la hacemos en imán, lámpara o calendario. Cuesta ₡2 000 por foto; el imán, la lámpara o el calendario se cobran aparte.</p></details>
         <details><summary>¿Cuánto cuesta el envío?</summary><p>La entrega es sin costo adicional en San Pedro y Barrio Dent. A cualquier otro lugar lo enviamos por Correos de Costa Rica o Uber, y se cobra el costo del envío.</p></details>
         <details><summary>¿Qué fotos sirven?</summary><p>Fotos claras y cuadradas, o que se puedan recortar en cuadrado. Mándalas al WhatsApp 7182-1161, de preferencia en HD o como archivo para que no pierdan calidad.</p></details>
         <details><summary>¿Cuánto tarda mi pedido?</summary><p>Alrededor de una semana desde que recibimos el adelanto y las fotos. Si lo necesitas para una fecha específica, avísanos al escribir.</p></details>
@@ -1380,6 +1381,15 @@ dialog.cart[open] { animation: slide .25s ease; }
         { label: "Mensual", price: 800, min: 4, unit: ["calendario", "calendarios"], tag: "₡800 c/u · mín. 4" }
       ],
       song: 500 },
+    { id: "restaurar", cat: "Restauración", name: "Restauración de fotos antiguas", photos: [
+        { src: "assets/img/restauracion/papa-despues.webp", pos: "50% 30%", alt: "Foto antigua de un señor reconstruida, nítida y a color" },
+        { src: "assets/img/restauracion/papa-antes.webp", pos: "50% 40%", alt: "La foto original, manchada y quemada en los bordes" },
+        { src: "assets/img/restauracion/mama-despues.webp", pos: "50% 30%", alt: "Foto antigua de una señora reconstruida" },
+        { src: "assets/img/restauracion/mama-antes.webp", pos: "50% 20%", alt: "La foto original, pegada en un cuaderno y desteñida" }
+      ],
+      desc: "Esa foto vieja, rota, manchada o desteñida, reconstruida con ayuda de inteligencia artificial para que vuelvas a ver bien a quien está en ella.",
+      details: ["Mándanos la foto por WhatsApp, aunque esté muy dañada.", "Te mostramos el resultado para que lo apruebes.", "El precio es por la foto restaurada; si la quieres en imán, lámpara o calendario, se suma ese producto."],
+      options: [{ label: "Fotos", price: 2000, unit: ["foto", "fotos"] }] },
     { id: "empaque", cat: "Regalos", name: "Empaque para regalo", photos: [],
       desc: "Para que tu pedido llegue listo para regalar, sin tener que envolver nada.",
       details: ["Un empaque por pedido.", "Agrégalo junto con tus fotos imantadas o cualquier otro producto."],
