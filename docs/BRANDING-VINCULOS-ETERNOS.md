@@ -27,7 +27,7 @@ Este archivo resume el branding y la información del negocio. Si abres un chat 
 | Producto | Opciones y precio |
 |---|---|
 | Fotos imantadas | Precio por imán según cantidad: 1 a 4 ₡1 700 · 5 a 9 ₡1 500 · 10 a 19 ₡1 300 · 20 o más ₡1 200 (la web calcula cualquier cantidad) |
-| Empaque listo para regalar (opcional) | ₡1 000, uno por pedido |
+| Empaque para regalo (producto aparte, fotos pendientes) | ₡1 000 |
 | Dinofabeto | ₡22 500: 27 letras con dinosaurios y líneas de trazo (caligrafía, formar palabras) |
 | Matesaurios | Números 0-9 ₡13 000 · 0-9 + 5 signos ₡18 000 · números dobles + signos ₡27 500 (este último si ya hacen operaciones de 2 dígitos o más) |
 | Siluetas de metal | Corazón ₡10 000 · Gato ₡5 000. Se cuelgan como cuadro y llevan fotos imantadas encima |
