@@ -34,6 +34,9 @@ Este archivo resume el branding y la información del negocio. Si abres un chat 
 | Lámpara de litofanía | Pequeña ₡25 000 · Mediana ₡30 000 · Grande ₡37 000. Forma personalizable |
 | Calendario anual con música | ₡3 500 c/u; música opcional, ₡500 por canción. 100 % personalizable |
 | Calendario mensual con música | ₡800 c/u (mínimo 4); música opcional, ₡500 por canción. 100 % personalizable |
+
+**Cómo funciona la música:** cada canción va en un chip NFC pegado al calendario. Al acercar el celular, se abre la canción en Spotify o YouTube.
+
 | Bodas y eventos | Se cotizan aparte con cada persona |
 
 ## Ideas e inspiración (sección aparte, sin repetir precios)
