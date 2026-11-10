@@ -162,3 +162,28 @@ Lunes a viernes de 6:00 a 8:00 p. m. Hoy la web pide la cita por WhatsApp. Cuand
   - enlace de citas de Google Calendar (se pega en `BOOKING_URL` dentro de `index.html`);
   - imanes por hora en bodas;
   - hosting y dominio.
+
+### Publicación en GitHub Pages (pendiente, 10 de noviembre de 2026)
+
+- Mari creó la organización de GitHub `vinculoseternos` e invitó a Marco (`marcoaef7-pixel`) como Owner.
+- Pasos que faltan:
+  1. Marco acepta la invitación.
+  2. Instalar la app de Claude en la organización desde https://claude.ai/connect-github.
+  3. Crear el repositorio público `vinculoseternos.github.io` dentro de la organización.
+  4. Pedirle a Claude: "agrega el repo vinculoseternos/vinculoseternos.github.io" para que suba la página.
+  5. Activar Settings → Pages → Deploy from a branch.
+- La página quedará en `vinculoseternos.github.io`. La rama con todo el trabajo es `claude/clever-galileo-4gxier` y ya tiene `.nojekyll`.
+
+### Fotos pendientes
+
+- Bebé y baby shower (ideas "Baby shower", "Su primer año" e imán "Bebé" de la refri virtual).
+- Cumpleaños o sesión de fotógrafo (idea "Fotos del fotógrafo").
+- Más graduaciones.
+- Pareja y Día de la Mujer para la refri virtual (por ahora son cuadros de color).
+- Empaque para regalo (producto con "Fotos próximamente").
+
+### Reglas de fotos acordadas
+
+- Las fotos de imanes se muestran completas, con la mano o la refri a la vista; no se recortan a la cara del imán. Excepción: los imanes de boda de la refri hecha con IA.
+- La refri virtual de Ideas usa fotos originales sin imán, porque ahí la persona convierte su foto en imán.
+- Fotos guardadas sin usar todavía: `assets/img/productos/` (abuelita-2, viaje-2, pareja-2, pareja-4, pareja-5, pareja-6, boda-invitados-2, boda-invitados-3, graduacion-1).
