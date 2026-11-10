@@ -1222,8 +1222,8 @@ dialog.cart[open] { animation: slide .25s ease; }
       <form id="cart-form" class="field-group" novalidate style="display:grid;gap:14px">
         <div class="field"><label for="f-nombre">Tu nombre</label><input id="f-nombre" type="text" placeholder="Ej. María Fernanda" autocomplete="name" required aria-describedby="err-nombre"><p class="err" id="err-nombre" hidden>Escribe tu nombre para saber de quién es el pedido.</p></div>
         <div class="field" data-need="lampara" hidden><label for="f-forma">Forma de la lámpara</label><input id="f-forma" type="text" placeholder="Ej. corazón, círculo, la silueta de mi perro"></div>
-        <div class="field" data-need="songs" hidden><label for="f-canciones">Canciones para los calendarios</label><textarea id="f-canciones" placeholder="Nombre de la canción y artista, una por línea"></textarea></div>
-        <div class="field"><label for="f-fecha">¿Para qué fecha lo necesitas? <small>(opcional)</small></label><input id="f-fecha" type="date"></div>
+        <div class="field" data-need="songs" hidden><label for="f-canciones">Canciones para los calendarios <small>(nombre y artista, o el link de Spotify o YouTube)</small></label><textarea id="f-canciones" placeholder="Una por línea. Ej.: Perfect – Ed Sheeran, o https://open.spotify.com/…"></textarea></div>
+        <div class="field"><label for="f-fecha">¿Para qué fecha lo necesitas? <small>(solo si es urgente)</small></label><input id="f-fecha" type="date"></div>
         <div class="field"><label for="f-entrega">Entrega</label><select id="f-entrega"><option value="Entrega sin costo (San Pedro o Barrio Dent)">Sin costo · San Pedro o Barrio Dent</option><option value="Correos de Costa Rica (envío aparte)">Correos de Costa Rica (+ envío)</option><option value="Uber (envío aparte)">Uber (+ envío)</option></select></div>
         <div class="field" data-need="address" hidden><label for="f-dir">Dirección o distrito de entrega</label><input id="f-dir" type="text" autocomplete="street-address" placeholder="Ej. Heredia, San Francisco, 200 m norte del parque" aria-describedby="err-dir"><p class="err" id="err-dir" hidden>Necesitamos la dirección o el distrito para cotizar el envío.</p></div>
         <div class="field"><label for="f-nota">Algo más <small>(opcional)</small></label><textarea id="f-nota" placeholder="Ej. Es para regalar el Día de la Madre"></textarea></div>
@@ -1715,7 +1715,7 @@ dialog.cart[open] { animation: slide .25s ease; }
     lines.push("Total: " + crc(total()), "Adelanto del 50 %: " + crc(Math.ceil(total() / 2)), "Entrega: " + $("#f-entrega").value);
     var dir = $("#f-dir").value.trim(), fecha = $("#f-fecha").value, forma = $("#f-forma").value.trim(), canc = $("#f-canciones").value.trim();
     if (dir && !$('[data-need="address"]').hidden) lines.push("Dirección: " + dir);
-    if (fecha) { var f = fecha.split("-"); lines.push("Lo necesito para: " + f[2] + "/" + f[1] + "/" + f[0]); }
+    if (fecha) { var f = fecha.split("-"); lines.push("Es urgente, lo necesito para: " + f[2] + "/" + f[1] + "/" + f[0]); }
     if (forma && !$('[data-need="lampara"]').hidden) lines.push("Forma de la lámpara: " + forma);
     if (canc && !$('[data-need="songs"]').hidden) lines.push("Canciones: " + canc.replace(/\n+/g, "; "));
     if (nota) lines.push("Nota: " + nota);
