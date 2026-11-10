@@ -33,7 +33,7 @@ Success on the website means three things:
   - A 50 % deposit is required. The order does not start without it.
   - The rest is paid on delivery, or before shipping by Correos or Uber.
 - **Delivery:**
-  - Free in San Pedro, Barrio Dent and San José.
+  - Free in San Pedro and Barrio Dent.
   - Anywhere else goes by Correos de Costa Rica or Uber, and the shipping cost is charged.
   - Orders take about 1 week.
 - **Events:** quoted one by one. A meeting is requested from the site, Monday to Friday, 6–8 p.m. A Google Calendar booking page is planned but not created yet (`BOOKING_URL` in `index.html`).

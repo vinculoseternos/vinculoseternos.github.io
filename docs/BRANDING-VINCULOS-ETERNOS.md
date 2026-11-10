@@ -10,7 +10,7 @@ Este archivo resume el branding y la información del negocio. Si abres un chat 
 - **Instagram:** @vinculos_eternos_cr
 - **WhatsApp de pedidos:** 7182-1161 (+506 7182 1161)
 - **Pago:** SINPE Móvil o transferencia. Se adelanta el 50 % para encargar (sin adelanto no se inicia); el resto al recibirlo o antes de enviarlo por Correos o Uber.
-- **Envíos:** sin costo adicional en San Pedro, Barrio Dent y San José. A otros lugares por Correos de Costa Rica o Uber, cobrando el envío.
+- **Envíos:** sin costo adicional en San Pedro y Barrio Dent. A otros lugares por Correos de Costa Rica o Uber, cobrando el envío.
 - **Fotos:** claras y cuadradas (o que se puedan recortar en cuadrado), por WhatsApp al 7182-1161, de preferencia en HD o como archivo.
 - **Tiempo de entrega:** alrededor de 1 semana
 - **Dominio web:** todavía no hay
