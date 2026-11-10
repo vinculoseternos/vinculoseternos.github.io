@@ -1699,13 +1699,15 @@ dialog.cart[open] { animation: slide .25s ease; }
 
   /* Agenda de eventos. Cuando exista la página de citas de Google Calendar,
      pegar su enlace en BOOKING_URL y el botón abrirá esa página con la disponibilidad real. */
-  var BOOKING_URL = "";
+  var BOOKING_URL = "https://calendar.app.google/BT2UAbuYwP329URf9";
   (function () {
     var send = $("#book-send");
     if (BOOKING_URL) {
-      $("#book-days").hidden = $("#book-times").hidden = true;
-      $(".book-sub").textContent = "Lunes a viernes, de 6:00 a 8:00 p. m. Mira los espacios libres y reserva el tuyo.";
+      $("#book-days").hidden = $("#book-times").hidden = $("#book-guests").hidden = true;
+      $(".book-sub").textContent = "Lunes a viernes, de 6:00 a 8:00 p. m. Mira los espacios libres y reserva el tuyo en el calendario.";
       $$(".book .slot-l").forEach(function (l) { l.hidden = true; }); $("span", send).textContent = "Ver horarios disponibles"; send.href = BOOKING_URL;
+      $("svg", send).outerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>';
+      var hint = $("#book-hint"); if (hint) hint.firstChild.textContent = "Al reservar, Google te manda la confirmación a tu correo. ¿Prefieres escribir? ";
       return;
     }
     var dias = ["dom", "lun", "mar", "mié", "jue", "vie", "sáb"], meses = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"];
