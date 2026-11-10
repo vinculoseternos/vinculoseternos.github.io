@@ -45,7 +45,7 @@ Mascotas (las que están y las que ya no) · Familia (abuelos, hijos, papás; l�
 
 ## Tono de la marca
 
-- Conceptos: "La chispa que nos une" (Kipi, Sparky de cariño, es la chispa que une el imán a la superficie y mantiene vivos los recuerdos) y "Recuerdos que brillan" (el destello de memoria que queremos mantener cerca).
+- Conceptos: "La chispa que nos une" (Kipi es la chispa que une el imán a la superficie y mantiene vivos los recuerdos) y "Recuerdos que brillan" (el destello de memoria que queremos mantener cerca).
 - No repetir mucho "hecho a mano", "uno por uno" ni "Costa Rica": no es el mensaje principal.
 
 ## Colores

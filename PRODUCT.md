@@ -68,7 +68,7 @@ Success on the website means three things:
 
 ## Brand Commitments
 
-- **Name and tagline:** "Vínculos Eternos · Fotografía encapsulada". Mascot: **Kipi** (one P), Sparky as a nickname.
+- **Name and tagline:** "Vínculos Eternos · Fotografía encapsulada". Mascot: **Kipi** (one P). Do not use the nickname "Sparky".
 - **Concepts to express, not copy literally:** "La chispa que nos une" and "Recuerdos que brillan".
 - **Brand manual:** `brand-kit/`, guide in `brand-kit/BRANDING-VINCULOS-ETERNOS.md`.
   - Colors: Rosa Vínculo #825050, Aura #F5D6D3, Destello #F9F0E8, Recuerdo #3F1E1E, Conexión #913F3F.

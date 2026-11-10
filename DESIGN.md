@@ -123,7 +123,7 @@ components:
 
 **Creative North Star: "La chispa que nos une"**
 
-Vínculos Eternos se ve como un recuerdo que todavía brilla. La página es cálida, cercana y un poco juguetona. Kipi (Sparky de cariño), la estrellita con boina, es la chispa que une el imán a la refri y a las personas con sus momentos. El sistema mezcla dos voces: titulares en mayúsculas pesadas, que dicen las cosas claras, y una cursiva con carácter (ZT Otez), que dice lo que se siente.
+Vínculos Eternos se ve como un recuerdo que todavía brilla. La página es cálida, cercana y un poco juguetona. Kipi, la estrellita con boina, es la chispa que une el imán a la refri y a las personas con sus momentos. El sistema mezcla dos voces: titulares en mayúsculas pesadas, que dicen las cosas claras, y una cursiva con carácter (ZT Otez), que dice lo que se siente.
 
 La superficie es papel crema con bandas de color vino y rosa que marcan los momentos importantes. Las fotos reales se muestran como imanes terminados: cuadradas, con esquinas suaves y brillo de encapsulado, ligeramente ladeadas. El movimiento es juguetón pero con propósito. Kipi y pequeñas chispas aparecen cuando alguien hace algo que importa, como agregar un recuerdo al pedido o pedir una cita. Nunca como adorno de fondo.
 
