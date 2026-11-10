@@ -346,6 +346,25 @@ dialog.pd[open] { animation: pop .22s ease; }
 :is(.iman, .hero-one .pol, .wed-photo, .story-pics .photo, .rain figure, .fmag, .tmag-drag)::after { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; box-shadow: inset 0 0 0 3px rgba(255,255,255,.3), inset 0 -12px 22px rgba(30,10,10,.3), inset 0 8px 14px rgba(255,255,255,.28); background: linear-gradient(130deg, rgba(255,255,255,.42) 0%, rgba(255,255,255,.1) 26%, transparent 42%); }
 .tmag .iman { box-shadow: 0 12px 18px -10px rgba(40,16,16,.6), 0 2px 4px -2px rgba(40,16,16,.3); }
 
+/* Restauración de fotos antiguas: antes (foto vieja) y después (reconstruida, en forma de imán) */
+.restore .wrap { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(32px, 6vw, 72px); align-items: center; }
+.restore-copy { display: grid; gap: 16px; min-width: 0; }
+.restore-copy > p:not(.sub) { color: var(--muted); max-width: 56ch; }
+.restore-copy .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 4px; }
+.restore-pairs { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(16px, 3vw, 28px); }
+.pair { margin: 0; display: grid; gap: 10px; }
+.pair-imgs { position: relative; aspect-ratio: 1 / 1.25; }
+.pair .before, .pair .after { position: absolute; margin: 0; }
+.pair .before { left: 0; top: 0; width: 62%; transform: rotate(-5deg); }
+.pair .before img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: 50% 8%; border-radius: 4px; filter: saturate(.85); box-shadow: 0 14px 26px -14px rgba(40,16,16,.55); }
+.pair .after { right: 0; bottom: 0; width: 68%; z-index: 2; transform: rotate(3deg); }
+.pair .after .iman img { object-position: 50% 30%; }
+.pair .before > span, .pair .after > span:last-child { position: absolute; left: 50%; translate: -50% 0; bottom: -12px; z-index: 3; font: 600 .7rem/1 var(--f-body); letter-spacing: .12em; text-transform: uppercase; padding: 6px 10px; border-radius: 999px; white-space: nowrap; }
+.pair .before > span { bottom: auto; top: -12px; background: var(--papel); color: var(--muted-fuerte); box-shadow: 0 4px 10px -6px rgba(40,16,16,.4); }
+.pair .after > span:last-child { background: var(--conexion); color: var(--destello); }
+.pair figcaption { text-align: center; font: italic 400 1.15rem/1.2 var(--f-sub); color: var(--rosa-texto); margin-top: 14px; }
+@media (max-width: 780px) { .restore .wrap { grid-template-columns: minmax(0, 1fr); } .restore-pairs { order: -1; } }
+
 /* Chispas y Kipi (detalles juguetones) */
 .sparks { position: fixed; left: 0; top: 0; width: 0; height: 0; pointer-events: none; z-index: 60; }
 .sparks i { position: absolute; left: -6px; top: -6px; width: 12px; height: 12px; background: var(--conexion); clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%); }
@@ -747,6 +766,36 @@ dialog.cart[open] { animation: slide .25s ease; }
   </section>
 
 
+<section class="restore" id="restaurar" aria-labelledby="restore-t">
+    <div class="wrap">
+      <div class="restore-copy">
+        <h2 id="restore-t">Fotos que se estaban perdiendo</h2>
+        <p class="sub">Las devolvemos a la vida.</p>
+        <p>Estas eran las únicas fotos que una abuelita tenía de sus papás. Una estaba manchada y quemada; la otra, pegada en un cuaderno y casi borrada. Las reconstruimos con ayuda de inteligencia artificial, cuidando que se parecieran a ellos, y se las entregamos para que los pudiera volver a ver.</p>
+        <p>Si tienes una foto vieja, rota o desteñida, mándanosla. La reconstruimos y te la entregamos en imán, en lámpara o en calendario.</p>
+        <div class="actions">
+          <a class="btn btn-main" data-wa="Hola Vínculos Eternos, quiero restaurar una foto antigua." href="https://wa.me/50671821161" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Cotizar mi foto</a>
+        </div>
+      </div>
+      <div class="restore-pairs">
+        <figure class="pair">
+          <div class="pair-imgs">
+            <div class="before"><img src="assets/img/restauracion/papa-antes.webp" alt="Foto original del papá, manchada y quemada en los bordes" loading="lazy" width="895" height="1200"><span>Antes</span></div>
+            <div class="after"><span class="iman"><img src="assets/img/restauracion/papa-despues.webp" alt="La misma foto del papá reconstruida, nítida y a color" loading="lazy" width="800" height="1200"></span><span>Después</span></div>
+          </div>
+          <figcaption>Su papá</figcaption>
+        </figure>
+        <figure class="pair">
+          <div class="pair-imgs">
+            <div class="before"><img src="assets/img/restauracion/mama-antes.webp" alt="Foto original de la mamá, pegada en un cuaderno y desteñida" loading="lazy" width="635" height="1200"><span>Antes</span></div>
+            <div class="after"><span class="iman"><img src="assets/img/restauracion/mama-despues.webp" alt="La misma foto de la mamá reconstruida, con su rostro y su ropa claros" loading="lazy" width="800" height="1200"></span><span>Después</span></div>
+          </div>
+          <figcaption>Su mamá</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
 <section id="concepto" class="manifesto">
     <div class="wrap">
       <img class="kippi" src="assets/brand/kippi-abrazo-roja-botas.webp" alt="" width="600" height="585">
@@ -856,6 +905,13 @@ dialog.cart[open] { animation: slide .25s ease; }
           <div class="body"><span class="cat">Familia</span><h2 class="h-card">Los abuelos</h2>
             <p>Sus caras, sus manos, sus historias. Los que todavía nos abrazan y los que nos cuidan desde lejos.</p>
             <div class="idea-foot"><span class="make" data-make="fotos"></span></div></div>
+        </article>
+
+        <article class="card idea" data-cat="familia">
+          <div class="ph"><img src="assets/img/restauracion/papa-despues.webp" alt="Foto antigua de un señor reconstruida a color" loading="lazy" style="object-position:50% 30%" width="800" height="1200"></div>
+          <div class="body"><span class="cat">Familia</span><h2 class="h-card">Fotos que se estaban perdiendo</h2>
+            <p>Esa única foto de los bisabuelos, rota o desteñida. La reconstruimos y la convertimos en un recuerdo que no se borra.</p>
+            <div class="idea-foot"><span class="make"><a href="#restaurar">Ver antes y después</a></span><a class="btn btn-main" data-wa="Hola Vínculos Eternos, quiero restaurar una foto antigua." href="https://wa.me/50671821161" target="_blank" rel="noopener">Cotizar</a></div></div>
         </article>
 
         <article class="card idea" data-cat="familia">
@@ -1137,6 +1193,7 @@ dialog.cart[open] { animation: slide .25s ease; }
       <div class="sec-head"><span class="eyebrow">Preguntas frecuentes</span><h1 class="as-h2">Lo que más nos preguntan</h1></div>
       <div class="faq">
         <details open><summary>¿Cómo se paga?</summary><p>Para encargar el pedido se adelanta el 50 % por SINPE Móvil o transferencia; sin ese adelanto no se inicia. El otro 50 % se paga al recibirlo, o antes de enviarlo si va por Correos o Uber.</p></details>
+        <details><summary>¿Pueden arreglar una foto vieja o dañada?</summary><p>Sí. Mándanos la foto (aunque esté rota, manchada o desteñida) por WhatsApp. La reconstruimos con ayuda de inteligencia artificial, te la mostramos para que la apruebes y luego la hacemos en imán, lámpara o calendario. El precio depende de la foto; escríbenos para cotizarla.</p></details>
         <details><summary>¿Cuánto cuesta el envío?</summary><p>La entrega es sin costo adicional en San Pedro y Barrio Dent. A cualquier otro lugar lo enviamos por Correos de Costa Rica o Uber, y se cobra el costo del envío.</p></details>
         <details><summary>¿Qué fotos sirven?</summary><p>Fotos claras y cuadradas, o que se puedan recortar en cuadrado. Mándalas al WhatsApp 7182-1161, de preferencia en HD o como archivo para que no pierdan calidad.</p></details>
         <details><summary>¿Cuánto tarda mi pedido?</summary><p>Alrededor de una semana desde que recibimos el adelanto y las fotos. Si lo necesitas para una fecha específica, avísanos al escribir.</p></details>
