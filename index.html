@@ -404,6 +404,8 @@ p, li, blockquote { text-wrap: pretty; }
 
 .song-hint { display: block !important; color: var(--muted); width: 100%; }
 
+.g-review { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px 18px; margin: 30px auto 0; padding: 18px 22px; max-width: 720px; background: var(--papel); border: 1px solid var(--linea); border-radius: 20px; text-align: center; } .g-review p { margin: 0; color: var(--muted); } .g-review p b { color: var(--recuerdo); } .g-review .btn svg { color: #e2a62f; }
+
 /* Chispas y Kipi (detalles juguetones) */
 .sparks { position: fixed; left: 0; top: 0; width: 0; height: 0; pointer-events: none; z-index: 60; }
 .sparks i { position: absolute; left: -6px; top: -6px; width: 12px; height: 12px; background: var(--conexion); clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%); }
@@ -781,6 +783,7 @@ dialog.cart[open] { animation: slide .25s ease; }
   "foundingDate": "2025",
   "sameAs": [
     "https://www.instagram.com/vinculos_eternos_cr/",
+    "https://g.page/r/CbMhJiAF8HJJEBM",
     "https://wa.me/50671821161"
   ],
   "contactPoint": {
@@ -1286,6 +1289,7 @@ dialog.cart[open] { animation: slide .25s ease; }
         <figure class="msg wa"><figcaption><b>Tami</b> · WhatsApp</figcaption><blockquote>Hola, ya me llegó. ¡Muchísimas gracias, están hermosos!</blockquote><span class="meta"><svg class="seen" viewBox="0 0 18 12" aria-label="Visto"><path d="M1 6.5l3.2 3.2L10.5 3M6.6 9.4l.6.6L13.5 3.3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></figure>
         <figure class="msg ig"><figcaption><span class="ava" aria-hidden="true">K</span><b>Katia</b> · en Instagram</figcaption><blockquote>Hermoso trabajo, ¡súper recomendados!</blockquote><span class="meta"><svg class="heart" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.7 4.5c2.1 0 3.5 1.2 4.3 2.4.8-1.2 2.2-2.4 4.3-2.4 3.7 0 5.8 3.9 4.3 7.3C19.5 16.4 12 21 12 21Z"/></svg> Me gusta</span></figure>
       </div>
+      <div class="g-review"><p><b>¿Ya tienes tus recuerdos en casa?</b> Nos ayudas muchísimo contándolo en Google.</p><a class="btn btn-soft" id="g-review" href="https://g.page/r/CbMhJiAF8HJJEBM/review" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.8 6.3.9-4.6 4.4 1.1 6.3L12 17.2l-5.6 3 1.1-6.3L2.9 9.5l6.3-.9z"/></svg>Déjanos tu reseña en Google</a></div>
       <div class="closing-note"><p>¿El próximo recuerdo es el tuyo?</p><a class="btn btn-main" href="#catalogo">Elegir mi recuerdo</a><a class="btn btn-line" data-wa="Hola Vínculos Eternos, tengo una consulta." href="https://wa.me/50671821161" target="_blank" rel="noopener">Escribirnos</a></div>
     </div>
   </section>
@@ -1340,6 +1344,7 @@ dialog.cart[open] { animation: slide .25s ease; }
     <nav class="foot-links" aria-label="Páginas"><a href="#eventos">Bodas y eventos</a><a href="#catalogo">Catálogo</a><a href="#ideas">Ideas</a><a href="#nosotros">Sobre nosotros</a><a href="#preguntas">Preguntas frecuentes</a><a href="#contacto">Contacto</a></nav>
     <div class="contact">
       <a href="https://www.instagram.com/vinculos_eternos_cr/" target="_blank" rel="noopener">Instagram @vinculos_eternos_cr</a>
+      <a href="https://g.page/r/CbMhJiAF8HJJEBM/review" target="_blank" rel="noopener">Reseñas en Google</a>
       <a href="https://wa.me/50671821161" target="_blank" rel="noopener">WhatsApp 7182-1161</a>
     </div>
   </div>
@@ -2023,6 +2028,7 @@ dialog.cart[open] { animation: slide .25s ease; }
   document.addEventListener("click", function (e) {
     var a = e.target.closest("a"); if (!a) return;
     if (a.id === "book-send") track("generate_lead", { method: "cita_boda" });
+    else if (a.href && a.href.indexOf("g.page/r/") > -1) track("resena_google");
     else if (a.id === "wa-float") track("contacto_whatsapp", { lugar: "boton_flotante" });
     else if ((a.getAttribute("data-wa") || "").indexOf("restaurar") > -1) track("restaurar_foto");
     else if (a.hasAttribute("data-wa")) track("contacto_whatsapp", { lugar: (a.closest("section") || {}).id || "otro" });
