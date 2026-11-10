@@ -741,12 +741,14 @@ dialog.cart[open] { animation: slide .25s ease; }
 </style>
 <script>
   /* GOOGLE ANALYTICS: pegar aquí el ID de medición (empieza con G-). Vacío = no se carga nada. */
-  var GA_ID = "";
+  var GA_ID = "G-XXP3QDV2FL";
   if (GA_ID) {
     var gs = document.createElement("script"); gs.async = true; gs.src = "https://www.googletagmanager.com/gtag/js?id=" + GA_ID; document.head.appendChild(gs);
     window.dataLayer = window.dataLayer || []; window.gtag = function () { dataLayer.push(arguments); };
     gtag("js", new Date()); gtag("config", GA_ID);
   }
+  /* Acciones importantes que se cuentan en Analytics */
+  function track(name, params) { try { if (window.gtag) gtag("event", name, params || {}); } catch (e) {} }
 </script>
 </head>
 <body>
@@ -1835,6 +1837,7 @@ dialog.cart[open] { animation: slide .25s ease; }
   function save() { try { localStorage.setItem(KEY, JSON.stringify(cart.map(function (l) { return { pid: l.pid, oi: l.oi, qty: l.qty, gift: l.gift, songs: l.songs }; }))); } catch (e) {} }
 
   function addLine(l) {
+    track("add_to_cart", { currency: "CRC", value: l.total, items: [{ item_id: l.pid, item_name: l.name, quantity: l.qty, price: Math.round(l.total / Math.max(1, l.qty)) }] });
     var same = cart.filter(function (c) { return c.pid === l.pid && c.oi === l.oi && c.gift === l.gift && c.songs === l.songs; })[0];
     if (same) { var i = cart.indexOf(same); cart[i] = lineOf(l.pid, l.oi, same.qty + l.qty, l.gift, l.songs); }
     else cart.push(l);
@@ -1970,11 +1973,19 @@ dialog.cart[open] { animation: slide .25s ease; }
   });
   send.addEventListener("click", function (e) {
     if (e.defaultPrevented) return;
+    track("generate_lead", { method: "pedido_whatsapp", currency: "CRC", value: total() });
     sparkle(send);
     $("#sent-again").href = send.href;
     setTimeout(function () { var o = $("#sent"); o.hidden = false; o.classList.remove("pop"); void o.offsetWidth; o.classList.add("pop"); $("#sent-close").focus(); }, 350);
   });
   $("#sent-close").addEventListener("click", function () { $("#sent").hidden = true; dlg.close(); });
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest("a"); if (!a) return;
+    if (a.id === "book-send") track("generate_lead", { method: "cita_boda" });
+    else if (a.id === "wa-float") track("contacto_whatsapp", { lugar: "boton_flotante" });
+    else if ((a.getAttribute("data-wa") || "").indexOf("restaurar") > -1) track("restaurar_foto");
+    else if (a.hasAttribute("data-wa")) track("contacto_whatsapp", { lugar: (a.closest("section") || {}).id || "otro" });
+  });
   $("#sent-clear").addEventListener("click", function () { cart = []; save(); renderCart(); $("#sent").hidden = true; dlg.close(); toast("Listo, tu pedido quedó vacío."); });
   dlg.addEventListener("close", function () { $("#sent").hidden = true; });
 
