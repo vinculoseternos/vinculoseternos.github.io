@@ -7,7 +7,14 @@
 <meta name="description" content="Acumulamos miles de fotografías, pero dedicamos cada vez menos tiempo a recordar. Vínculos Eternos convierte tus fotos en recuerdos que brillan cerca de ti.">
 <meta property="og:title" content="Vínculos Eternos">
 <meta property="og:description" content="No vendemos imanes. Ayudamos a las personas a detenerse un momento y recordar lo que realmente importa.">
-<meta property="og:image" content="assets/img/productos/boda-iman.webp">
+<meta property="og:image" content="https://vinculoseternos.github.io/assets/brand/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://vinculoseternos.github.io/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="assets/brand/favicon.png">
+<link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/ZTOtez-Italic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -376,7 +383,7 @@ dialog.pd[open] { animation: pop .22s ease; }
   .game { padding-block: 44px 52px; }
   .game .wrap { gap: 12px; }
   .game .sub { display: none; }
-  .stage { height: min(58vh, 380px); }
+  .stage { height: min(52vh, 350px); }
   .g-steps li { font-size: .72rem; width: clamp(56px, 17vw, 76px); }
   .prompt { position: relative; z-index: 2; }
   .g-kipi { bottom: -10px; width: 190px; }
@@ -386,6 +393,12 @@ dialog.pd[open] { animation: pop .22s ease; }
 .price .tier-note { display: block; font-size: .72rem; font-weight: 500; color: var(--muted); margin-top: 2px; }
 .date-es { display: block; margin-top: 4px; font-size: .82rem; color: var(--rosa-texto); }
 p, li, blockquote { text-wrap: pretty; }
+
+/* Toques finales */
+@media (max-width: 780px) { .quote figure { order: 2; max-width: 300px; } }
+@media (max-width: 700px) { .pd-thumbs { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; padding-bottom: 2px; } .pd-thumbs::-webkit-scrollbar { display: none; } .pd-thumbs button { flex: none; width: 56px; height: 56px; } }
+.slot-l { letter-spacing: .02em; }
+.closing-note { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: center; margin-top: 32px; text-align: center; } .closing-note p { width: 100%; margin: 0; font: italic 400 clamp(1.2rem, 2.4vw, 1.5rem)/1.3 var(--f-sub); color: var(--rosa-texto); } .closing-note .btn-line { color: var(--conexion); }
 
 /* Chispas y Kipi (detalles juguetones) */
 .sparks { position: fixed; left: 0; top: 0; width: 0; height: 0; pointer-events: none; z-index: 60; }
@@ -414,7 +427,7 @@ p, li, blockquote { text-wrap: pretty; }
 .game .sub { color: var(--aura); font-size: clamp(1.3rem, 2.6vw, 1.75rem); }
 
 .g-steps { list-style: none; margin: 10px 0 0; padding: 0; display: flex; gap: clamp(6px, 2vw, 18px); counter-reset: s; }
-.g-steps li { display: grid; justify-items: center; gap: 6px; font-size: .72rem; font-weight: 600; color: rgba(248,239,232,.55); width: clamp(54px, 13vw, 84px); transition: color .3s; }
+.g-steps li { display: grid; justify-items: center; gap: 6px; font-size: .75rem; font-weight: 600; color: rgba(248,239,232,.78); width: clamp(54px, 13vw, 84px); transition: color .3s; }
 .g-steps li::before { counter-increment: s; content: counter(s); width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; border: 1.5px solid rgba(248,239,232,.35); font-size: .8rem; transition: background .3s, border-color .3s, color .3s, transform .4s var(--ease); }
 .g-steps li.on { color: var(--destello); }
 .g-steps li.on::before { background: var(--destello); color: var(--recuerdo); border-color: var(--destello); transform: scale(1.12); }
@@ -512,13 +525,13 @@ p, li, blockquote { text-wrap: pretty; }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
 @media (max-width: 600px) {
-  .stage { height: 400px; border-radius: 22px; }
+  .stage { height: min(52vh, 350px); border-radius: 22px; }
   .printer { width: 230px; top: 30px; }
   .pic { top: 130px; width: 160px; }
   .pic.cap { top: 78px; width: 190px; }
   .pic.give { top: 284px; width: 84px; }
   .g-kipi { width: 220px; }
-  .g-steps li { font-size: .66rem; }
+  .g-steps li { font-size: .75rem; }
 }
 @media (prefers-reduced-motion: reduce) {
   .game *, .game *::before, .game *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; transition-delay: 0s !important; }
@@ -1217,6 +1230,7 @@ dialog.cart[open] { animation: slide .25s ease; }
         <figure class="msg wa"><figcaption><b>Tami</b> · WhatsApp</figcaption><blockquote>Hola, ya me llegó. ¡Muchísimas gracias, están hermosos!</blockquote><span class="meta"><svg class="seen" viewBox="0 0 18 12" aria-label="Visto"><path d="M1 6.5l3.2 3.2L10.5 3M6.6 9.4l.6.6L13.5 3.3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></figure>
         <figure class="msg ig"><figcaption><span class="ava" aria-hidden="true">K</span><b>Katia</b> · en Instagram</figcaption><blockquote>Hermoso trabajo, ¡súper recomendados!</blockquote><span class="meta"><svg class="heart" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.7 4.5c2.1 0 3.5 1.2 4.3 2.4.8-1.2 2.2-2.4 4.3-2.4 3.7 0 5.8 3.9 4.3 7.3C19.5 16.4 12 21 12 21Z"/></svg> Me gusta</span></figure>
       </div>
+      <div class="closing-note"><p>¿El próximo recuerdo es el tuyo?</p><a class="btn btn-main" href="#catalogo">Elegir mi recuerdo</a><a class="btn btn-line" data-wa="Hola Vínculos Eternos, tengo una consulta." href="https://wa.me/50671821161" target="_blank" rel="noopener">Escribirnos</a></div>
     </div>
   </section>
   </div>
@@ -1429,7 +1443,7 @@ dialog.cart[open] { animation: slide .25s ease; }
         { src: "assets/img/restauracion/mama-antes.webp", pos: "50% 20%", alt: "La foto original, pegada en un cuaderno y desteñida" }
       ],
       desc: "Esa foto vieja, rota, manchada o desteñida, reconstruida con ayuda de inteligencia artificial para que vuelvas a ver bien a quien está en ella.",
-      details: ["Mándanos la foto por WhatsApp, aunque esté muy dañada.", "Te mostramos el resultado para que lo apruebes.", "Son ₡1 000 extra por cada foto restaurada, sobre el precio del imán. Agrega también tus fotos imantadas al pedido."],
+      details: ["Mándanos la foto por WhatsApp, aunque esté muy dañada.", "Te mostramos el resultado para que lo apruebes.", "Son ₡1 000 extra por cada foto restaurada, sobre el precio del imán.", "Importante: agrega también tus fotos imantadas al pedido, una por cada foto restaurada."],
       options: [{ label: "Fotos restauradas", price: 1000, unit: ["foto", "fotos"], tag: "+₡1 000 c/u" }], extra: true },
     { id: "empaque", cat: "Regalos", name: "Empaque para regalo", photos: [
         { src: "assets/img/productos/empaque-1.webp", pos: "50% 45%", alt: "Tarjeta kraft con un girasol y dos sobrecitos con imanes de una pareja" },
@@ -1439,7 +1453,7 @@ dialog.cart[open] { animation: slide .25s ease; }
       ],
       desc: "Una tarjeta kraft con flor y sobrecitos donde van tus imanes, lista para colgar y regalar sin tener que envolver nada.",
       details: ["Cada tarjeta lleva hasta 2 imanes, en sus sobrecitos con la palabra love.", "Elige cuántas tarjetas quieres: por ejemplo, 1 para regalar 2 imanes.", "Los demás imanes del pedido van en nuestro empaque normal, que ya está incluido."],
-      options: [{ label: "Tarjetas de regalo", price: 1000, unit: ["empaque", "empaques"], tag: "₡1 000 c/u · hasta 2 imanes" }] }
+      options: [{ label: "Tarjetas", price: 1000, unit: ["tarjeta", "tarjetas"], tag: "₡1 000 c/u · hasta 2 imanes" }] }
   ];
   var byId = {};
   PRODUCTS.forEach(function (p) { byId[p.id] = p; });
@@ -1621,6 +1635,7 @@ dialog.cart[open] { animation: slide .25s ease; }
   }
   function openDetail(pid) {
     var p = byId[pid];
+    $("#toast").classList.remove("show");
     pdSrc = $("#p-" + pid + " .ph");
     pd.dataset.pid = pid;
     $(".pd-cat", pd).textContent = p.cat;
@@ -2077,14 +2092,14 @@ dialog.cart[open] { animation: slide .25s ease; }
       }
       function up(ev) {
         document.removeEventListener("pointermove", move); document.removeEventListener("pointerup", up); document.removeEventListener("pointercancel", up);
-        if (!ghost) { var sp = freeSpot(); place(src, sp[0], sp[1]); return; }
+        if (!ghost) { var sp = freeSpot(); place(src, sp[0], sp[1]); tray._placed = Date.now(); return; }
         ghost.remove();
         var r = inFridge(ev.clientX, ev.clientY);
         if (r && ev.type === "pointerup") place(src, (ev.clientX - r.left) / r.width * 100 - 11, (ev.clientY - r.top) / r.height * 100 - 8);
       }
       document.addEventListener("pointermove", move); document.addEventListener("pointerup", up); document.addEventListener("pointercancel", up);
     });
-    tray.addEventListener("click", function (e) { if (e.detail === 0) { var src = e.target.closest(".tmag"); if (src) { var sp = freeSpot(); place(src, sp[0], sp[1]); } } });
+    tray.addEventListener("click", function (e) { if (e.detail === 0 && Date.now() - (tray._placed || 0) > 600) { var src = e.target.closest(".tmag"); if (src) { var sp = freeSpot(); place(src, sp[0], sp[1]); } } });
 
     // En la refri: arrastrar mueve; sacarlo de la refri lo quita
     fr.addEventListener("pointerdown", function (e) {
