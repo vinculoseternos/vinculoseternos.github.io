@@ -1585,7 +1585,6 @@ dialog.cart[open] { animation: slide .25s ease; }
         '<div class="qty"><label class="qty-l" for="q-' + p.id + '">Cantidad</label><div class="stepper"><button type="button" data-step="-1" aria-label="Menos">−</button><input class="q" id="q-' + p.id + '" type="number" inputmode="numeric" min="1" max="999" value="1"><button type="button" data-step="1" aria-label="Más">+</button></div><p class="qty-hint" aria-live="polite"></p></div>' +
         (p.song ? '<label class="check"><input type="checkbox" data-song-on> ¿Con música? <small>opcional · +' + crc(p.song) + ' por canción · cada canción va en un calendario</small></label>' +
                  '<div class="qty" data-song-row hidden><span>Canciones</span><div class="stepper" data-songs><button type="button" data-step="-1" aria-label="Menos canciones">−</button><output>1</output><button type="button" data-step="1" aria-label="Más canciones">+</button></div><p class="qty-hint song-hint">Después nos dices en cuál calendario va cada canción.</p></div>' : "") +
-        (p.gift ? '<label class="check"><input type="checkbox" data-gift> Empaque para regalo <small>opcional · uno por pedido · +' + crc(p.gift) + "</small></label>" : "") +
       "</div>" +
       '<p class="unit-note" hidden></p>' +
       '<div class="buy"><span class="price" aria-live="polite"></span><button class="btn btn-main" type="button" data-add>Agregar al pedido</button></div>' +
@@ -1926,7 +1925,6 @@ dialog.cart[open] { animation: slide .25s ease; }
       var d = [l.detail].concat(l.extras).filter(Boolean).join(", ");
       lines.push("• " + l.name + (d ? " (" + d + ")" : "") + ": " + crc(lineTotal(l)));
     });
-    if (giftFee()) lines.push("• Empaque para regalo (uno por pedido): " + crc(giftFee()));
     lines.push("Total: " + crc(total()), "Adelanto del 50 %: " + crc(Math.ceil(total() / 2)), "Entrega: " + $("#f-entrega").value);
     var dir = $("#f-dir").value.trim(), fecha = $("#f-fecha").value, forma = $("#f-forma").value.trim(), canc = $("#f-canciones").value.trim();
     if (dir && !$('[data-need="address"]').hidden) lines.push("Dirección: " + dir);
