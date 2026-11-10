@@ -1402,9 +1402,14 @@ dialog.cart[open] { animation: slide .25s ease; }
       desc: "Esa foto vieja, rota, manchada o desteñida, reconstruida con ayuda de inteligencia artificial para que vuelvas a ver bien a quien está en ella.",
       details: ["Mándanos la foto por WhatsApp, aunque esté muy dañada.", "Te mostramos el resultado para que lo apruebes.", "Son ₡1 000 extra por cada foto restaurada, sobre el precio del imán. Agrega también tus fotos imantadas al pedido."],
       options: [{ label: "Fotos restauradas", price: 1000, unit: ["foto", "fotos"], tag: "+₡1 000 c/u" }], extra: true },
-    { id: "empaque", cat: "Regalos", name: "Empaque para regalo", photos: [],
-      desc: "Para que tu pedido llegue listo para regalar, sin tener que envolver nada.",
-      details: ["Un empaque por pedido.", "Agrégalo junto con tus fotos imantadas o cualquier otro producto."],
+    { id: "empaque", cat: "Regalos", name: "Empaque para regalo", photos: [
+        { src: "assets/img/productos/empaque-1.webp", pos: "50% 45%", alt: "Tarjeta kraft con un girasol y dos sobrecitos con imanes de una pareja" },
+        { src: "assets/img/productos/empaque-2.webp", pos: "50% 45%", alt: "Tarjeta kraft con un girasol, una prensita y un imán dentro de un sobrecito" },
+        { src: "assets/img/productos/empaque-3.webp", pos: "50% 50%", alt: "Tres tarjetas kraft de regalo con sobrecitos que dicen love" },
+        { src: "assets/img/productos/empaque-4.webp", pos: "50% 45%", alt: "Dos tarjetas kraft de regalo, una con girasol y otra con rosa roja" }
+      ],
+      desc: "Una tarjeta kraft con flor y sobrecitos donde van tus imanes, lista para colgar y regalar sin tener que envolver nada.",
+      details: ["Tarjeta kraft con cordón, flor y sobrecitos con la palabra love.", "Tus imanes van dentro de los sobrecitos.", "Agrégalo junto con tus fotos imantadas."],
       options: [{ label: "Empaque", price: 1000, unit: ["empaque", "empaques"] }] }
   ];
   var byId = {};
