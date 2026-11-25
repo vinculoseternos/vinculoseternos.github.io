@@ -85,7 +85,8 @@ header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; 
 .logo { display: inline-block; padding-block: 6px; }
 .logo img { height: 30px; width: auto; }
 nav.links { display: flex; gap: 24px; font-size: .92rem; font-weight: 500; }
-nav.links a { text-decoration: none; padding-block: 10px; }
+nav.links a { text-decoration: none; padding-block: 10px; white-space: nowrap; }
+@media (min-width: 901px) and (max-width: 1340px) { nav.links { gap: 16px; font-size: .86rem; } }
 nav.links a:hover, nav.links a[aria-current="page"] { color: var(--conexion); }
 nav.links a[aria-current="page"] { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 8px; }
 .cart-btn { padding: 10px 18px; font-size: .85rem; }
@@ -405,6 +406,81 @@ p, li, blockquote { text-wrap: pretty; }
 .song-hint { display: block !important; color: var(--muted); width: 100%; }
 
 .g-review { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px 18px; margin: 30px auto 0; padding: 18px 22px; max-width: 720px; background: var(--papel); border: 1px solid var(--linea); border-radius: 20px; text-align: center; } .g-review p { margin: 0; color: var(--muted); } .g-review p b { color: var(--recuerdo); } .g-review .btn svg { color: #e2a62f; }
+
+/* Página Navidad */
+.nav-xmas { color: var(--conexion) !important; }
+.nav-xmas::before { content: "✦ "; color: #d9a43a; }
+.xmas-strip { display: block; background: var(--papel); border-bottom: 1px solid var(--linea); text-decoration: none; color: var(--recuerdo); }
+.xmas-strip .wrap { display: flex; align-items: center; gap: 16px; padding-block: 14px; }
+.xmas-strip img { width: 56px; height: 56px; object-fit: cover; border-radius: 12px; flex: none; box-shadow: var(--shadow); }
+.xmas-strip b { display: block; font-family: var(--f-title); color: var(--conexion); }
+.xmas-strip span { min-width: 0; }
+.xmas-strip .xs-go { margin-left: auto; flex: none; display: inline-flex; align-items: center; gap: 6px; font-weight: 600; color: var(--conexion); }
+.xmas-strip .xs-go svg { width: 18px; height: 18px; transition: transform .25s; }
+.xmas-strip:hover .xs-go svg { transform: translateX(4px); }
+@media (max-width: 560px) { .xmas-strip .xs-go { display: none; } .xmas-strip { font-size: .9rem; } }
+.xmas-note { display: inline-block; margin: -16px 0 28px; padding: 10px 16px; border-radius: 999px; background: var(--aura); color: var(--recuerdo); text-decoration: none; font-size: .92rem; }
+.xmas-note b { color: var(--conexion); }
+.xmas-hero { background: var(--recuerdo); color: var(--destello); overflow: hidden; padding-top: clamp(72px, 10vw, 110px); }
+.xmas-hero .wrap { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(32px, 6vw, 72px); align-items: center; }
+.xmas-hero h1 { font-size: clamp(2.3rem, 6vw, 4.2rem); text-transform: uppercase; color: var(--destello); }
+.xmas-hero .eyebrow { color: #f2c76b; }
+.xmas-hero .sub { font-family: var(--f-sub); font-style: italic; font-size: clamp(1.15rem, 2.2vw, 1.45rem); color: var(--aura); max-width: 40ch; margin: 18px 0 28px; }
+.xh-copy { display: grid; align-content: center; }
+.xh-cta { display: flex; flex-wrap: wrap; gap: 12px; }
+.xmas-hero .btn-line { color: var(--destello); }
+.xh-box { margin: 0; display: grid; gap: 18px; justify-items: center; }
+.xh-photo { position: relative; width: min(100%, 420px); aspect-ratio: 4 / 5; border-radius: 26px; overflow: hidden; box-shadow: 0 30px 60px -24px rgba(0,0,0,.7); }
+.xh-photo img { width: 100%; height: 100%; object-fit: cover; filter: brightness(.42) saturate(.7); transition: filter 1s cubic-bezier(0.16, 1, 0.3, 1); }
+.xh-glow { position: absolute; inset: 0; background: radial-gradient(60% 45% at 50% 62%, rgba(255, 205, 120, .45), transparent 70%); opacity: 0; transition: opacity 1s; mix-blend-mode: screen; }
+.xh-sparks { position: absolute; inset: 0; opacity: 0; transition: opacity .8s .2s; }
+.xh-sparks i { position: absolute; width: 6px; height: 6px; border-radius: 50%; background: var(--c); box-shadow: 0 0 8px 2px var(--c); animation: titila 2.4s ease-in-out infinite; }
+.xh-box.on .xh-photo img { filter: none; }
+.xh-box.on .xh-glow, .xh-box.on .xh-sparks { opacity: 1; }
+.xh-switch { display: inline-flex; align-items: center; gap: 12px; padding: 12px 22px 12px 12px; border-radius: 999px; border: 1.5px solid rgba(248,239,232,.4); background: rgba(248,239,232,.08); color: var(--destello); font: 600 .95rem/1 var(--f-body); cursor: pointer; }
+.sw-dot { width: 44px; height: 26px; border-radius: 999px; background: rgba(248,239,232,.25); position: relative; transition: background .3s; }
+.sw-dot::after { content: ""; position: absolute; top: 3px; left: 3px; width: 20px; height: 20px; border-radius: 50%; background: var(--destello); transition: transform .3s cubic-bezier(0.16, 1, 0.3, 1); }
+.xh-box.on .sw-dot { background: #e0a83c; box-shadow: 0 0 14px rgba(255, 205, 120, .8); }
+.xh-box.on .sw-dot::after { transform: translateX(18px); }
+.xh-switch:hover { border-color: var(--destello); }
+@media (max-width: 780px) { .xmas-hero .wrap { grid-template-columns: 1fr; } .xh-photo { width: min(100%, 340px); } }
+.xhow { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+.xhow li { display: grid; gap: 10px; align-content: start; }
+.xhow .ph, .flip { border-radius: 20px; overflow: hidden; aspect-ratio: 4 / 5; box-shadow: var(--shadow); }
+.xhow .ph img { width: 100%; height: 100%; object-fit: cover; }
+.xhow h3 { font-size: 1.15rem; color: var(--rosa); margin-top: 8px; }
+.xhow p { margin: 0; color: var(--muted); }
+@media (max-width: 780px) { .xhow { grid-template-columns: 1fr; max-width: 420px; } }
+.flip { position: relative; display: block; width: 100%; padding: 0; border: 0; background: none; cursor: pointer; perspective: 1200px; overflow: visible; box-shadow: none; }
+.flip-in { position: absolute; inset: 0; transform-style: preserve-3d; transition: transform .8s cubic-bezier(0.16, 1, 0.3, 1); }
+.flip.back .flip-in { transform: rotateY(180deg); }
+.flip img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 20px; backface-visibility: hidden; box-shadow: var(--shadow); }
+.flip .f-back { transform: rotateY(180deg); }
+.flip-tag { position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%); padding: 7px 14px; border-radius: 999px; background: rgba(62,30,30,.78); color: var(--destello); font-size: .8rem; font-weight: 600; white-space: nowrap; }
+.xmas-card { background: var(--aura); }
+.xmas-card .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 72px); align-items: center; }
+.xc-copy { display: grid; gap: 14px; }
+.xc-copy .xh-cta { margin-top: 10px; }
+.qcard { position: relative; background: #f6efe6; border-radius: 10px; padding: 26px 28px 30px; box-shadow: 0 24px 40px -22px rgba(62,30,30,.55); transform: rotate(-2.5deg); min-height: 250px; display: grid; align-content: start; gap: 14px; outline: 1.5px solid #8a6b67; outline-offset: -10px; }
+.qc-top { display: flex; justify-content: space-between; font-family: var(--f-sub); font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: #6e4f4c; }
+.qc-q { font-family: var(--f-sub); font-style: italic; font-weight: 700; font-size: clamp(1.25rem, 2.4vw, 1.6rem); color: var(--recuerdo); margin: 4px 0 0; max-width: 78%; line-height: 1.25; }
+.qc-lines { display: grid; gap: 22px; margin-top: 12px; max-width: 74%; }
+.qc-lines i { display: block; height: 1px; background: #b9a29d; }
+.qc-kipi { position: absolute; right: 18px; bottom: 16px; width: 96px; height: auto; }
+.qcard.deal { animation: deal .6s cubic-bezier(0.16, 1, 0.3, 1); }
+@keyframes deal { 0% { transform: rotate(-12deg) translate(-30px, 20px); opacity: 0; } 100% { transform: rotate(-2.5deg); opacity: 1; } }
+@media (max-width: 780px) { .xmas-card .wrap { grid-template-columns: 1fr; } .qcard { padding: 22px 20px 26px; } .qc-kipi { width: 72px; } }
+.card.product { position: relative; }
+.badge-x { position: absolute; top: 14px; left: 14px; z-index: 2; padding: 7px 12px; border-radius: 999px; background: var(--conexion); color: var(--destello); font-size: .75rem; font-weight: 700; letter-spacing: .04em; box-shadow: 0 6px 14px -6px rgba(62,30,30,.6); }
+.xmas-metal { padding-top: 0; }
+.metal-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.mt { display: grid; gap: 0; padding: 0; border: 1px solid var(--linea); border-radius: 18px; overflow: hidden; background: var(--papel); text-align: left; cursor: pointer; font: inherit; color: var(--recuerdo); transition: box-shadow .3s, transform .3s; }
+.mt img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+.mt span { display: grid; gap: 2px; padding: 14px 16px 16px; font-size: .88rem; color: var(--muted); }
+.mt b { font-size: 1rem; color: var(--recuerdo); }
+.mt:hover { box-shadow: var(--shadow); transform: translateY(-3px); }
+@media (max-width: 900px) { .metal-row { grid-template-columns: repeat(2, 1fr); } }
+.xmas-close .wrap { display: grid; justify-items: center; gap: 16px; text-align: center; }
 
 /* Navidad: luces colgantes (quitar la clase "navidad" del <html> para apagarlas) */
 .luces { position: absolute; left: 0; right: 0; top: 0; height: 44px; pointer-events: none; z-index: 6; overflow: visible; }
@@ -824,6 +900,7 @@ dialog.cart[open] { animation: slide .25s ease; }
     <a class="logo" href="#inicio"><img src="assets/brand/logo-recuerdo.webp" alt="Vínculos Eternos" width="1000" height="141"></a>
     <nav class="links" aria-label="Secciones">
       <a href="#inicio">Inicio</a>
+      <a href="#navidad" class="nav-xmas">Navidad</a>
       <a href="#eventos">Bodas y eventos</a>
       <a href="#catalogo">Catálogo</a>
       <a href="#ideas">Ideas</a>
@@ -858,6 +935,9 @@ dialog.cart[open] { animation: slide .25s ease; }
     <p class="hero-hint" id="hero-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Mueve el dedo sobre las fotos</span></p>
   </section>
 
+<a class="xmas-strip" href="#navidad">
+    <span class="wrap"><img src="assets/img/navidad/caja-cerrada.webp" alt="" width="1000" height="1250" loading="lazy"><span><b>Regalos de Navidad</b> Cajas vitrina con luces, tus imanes y una carta para recordar.</span><span class="xs-go">Ver las cajas <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
+  </a>
 <section class="wed-band" aria-labelledby="wed-t">
     <div class="wrap">
       <figure class="wed-photo"><img src="assets/img/productos/boda-iman.webp" alt="Novios sosteniendo un imán con su foto de boda" loading="lazy" width="733" height="1100" style="object-position:50% 42%"></figure>
@@ -938,6 +1018,90 @@ dialog.cart[open] { animation: slide .25s ease; }
   </section>
   </div>
 
+  <div class="page" id="navidad" data-title="Navidad · Vínculos Eternos" hidden>
+<section class="xmas-hero" aria-labelledby="xmas-t">
+    <div class="wrap">
+      <div class="xh-copy">
+        <span class="eyebrow">Navidad 2026</span>
+        <h1 id="xmas-t">Enciende tus recuerdos</h1>
+        <p class="sub">Una caja vitrina con luces por dentro, tus fotos imantadas y una carta para volver a los momentos que importan.</p>
+        <div class="xh-cta"><a class="btn btn-main" href="#cajas">Ver las cajas</a><a class="btn btn-line" href="#saca-carta">Saca una carta</a></div>
+      </div>
+      <figure class="xh-box" id="xh-box">
+        <div class="xh-photo"><img src="assets/img/navidad/caja-cerrada.webp" alt="Caja transparente con lazo rosado, la franja de Vínculos Eternos con Kipi y fotos imantadas adentro" width="1000" height="1250"><span class="xh-glow" aria-hidden="true"></span><span class="xh-sparks" aria-hidden="true"></span></div>
+        <button class="xh-switch" type="button" id="xh-switch" aria-pressed="false"><span class="sw-dot" aria-hidden="true"></span><span class="sw-txt">Enciende tus recuerdos</span></button>
+      </figure>
+    </div>
+  </section>
+
+<section class="xmas-how" aria-labelledby="xhow-t">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Así es la caja</span>
+        <h2 id="xhow-t">Una vitrina para tus fotos</h2>
+        <p class="lead">Es transparente: tus imanes se ven desde afuera sin abrirla. Afuera lleva la franja de la marca y el interruptor; adentro, las luces, tus fotos y la carta.</p>
+      </div>
+      <ol class="xhow">
+        <li><div class="ph iman-ph"><img src="assets/img/navidad/caja-cerrada.webp" alt="La caja cerrada con lazo y la franja de Vínculos Eternos" loading="lazy" width="1000" height="1250"></div><h3>Por fuera</h3><p>Caja vitrina con lazo, la franja de Vínculos Eternos y el interruptor para encender las luces.</p></li>
+        <li><div class="ph iman-ph"><img src="assets/img/navidad/caja-abierta.webp" alt="La caja abierta con fotos imantadas, luces y la carta encima" loading="lazy" width="1000" height="1250"></div><h3>Por dentro</h3><p>Tus fotos imantadas en las caras de la caja, con luces navideñas alrededor.</p></li>
+        <li><button class="flip" type="button" id="flip" aria-label="Voltear la carta"><span class="flip-in"><img class="f-front" src="assets/img/navidad/carta-frente.webp" alt="Frente de la carta: No soy solo una foto, soy una risa, una fecha, una historia, un momento que no querías olvidar" loading="lazy" width="1000" height="1250"><img class="f-back" src="assets/img/navidad/carta-reverso.webp" alt="Reverso de la carta: Colección momentos, ¿Qué recuerdo siempre te hace reír?, con líneas para responder" loading="lazy" width="1000" height="1250"></span><span class="flip-tag">Toca para voltear</span></button><h3>La carta</h3><p>De un lado, un mensaje. Del otro, una pregunta de la <b>Colección de momentos</b> para responder a mano.</p></li>
+      </ol>
+    </div>
+  </section>
+
+<section class="xmas-card" id="saca-carta" aria-labelledby="carta-t">
+    <div class="wrap">
+      <div class="xc-copy">
+        <span class="eyebrow">Colección de momentos</span>
+        <h2 id="carta-t">Saca una carta</h2>
+        <p class="lead">Cada caja trae una pregunta para detenerse y recordar. Prueba con una y respóndela en voz alta, o mándasela a alguien.</p>
+        <div class="xh-cta"><button class="btn btn-main" type="button" id="draw">Sacar otra carta</button><a class="btn btn-line" id="share-q" href="#" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Enviársela a alguien</a></div>
+      </div>
+      <div class="qcard" id="qcard" aria-live="polite">
+        <div class="qc-top"><span>Colección momentos</span><span>N.º <b id="qn">01</b></span></div>
+        <p class="qc-q" id="qq">¿Qué recuerdo siempre te hace reír?</p>
+        <div class="qc-lines" aria-hidden="true"><i></i><i></i><i></i></div>
+        <img class="qc-kipi" src="assets/brand/kippi-abrazo-crema-botas-navidad.webp" alt="" width="600" height="642">
+      </div>
+    </div>
+  </section>
+
+<section class="xmas-boxes" id="cajas" aria-labelledby="cajas-t">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Cajas navideñas</span>
+        <h2 id="cajas-t">Elige tu caja</h2>
+        <p class="lead">Todas son la caja vitrina con luces y la carta. Elige qué va adentro y agrégala a tu pedido; al final lo envías por WhatsApp con tus fotos.</p>
+      </div>
+      <div class="grid" id="xmas-grid"></div>
+    </div>
+  </section>
+
+<section class="xmas-metal" aria-labelledby="metal-t">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Para colgar en la pared</span>
+        <h2 id="metal-t">Siluetas de metal</h2>
+        <p class="lead">Se cuelgan como un cuadro y encima van tus fotos imantadas. Un regalo que la familia va llenando con los años.</p>
+      </div>
+      <div class="metal-row">
+        <button class="mt" type="button" data-open="metal" data-oi="0"><img src="assets/img/productos/corazon-10.webp" alt="Corazón de metal con fotos imantadas" loading="lazy" width="800" height="1000"><span><b>Corazón</b>₡10 000</span></button>
+        <button class="mt" type="button" data-open="metal" data-oi="1"><img src="assets/img/productos/metal-patita.webp" alt="Corazón de metal con una patita y fotos de mascotas" loading="lazy" width="800" height="1000"><span><b>Corazón con patita</b>₡10 000 · para mascotas</span></button>
+        <button class="mt" type="button" data-open="metal" data-oi="2"><img src="assets/img/productos/metal-arbol.webp" alt="Árbol de metal con la palabra Family y fotos de la familia" loading="lazy" width="800" height="1000"><span><b>Árbol Family</b>₡12 000 · árbol genealógico</span></button>
+        <button class="mt" type="button" data-open="metal" data-oi="3"><img src="assets/img/productos/metal-viajes.webp" alt="Silueta de metal con lugares famosos del mundo y fotos de viajes" loading="lazy" width="800" height="1000"><span><b>Viajes</b>₡12 000 · tus lugares favoritos</span></button>
+      </div>
+    </div>
+  </section>
+
+<section class="closing xmas-close">
+    <div class="wrap">
+      <img class="kippi" src="assets/brand/kippi-camara-crema-navidad.webp" alt="" width="600" height="564" loading="lazy">
+      <p class="sub">Pide con tiempo: cada pedido toma cerca de una semana.</p>
+      <a class="btn btn-main" data-wa="Hola Vínculos Eternos, quiero una caja navideña." href="https://wa.me/50671821161" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Preguntar por WhatsApp</a>
+    </div>
+  </section>
+  </div>
+
   <div class="page" id="catalogo" data-title="Catálogo · Vínculos Eternos" hidden>
 <section>
     <div class="wrap">
@@ -946,6 +1110,7 @@ dialog.cart[open] { animation: slide .25s ease; }
         <h1 class="as-h2">Elige tu recuerdo</h1>
         <p class="lead">Toca un producto para ver sus opciones y agregarlo a tu pedido. Al final lo envías por WhatsApp con tus fotos.</p>
       </div>
+      <a class="xmas-note" href="#navidad"><b>Navidad:</b> mira las cajas vitrina con luces, osito y carta <span aria-hidden="true">→</span></a>
       <!-- Las tarjetas se generan desde PRODUCTOS en el script de abajo. Ahí se cambian precios y textos. -->
       <div class="grid" id="products"></div>
       <noscript><p class="lead">Para armar tu pedido escríbenos al WhatsApp 7182-1161.</p></noscript>
@@ -1356,7 +1521,7 @@ dialog.cart[open] { animation: slide .25s ease; }
 <footer>
   <div class="wrap">
     <span>© <span id="year">2026</span> Vínculos Eternos · Fotografía encapsulada</span>
-    <nav class="foot-links" aria-label="Páginas"><a href="#eventos">Bodas y eventos</a><a href="#catalogo">Catálogo</a><a href="#ideas">Ideas</a><a href="#nosotros">Sobre nosotros</a><a href="#preguntas">Preguntas frecuentes</a><a href="#contacto">Contacto</a></nav>
+    <nav class="foot-links" aria-label="Páginas"><a href="#navidad">Navidad</a><a href="#eventos">Bodas y eventos</a><a href="#catalogo">Catálogo</a><a href="#ideas">Ideas</a><a href="#nosotros">Sobre nosotros</a><a href="#preguntas">Preguntas frecuentes</a><a href="#contacto">Contacto</a></nav>
     <div class="contact">
       <a href="https://www.instagram.com/vinculos_eternos_cr/" target="_blank" rel="noopener">Instagram @vinculos_eternos_cr</a>
       <a href="https://g.page/r/CbMhJiAF8HJJEBM/review" target="_blank" rel="noopener">Reseñas en Google</a>
@@ -1434,6 +1599,39 @@ dialog.cart[open] { animation: slide .25s ease; }
      tiers: precio por pieza según cantidad, [desde, precio]. gift: empaque de regalo. song: precio por canción.
      photos: fotos que se ven al abrir el producto (la primera es la de la tarjeta). */
   var PRODUCTS = [
+    { id: "caja-osito", xmas: true, cat: "Navidad", name: "Caja Osito", badge: "Unidades limitadas",
+      photos: [
+        { src: "assets/img/navidad/caja-cerrada.webp", pos: "50% 50%", alt: "Caja vitrina cerrada con lazo y la franja de Vínculos Eternos" },
+        { src: "assets/img/navidad/caja-abierta.webp", pos: "50% 50%", alt: "Caja vitrina abierta con fotos imantadas y luces" },
+        { src: "assets/img/navidad/carta-reverso.webp", pos: "50% 50%", alt: "La carta Colección de momentos" }
+      ],
+      desc: "Un osito de toalla y 8 de tus fotos imantadas, que se ven por todos lados de la caja sin abrirla. Con luces y la carta.",
+      details: ["Caja vitrina transparente con luces navideñas y la franja de la marca.", "Un osito de toalla adentro.", "8 fotos imantadas en las caras de la caja: los 4 lados y abajo.", "Arriba va la carta Colección de momentos.", "Quedan pocas: tenemos unidades limitadas."],
+      options: [{ label: "Caja Osito", price: 13500 }] },
+    { id: "caja-momentos", xmas: true, cat: "Navidad", name: "Caja Colección de momentos",
+      photos: [
+        { src: "assets/img/navidad/caja-abierta.webp", pos: "50% 50%", alt: "Caja vitrina abierta con fotos imantadas, luces y la carta" },
+        { src: "assets/img/navidad/caja-cerrada.webp", pos: "50% 50%", alt: "Caja vitrina cerrada con lazo" },
+        { src: "assets/img/navidad/carta-frente.webp", pos: "50% 50%", alt: "Frente de la carta" },
+        { src: "assets/img/navidad/carta-reverso.webp", pos: "50% 50%", alt: "Reverso de la carta con una pregunta para responder" }
+      ],
+      desc: "La caja llena de recuerdos: 20 de tus fotos imantadas, luces por dentro y la carta para responder.",
+      details: ["Caja vitrina transparente con luces navideñas y la franja de la marca.", "20 fotos imantadas, las que tú escojas.", "Incluye la carta Colección de momentos.", "¿Quieres más imanes? Agrégalos como Fotos imantadas en tu pedido."],
+      options: [{ label: "Caja Colección de momentos", price: 25000 }] },
+    { id: "caja-ninos", xmas: true, cat: "Navidad", name: "Caja para niños",
+      photos: [
+        { src: "assets/img/productos/dino-1.webp", pos: "50% 45%", alt: "Dinofabeto: letras de colores con dinosaurios" },
+        { src: "assets/img/navidad/caja-cerrada.webp", pos: "50% 50%", alt: "Caja vitrina cerrada con lazo" },
+        { src: "assets/img/productos/mate-1.webp", pos: "50% 50%", alt: "Matesaurios: números y signos" }
+      ],
+      desc: "El Dinofabeto o los Matesaurios dentro de la caja vitrina con luces y la carta. Para aprender jugando desde Navidad.",
+      details: ["Caja vitrina transparente con luces navideñas y la franja de la marca.", "Elige qué va adentro: Dinofabeto o Matesaurios.", "Incluye la carta Colección de momentos.", "Cuesta lo mismo que el producto solo, más ₡500 por la caja."],
+      options: [
+        { label: "Dinofabeto (27 letras)", price: 23000 },
+        { label: "Matesaurios 0 al 9", price: 13500 },
+        { label: "Matesaurios 0 al 9 + 5 signos", price: 18500 },
+        { label: "Matesaurios dobles + signos", price: 28000 }
+      ] },
     { id: "fotos", cat: "Fotos imantadas", name: "Fotos imantadas",
       photos: [
         { src: "assets/img/productos/imanes-mano.webp", pos: "50% 45%", alt: "Imanes con fotos de un recién nacido, una familia, un perro y una foto antigua" },
@@ -1483,11 +1681,14 @@ dialog.cart[open] { animation: slide .25s ease; }
         { src: "assets/img/productos/corazon-10.webp", pos: "50% 50%", alt: "Corazón de metal con diez fotos imantadas, colgado en una puerta" },
         { src: "assets/img/productos/corazon-6.webp", pos: "50% 55%", alt: "Corazón de metal con fotos imantadas de perros" },
         { src: "assets/img/productos/metal-corazon.webp", pos: "50% 50%", alt: "Silueta de corazón de metal" },
-        { src: "assets/img/productos/metal-gato.webp", pos: "50% 45%", alt: "Silueta de gato de metal" }
+        { src: "assets/img/productos/metal-gato.webp", pos: "50% 45%", alt: "Silueta de gato de metal" },
+        { src: "assets/img/productos/metal-patita.webp", pos: "50% 50%", alt: "Corazón de metal con una patita y fotos de mascotas" },
+        { src: "assets/img/productos/metal-arbol.webp", pos: "50% 45%", alt: "Árbol de metal con la palabra Family y fotos de la familia" },
+        { src: "assets/img/productos/metal-viajes.webp", pos: "50% 50%", alt: "Silueta de metal con lugares famosos del mundo y fotos de viajes" }
       ],
       desc: "Para quien no quiere llenar la refri: se cuelgan como un cuadro y encima van tus fotos imantadas.",
-      details: ["Se cuelgan en la pared como un cuadro.", "Combínalas con tus fotos imantadas.", "Formas disponibles: corazón y gato."],
-      options: [{ label: "Corazón", price: 10000 }, { label: "Gato", price: 5000 }] },
+      details: ["Se cuelgan en la pared como un cuadro.", "Combínalas con tus fotos imantadas.", "Corazón con patita: para las fotos de tus mascotas.", "Árbol Family: un árbol genealógico con la foto de cada persona.", "Viajes: con lugares famosos del mundo, para tus fotos de viaje."],
+      options: [{ label: "Corazón", price: 10000 }, { label: "Corazón con patita", price: 10000 }, { label: "Árbol Family", price: 12000 }, { label: "Viajes", price: 12000 }, { label: "Gato", price: 5000 }] },
     { id: "lampara", cat: "Lámparas", name: "Lámpara de litofanía", photos: [
         { src: "assets/img/productos/lampara-navidad.webp", pos: "50% 45%", alt: "Lámpara redonda de litofanía con un reno de Navidad" },
         { src: "assets/img/productos/lampara-angel.webp", pos: "50% 40%", alt: "Lámpara de litofanía encendida con un ángel" },
@@ -1579,7 +1780,7 @@ dialog.cart[open] { animation: slide .25s ease; }
 
   // Tarjetas del catálogo
   var KIPI_PH = '<img src="assets/brand/kippi-camara-roja-navidad.webp" alt="" width="600" height="563"><span>Fotos próximamente</span>';
-  var grid = $("#products");
+  var grid = $("#products"), xgrid = $("#xmas-grid");
   PRODUCTS.forEach(function (p) {
     var f = p.photos[0];
     var ph = '<button class="ph ph-btn' + (f ? "" : " soon") + '" type="button" data-detail aria-label="Ver fotos y detalles de ' + esc(p.name) + '">' +
@@ -1604,11 +1805,11 @@ dialog.cart[open] { animation: slide .25s ease; }
       '<p class="unit-note" hidden></p>' +
       '<div class="buy"><span class="price" aria-live="polite"></span><button class="btn btn-main" type="button" data-add>Agregar al pedido</button></div>' +
       "</div>";
-    var html = '<article class="card product" id="p-' + p.id + '" data-pid="' + p.id + '">' + ph +
+    var html = '<article class="card product" id="p-' + p.id + '" data-pid="' + p.id + '">' + (p.badge ? '<span class="badge-x">' + esc(p.badge) + "</span>" : "") + ph +
       '<div class="body"><span class="cat">' + esc(p.cat) + '</span><h2 class="h-card"><button class="link-h" type="button" data-detail>' + esc(p.name) + "</button></h2><p>" + esc(p.desc) + "</p>" +
       '<div class="buy"><span class="price"><small>' + (fromPrice(p).many ? "Desde " : "") + "</small>" + (p.extra ? "+" : "") + crc(fromPrice(p).v) + (fromPrice(p).each ? " <small>c/u</small>" : "") + (p.options.some(function (o) { return o.tiers; }) ? '<small class="tier-note">desde ' + p.options[0].tiers[p.options[0].tiers.length - 1][0] + ' imanes</small>' : "") + '</span><button class="btn btn-main" type="button" data-detail>Elegir</button></div>' +
       '<div class="ctrl-home" hidden>' + ctrl + "</div></div></article>";
-    grid.insertAdjacentHTML("beforeend", html);
+    (p.xmas ? xgrid : grid).insertAdjacentHTML("beforeend", html);
   });
 
   function qtyIn(ctrl) { return $("input.q", ctrl); }
@@ -1760,9 +1961,17 @@ dialog.cart[open] { animation: slide .25s ease; }
     var t = e.target.closest("[data-ph]");
     if (t) showPhoto(+t.dataset.ph);
   });
-  grid.addEventListener("click", function (e) {
+  [grid, xgrid].forEach(function (g) { g.addEventListener("click", function (e) {
     var d = e.target.closest("[data-detail]");
     if (d) openDetail(d.closest(".product").dataset.pid);
+  }); });
+  // Siluetas en la página Navidad: abre el detalle con la forma ya elegida
+  $$("[data-open]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var r = $('.ctrl[data-pid="' + b.dataset.open + '"] input[type=radio][value="' + (b.dataset.oi || 0) + '"]');
+      if (r) { r.checked = true; r.dispatchEvent(new Event("change", { bubbles: true })); }
+      openDetail(b.dataset.open);
+    });
   });
 
   // Ideas: enlaces al catálogo y sets
@@ -2375,7 +2584,7 @@ dialog.cart[open] { animation: slide .25s ease; }
 (function () {
   if (!document.documentElement.classList.contains("navidad")) return;
   var COLORES = ["#ffcf5a", "#e8484f", "#4fbf73", "#f7b7c4", "#fff3d6"];
-  var DONDE = [".hero", ".wed-band", ".closing", ".quote", ".spark", "#catalogo > section:first-of-type", "#ideas > section:first-of-type", "#nosotros > section:first-of-type", "#preguntas > section:first-of-type", "footer"];
+  var DONDE = [".hero", ".xmas-hero", ".xmas-boxes", ".wed-band", ".closing", ".quote", ".spark", "#catalogo > section:first-of-type", "#ideas > section:first-of-type", "#nosotros > section:first-of-type", "#preguntas > section:first-of-type", "footer"];
   var NS = "http://www.w3.org/2000/svg";
   function el(t, a) { var e = document.createElementNS(NS, t); for (var k in a) e.setAttribute(k, a[k]); return e; }
   function dibujar(box) {
@@ -2415,6 +2624,35 @@ dialog.cart[open] { animation: slide .25s ease; }
   todo();
   var t; window.addEventListener("resize", function () { clearTimeout(t); t = setTimeout(todo, 150); });
   window.addEventListener("hashchange", function () { setTimeout(todo, 60); });
+})();
+
+/* Navidad: caja que se enciende, carta que se voltea y preguntas */
+(function () {
+  var sw = document.getElementById("xh-switch"), box = document.getElementById("xh-box");
+  if (sw) sw.addEventListener("click", function () {
+    var on = !box.classList.contains("on");
+    box.classList.toggle("on", on); sw.setAttribute("aria-pressed", String(on));
+    sw.querySelector(".sw-txt").textContent = on ? "Tus recuerdos brillan" : "Enciende tus recuerdos";
+    if (on && window.gtag) gtag("event", "caja_encendida");
+  });
+  var sp = document.querySelector(".xh-sparks");
+  if (sp) for (var i = 0; i < 26; i++) { var d = document.createElement("i"); d.style.cssText = "left:" + (12 + Math.random() * 76) + "%;top:" + (30 + Math.random() * 55) + "%;animation-delay:" + (-Math.random() * 2.4).toFixed(2) + "s;--c:" + ["#ffcf5a", "#fff3d6", "#f7b7c4", "#c9b8ff"][i % 4]; sp.appendChild(d); }
+  var fl = document.getElementById("flip");
+  if (fl) fl.addEventListener("click", function () { fl.classList.toggle("back"); });
+  var Q = ["¿Qué recuerdo siempre te hace reír?", "Si pudieras volver a un momento de tu vida por 5 minutos, ¿cuál sería?", "¿Cuál ha sido el momento más especial de tu vida?", "¿Cuál fue la mejor Navidad que has vivido y por qué?", "¿Qué olor te regresa a tu infancia?", "¿Quién te enseñó algo que todavía usas todos los días?", "¿Qué momento de este año quieres repetir?", "¿A quién le darías las gracias hoy?", "¿Qué canción te devuelve a un lugar exacto?", "¿Cuál es la foto que salvarías si solo pudieras guardar una?"];
+  var n = 0, qq = document.getElementById("qq"), qn = document.getElementById("qn"), card = document.getElementById("qcard"), share = document.getElementById("share-q");
+  function show() {
+    qq.textContent = Q[n]; qn.textContent = (n < 9 ? "0" : "") + (n + 1);
+    share.href = "https://wa.me/?text=" + encodeURIComponent("Colección de momentos: " + Q[n] + " 💫 (Vínculos Eternos)");
+  }
+  var draw = document.getElementById("draw");
+  if (draw) {
+    show();
+    draw.addEventListener("click", function () {
+      var k; do { k = Math.floor(Math.random() * Q.length); } while (k === n);
+      n = k; card.classList.remove("deal"); void card.offsetWidth; card.classList.add("deal"); show();
+    });
+  }
 })();
 </script>
 </body>
