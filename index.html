@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es">
+<html lang="es" class="navidad">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -405,6 +405,21 @@ p, li, blockquote { text-wrap: pretty; }
 .song-hint { display: block !important; color: var(--muted); width: 100%; }
 
 .g-review { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px 18px; margin: 30px auto 0; padding: 18px 22px; max-width: 720px; background: var(--papel); border: 1px solid var(--linea); border-radius: 20px; text-align: center; } .g-review p { margin: 0; color: var(--muted); } .g-review p b { color: var(--recuerdo); } .g-review .btn svg { color: #e2a62f; }
+
+/* Navidad: luces colgantes (quitar la clase "navidad" del <html> para apagarlas) */
+.luces { position: absolute; left: 0; right: 0; top: 0; height: 44px; pointer-events: none; z-index: 6; overflow: visible; }
+.luces svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.luces .cable { fill: none; stroke: #2f2a26; stroke-width: 1.6; stroke-linecap: round; }
+.luces .foco { transform-box: fill-box; transform-origin: 50% 0; }
+.luces .foco .vidrio { animation: titila 2.8s ease-in-out infinite; animation-delay: var(--d); }
+.luces .foco .base { fill: #4a423c; }
+.hero .luces .cable, .wed-band .luces .cable, .spark .luces .cable, footer .luces .cable { stroke: rgba(248, 239, 232, .5); }
+.hero > .luces, .wed-band > .luces, .spark > .luces, .closing > .luces, .quote > .luces, footer > .luces, .lucir > .luces { top: -2px; }
+.wed-band, .spark, .closing, .quote, footer, .lucir { position: relative; }
+footer > .luces { top: -1px; }
+.navidad footer { padding-top: 52px; }
+@keyframes titila { 0%, 100% { opacity: 1; filter: drop-shadow(0 0 5px var(--c)) drop-shadow(0 0 12px var(--c)); } 45% { opacity: .55; filter: drop-shadow(0 0 1px var(--c)); } }
+@media (prefers-reduced-motion: reduce) { .luces .foco .vidrio { animation: none; filter: drop-shadow(0 0 5px var(--c)); } }
 
 /* Chispas y Kipi (detalles juguetones) */
 .sparks { position: fixed; left: 0; top: 0; width: 0; height: 0; pointer-events: none; z-index: 60; }
@@ -836,7 +851,7 @@ dialog.cart[open] { animation: slide .25s ease; }
       </div>
       <div class="hero-one">
         <figure class="pol" role="img" aria-label="Imán con la foto de unos novios bailando en su boda"><img src="assets/img/productos/boda-baile.webp" alt="" fetchpriority="high" width="1100" height="733" style="object-position:58% 40%"><figcaption aria-hidden="true">esta sí</figcaption></figure>
-        <img class="kippi-hero" src="assets/brand/kippi-camara-crema.webp" alt="" width="600" height="508">
+        <img class="kippi-hero" src="assets/brand/kippi-camara-crema-navidad.webp" alt="" width="600" height="564">
         <p class="kipi-hello" id="kipi-hello" hidden></p>
       </div>
     </div>
@@ -893,7 +908,7 @@ dialog.cart[open] { animation: slide .25s ease; }
 
 <section id="concepto" class="manifesto">
     <div class="wrap">
-      <img class="kippi" src="assets/brand/kippi-abrazo-roja-botas.webp" alt="" width="600" height="585">
+      <img class="kippi" src="assets/brand/kippi-abrazo-roja-botas-navidad.webp" alt="" width="600" height="641">
       <span class="eyebrow">Nuestro concepto</span>
       <p class="big">Vínculos Eternos existe para devolver presencia a los momentos que realmente importan.</p>
       <p class="no">No vendemos imanes.</p>
@@ -915,7 +930,7 @@ dialog.cart[open] { animation: slide .25s ease; }
 
 <section class="closing">
     <div class="wrap">
-      <img class="kippi" src="assets/brand/kippi-camara-crema.webp" alt="" width="600" height="508">
+      <img class="kippi" src="assets/brand/kippi-camara-crema-navidad.webp" alt="" width="600" height="564">
       <img class="logo-big" src="assets/brand/logo-destello-lema.webp" alt="Vínculos Eternos · Fotografía encapsulada" width="1000" height="200">
       <p class="sub">¿Qué momento quieres volver a ver todos los días?</p>
       <a class="btn btn-main" data-wa="Hola Vínculos Eternos, tengo una consulta." href="https://wa.me/50671821161" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Escribirnos por WhatsApp</a>
@@ -1183,7 +1198,7 @@ dialog.cart[open] { animation: slide .25s ease; }
 
       <figure class="pic" id="pic" aria-hidden="true"><div class="ph"><img id="pic-img" src="assets/img/productos/boda-noche.webp" alt=""></div><figcaption>la favorita</figcaption></figure>
 
-      <img class="g-kipi" src="assets/brand/kippi-abrazo-crema-botas.webp" alt="" loading="lazy" width="600" height="586" aria-hidden="true">
+      <img class="g-kipi" src="assets/brand/kippi-abrazo-crema-botas-navidad.webp" alt="" loading="lazy" width="600" height="642" aria-hidden="true">
       <div class="g-sparks" id="g-sparks" aria-hidden="true"></div>
       <div class="g-flash" id="g-flash" aria-hidden="true"></div>
 
@@ -1221,7 +1236,7 @@ dialog.cart[open] { animation: slide .25s ease; }
       </div>
       <div class="book-panel">
         <div class="bp-copy">
-          <img class="kippi" src="assets/brand/kippi-abrazo-crema-botas.webp" alt="" loading="lazy" width="600" height="586">
+          <img class="kippi" src="assets/brand/kippi-abrazo-crema-botas-navidad.webp" alt="" loading="lazy" width="600" height="642">
           <p class="kicker">Lo más importante es que ustedes se lleven el suyo.</p>
           <p>Toda la boda es para los demás, pero ¿qué queda para ustedes? Si están planeando su boda, escríbannos y les contamos cómo sería la suya.</p>
           <blockquote class="wed-quote">“Y así se ven en casa. Excelente trabajo. Como invitadas, ¡lo amamos!”<cite>Dani, invitada de una boda</cite></blockquote>
@@ -1248,7 +1263,7 @@ dialog.cart[open] { animation: slide .25s ease; }
       <div class="story-pics" role="img" aria-label="Mary, la creadora de Vínculos Eternos, sosteniendo dos de sus imanes">
         <figure class="photo s1"><img src="assets/img/productos/mary.webp" alt="" loading="lazy" width="619" height="1100" style="object-position:50% 58%"></figure>
         <figure class="photo s2"><img src="assets/img/productos/mary-imanes.webp" alt="" loading="lazy" width="825" height="1100" style="object-position:50% 45%"></figure>
-        <img class="kippi-story" src="assets/brand/kippi-camara-roja.webp" alt="" loading="lazy" width="600" height="507">
+        <img class="kippi-story" src="assets/brand/kippi-camara-roja-navidad.webp" alt="" loading="lazy" width="600" height="563">
       </div>
       <div class="story-copy">
         <span class="eyebrow">Sobre nosotros</span>
@@ -1266,7 +1281,7 @@ dialog.cart[open] { animation: slide .25s ease; }
 
 <section class="spark" aria-labelledby="kipi-t">
     <div class="wrap">
-      <img class="kippi" src="assets/brand/kippi-abrazo-crema-botas.webp" alt="Kipi, una estrellita con boina rosa, abrazando" width="600" height="586">
+      <img class="kippi" src="assets/brand/kippi-abrazo-crema-botas-navidad.webp" alt="Kipi, una estrellita con boina rosa, abrazando" width="600" height="642">
       <div class="spark-copy">
         <span class="eyebrow">Conoce a Kipi</span>
         <h2 id="kipi-t">La chispa que nos une</h2>
@@ -1373,7 +1388,7 @@ dialog.cart[open] { animation: slide .25s ease; }
 
 <dialog class="cart" id="cart" aria-labelledby="cart-t">
   <div class="sent" id="sent" hidden>
-    <img src="assets/brand/kippi-abrazo-roja-botas.webp" alt="" width="600" height="585">
+    <img src="assets/brand/kippi-abrazo-roja-botas-navidad.webp" alt="" width="600" height="641">
     <h2>¡Ya casi! Solo falta enviarlo</h2>
     <p>Se abrió WhatsApp con tu pedido escrito. Toca enviar, mándanos tus fotos en HD y te confirmamos el total antes del adelanto.</p>
     <a class="btn btn-main" id="sent-again" href="https://wa.me/50671821161" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Abrir WhatsApp de nuevo</a>
@@ -1384,7 +1399,7 @@ dialog.cart[open] { animation: slide .25s ease; }
     <div class="cart-head"><h2 id="cart-t">Tu pedido</h2><button class="x" type="button" data-close aria-label="Cerrar">×</button></div>
     <div class="cart-body">
       <div class="empty" id="cart-empty">
-        <img src="assets/brand/kippi-camara-roja.webp" alt="" width="600" height="507">
+        <img src="assets/brand/kippi-camara-roja-navidad.webp" alt="" width="600" height="563">
         <p>Tu pedido está vacío.<br>Elige algo del catálogo o toma una idea.</p>
         <button class="btn btn-soft" type="button" data-close data-go="#catalogo">Ver catálogo</button>
       </div>
@@ -1563,7 +1578,7 @@ dialog.cart[open] { animation: slide .25s ease; }
   }
 
   // Tarjetas del catálogo
-  var KIPI_PH = '<img src="assets/brand/kippi-camara-roja.webp" alt="" width="600" height="507"><span>Fotos próximamente</span>';
+  var KIPI_PH = '<img src="assets/brand/kippi-camara-roja-navidad.webp" alt="" width="600" height="563"><span>Fotos próximamente</span>';
   var grid = $("#products");
   PRODUCTS.forEach(function (p) {
     var f = p.photos[0];
@@ -1987,7 +2002,7 @@ dialog.cart[open] { animation: slide .25s ease; }
   function toast(msg) {
     var t = $("#toast"), open = $$("dialog[open]")[0];
     (open || document.body).appendChild(t); // dentro de la ventana abierta para que se vea encima
-    t.innerHTML = '<img src="assets/brand/kippi-camara-crema.webp" alt="" width="600" height="508"><span></span>';
+    t.innerHTML = '<img src="assets/brand/kippi-camara-crema-navidad.webp" alt="" width="600" height="564"><span></span>';
     $("span", t).textContent = msg;
     t.classList.remove("show"); void t.offsetWidth; t.classList.add("show");
     clearTimeout(tt); tt = setTimeout(function () { t.classList.remove("show"); }, 2000);
@@ -2354,6 +2369,52 @@ dialog.cart[open] { animation: slide .25s ease; }
     if (h0) { h0.setAttribute("tabindex", "-1"); h0.focus(); }
   });
   route();
+})();
+
+/* Navidad: luces colgantes */
+(function () {
+  if (!document.documentElement.classList.contains("navidad")) return;
+  var COLORES = ["#ffcf5a", "#e8484f", "#4fbf73", "#f7b7c4", "#fff3d6"];
+  var DONDE = [".hero", ".wed-band", ".closing", ".quote", ".spark", "#catalogo > section:first-of-type", "#ideas > section:first-of-type", "#nosotros > section:first-of-type", "#preguntas > section:first-of-type", "footer"];
+  var NS = "http://www.w3.org/2000/svg";
+  function el(t, a) { var e = document.createElementNS(NS, t); for (var k in a) e.setAttribute(k, a[k]); return e; }
+  function dibujar(box) {
+    var w = box.clientWidth || window.innerWidth, h = box.clientHeight, svg = box.firstChild;
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    svg.setAttribute("viewBox", "0 0 " + w + " " + h);
+    var paso = w < 600 ? 64 : 86, n = Math.max(3, Math.round(w / paso)), seg = w / n, caida = h * 0.42, d = "M0 2", i, j, focos = [];
+    for (i = 0; i < n; i++) {
+      var x0 = i * seg, x1 = x0 + seg;
+      d += " Q" + (x0 + seg / 2) + " " + (2 + caida * 2) + " " + x1 + " 2";
+      for (j = 1; j <= 2; j++) {
+        var t = j / 3, x = x0 + seg * t, y = 2 + 2 * t * (1 - t) * caida * 2, ang = (0.5 - t) * -38;
+        focos.push([x, y, ang]);
+      }
+    }
+    svg.appendChild(el("path", { d: d, "class": "cable" }));
+    focos.forEach(function (f, k) {
+      var c = COLORES[k % COLORES.length];
+      var g = el("g", { "class": "foco", transform: "translate(" + f[0] + " " + f[1] + ") rotate(" + f[2] + ")", style: "--c:" + c + ";--d:" + (-(k * 0.37) % 2.8).toFixed(2) + "s" });
+      g.appendChild(el("rect", { x: -2.6, y: -1, width: 5.2, height: 5, rx: 1.2, "class": "base" }));
+      g.appendChild(el("path", { d: "M0 3.5 C4.6 3.5 5.6 9 5 12.5 C4.4 16 2 18.5 0 18.5 C-2 18.5 -4.4 16 -5 12.5 C-5.6 9 -4.6 3.5 0 3.5Z", fill: c, "class": "vidrio" }));
+      svg.appendChild(g);
+    });
+  }
+  var cajas = [];
+  DONDE.forEach(function (sel) {
+    document.querySelectorAll(sel).forEach(function (zona) {
+      var box = document.createElement("div");
+      box.className = "luces"; box.setAttribute("aria-hidden", "true");
+      box.appendChild(document.createElementNS(NS, "svg"));
+      if (zona.tagName !== "HEADER") zona.classList.add("lucir");
+      zona.insertBefore(box, zona.firstChild);
+      cajas.push(box);
+    });
+  });
+  function todo() { cajas.forEach(function (b) { if (b.offsetParent !== null || b.closest("header")) dibujar(b); }); }
+  todo();
+  var t; window.addEventListener("resize", function () { clearTimeout(t); t = setTimeout(todo, 150); });
+  window.addEventListener("hashchange", function () { setTimeout(todo, 60); });
 })();
 </script>
 </body>
